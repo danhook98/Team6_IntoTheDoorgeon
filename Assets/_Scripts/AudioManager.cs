@@ -14,11 +14,15 @@ public class AudioManager : MonoBehaviour
         // Create audio sources if the references are broken or missing. 
         if (!sfxAudioSource)
         {
+            Debug.LogWarning("<color=red>AudioManager</color>: SFX AudioSource is missing or the reference is " +
+                             "missing. Creating a new AudioSource.");
             sfxAudioSource = gameObject.AddComponent<AudioSource>();
         }
 
         if (!musicAudioSource)
         {
+            Debug.LogWarning("<color=red>AudioManager</color>: Music AudioSource is missing or the reference is " +
+                             "missing. Creating a new AudioSource.");
             musicAudioSource = gameObject.AddComponent<AudioSource>();
         }
     }
