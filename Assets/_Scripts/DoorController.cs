@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject[] doors;
 
-    // Update is called once per frame
-    void Update()
+    private void DecideBadDoor()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(doors[Random.Range(0, doors.Length)].name);
+        }
         
     }
 }
