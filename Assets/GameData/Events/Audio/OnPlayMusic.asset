@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0685e85f46e3c4dba3c54d436705b4, type: 3}
-  m_Name: AudioEventChannel
+  m_Script: {fileID: 11500000, guid: cd643a504bb94ff186e2134ac92ac959, type: 3}
+  m_Name: OnPlayMusic
   m_EditorClassIdentifier: 
