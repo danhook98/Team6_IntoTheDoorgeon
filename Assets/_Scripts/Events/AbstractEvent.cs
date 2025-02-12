@@ -31,3 +31,5 @@ public abstract class AbstractEvent<T> : ScriptableObject
         }
     }
 }
+
+public readonly struct Empty {}
