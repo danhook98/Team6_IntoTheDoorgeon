@@ -17,7 +17,7 @@ public class DoorController : MonoBehaviour
 
     public void DecideBadDoor()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // TODO: if(badDoorDecided = false) & Remove this if statement for testing.
+        if (badDoorDecided == false)
         {
             badDoor = doors[Random.Range(0, doors.Length)];
             
@@ -25,12 +25,11 @@ public class DoorController : MonoBehaviour
                 doors[i].tag = "GoodDoor";
             
             badDoor.tag = "BadDoor";
-            badDoorDecided = true;
+            
 
             Debug.Log(badDoor);
-            
-            // TODO: IF player picks bad door or goes into new room, badDoorDecided = false;
-        }
+            badDoorDecided = true;
+        } 
     }
 }
 
