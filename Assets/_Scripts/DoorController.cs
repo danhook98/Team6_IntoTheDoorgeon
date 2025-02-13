@@ -6,7 +6,8 @@ namespace DoorGame
     public class DoorController : MonoBehaviour
     {
         [SerializeField] private GameObject[] doors;
-        [SerializeField] private GameObject badDoor;
+        
+        private GameObject _badDoor;
 
         public void GenerateDoors()
         {
@@ -16,10 +17,10 @@ namespace DoorGame
 
             ResetDoors();
 
-            badDoor = doors[Random.Range(0, doors.Length)];
-            badDoor.tag = "BadDoor";
+            _badDoor = doors[Random.Range(0, doors.Length)];
+            _badDoor.tag = "BadDoor";
 
-            // Debug.Log(badDoor);
+            Debug.Log(_badDoor);
         }
 
         private void ResetDoors()

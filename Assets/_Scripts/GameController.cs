@@ -26,7 +26,7 @@ namespace DoorGame
 
         private void Start()
         {
-            // tell the door manager to generate doors
+            doorController.GenerateDoors();
         }
 
         private void LeaveGame()
@@ -48,7 +48,7 @@ namespace DoorGame
         {
             _validDoorsSelected = 0;
             
-            // tell the door manager to generate a new wave. 
+            doorController.GenerateDoors();
         }
         
         // Score
