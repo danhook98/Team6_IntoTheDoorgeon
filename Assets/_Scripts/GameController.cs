@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using DoorGame.Events;
 using DoorGame.Door;
@@ -61,7 +60,7 @@ namespace DoorGame
             
             AddScore();
 
-            if (_validDoorsSelected == _numberOfDoors)
+            if (_validDoorsSelected == _numberOfDoors - 1)
             {
                 StartNextWave();
             }
