@@ -29,6 +29,11 @@ namespace DoorGame
             // tell the door manager to generate doors
         }
 
+        private void LeaveGame()
+        {
+            SaveHighScore();
+        }
+
         private void WaveWon()
         {
             _wavesCompleted++;
@@ -36,12 +41,14 @@ namespace DoorGame
 
         private void WaveLost()
         {
-            
+            ScoreLost();
         }
 
-        private void ResetGameState()
+        private void StartNextWave()
         {
-            _validDoorsSelected = 0; 
+            _validDoorsSelected = 0;
+            
+            // tell the door manager to generate a new wave. 
         }
         
         // Score
@@ -49,6 +56,19 @@ namespace DoorGame
         {
             _validDoorsSelected++;
             _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsSelected;
+        }
+
+        private void ScoreLost()
+        {
+            _score = 0;
+        }
+
+        private void SaveHighScore()
+        {
+            if (_score > _highScore)
+            {
+                PlayerPrefs.SetInt("HighScore", _score);
+            }
         }
     }
 }
