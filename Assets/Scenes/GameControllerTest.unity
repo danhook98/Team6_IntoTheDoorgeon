@@ -1431,10 +1431,6 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 902603044}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: gameOverEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
