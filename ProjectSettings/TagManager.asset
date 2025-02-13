@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GoodDoor
   - BadDoor
+  - Score
+  - DoorsCountDisplay
   layers:
   - Default
   - TransparentFX
