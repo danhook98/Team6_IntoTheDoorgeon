@@ -36,12 +36,12 @@ namespace DoorGame.Door
             if (isBadDoor)
             {
                 onBadDoorOpenedEvent.Invoke(new Empty());
-                Debug.Log("Bad door opened");
+                Debug.Log("Bad door opened", this);
             }
             else
             {
                 onGoodDoorOpenedEvent.Invoke(new Empty());
-                Debug.Log("Good door opened");
+                Debug.Log("Good door opened", this);
             }
         }
     }

@@ -8,23 +8,24 @@ namespace DoorGame
 {
     public class GameController : MonoBehaviour
     {
+        [Header("Events")] 
+        [SerializeField] private IntEvent scoreChangedEvent;
+        [SerializeField] private IntEvent validDoorsOpenedEvent;
+        
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
         [SerializeField] private int maxScoreToAdd = 45;
         [Space]
         [SerializeField] private DoorController doorController;
-
-        [Header("Events")] 
-        [SerializeField] private IntEvent scoreChangedEvent;
-        [SerializeField] private IntEvent validDoorsOpenedEvent;
         
-        // Game state variables.
-        private int _wavesCompleted;
+        // Game variables.
+        private int _wavesCompleted = 0;
+        private byte _numberOfDoors = 3;
         
         // Score variables.
-        private int _score;
-        private int _highScore;
-        private int _validDoorsSelected;
+        private int _score = 0;
+        private int _highScore = 0;
+        private int _validDoorsSelected = 0;
 
         private void Awake()
         {
@@ -46,21 +47,35 @@ namespace DoorGame
             _wavesCompleted++;
         }
 
-        public void WaveLost()
+        public void OpenedBadDoor()
         {
             ScoreLost();
-            Debug.Log("Game Over!");
+            Debug.Log("Game Over!", this);
+        }
+
+        public void OpenedGoodDoor()
+        {
+            Debug.Log("Opened Good Door!", this);
+            
+            AddScore();
+
+            if (_validDoorsSelected == _numberOfDoors)
+            {
+                StartNextWave();
+            }
         }
 
         private void StartNextWave()
         {
+            Debug.Log("Starting next wave", this);
+            
             _validDoorsSelected = 0;
             
             doorController.GenerateDoors();
         }
         
         // Score
-        public void AddScore()
+        private void AddScore()
         {
             _validDoorsSelected++;
             _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsSelected;
