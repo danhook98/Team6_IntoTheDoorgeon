@@ -1336,6 +1336,10 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 902603044}
+    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: validDoorsOpenedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

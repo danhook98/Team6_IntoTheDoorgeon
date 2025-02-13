@@ -1,5 +1,6 @@
 using DoorGame.Events;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace DoorGame
@@ -14,7 +15,7 @@ namespace DoorGame
 
         [Header("Events")] 
         [SerializeField] private IntEvent scoreChangedEvent;
-        [SerializeField] private IntEvent doorsEnteredEvent;
+        [SerializeField] private IntEvent validDoorsOpenedEvent;
         
         // Game state variables.
         private int _wavesCompleted;
@@ -61,6 +62,10 @@ namespace DoorGame
         {
             _validDoorsSelected++;
             _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsSelected;
+            
+            // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
+            scoreChangedEvent.Invoke(_score);
+            validDoorsOpenedEvent.Invoke(_validDoorsSelected);
         }
 
         private void ScoreLost()
