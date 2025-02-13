@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioEventChannelSO audioEventChannel;
-    
     [Header("Audio Sources")]
     [SerializeField] private AudioSource sfxAudioSource;
     [SerializeField] private AudioSource musicAudioSource;
@@ -31,7 +29,7 @@ public class AudioManager : MonoBehaviour
     /// Plays an audio one shot of the given AudioClipSO's clip.
     /// </summary>
     /// <param name="audioClip">AudioClipSO data file.</param>
-    public void PlayAudioOneShot(AudioClipSO audioClip)
+    public void PlaySFX(AudioClipSO audioClip)
     {
         sfxAudioSource.PlayOneShot(audioClip.clip);
     }
