@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using DoorGame.Events;
-using UnityEngine.Serialization;
 
 namespace DoorGame
 {
