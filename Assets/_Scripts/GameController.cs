@@ -1,3 +1,4 @@
+using DoorGame.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,10 @@ namespace DoorGame
         [SerializeField] private int maxScoreToAdd = 45;
         [Space]
         [SerializeField] private DoorController doorController;
+
+        [Header("Events")] 
+        [SerializeField] private IntEvent scoreChangedEvent;
+        [SerializeField] private IntEvent doorsEnteredEvent;
         
         // Game state variables.
         private int _wavesCompleted;

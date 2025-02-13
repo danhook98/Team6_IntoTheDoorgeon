@@ -49,6 +49,8 @@ MonoBehaviour:
   minimumScoreToAdd: 15
   maxScoreToAdd: 45
   doorController: {fileID: 2895561964646182909}
+  scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  doorsEnteredEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
 --- !u!114 &4543349801418183788
 MonoBehaviour:
   m_ObjectHideFlags: 0
