@@ -1,23 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class AbstractEventListener<T> : MonoBehaviour
+namespace DoorGame.Events
 {
-    [SerializeField] private AbstractEvent<T> eventToListen; 
-    [SerializeField] private UnityEvent<T> onEvent;
-
-    private void OnEnable()
+    public abstract class AbstractEventListener<T> : MonoBehaviour
     {
-        eventToListen.Register(this);
-    }
+        [SerializeField] private AbstractEvent<T> eventToListen;
+        [SerializeField] private UnityEvent<T> onEvent;
 
-    private void OnDisable()
-    {
-        eventToListen.Unregister(this);
-    }
+        private void OnEnable()
+        {
+            eventToListen.Register(this);
+        }
 
-    public void Listen(T value)
-    {
-        onEvent?.Invoke(value);
+        private void OnDisable()
+        {
+            eventToListen.Unregister(this);
+        }
+
+        public void Listen(T value)
+        {
+            onEvent?.Invoke(value);
+        }
     }
 }

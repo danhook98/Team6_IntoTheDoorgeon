@@ -1,1 +1,4 @@
-public class IntEventListener : AbstractEventListener<int> {}
+namespace DoorGame.Events
+{
+    public class IntEventListener : AbstractEventListener<int> {}
+}

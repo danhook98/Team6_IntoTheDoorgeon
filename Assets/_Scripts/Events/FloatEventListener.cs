@@ -1,1 +1,4 @@
-public class FloatEventListener : AbstractEventListener<float> {}
+namespace DoorGame.Events
+{
+    public class FloatEventListener : AbstractEventListener<float> {}
+}

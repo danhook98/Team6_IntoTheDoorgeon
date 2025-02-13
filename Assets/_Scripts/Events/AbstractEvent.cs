@@ -3,33 +3,36 @@ using UnityEngine;
 
 // Used this tutorial for a different way of doing events: https://www.youtube.com/watch?v=nJkYCU8Qe8o
 
-public abstract class AbstractEvent<T> : ScriptableObject
+namespace DoorGame.Events
 {
-    private List<AbstractEventListener<T>> _listeners;
-
-    public void Register(AbstractEventListener<T> listener)
+    public abstract class AbstractEvent<T> : ScriptableObject
     {
-        if (!_listeners.Contains(listener))
+        private List<AbstractEventListener<T>> _listeners;
+
+        public void Register(AbstractEventListener<T> listener)
         {
-            _listeners.Add(listener);
+            if (!_listeners.Contains(listener))
+            {
+                _listeners.Add(listener);
+            }
+        }
+
+        public void Unregister(AbstractEventListener<T> listener)
+        {
+            if (_listeners.Contains(listener))
+            {
+                _listeners.Remove(listener);
+            }
+        }
+
+        public void Invoke(T value)
+        {
+            foreach (AbstractEventListener<T> listener in _listeners)
+            {
+                listener.Listen(value);
+            }
         }
     }
 
-    public void Unregister(AbstractEventListener<T> listener)
-    {
-        if (_listeners.Contains(listener))
-        {
-            _listeners.Remove(listener);
-        }
-    }
-
-    public void Invoke(T value)
-    {
-        foreach (AbstractEventListener<T> listener in _listeners)
-        {
-            listener.Listen(value);
-        }
-    }
+    public readonly struct Empty {}
 }
-
-public readonly struct Empty {}

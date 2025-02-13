@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "AudioClip", menuName = "DoorGame/Audio Clip")]
-public class AudioClipSO : ScriptableObject
+namespace DoorGame.Audio
 {
-    public AudioClip clip;
+    [CreateAssetMenu(fileName = "AudioClip", menuName = "DoorGame/Audio Clip")]
+    public class AudioClipSO : ScriptableObject
+    {
+        public AudioClip clip;
+    }
 }

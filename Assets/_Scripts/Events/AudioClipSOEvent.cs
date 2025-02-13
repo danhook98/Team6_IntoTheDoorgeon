@@ -1,4 +1,8 @@
 using UnityEngine;
+using DoorGame.Audio; 
 
-[CreateAssetMenu(fileName = "AudioClipSO Event", menuName = "DoorGame/Events/AudioClipSO Event")]
-public class AudioClipSOEvent : AbstractEvent<AudioClipSO> {}
+namespace DoorGame.Events
+{
+    [CreateAssetMenu(fileName = "AudioClipSO Event", menuName = "DoorGame/Events/AudioClipSO Event")]
+    public class AudioClipSOEvent : AbstractEvent<AudioClipSO> {}
+}

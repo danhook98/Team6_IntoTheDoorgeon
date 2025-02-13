@@ -1,46 +1,49 @@
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+namespace DoorGame.Audio
 {
-    [Header("Audio Sources")]
-    [SerializeField] private AudioSource sfxAudioSource;
-    [SerializeField] private AudioSource musicAudioSource;
-
-    private void Awake()
+    public class AudioManager : MonoBehaviour
     {
-        // Create audio sources if the references are broken or missing. 
-        if (!sfxAudioSource)
+        [Header("Audio Sources")]
+        [SerializeField] private AudioSource sfxAudioSource;
+        [SerializeField] private AudioSource musicAudioSource;
+
+        private void Awake()
         {
-            Debug.LogWarning("<color=red>AudioManager</color>: SFX AudioSource is missing or the reference is " +
-                             "missing. Creating a new AudioSource.");
-            sfxAudioSource = gameObject.AddComponent<AudioSource>();
+            // Create audio sources if the references are broken or missing. 
+            if (!sfxAudioSource)
+            {
+                Debug.LogWarning("<color=red>AudioManager</color>: SFX AudioSource is missing or the reference is " +
+                                 "missing. Creating a new AudioSource.");
+                sfxAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            if (!musicAudioSource)
+            {
+                Debug.LogWarning("<color=red>AudioManager</color>: Music AudioSource is missing or the reference is " +
+                                 "missing. Creating a new AudioSource.");
+                musicAudioSource = gameObject.AddComponent<AudioSource>();
+            }
         }
 
-        if (!musicAudioSource)
+        /// <summary>
+        /// Plays an audio one shot of the given AudioClipSO's clip.
+        /// </summary>
+        /// <param name="audioClip">AudioClipSO data file.</param>
+        public void PlaySFX(AudioClipSO audioClip)
         {
-            Debug.LogWarning("<color=red>AudioManager</color>: Music AudioSource is missing or the reference is " +
-                             "missing. Creating a new AudioSource.");
-            musicAudioSource = gameObject.AddComponent<AudioSource>();
+            sfxAudioSource.PlayOneShot(audioClip.clip);
         }
-    }
 
-    /// <summary>
-    /// Plays an audio one shot of the given AudioClipSO's clip.
-    /// </summary>
-    /// <param name="audioClip">AudioClipSO data file.</param>
-    public void PlaySFX(AudioClipSO audioClip)
-    {
-        sfxAudioSource.PlayOneShot(audioClip.clip);
-    }
-
-    /// <summary>
-    /// Plays an audio clip of the given AudioClipSO's clip.
-    /// </summary>
-    /// <param name="audioClip">AudioClipSO data file.</param>
-    public void PlayMusic(AudioClipSO audioClip)
-    {
-        musicAudioSource.clip = audioClip.clip;
-        musicAudioSource.Play();
+        /// <summary>
+        /// Plays an audio clip of the given AudioClipSO's clip.
+        /// </summary>
+        /// <param name="audioClip">AudioClipSO data file.</param>
+        public void PlayMusic(AudioClipSO audioClip)
+        {
+            musicAudioSource.clip = audioClip.clip;
+            musicAudioSource.Play();
+        }
     }
 }
