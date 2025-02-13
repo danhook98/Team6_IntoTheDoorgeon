@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 112393132269505794}
   - component: {fileID: 8937892511097961488}
   - component: {fileID: 4543349801418183788}
-  - component: {fileID: 2895561964646182909}
+  - component: {fileID: 4203696471604116356}
+  - component: {fileID: 3125429667217619425}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -31,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1668367046689065164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8937892511097961488
@@ -48,9 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimumScoreToAdd: 15
   maxScoreToAdd: 45
-  doorController: {fileID: 2895561964646182909}
+  doorController: {fileID: 3836019482660305371}
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
-  doorsEnteredEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
+  validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
 --- !u!114 &4543349801418183788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +81,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2895561964646182909
+--- !u!114 &4203696471604116356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,10 +90,129 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501824163573275066}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: ce57590e6cb19464aa72eb9105f5bc1f, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8937892511097961488}
+        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3125429667217619425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501824163573275066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 9f29fc8e1614acd4bb183d1e4df97f3f, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8937892511097961488}
+        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+        m_MethodName: WaveLost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &7399667575915841518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668367046689065164}
+  - component: {fileID: 3836019482660305371}
+  - component: {fileID: 1814912279550344731}
+  m_Layer: 0
+  m_Name: DoorController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668367046689065164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399667575915841518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 112393132269505794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3836019482660305371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399667575915841518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a96aacc2deebf82448a8230ba497bff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onGoodDoorOpenedEvent: {fileID: 11400000, guid: ce57590e6cb19464aa72eb9105f5bc1f, type: 2}
+  onBadDoorOpenedEvent: {fileID: 11400000, guid: 9f29fc8e1614acd4bb183d1e4df97f3f, type: 2}
   doors:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &1814912279550344731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399667575915841518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a842214ef04cef9910f09e7d21816b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: a1b34b7e77115e34cb0a21fa152341ec, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3836019482660305371}
+        m_TargetAssemblyTypeName: DoorGame.Door.DoorController, Assembly-CSharp
+        m_MethodName: DoorOpened
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

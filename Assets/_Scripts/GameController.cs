@@ -36,19 +36,20 @@ namespace DoorGame
             doorController.GenerateDoors();
         }
 
-        private void LeaveGame()
+        public void LeaveGame()
         {
             SaveHighScore();
         }
 
-        private void WaveWon()
+        public void WaveWon()
         {
             _wavesCompleted++;
         }
 
-        private void WaveLost()
+        public void WaveLost()
         {
             ScoreLost();
+            Debug.Log("Game Over!");
         }
 
         private void StartNextWave()
@@ -80,11 +81,6 @@ namespace DoorGame
             {
                 PlayerPrefs.SetInt("HighScore", _score);
             }
-        }
-
-        public void test(bool value)
-        {
-            Debug.Log($"Bad door? => {value}");
         }
     }
 }

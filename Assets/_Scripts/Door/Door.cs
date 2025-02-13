@@ -10,7 +10,9 @@ namespace DoorGame.Door
         public void OpenDoor()
         {
             bool badDoor = gameObject.CompareTag("BadDoor");
-            Debug.Log(badDoor);
+            
+            // Play a good or bad animation. 
+            
             onDoorOpenedEvent.Invoke(badDoor);
         }
     }
