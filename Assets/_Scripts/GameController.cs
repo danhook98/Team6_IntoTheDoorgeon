@@ -8,8 +8,8 @@ namespace DoorGame
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
         [SerializeField] private int maxScoreToAdd = 45;
-        
-        // reference to the door manager
+        [Space]
+        [SerializeField] private DoorController doorController;
         
         // Game state variables.
         private int _wavesCompleted;
