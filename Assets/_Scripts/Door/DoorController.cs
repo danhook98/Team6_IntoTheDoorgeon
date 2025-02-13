@@ -1,7 +1,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DoorGame
+namespace DoorGame.Door
 {
     public class DoorController : MonoBehaviour
     {
@@ -17,10 +17,12 @@ namespace DoorGame
 
             ResetDoors();
 
-            _badDoor = doors[Random.Range(0, doors.Length)];
-            _badDoor.tag = "BadDoor";
-
-            Debug.Log(_badDoor);
+            // _badDoor = doors[Random.Range(0, doors.Length)];
+            // _badDoor.tag = "BadDoor";
+            //
+            // Debug.Log(_badDoor);
+            
+            doors[Random.Range(0, doors.Length)].tag = "BadDoor";
         }
 
         private void ResetDoors()
