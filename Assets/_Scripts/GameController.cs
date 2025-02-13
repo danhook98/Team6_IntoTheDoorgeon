@@ -10,12 +10,17 @@ namespace DoorGame
         [SerializeField] private int maxScoreToAdd = 45;
         
         // reference to the door manager
+        
+        // Game state variables.
+        private int _wavesCompleted;
+        
+        // Score variables.
         private int _score;
         private int _highScore;
+        private int _validDoorsSelected;
 
         private void Awake()
         {
-            _score = 0; 
             _highScore = PlayerPrefs.GetInt("HighScore", 0);
         }
 
@@ -23,11 +28,27 @@ namespace DoorGame
         {
             // tell the door manager to generate doors
         }
+
+        private void WaveWon()
+        {
+            _wavesCompleted++;
+        }
+
+        private void WaveLost()
+        {
+            
+        }
+
+        private void ResetGameState()
+        {
+            _validDoorsSelected = 0; 
+        }
         
         // Score
         public void AddScore()
         {
-            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1);
+            _validDoorsSelected++;
+            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsSelected;
         }
     }
 }
