@@ -14,6 +14,7 @@ namespace DoorGame
         [SerializeField] private BoolEvent onPauseGameEvent;
         [SerializeField] private BoolEvent onResumeGameEvent;
         [SerializeField] private BoolEvent onLoadMainGameEvent;
+        [SerializeField] private BoolEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
 
         void Update()
@@ -35,18 +36,20 @@ namespace DoorGame
 
         public void LoadMainGameScene()
         {
-            //SceneManager.LoadScene("Game"); //TODO: Uncomment this so it works.
+            SceneManager.LoadScene("Main Game"); 
+            onLoadMainGameEvent.Invoke(true);
         }
 
         public void RestartGame()
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            //onRestartCurrentSceneEvent.Invoke();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            onRestartCurrentSceneEvent.Invoke(true);
         }
 
         public void LoadMainMenuScene()
         {
-            //SceneManager.LoadScene("MainMenu"); //TODO: Uncomment this so it works.
+            SceneManager.LoadScene("Main Menu"); 
+            onLoadMainMenuEvent.Invoke(true);
         }
     }
 }
