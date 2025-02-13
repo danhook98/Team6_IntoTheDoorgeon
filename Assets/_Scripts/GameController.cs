@@ -1,6 +1,7 @@
-using DoorGame.Events;
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
+using DoorGame.Events;
+using DoorGame.Door;
 using Random = UnityEngine.Random;
 
 namespace DoorGame
@@ -79,6 +80,11 @@ namespace DoorGame
             {
                 PlayerPrefs.SetInt("HighScore", _score);
             }
+        }
+
+        public void test(bool value)
+        {
+            Debug.Log($"Bad door? => {value}");
         }
     }
 }
