@@ -9,6 +9,7 @@ namespace DoorGame
     public class GameController : MonoBehaviour
     {
         [Header("Events")] 
+        [SerializeField] private VoidEvent gameOverEvent;
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
         
@@ -50,6 +51,7 @@ namespace DoorGame
         public void OpenedBadDoor()
         {
             ScoreLost();
+            gameOverEvent.Invoke(new Empty());
             Debug.Log("Game Over!", this);
         }
 

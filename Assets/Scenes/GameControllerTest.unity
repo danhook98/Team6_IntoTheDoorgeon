@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 143512050}
   - component: {fileID: 143512049}
   - component: {fileID: 143512052}
+  - component: {fileID: 143512053}
   m_Layer: 5
   m_Name: Door1
   m_TagString: Untagged
@@ -269,6 +270,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDoorOpenedEvent: {fileID: 11400000, guid: a1b34b7e77115e34cb0a21fa152341ec, type: 2}
+--- !u!114 &143512053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143512046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 143512052}
+        m_TargetAssemblyTypeName: DoorGame.Door.Door, Assembly-CSharp
+        m_MethodName: PreventOpening
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &735163923
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +551,7 @@ GameObject:
   - component: {fileID: 902603048}
   - component: {fileID: 902603047}
   - component: {fileID: 902603050}
+  - component: {fileID: 902603051}
   m_Layer: 5
   m_Name: Door3
   m_TagString: Untagged
@@ -656,6 +686,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDoorOpenedEvent: {fileID: 11400000, guid: a1b34b7e77115e34cb0a21fa152341ec, type: 2}
+--- !u!114 &902603051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902603044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 902603050}
+        m_TargetAssemblyTypeName: DoorGame.Door.Door, Assembly-CSharp
+        m_MethodName: PreventOpening
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1204643926
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +727,7 @@ GameObject:
   - component: {fileID: 1204643930}
   - component: {fileID: 1204643929}
   - component: {fileID: 1204643932}
+  - component: {fileID: 1204643933}
   m_Layer: 5
   m_Name: Door2
   m_TagString: Untagged
@@ -803,6 +862,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDoorOpenedEvent: {fileID: 11400000, guid: a1b34b7e77115e34cb0a21fa152341ec, type: 2}
+--- !u!114 &1204643933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204643926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1204643932}
+        m_TargetAssemblyTypeName: DoorGame.Door.Door, Assembly-CSharp
+        m_MethodName: PreventOpening
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1381362217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1431,10 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 902603044}
+    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: gameOverEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
