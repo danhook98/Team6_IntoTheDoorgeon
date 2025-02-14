@@ -1,16 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DoorGame.Events;
+using TMPro;
 
 namespace DoorGame
 {
     public class RuntimeUI : MonoBehaviour
     {
+        [Header("Score")] 
+        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private string scorePrefixText = "Score: ";
+        
+        [Header("Doors Opened")]
+        [SerializeField] private TextMeshProUGUI doorsOpenedText;
+        [SerializeField] private string doorsOpenedPrefixText = "Doors Opened: ";
+        
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
-        // [SerializeField] private BoolEvent onResumeGameEvent; - not needed, the pause game event can pass false
         [SerializeField] private BoolEvent onLoadMainGameEvent;
         [SerializeField] private BoolEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
@@ -43,6 +49,16 @@ namespace DoorGame
         {
             SceneManager.LoadScene("Main Menu"); 
             onLoadMainMenuEvent.Invoke(true);
+        }
+
+        public void OnScoreChanged(int score)
+        {
+            scoreText.text = scorePrefixText + score;
+        }
+
+        public void OnValidDoorsOpenedChanged(int numDoors)
+        {
+            doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
         }
     }
 }
