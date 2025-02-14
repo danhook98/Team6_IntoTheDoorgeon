@@ -50,8 +50,8 @@ MonoBehaviour:
   gameOverEvent: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
-  minimumScoreToAdd: 15
-  maxScoreToAdd: 45
+  minimumScoreToAdd: 10
+  maxScoreToAdd: 30
   doorController: {fileID: 3836019482660305371}
 --- !u!114 &4203696471604116356
 MonoBehaviour:
