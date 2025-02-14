@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using Colour = UnityEngine.Color;
 using DoorGame.Events;
 using Random = UnityEngine.Random;
 
@@ -22,13 +24,26 @@ namespace DoorGame.Door
 
             ResetDoors();
             
-            doors[Random.Range(0, doors.Length)].tag = "BadDoor";
+            _badDoor = doors[Random.Range(0, doors.Length)];
+            _badDoor.tag = "BadDoor";
+            
+            // Temporary for testing. 
+            var block = _badDoor.GetComponent<Button>().colors;
+            block.normalColor = Colour.red;
+            _badDoor.GetComponent<Button>().colors = block;
         }
 
         private void ResetDoors()
         {
             foreach (var door in doors)
+            {
                 door.tag = "GoodDoor";
+                
+                // Temporary for testing.
+                var block = door.GetComponent<Button>().colors;
+                block.normalColor = Colour.green;
+                door.GetComponent<Button>().colors = block;
+            }
         }
 
         public void DoorOpened(bool isBadDoor)
