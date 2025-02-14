@@ -8,19 +8,9 @@ namespace DoorGame.Events
         [SerializeField] private AbstractEvent<T> eventToListen;
         [SerializeField] private UnityEvent<T> onEvent;
 
-        private void OnEnable()
-        {
-            eventToListen.Register(this);
-        }
+        protected void OnEnable() => eventToListen.Register(this);
+        protected void OnDisable() => eventToListen.Unregister(this);
 
-        private void OnDisable()
-        {
-            eventToListen.Unregister(this);
-        }
-
-        public void Listen(T value)
-        {
-            onEvent?.Invoke(value);
-        }
+        public void Listen(T value) => onEvent?.Invoke(value);
     }
 }
