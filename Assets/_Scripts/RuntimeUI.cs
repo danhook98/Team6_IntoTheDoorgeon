@@ -1,16 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DoorGame.Events;
+using TMPro;
 
 namespace DoorGame
 {
     public class RuntimeUI : MonoBehaviour
     {
+        [Header("Score")] 
+        [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private string scorePrefixText = "Score: ";
+        
+        [Header("Doors Opened")]
+        [SerializeField] private TextMeshProUGUI doorsOpenedText;
+        [SerializeField] private string doorsOpenedPrefixText = "Doors Opened: ";
+        
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
-        [SerializeField] private BoolEvent onResumeGameEvent;
         [SerializeField] private BoolEvent onLoadMainGameEvent;
         [SerializeField] private BoolEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
@@ -24,13 +30,7 @@ namespace DoorGame
         public void ResumeGame()
         {
             Debug.Log("Game resumed");
-            onResumeGameEvent.Invoke(true);
-        }
-
-        public void LoadMainGameScene()
-        {
-            SceneManager.LoadScene("Main Game"); 
-            onLoadMainGameEvent.Invoke(true);
+            onPauseGameEvent.Invoke(false);
         }
 
         public void RestartGame()
@@ -38,11 +38,27 @@ namespace DoorGame
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             onRestartCurrentSceneEvent.Invoke(true);
         }
+        
+        public void LoadMainGameScene()
+        {
+            SceneManager.LoadScene("Main Game"); 
+            onLoadMainGameEvent.Invoke(true);
+        }
 
         public void LoadMainMenuScene()
         {
             SceneManager.LoadScene("Main Menu"); 
             onLoadMainMenuEvent.Invoke(true);
+        }
+
+        public void OnScoreChanged(int score)
+        {
+            scoreText.text = scorePrefixText + score;
+        }
+
+        public void OnValidDoorsOpenedChanged(int numDoors)
+        {
+            doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
         }
     }
 }

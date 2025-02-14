@@ -25,7 +25,8 @@ namespace DoorGame
         // Score variables.
         private int _score = 0;
         private int _highScore = 0;
-        private int _validDoorsSelected = 0;
+        private int _validDoorsOpened = 0;
+        private int _totalDoorsOpened = 0;
 
         private void Awake()
         {
@@ -49,9 +50,15 @@ namespace DoorGame
 
         public void OpenedBadDoor()
         {
-            ScoreLost();
-            gameOverEvent.Invoke(new Empty());
             Debug.Log("Game Over!", this);
+            
+            gameOverEvent.Invoke(new Empty());
+            
+            _score = 0;
+            scoreChangedEvent.Invoke(_score);
+            
+            _totalDoorsOpened = 0;
+            validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
         }
 
         public void OpenedGoodDoor()
@@ -60,7 +67,7 @@ namespace DoorGame
             
             AddScore();
 
-            if (_validDoorsSelected == _numberOfDoors - 1)
+            if (_validDoorsOpened == _numberOfDoors - 1)
             {
                 StartNextWave();
             }
@@ -70,7 +77,7 @@ namespace DoorGame
         {
             Debug.Log("Starting next wave", this);
             
-            _validDoorsSelected = 0;
+            _validDoorsOpened = 0;
             
             doorController.GenerateDoors();
         }
@@ -78,17 +85,14 @@ namespace DoorGame
         // Score
         private void AddScore()
         {
-            _validDoorsSelected++;
-            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsSelected;
+            _validDoorsOpened++;
+            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened;
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
             scoreChangedEvent.Invoke(_score);
-            validDoorsOpenedEvent.Invoke(_validDoorsSelected);
-        }
-
-        private void ScoreLost()
-        {
-            _score = 0;
+            
+            _totalDoorsOpened++;
+            validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
         }
 
         private void SaveHighScore()
