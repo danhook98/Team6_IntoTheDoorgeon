@@ -8,6 +8,7 @@ TagManager:
   - BadDoor
   - Score
   - DoorsCountDisplay
+  - Audio
   layers:
   - Default
   - TransparentFX
