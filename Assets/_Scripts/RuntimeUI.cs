@@ -10,7 +10,7 @@ namespace DoorGame
     {
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
-        [SerializeField] private BoolEvent onResumeGameEvent;
+        // [SerializeField] private BoolEvent onResumeGameEvent; - not needed, the pause game event can pass false
         [SerializeField] private BoolEvent onLoadMainGameEvent;
         [SerializeField] private BoolEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
@@ -24,19 +24,19 @@ namespace DoorGame
         public void ResumeGame()
         {
             Debug.Log("Game resumed");
-            onResumeGameEvent.Invoke(true);
-        }
-
-        public void LoadMainGameScene()
-        {
-            SceneManager.LoadScene("Main Game"); 
-            onLoadMainGameEvent.Invoke(true);
+            onPauseGameEvent.Invoke(false);
         }
 
         public void RestartGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             onRestartCurrentSceneEvent.Invoke(true);
+        }
+        
+        public void LoadMainGameScene()
+        {
+            SceneManager.LoadScene("Main Game"); 
+            onLoadMainGameEvent.Invoke(true);
         }
 
         public void LoadMainMenuScene()
