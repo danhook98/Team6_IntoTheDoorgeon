@@ -14,11 +14,6 @@ namespace DoorGame
         [SerializeField] private BoolEvent onLoadMainGameEvent;
         [SerializeField] private BoolEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
-
-        void Update()
-        {
-            Debug.Log("Test");
-        }
         
         public void PauseGame()
         {
