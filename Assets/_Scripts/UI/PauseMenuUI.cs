@@ -7,20 +7,26 @@ namespace DoorGame.UI
     public class PauseMenuUI : MonoBehaviour
     {
         [SerializeField] private Canvas pauseMenuCanvas;
+        [SerializeField] private GameObject pauseMenuContainer;
+        [SerializeField] private GameObject optionsMenuContainer;
         
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
 
-        public void ResumeGame()
+        public void DisplayPauseMenu(bool isPaused)
         {
-            onPauseGameEvent.Invoke(false); // False = not paused.
+            Debug.Log(isPaused);
+            pauseMenuCanvas.enabled = isPaused;
         }
-
-        public void RestartGame()
+        
+        // Pause menu button actions. 
+        public void ResumeGame() => onPauseGameEvent.Invoke(false); // False = not paused.
+        public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        public void OpenOptionsMenu()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            pauseMenuContainer.SetActive(false);
+            optionsMenuContainer.SetActive(true);
         }
-
         public void QuitGame()
         {
             Application.Quit();
@@ -29,10 +35,11 @@ namespace DoorGame.UI
 #endif
         }
 
-        public void DisplayPauseMenu(bool isPaused)
+        // Options menu button actions.
+        public void BackToPauseMenu()
         {
-            Debug.Log(isPaused);
-            pauseMenuCanvas.enabled = isPaused;
+            optionsMenuContainer.SetActive(false);
+            pauseMenuContainer.SetActive(true);
         }
     }
 }
