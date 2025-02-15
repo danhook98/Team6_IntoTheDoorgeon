@@ -1,11 +1,13 @@
 using DoorGame.Events;
 using UnityEngine;
+using System.Collections;
 
 namespace DoorGame.Door
 {
     public class Door : MonoBehaviour
     {
         [SerializeField] private BoolEvent onDoorOpenedEvent;
+        [SerializeField] private Animator doorAnimator;
 
         private bool _canOpen = true;
 
@@ -14,10 +16,29 @@ namespace DoorGame.Door
             if (!_canOpen) return; 
             
             bool badDoor = gameObject.CompareTag("BadDoor");
-            
-            // Play a good or bad animation. 
-            
+
+            switch (tag)
+            {
+                case "BadDoor":
+                    StartCoroutine(BadDoorPicked());
+                    break;
+                default:
+                    StartCoroutine(GoodDoorPicked());
+                    break;
+            }
             onDoorOpenedEvent.Invoke(badDoor);
+        }
+
+        public IEnumerator BadDoorPicked()
+        {
+            doorAnimator.SetTrigger("BadDoorOpened");
+            yield return new WaitForSeconds(1.1f);
+        }
+        
+        public IEnumerator GoodDoorPicked()
+        {
+            doorAnimator.SetTrigger("GoodDoorOpened");
+            yield return new WaitForSeconds(1.1f);
         }
         
         public void PreventOpening() => _canOpen = false;
