@@ -1,5 +1,6 @@
-using DoorGame.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using DoorGame.Events;
 
 namespace DoorGame.UI
 {
@@ -13,6 +14,19 @@ namespace DoorGame.UI
         public void ResumeGame()
         {
             onPauseGameEvent.Invoke(false); // False = not paused.
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
 
         public void DisplayPauseMenu(bool isPaused)
