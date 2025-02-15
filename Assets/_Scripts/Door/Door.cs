@@ -10,6 +10,7 @@ namespace DoorGame.Door
         [SerializeField] private Animator doorAnimator;
 
         private bool _canOpen = true;
+        public bool isRoomResetting = false;
 
         public void OpenDoor()
         {
@@ -39,6 +40,14 @@ namespace DoorGame.Door
         {
             doorAnimator.SetTrigger("GoodDoorOpened");
             yield return new WaitForSeconds(1.1f);
+        }
+
+        public IEnumerator ResetToDefault()
+        {
+            isRoomResetting = true;
+            yield return new WaitForSeconds(1.1f);
+            isRoomResetting = false;
+            doorAnimator.SetTrigger("RoomReset");
         }
         
         public void PreventOpening() => _canOpen = false;
