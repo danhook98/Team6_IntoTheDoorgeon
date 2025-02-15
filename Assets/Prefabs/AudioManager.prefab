@@ -10,8 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1073794729724528717}
   - component: {fileID: 1619417419991823705}
+  - component: {fileID: 6676712966685478355}
   - component: {fileID: 358830446195690001}
   - component: {fileID: 2031092992042860913}
+  - component: {fileID: 836978921570009111}
+  - component: {fileID: 1658532924467079950}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -50,6 +53,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxAudioSource: {fileID: 6981759931529043126}
   musicAudioSource: {fileID: 4577270321495478878}
+--- !u!114 &6676712966685478355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261790589838135169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8814c72b4fa04e4c9e1d5f2e91cd2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 0}
+  SFXSlider: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
+  OnMusicChange: {fileID: 11400000, guid: 767aed579a5f166408dcd2c01aa88a44, type: 2}
+  OnSFXChange: {fileID: 11400000, guid: 18d71fc24217dc5408bd99a0c0f62d13, type: 2}
 --- !u!114 &358830446195690001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +118,62 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayMusic
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &836978921570009111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261790589838135169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 767aed579a5f166408dcd2c01aa88a44, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6676712966685478355}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioSettings, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1658532924467079950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261790589838135169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 18d71fc24217dc5408bd99a0c0f62d13, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6676712966685478355}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioSettings, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
