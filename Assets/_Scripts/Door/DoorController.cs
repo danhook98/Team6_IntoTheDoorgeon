@@ -39,6 +39,11 @@ namespace DoorGame.Door
             {
                 door.tag = "GoodDoor";
                 
+                if (door.GetComponent<Door>().isRoomResetting == false)
+                {
+                    StartCoroutine(door.GetComponent<Door>().ResetToDefault());
+                }
+                
                 // Temporary for testing.
                 var block = door.GetComponent<Button>().colors;
                 block.normalColor = Colour.green;

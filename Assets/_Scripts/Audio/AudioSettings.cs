@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using DoorGame.Events;
 
 namespace DoorGame.Audio
 {
@@ -11,6 +12,10 @@ namespace DoorGame.Audio
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider SFXSlider;
         [SerializeField] private AudioMixer audioMixer;
+        
+        [Header("Events")]
+        [SerializeField] private VoidEvent OnMusicChange;
+        [SerializeField] private VoidEvent OnSFXChange;
 
         private void Start()
         {
@@ -25,18 +30,29 @@ namespace DoorGame.Audio
             }
         }
         
-        public void SetMusicVolume()
+        private void SetMusicVolume()
         {
             float volume = musicSlider.value;
             audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("musicVolume", volume);
         }
+
+        public void AdjustMusicVolume()
+        {
+            OnMusicChange.Invoke(new Empty());
+        }
         
-        public void SetSFXVolume()
+        public void AdjustSFXVolume()
+        {
+            OnSFXChange.Invoke(new Empty()); 
+        }
+        
+        private void SetSFXVolume()
         {
             float volume = SFXSlider.value;
             audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("SFXVolume", volume);
+            
         }
         
         private void LoadVolume()
