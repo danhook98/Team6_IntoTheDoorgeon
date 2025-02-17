@@ -12,9 +12,7 @@ namespace DoorGame.Audio
         [SerializeField] private AudioSource sfxAudioSource;
         [SerializeField] private AudioSource musicAudioSource;
         
-        [Header("Sliders and Audio Mixer")]
-        [SerializeField] private Slider musicSlider;
-        [SerializeField] private Slider SFXSlider;
+        [Header("Audio Mixer")] 
         [SerializeField] private AudioMixer audioMixer;
 
         private void Awake()
@@ -41,8 +39,8 @@ namespace DoorGame.Audio
             }
             else
             {
-                SetSFXVolume();
-                SetSFXVolume();
+                SetSFXVolume(sfxAudioSource.volume);
+                SetMusicVolume(musicAudioSource.volume);
             }
         }
 
@@ -66,18 +64,17 @@ namespace DoorGame.Audio
         }
         
         // Audio Settings
-        
-        public void SetMusicVolume()
+        public void SetMusicVolume(float musicVolume)
         {
             // Set local variable "volume" to relevant audio slider, turn 0.001 - 1 to -80 - 1 because of how AudioMixer works.
-            float volume = musicSlider.value;
+            float volume = musicVolume;
             audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs
         }
         
-        public void SetSFXVolume()
+        public void SetSFXVolume(float sfxVolume)
         {
-            float volume = SFXSlider.value;
+            float volume = sfxVolume;
             audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("SFXVolume", volume);
             
@@ -86,11 +83,11 @@ namespace DoorGame.Audio
         private void LoadVolume()
         {
             // Loads saved audio settings and sets the volume based on them
-            musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-            SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", SFXSlider.value);
+            audioMixer.SetFloat("music", PlayerPrefs.GetFloat("musicVolume"));
+            audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFXVolume"));
             
-            SetMusicVolume();
-            SetSFXVolume();
+            SetMusicVolume(musicAudioSource.volume);
+            SetSFXVolume(sfxAudioSource.volume);
         }
     }
 }

@@ -46,14 +46,14 @@ namespace DoorGame.UI
         }
         
         //Audio Settings
-        public void AdjustMusicVolume()
+        public void AdjustMusicVolume(float musicVolume)
         {
-            OnMusicChange.Invoke(PlayerPrefs.GetFloat("musicVolume"));
+            OnMusicChange.Invoke(musicVolume);
         }
-        
-        public void AdjustSFXVolume()
+
+        public void AdjustSFXVolume(float sfxVolume)
         {
-            OnSFXChange.Invoke(PlayerPrefs.GetFloat("sfxVolume"));
+            OnSFXChange.Invoke(sfxVolume);
         }
     }
 }
