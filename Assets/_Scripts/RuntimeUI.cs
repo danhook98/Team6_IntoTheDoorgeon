@@ -17,8 +17,8 @@ namespace DoorGame
         
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
-        [SerializeField] private BoolEvent onLoadMainGameEvent;
-        [SerializeField] private BoolEvent onLoadMainMenuEvent;
+        [SerializeField] private VoidEvent onLoadMainGameEvent;
+        [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
         
         public void PauseGame()
@@ -42,13 +42,13 @@ namespace DoorGame
         public void LoadMainGameScene()
         {
             SceneManager.LoadScene("Main Game"); 
-            onLoadMainGameEvent.Invoke(true);
+            onLoadMainGameEvent.Invoke(new Empty());
         }
 
         public void LoadMainMenuScene()
         {
             SceneManager.LoadScene("Main Menu"); 
-            onLoadMainMenuEvent.Invoke(true);
+            onLoadMainMenuEvent.Invoke(new Empty());
         }
 
         public void OnScoreChanged(int score)

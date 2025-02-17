@@ -1,6 +1,7 @@
 using UnityEngine;
 using DoorGame.Events;
 using DoorGame.Door;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 namespace DoorGame
@@ -11,6 +12,7 @@ namespace DoorGame
         [SerializeField] private VoidEvent gameOverEvent;
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
+        [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
@@ -28,14 +30,24 @@ namespace DoorGame
         private int _validDoorsOpened = 0;
         private int _totalDoorsOpened = 0;
 
+        // Player
+        private GameObject _player;
+
+        private Vector3 _mouseScreenPos;
         private void Awake()
         {
             _highScore = PlayerPrefs.GetInt("HighScore", 0);
+            _player = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void Start()
         {
             doorController.GenerateDoors();
+        }
+
+        private void Update()
+        {
+            _mouseScreenPos = Input.mousePosition;
         }
 
         public void LeaveGame()
@@ -101,6 +113,18 @@ namespace DoorGame
             {
                 PlayerPrefs.SetInt("HighScore", _score);
             }
+        }
+        
+        public void DetectMouseHover()
+        {
+            onPlayerPositionChangeEvent.Invoke(_mouseScreenPos.x);
+        }
+
+        public void ChangePlayerPosition()
+        {
+            var vector3 = _player.transform.position;
+            vector3.x = _mouseScreenPos.x;
+            _player.transform.position = vector3;
         }
     }
 }
