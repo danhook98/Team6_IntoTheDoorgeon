@@ -170,6 +170,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      propertyPath: SFXSlider
+      value: 
+      objectReference: {fileID: 1223373852}
+    - target: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 475948173}
     - target: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -668,9 +676,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onPlayerPositionChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
     - target: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Name
       value: Door3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 135007480}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DetectMouseHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.GameController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3746,52 +3770,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onPlayerPositionChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
     - target: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Name
       value: Door1
       objectReference: {fileID: 0}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 135007480}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DetectMouseHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1386898383}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
 --- !u!224 &1386898382 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 825338319069330345, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
   m_PrefabInstance: {fileID: 1386898381}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1386898383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903691336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 135007480}
-          m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
-          m_MethodName: DetectMouseHover
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1403813321
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,9 +4239,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onPlayerPositionChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
     - target: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Name
       value: Door2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 135007480}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DetectMouseHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309637588136511541, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.GameController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4388,7 +4412,7 @@ RectTransform:
   m_GameObject: {fileID: 2066156086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -12}
-  m_LocalScale: {x: 4.334805, y: 4.334805, z: 2522.7832}
+  m_LocalScale: {x: 4.334805, y: 4.334805, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2105507747}

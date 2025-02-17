@@ -1,6 +1,7 @@
 using UnityEngine;
 using DoorGame.Events;
 using DoorGame.Door;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 namespace DoorGame
@@ -29,8 +30,10 @@ namespace DoorGame
         private int _validDoorsOpened = 0;
         private int _totalDoorsOpened = 0;
 
+        // Player
         private GameObject _player;
 
+        private Vector3 _mouseScreenPos;
         private void Awake()
         {
             _highScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -40,6 +43,11 @@ namespace DoorGame
         private void Start()
         {
             doorController.GenerateDoors();
+        }
+
+        private void Update()
+        {
+            _mouseScreenPos = Input.mousePosition;
         }
 
         public void LeaveGame()
@@ -109,14 +117,13 @@ namespace DoorGame
         
         public void DetectMouseHover()
         {
-            onPlayerPositionChangeEvent.Invoke(transform.position.x);
+            onPlayerPositionChangeEvent.Invoke(_mouseScreenPos.x);
         }
 
         public void ChangePlayerPosition()
         {
-            Debug.Log("Test Yahoo");
             var vector3 = _player.transform.position;
-            vector3.x = doorController.transform.position.x;
+            vector3.x = _mouseScreenPos.x;
             _player.transform.position = vector3;
         }
     }
