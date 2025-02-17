@@ -11,6 +11,7 @@ namespace DoorGame
         [SerializeField] private VoidEvent gameOverEvent;
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
+        [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
@@ -28,9 +29,12 @@ namespace DoorGame
         private int _validDoorsOpened = 0;
         private int _totalDoorsOpened = 0;
 
+        private GameObject _player;
+
         private void Awake()
         {
             _highScore = PlayerPrefs.GetInt("HighScore", 0);
+            _player = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void Start()
@@ -102,10 +106,18 @@ namespace DoorGame
                 PlayerPrefs.SetInt("HighScore", _score);
             }
         }
-
-        private void ChangePlayerPosition()
+        
+        public void DetectMouseHover()
         {
-            
+            onPlayerPositionChangeEvent.Invoke(transform.position.x);
+        }
+
+        public void ChangePlayerPosition()
+        {
+            Debug.Log("Test Yahoo");
+            var vector3 = _player.transform.position;
+            vector3.x = doorController.transform.position.x;
+            _player.transform.position = vector3;
         }
     }
 }

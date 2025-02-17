@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Colour = UnityEngine.Color;
@@ -10,7 +11,7 @@ namespace DoorGame.Door
     {
         [Header("Events")] 
         [SerializeField] private VoidEvent onGoodDoorOpenedEvent; 
-        [SerializeField] private VoidEvent onBadDoorOpenedEvent; 
+        [SerializeField] private VoidEvent onBadDoorOpenedEvent;
         
         [SerializeField] private GameObject[] doors;
         

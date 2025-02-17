@@ -515,16 +515,71 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 1952564105}
+    - target: {fileID: 3836019482660305371, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: onPlayerPositionChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
+    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: onPlayerPositionChangeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1501824163573275066, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 135007481}
   m_SourcePrefab: {fileID: 100100000, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
 --- !u!4 &135007477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 112393132269505794, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
   m_PrefabInstance: {fileID: 135007476}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &135007479 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1501824163573275066, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+  m_PrefabInstance: {fileID: 135007476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &135007480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+  m_PrefabInstance: {fileID: 135007476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135007479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a32d8d357aa8d341998eac8cf7b1c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &135007481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135007479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 135007480}
+        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+        m_MethodName: ChangePlayerPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &149124031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3725,13 +3780,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
+        - m_Target: {fileID: 135007480}
+          m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+          m_MethodName: DetectMouseHover
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4319,7 +4374,7 @@ GameObject:
   - component: {fileID: 2066156088}
   m_Layer: 0
   m_Name: SirTubbo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
