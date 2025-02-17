@@ -9,10 +9,10 @@ namespace DoorGame.Audio
 {
     public class AudioSettings : MonoBehaviour
     {
-        [SerializeField] private Slider musicSlider;
+        /*[SerializeField] private Slider musicSlider;
         [SerializeField] private Slider SFXSlider;
         [SerializeField] private AudioMixer audioMixer;
-        
+
         [Header("Events")]
         [SerializeField] private VoidEvent OnMusicChange;
         [SerializeField] private VoidEvent OnSFXChange;
@@ -29,7 +29,7 @@ namespace DoorGame.Audio
                 SetSFXVolume();
             }
         }
-        
+
         private void SetMusicVolume()
         {
             float volume = musicSlider.value;
@@ -41,27 +41,27 @@ namespace DoorGame.Audio
         {
             OnMusicChange.Invoke(new Empty());
         }
-        
+
         public void AdjustSFXVolume()
         {
-            OnSFXChange.Invoke(new Empty()); 
+            OnSFXChange.Invoke(new Empty());
         }
-        
+
         private void SetSFXVolume()
         {
             float volume = SFXSlider.value;
             audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
             PlayerPrefs.SetFloat("SFXVolume", volume);
-            
+
         }
-        
+
         private void LoadVolume()
         {
             musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
             SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", SFXSlider.value);
-            
+
             SetMusicVolume();
             SetSFXVolume();
-        }
+        } */
     }
 }

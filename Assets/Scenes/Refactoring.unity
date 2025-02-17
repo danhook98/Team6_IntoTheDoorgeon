@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 751372970}
   - component: {fileID: 751372969}
   - component: {fileID: 751372968}
+  - component: {fileID: 751372972}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -457,6 +458,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &751372972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751372967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3a25b9222c1034a98b0396f0f3b3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuCanvas: {fileID: 0}
+  pauseMenuContainer: {fileID: 0}
+  optionsMenuContainer: {fileID: 0}
+  audioManager: {fileID: 1857050130}
+  onPauseGameEvent: {fileID: 0}
+  OnMusicChange: {fileID: 11400000, guid: f715015f2ee601e4595a6ee9e1e09e25, type: 2}
+  OnSFXChange: {fileID: 11400000, guid: b9f80870d9e3d4b43a10b42dbab494f6, type: 2}
 --- !u!1 &1003847909
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +773,15 @@ PrefabInstance:
     - target: {fileID: 5383641003734444162, guid: b301b60e7c320aa479022a17d1179512, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1857050133}
+      objectReference: {fileID: 751372972}
+    - target: {fileID: 5383641003734444162, guid: b301b60e7c320aa479022a17d1179512, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AdjustSFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 5383641003734444162, guid: b301b60e7c320aa479022a17d1179512, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.UI.PauseMenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5502366512870313916, guid: b301b60e7c320aa479022a17d1179512, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -810,7 +838,15 @@ PrefabInstance:
     - target: {fileID: 1541852256155026545, guid: 10ebfe8d20a7b14478161b55642d1da5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1857050133}
+      objectReference: {fileID: 751372972}
+    - target: {fileID: 1541852256155026545, guid: 10ebfe8d20a7b14478161b55642d1da5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AdjustMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541852256155026545, guid: 10ebfe8d20a7b14478161b55642d1da5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.UI.PauseMenuUI, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4546669946635068709, guid: 10ebfe8d20a7b14478161b55642d1da5, type: 3}
       propertyPath: m_Name
       value: MusicSlider
@@ -994,6 +1030,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      propertyPath: SFXSlider
+      value: 
+      objectReference: {fileID: 1480430554}
+    - target: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
+    - target: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 1699869011}
     - target: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1006,22 +1054,91 @@ PrefabInstance:
       propertyPath: musicSlider
       value: 
       objectReference: {fileID: 1699869011}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 836978921570009111, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+    - {fileID: 1658532924467079950, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857050135}
+    - targetCorrespondingSourceObject: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1857050134}
   m_SourcePrefab: {fileID: 100100000, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
---- !u!114 &1857050133 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6676712966685478355, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+--- !u!1 &1857050130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
   m_PrefabInstance: {fileID: 1857050129}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &1857050131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+  m_PrefabInstance: {fileID: 1857050129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857050130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8814c72b4fa04e4c9e1d5f2e91cd2bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 3527c53c1b0d096448cb0f3a3a415e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1857050134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857050130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: b9f80870d9e3d4b43a10b42dbab494f6, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1857050131}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1857050135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857050130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: f715015f2ee601e4595a6ee9e1e09e25, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1857050131}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1977520702
 PrefabInstance:
   m_ObjectHideFlags: 0
