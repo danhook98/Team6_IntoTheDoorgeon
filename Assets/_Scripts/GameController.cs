@@ -102,5 +102,10 @@ namespace DoorGame
                 PlayerPrefs.SetInt("HighScore", _score);
             }
         }
+
+        private void ChangePlayerPosition()
+        {
+            
+        }
     }
 }
