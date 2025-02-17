@@ -16,10 +16,6 @@ namespace DoorGame.Audio
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider SFXSlider;
         [SerializeField] private AudioMixer audioMixer;
-        
-        //[Header("Events")]
-        //[SerializeField] private FloatEvent OnMusicChange;
-        //[SerializeField] private FloatEvent OnSFXChange;
 
         private void Awake()
         {
