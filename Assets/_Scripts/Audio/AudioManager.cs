@@ -59,7 +59,12 @@ namespace DoorGame.Audio
         public void SetMusicVolume(float musicVolume)
         {
             // Ensure the volume value given is valid. 
-            if (musicVolume is < 0 or > 1) return; 
+            if (musicVolume is < 0 or > 1)
+            {
+                Debug.LogWarning("<color=red>AudioManager</color>: Attempting to set music mixer volume, but the given" +
+                                 $"value was outside the range [0, 1]: {musicVolume}.");
+                return;
+            } 
             
             // Update the music mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
             // 0 dB in the audio mixer. The formula below grants a linear change in volume.
@@ -71,7 +76,12 @@ namespace DoorGame.Audio
         public void SetSFXVolume(float sfxVolume)
         {
             // Ensure the volume value given is valid. 
-            if (sfxVolume is < 0 or > 1) return;
+            if (sfxVolume is < 0 or > 1)
+            {
+                Debug.LogWarning("<color=red>AudioManager</color>: Attempting to set SFX mixer volume, but the given" +
+                                 $"value was outside the range [0, 1]: {sfxVolume}.");
+                return;
+            }
             
             // Update the SFX mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
             // 0 dB in the audio mixer. The formula below grants a linear change in volume.
