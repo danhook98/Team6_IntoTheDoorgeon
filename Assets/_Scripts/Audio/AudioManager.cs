@@ -33,15 +33,7 @@ namespace DoorGame.Audio
             }
             
             // Load last saved player audio settings if they exist
-            if (PlayerPrefs.HasKey("musicVolume"))
-            {
-                LoadVolume();
-            }
-            else
-            {
-                SetSFXVolume(sfxAudioSource.volume);
-                SetMusicVolume(musicAudioSource.volume);
-            }
+            LoadVolume();
         }
 
         /// <summary>
@@ -82,12 +74,13 @@ namespace DoorGame.Audio
         
         private void LoadVolume()
         {
-            // Loads saved audio settings and sets the volume based on them
-            audioMixer.SetFloat("music", PlayerPrefs.GetFloat("musicVolume"));
-            audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFXVolume"));
+            // Load the saved volume if it exists, otherwise it defaults to 1.
+            float sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
+            float musicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
             
-            SetMusicVolume(musicAudioSource.volume);
-            SetSFXVolume(sfxAudioSource.volume);
+            // Set the volume levels of the mixers.
+            audioMixer.SetFloat("SFX", sfxVolume);
+            audioMixer.SetFloat("music", musicVolume);
         }
     }
 }
