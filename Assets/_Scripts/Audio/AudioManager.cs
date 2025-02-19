@@ -58,18 +58,26 @@ namespace DoorGame.Audio
         // Audio Settings
         public void SetMusicVolume(float musicVolume)
         {
-            // Set local variable "volume" to relevant audio slider, turn 0.001 - 1 to -80 - 1 because of how AudioMixer works.
-            float volume = musicVolume;
-            audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
-            PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs
+            // Ensure the volume value given is valid. 
+            if (musicVolume is < 0 or > 1) return; 
+            
+            // Update the music mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
+            // 0 dB in the audio mixer. The formula below grants a linear change in volume.
+            float volume = (musicVolume - 1f) * 80f;
+            audioMixer.SetFloat("music", volume);
+            PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs.
         }
         
         public void SetSFXVolume(float sfxVolume)
         {
-            float volume = sfxVolume;
-            audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-            PlayerPrefs.SetFloat("SFXVolume", volume);
+            // Ensure the volume value given is valid. 
+            if (sfxVolume is < 0 or > 1) return;
             
+            // Update the SFX mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
+            // 0 dB in the audio mixer. The formula below grants a linear change in volume.
+            float volume = (sfxVolume - 1f) * 80f;
+            audioMixer.SetFloat("SFX", volume);
+            PlayerPrefs.SetFloat("sfxVolume", volume); // Save changes as PlayerPrefs.
         }
         
         private void LoadVolume()
