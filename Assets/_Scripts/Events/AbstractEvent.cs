@@ -12,7 +12,10 @@ namespace DoorGame.Events
     /// <typeparam name="T">The data type used for the inheriting class.</typeparam>
     public abstract class AbstractEvent<T> : ScriptableObject
     {
-        private List<AbstractEventListener<T>> _listeners;
+        private List<AbstractEventListener<T>> _listeners = new();
+
+        // Redundancy list creation in case the _listeners list is null. 
+        private void OnEnable() => _listeners ??= new List<AbstractEventListener<T>>();
 
         /// <summary>
         /// Registers the given listener to this event. 
