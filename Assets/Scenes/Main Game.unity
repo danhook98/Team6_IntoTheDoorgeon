@@ -515,34 +515,6 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 1952564105}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: badDoorSound
-      value: 
-      objectReference: {fileID: 11400000, guid: c045c2dbdb55f544f9bdd1d700260687, type: 2}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: goodDoorSound
-      value: 
-      objectReference: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: gameMusic.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: playMusicAudioChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: 635be7c9ed4275b48995b2465343da19, type: 2}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: gameMusic.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 08dcd12713d6c1840ba0878885f668e1, type: 2}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: gameMusic.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3ca2ed88dd273d649b79bbb0ba9503e4, type: 2}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: gameMusic.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3192351907bf30c408b6b9ea63a89f4e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
