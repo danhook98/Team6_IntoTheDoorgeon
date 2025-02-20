@@ -25,6 +25,8 @@ namespace DoorGame
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
         [SerializeField] private AudioClipSO gameStartSound;
         [SerializeField] private AudioClipSO scoreAddedSound;
+        [SerializeField] private AudioClipSO goodDoorSound;
+        [SerializeField] private AudioClipSO badDoorSound;
         
         // Game variables.
         private int _wavesCompleted = 0;
@@ -73,6 +75,8 @@ namespace DoorGame
         {
             Debug.Log("Game Over!", this);
             
+            playSfxAudioChannel.Invoke(badDoorSound);
+            
             gameOverEvent.Invoke(new Empty());
             
             _score = 0;
@@ -85,6 +89,8 @@ namespace DoorGame
         public void OpenedGoodDoor()
         {
             Debug.Log("Opened Good Door!", this);
+            
+            playSfxAudioChannel.Invoke(goodDoorSound);
             
             AddScore();
 
