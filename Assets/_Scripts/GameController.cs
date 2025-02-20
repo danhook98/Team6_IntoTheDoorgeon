@@ -1,9 +1,8 @@
-using DoorGame.Audio;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using DoorGame.Events;
 using DoorGame.Door;
-using UnityEngine.EventSystems;
-using Random = UnityEngine.Random;
+using DoorGame.Audio;
 
 namespace DoorGame
 {
@@ -21,12 +20,16 @@ namespace DoorGame
         [Space]
         [SerializeField] private DoorController doorController;
 
-        [Header("Sounds")] 
+        [Header("SFX Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
         [SerializeField] private AudioClipSO gameStartSound;
         [SerializeField] private AudioClipSO scoreAddedSound;
         [SerializeField] private AudioClipSO goodDoorSound;
         [SerializeField] private AudioClipSO badDoorSound;
+        
+        [Header("Music")]
+        [SerializeField] private AudioClipSOEvent playMusicAudioChannel;
+        [SerializeField] private AudioClipSO[] gameMusic;
         
         // Game variables.
         private int _wavesCompleted = 0;
@@ -54,6 +57,10 @@ namespace DoorGame
             
             // Play the start game sound. 
             playSfxAudioChannel.Invoke(gameStartSound);
+            
+            // Choose a random piece of background music (temporary).
+            AudioClipSO music = gameMusic[Random.Range(0, gameMusic.Length)];
+            playMusicAudioChannel.Invoke(music);
         }
 
         private void Update()
