@@ -25,6 +25,7 @@ namespace DoorGame
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
         [SerializeField] private AudioClipSO gameStartSound;
         [SerializeField] private AudioClipSO gameOverSound;
+        [SerializeField] private AudioClipSO leaveDungeonSound;
         [SerializeField] private AudioClipSO scoreAddedSound;
         [SerializeField] private AudioClipSO goodDoorSound;
         [SerializeField] private AudioClipSO badDoorSound;
@@ -73,6 +74,7 @@ namespace DoorGame
         public void LeaveGame()
         {
             SaveHighScore();
+            playSfxAudioChannel.Invoke(leaveDungeonSound);
             onLeaveDungeonEvent.Invoke(new Empty());
         }
 
