@@ -21,6 +21,10 @@ namespace DoorGame
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
         
+        [Header("Menu Containers")]
+        [SerializeField] private GameObject winMenuContainer;
+        [SerializeField] private GameObject loseMenuContainer;
+        
         public void PauseGame()
         {
             Debug.Log("Game paused");
@@ -59,6 +63,16 @@ namespace DoorGame
         public void OnValidDoorsOpenedChanged(int numDoors)
         {
             doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
+        }
+        
+        public void WinScreenOn()
+        {
+            winMenuContainer.SetActive(true);
+        }
+
+        public void LoseScreenOn()
+        {
+            loseMenuContainer.SetActive(true);
         }
     }
 }

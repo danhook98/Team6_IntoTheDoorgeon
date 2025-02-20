@@ -13,6 +13,7 @@ namespace DoorGame
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
         [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
+        [SerializeField] private VoidEvent onLeaveDungeonEvent;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
@@ -53,6 +54,7 @@ namespace DoorGame
         public void LeaveGame()
         {
             SaveHighScore();
+            //Make Win Screen visible
         }
 
         public void WaveWon()
