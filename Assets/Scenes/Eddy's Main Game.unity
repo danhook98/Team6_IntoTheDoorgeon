@@ -515,6 +515,10 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 1952564105}
+    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: onLeaveDungeonEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1134,9 +1138,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &413839125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+  m_PrefabInstance: {fileID: 1786899638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &413839126 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6276012531793666845, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+  m_PrefabInstance: {fileID: 1786899638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &413839129 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 717126175342168215, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
   m_PrefabInstance: {fileID: 1786899638}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &423748491
@@ -2834,9 +2848,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993786149}
   m_CullTransparentMesh: 1
+--- !u!1 &1002839786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5333036355759233352, guid: 05e30b33ec103804da279596ade92990, type: 3}
+  m_PrefabInstance: {fileID: 1219048329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1002839787 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7617677398439751320, guid: 05e30b33ec103804da279596ade92990, type: 3}
+  m_PrefabInstance: {fileID: 1219048329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1002839790 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1142027680673123125, guid: 05e30b33ec103804da279596ade92990, type: 3}
   m_PrefabInstance: {fileID: 1219048329}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1027466503
@@ -3242,9 +3266,9 @@ MonoBehaviour:
   onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1214024586}
-        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
-        m_MethodName: LeaveGame
+      - m_Target: {fileID: 2105507748}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: WinScreenOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3262,13 +3286,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479790012}
     m_Modifications:
+    - target: {fileID: 320660741311487107, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142027680673123125, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5333036355759233352, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_Name
       value: Win Menu Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5333036355759233352, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5333036355759233352, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7617677398439751320, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_Pivot.x
@@ -3349,6 +3385,10 @@ PrefabInstance:
     - target: {fileID: 7617677398439751320, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161055473663970561, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3862,8 +3902,6 @@ MonoBehaviour:
   pauseMenuCanvas: {fileID: 1305011776}
   pauseMenuContainer: {fileID: 928977908}
   optionsMenuContainer: {fileID: 1859034702}
-  winMenuContainer: {fileID: 0}
-  loseMenuContainer: {fileID: 0}
   audioManager: {fileID: 2135187758}
   onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
   OnMusicChange: {fileID: 11400000, guid: f715015f2ee601e4595a6ee9e1e09e25, type: 2}
@@ -4417,9 +4455,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479790012}
     m_Modifications:
+    - target: {fileID: 717126175342168215, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879787286950916421, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_Name
       value: Lose Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6276012531793666845, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_Pivot.x
@@ -4910,9 +4964,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 608043299}
     - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: winMenuCanvas
+      value: 
+      objectReference: {fileID: 1002839790}
+    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: loseMenuCanvas
+      value: 
+      objectReference: {fileID: 413839129}
+    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: doorsOpenedText
       value: 
       objectReference: {fileID: 1845937187}
+    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: winMenuContainer
+      value: 
+      objectReference: {fileID: 1002839786}
+    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: loseMenuContainer
+      value: 
+      objectReference: {fileID: 413839125}
     - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
