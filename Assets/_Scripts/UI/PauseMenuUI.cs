@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DoorGame.Events;
+using DoorGame.Audio; 
 
 namespace DoorGame.UI
 {
@@ -19,14 +20,25 @@ namespace DoorGame.UI
         [SerializeField] private FloatEvent OnMusicChange;
         [SerializeField] private FloatEvent OnSFXChange;
 
+        [Header("Audio")] 
+        [SerializeField] private AudioClipSOEvent playSfxAudioChannel;
+        [SerializeField] private AudioClipSO pauseSound; 
+        [SerializeField] private AudioClipSO unpauseSound;
+
         public void DisplayPauseMenu(bool isPaused)
         {
             Debug.Log(isPaused);
             pauseMenuCanvas.enabled = isPaused;
+            playSfxAudioChannel.Invoke(pauseSound);
         }
         
         // Pause menu button actions. 
-        public void ResumeGame() => onPauseGameEvent.Invoke(false); // False = not paused.
+        public void ResumeGame()
+        {
+            onPauseGameEvent.Invoke(false); // False = not paused.
+            playSfxAudioChannel.Invoke(unpauseSound);
+        } 
+        
         public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         public void OpenOptionsMenu()
         {
