@@ -1,3 +1,4 @@
+using DoorGame.Audio;
 using UnityEngine;
 using DoorGame.Events;
 using DoorGame.Door;
@@ -19,6 +20,10 @@ namespace DoorGame
         [SerializeField] private int maxScoreToAdd = 45;
         [Space]
         [SerializeField] private DoorController doorController;
+
+        [Header("Sounds")] 
+        [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
+        [SerializeField] private AudioClipSO gameStartSound;
         
         // Game variables.
         private int _wavesCompleted = 0;
@@ -43,6 +48,9 @@ namespace DoorGame
         private void Start()
         {
             doorController.GenerateDoors();
+            
+            // Play the start game sound. 
+            playSfxAudioChannel.Invoke(gameStartSound);
         }
 
         private void Update()

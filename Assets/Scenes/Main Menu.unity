@@ -729,14 +729,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4577270321495478878, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
-      propertyPath: MaxDistance
-      value: 3081.0806
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981759931529043126, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
-      propertyPath: MaxDistance
-      value: 3095.141
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
