@@ -29,16 +29,12 @@ namespace DoorGame.UI
         {
             Debug.Log(isPaused);
             pauseMenuCanvas.enabled = isPaused;
-            playSfxAudioChannel.Invoke(pauseSound);
+            playSfxAudioChannel.Invoke(isPaused ? pauseSound : unpauseSound);
         }
         
         // Pause menu button actions. 
-        public void ResumeGame()
-        {
-            onPauseGameEvent.Invoke(false); // False = not paused.
-            playSfxAudioChannel.Invoke(unpauseSound);
-        } 
-        
+        public void ResumeGame() => onPauseGameEvent.Invoke(false); // False = not paused.
+
         public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         public void OpenOptionsMenu()
         {
