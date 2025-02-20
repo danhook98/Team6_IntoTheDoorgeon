@@ -20,10 +20,14 @@ namespace DoorGame
         [SerializeField] private VoidEvent onLoadMainGameEvent;
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
+        [SerializeField] private BoolEvent onHowToPlayEvent;
         
         [Header("Canvases")]
         [SerializeField] private Canvas winMenuCanvas;
         [SerializeField] private Canvas loseMenuCanvas;
+        [SerializeField] private Canvas howToPlayCanvas;
+
+        private bool isHowToPlayOn = false;
         
         public void PauseGame()
         {
@@ -74,5 +78,13 @@ namespace DoorGame
         {
             loseMenuCanvas.enabled = true;
         }
+
+        public void DisplayHowToPlay()
+        {
+            Debug.Log(isHowToPlayOn);
+            howToPlayCanvas.enabled = isHowToPlayOn;
+        }
+        public void HowToPlayScreen() => onHowToPlayEvent.Invoke(true);
+        public void OffHowToPlayScreen() => onHowToPlayEvent.Invoke(false);
     }
 }
