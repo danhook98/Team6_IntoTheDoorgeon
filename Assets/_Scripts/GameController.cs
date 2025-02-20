@@ -23,6 +23,7 @@ namespace DoorGame
         [Header("SFX Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
         [SerializeField] private AudioClipSO gameStartSound;
+        [SerializeField] private AudioClipSO gameOverSound;
         [SerializeField] private AudioClipSO scoreAddedSound;
         [SerializeField] private AudioClipSO goodDoorSound;
         [SerializeField] private AudioClipSO badDoorSound;
@@ -91,6 +92,8 @@ namespace DoorGame
             
             _totalDoorsOpened = 0;
             validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
+            
+            playSfxAudioChannel.Invoke(gameOverSound);
         }
 
         public void OpenedGoodDoor()
