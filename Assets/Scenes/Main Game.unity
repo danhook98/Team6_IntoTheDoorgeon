@@ -515,6 +515,14 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 1952564105}
+    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: badDoorSound
+      value: 
+      objectReference: {fileID: 11400000, guid: c045c2dbdb55f544f9bdd1d700260687, type: 2}
+    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: goodDoorSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
