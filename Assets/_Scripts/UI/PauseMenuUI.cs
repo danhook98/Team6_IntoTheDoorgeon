@@ -10,8 +10,6 @@ namespace DoorGame.UI
         [SerializeField] private Canvas pauseMenuCanvas;
         [SerializeField] private GameObject pauseMenuContainer;
         [SerializeField] private GameObject optionsMenuContainer;
-        [SerializeField] private GameObject winMenuContainer;
-        [SerializeField] private GameObject loseMenuContainer;
         [SerializeField] private GameObject audioManager;
         
         [Header("Events")]
@@ -46,16 +44,6 @@ namespace DoorGame.UI
         {
             optionsMenuContainer.SetActive(false);
             pauseMenuContainer.SetActive(true);
-        }
-
-        public void WinScreenOn()
-        {
-            winMenuContainer.SetActive(true);
-        }
-
-        public void LoseScreenOn()
-        {
-            loseMenuContainer.SetActive(true);
         }
         
         //Audio Settings
