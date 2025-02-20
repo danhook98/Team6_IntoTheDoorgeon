@@ -46,16 +46,6 @@ namespace DoorGame.UI
             optionsMenuContainer.SetActive(false);
             pauseMenuContainer.SetActive(true);
         }
-
-        public void WinScreenOn()
-        {
-            winMenuContainer.SetActive(true);
-        }
-
-        public void LoseScreenOn()
-        {
-            loseMenuContainer.SetActive(true);
-        }
         
         //Audio Settings
         public void AdjustMusicVolume(float musicVolume) => OnMusicChangeEvent.Invoke(musicVolume);
