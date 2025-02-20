@@ -21,9 +21,9 @@ namespace DoorGame
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
         
-        [Header("Menu Containers")]
-        [SerializeField] private GameObject winMenuContainer;
-        [SerializeField] private GameObject loseMenuContainer;
+        [Header("Canvases")]
+        [SerializeField] private Canvas winMenuCanvas;
+        [SerializeField] private Canvas loseMenuCanvas;
         
         public void PauseGame()
         {
@@ -67,12 +67,12 @@ namespace DoorGame
         
         public void WinScreenOn()
         {
-            winMenuContainer.SetActive(true);
+            winMenuCanvas.enabled = true;
         }
 
         public void LoseScreenOn()
         {
-            loseMenuContainer.SetActive(true);
+            loseMenuCanvas.enabled = true;
         }
     }
 }
