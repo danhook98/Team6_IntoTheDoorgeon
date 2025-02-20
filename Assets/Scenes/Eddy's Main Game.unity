@@ -3286,6 +3286,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479790012}
     m_Modifications:
+    - target: {fileID: 17455414049007998, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_Name
+      value: 'Background '
+      objectReference: {fileID: 0}
     - target: {fileID: 320660741311487107, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -3389,6 +3393,18 @@ PrefabInstance:
     - target: {fileID: 8161055473663970561, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948658282489154028, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948658282489154028, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948658282489154028, guid: 05e30b33ec103804da279596ade92990, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
