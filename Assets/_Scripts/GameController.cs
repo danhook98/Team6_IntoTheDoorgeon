@@ -54,7 +54,7 @@ namespace DoorGame
         public void LeaveGame()
         {
             SaveHighScore();
-            //Make Win Screen visible
+            onLeaveDungeonEvent.Invoke(new Empty());
         }
 
         public void WaveWon()
