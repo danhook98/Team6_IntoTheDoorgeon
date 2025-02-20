@@ -24,6 +24,7 @@ namespace DoorGame
         [Header("Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
         [SerializeField] private AudioClipSO gameStartSound;
+        [SerializeField] private AudioClipSO scoreAddedSound;
         
         // Game variables.
         private int _wavesCompleted = 0;
@@ -110,6 +111,7 @@ namespace DoorGame
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
             scoreChangedEvent.Invoke(_score);
+            playSfxAudioChannel.Invoke(scoreAddedSound);
             
             _totalDoorsOpened++;
             validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
