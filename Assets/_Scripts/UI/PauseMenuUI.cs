@@ -13,12 +13,11 @@ namespace DoorGame.UI
         [SerializeField] private GameObject optionsMenuContainer;
         [SerializeField] private GameObject winMenuContainer;
         [SerializeField] private GameObject loseMenuContainer;
-        [SerializeField] private GameObject audioManager;
         
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
-        [SerializeField] private FloatEvent OnMusicChange;
-        [SerializeField] private FloatEvent OnSFXChange;
+        [SerializeField] private FloatEvent OnMusicChangeEvent;
+        [SerializeField] private FloatEvent OnSFXChangeEvent;
 
         [Header("Audio")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel;
@@ -55,26 +54,9 @@ namespace DoorGame.UI
             optionsMenuContainer.SetActive(false);
             pauseMenuContainer.SetActive(true);
         }
-
-        public void WinScreenOn()
-        {
-            winMenuContainer.SetActive(true);
-        }
-
-        public void LoseScreenOn()
-        {
-            loseMenuContainer.SetActive(true);
-        }
         
         //Audio Settings
-        public void AdjustMusicVolume(float musicVolume)
-        {
-            OnMusicChange.Invoke(musicVolume);
-        }
-
-        public void AdjustSFXVolume(float sfxVolume)
-        {
-            OnSFXChange.Invoke(sfxVolume);
-        }
+        public void AdjustMusicVolume(float musicVolume) => OnMusicChangeEvent.Invoke(musicVolume);
+        public void AdjustSFXVolume(float sfxVolume) => OnSFXChangeEvent.Invoke(sfxVolume);
     }
 }

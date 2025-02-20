@@ -21,6 +21,10 @@ namespace DoorGame
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
         
+        [Header("Canvases")]
+        [SerializeField] private Canvas winMenuCanvas;
+        [SerializeField] private Canvas loseMenuCanvas;
+        
         public void PauseGame()
         {
             Debug.Log("Game paused");
@@ -59,6 +63,16 @@ namespace DoorGame
         public void OnValidDoorsOpenedChanged(int numDoors)
         {
             doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
+        }
+        
+        public void WinScreenOn()
+        {
+            winMenuCanvas.enabled = true;
+        }
+
+        public void LoseScreenOn()
+        {
+            loseMenuCanvas.enabled = true;
         }
     }
 }
