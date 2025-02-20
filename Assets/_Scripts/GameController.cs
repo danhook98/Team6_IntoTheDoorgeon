@@ -94,7 +94,7 @@ namespace DoorGame
             
             _validDoorsOpened = 0;
             _wavesCompleted++;
-            
+            _scoreMultiplier++;
             doorController.GenerateDoors();
         }
         
@@ -102,13 +102,14 @@ namespace DoorGame
         private void AddScore()
         {
             _validDoorsOpened++;
-            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _wavesCompleted);
+            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _wavesCompleted) * _scoreMultiplier;
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
             scoreChangedEvent.Invoke(_score);
             Debug.Log(_wavesCompleted);
             
             _totalDoorsOpened++;
+            
             validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
         }
 
