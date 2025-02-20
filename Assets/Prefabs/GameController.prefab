@@ -56,6 +56,7 @@ MonoBehaviour:
   doorController: {fileID: 3836019482660305371}
   playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   gameStartSound: {fileID: 11400000, guid: d9ab7422628631a4a893c62a0687e60c, type: 2}
+  scoreAddedSound: {fileID: 11400000, guid: 3882f04af2fda7a4aac356368be1269f, type: 2}
 --- !u!114 &4203696471604116356
 MonoBehaviour:
   m_ObjectHideFlags: 0
