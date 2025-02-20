@@ -53,8 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxAudioSource: {fileID: 6981759931529043126}
   musicAudioSource: {fileID: 4577270321495478878}
-  musicSlider: {fileID: 0}
-  SFXSlider: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
 --- !u!114 &6676712966685478355
 MonoBehaviour:
@@ -221,9 +219,9 @@ AudioSource:
   m_GameObject: {fileID: 8097419868878659773}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8119946653120806672, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -349,9 +347,9 @@ AudioSource:
   m_GameObject: {fileID: 8843864365251407052}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5623807222226796161, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
