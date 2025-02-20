@@ -12,7 +12,8 @@ namespace DoorGame.Door
 
         [Header("Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel;
-        [SerializeField] private AudioClipSO doorOpenSound;
+        [SerializeField] private AudioClipSO doorHoverSound;
+        [SerializeField] private AudioClipSO doorClickSound;
         
         private bool _canOpen = true;
         public bool isRoomResetting = false;
@@ -24,6 +25,9 @@ namespace DoorGame.Door
         public void OpenDoor()
         {
             if (!_canOpen) return; 
+            
+            // Play the base door open sound.
+            PlayClickSound();
             
             bool badDoor = gameObject.CompareTag("BadDoor");
 
@@ -62,6 +66,7 @@ namespace DoorGame.Door
         public void PreventOpening() => _canOpen = false;
         
         // Audio. 
-        public void PlayOpenSound() => playSfxAudioChannel.Invoke(doorOpenSound);
+        public void PlayHoverSound() => playSfxAudioChannel.Invoke(doorHoverSound);
+        public void PlayClickSound() => playSfxAudioChannel.Invoke(doorClickSound);
     }
 }
