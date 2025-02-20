@@ -33,15 +33,7 @@ namespace DoorGame.Audio
             }
             
             // Load last saved player audio settings if they exist
-            if (PlayerPrefs.HasKey("musicVolume"))
-            {
-                LoadVolume();
-            }
-            else
-            {
-                SetSFXVolume(sfxAudioSource.volume);
-                SetMusicVolume(musicAudioSource.volume);
-            }
+            LoadVolume();
         }
 
         /// <summary>
@@ -66,28 +58,47 @@ namespace DoorGame.Audio
         // Audio Settings
         public void SetMusicVolume(float musicVolume)
         {
-            // Set local variable "volume" to relevant audio slider, turn 0.001 - 1 to -80 - 1 because of how AudioMixer works.
-            float volume = musicVolume;
-            audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
-            PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs
+            // Ensure the volume value given is valid. 
+            if (musicVolume is < 0 or > 1)
+            {
+                Debug.LogWarning("<color=red>AudioManager</color>: Attempting to set music mixer volume, but the given" +
+                                 $"value was outside the range [0, 1]: {musicVolume}.");
+                return;
+            } 
+            
+            // Update the music mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
+            // 0 dB in the audio mixer. The formula below grants a linear change in volume.
+            float volume = (musicVolume - 1f) * 80f;
+            audioMixer.SetFloat("music", volume);
+            PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs.
         }
         
         public void SetSFXVolume(float sfxVolume)
         {
-            float volume = sfxVolume;
-            audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
-            PlayerPrefs.SetFloat("SFXVolume", volume);
+            // Ensure the volume value given is valid. 
+            if (sfxVolume is < 0 or > 1)
+            {
+                Debug.LogWarning("<color=red>AudioManager</color>: Attempting to set SFX mixer volume, but the given" +
+                                 $"value was outside the range [0, 1]: {sfxVolume}.");
+                return;
+            }
             
+            // Update the SFX mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
+            // 0 dB in the audio mixer. The formula below grants a linear change in volume.
+            float volume = (sfxVolume - 1f) * 80f;
+            audioMixer.SetFloat("SFX", volume);
+            PlayerPrefs.SetFloat("sfxVolume", volume); // Save changes as PlayerPrefs.
         }
         
         private void LoadVolume()
         {
-            // Loads saved audio settings and sets the volume based on them
-            audioMixer.SetFloat("music", PlayerPrefs.GetFloat("musicVolume"));
-            audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFXVolume"));
+            // Load the saved volume if it exists, otherwise it defaults to 1.
+            float sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
+            float musicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
             
-            SetMusicVolume(musicAudioSource.volume);
-            SetSFXVolume(sfxAudioSource.volume);
+            // Set the volume levels of the mixers.
+            audioMixer.SetFloat("SFX", sfxVolume);
+            audioMixer.SetFloat("music", musicVolume);
         }
     }
 }
