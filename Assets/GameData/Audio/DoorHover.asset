@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0292d29ccf9d8146ad78ca0c7f1e23b, type: 3}
   m_Name: DoorHover
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: ef5c1a23dd2213c428677497a209b2e9, type: 3}

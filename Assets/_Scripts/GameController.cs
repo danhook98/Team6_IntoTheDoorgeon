@@ -1,8 +1,8 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
 using DoorGame.Events;
 using DoorGame.Door;
-using UnityEngine.EventSystems;
-using Random = UnityEngine.Random;
+using DoorGame.Audio;
 
 namespace DoorGame
 {
@@ -20,6 +20,18 @@ namespace DoorGame
         [SerializeField] private int maxScoreToAdd = 45;
         [Space]
         [SerializeField] private DoorController doorController;
+
+        [Header("SFX Sounds")] 
+        [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
+        [SerializeField] private AudioClipSO gameStartSound;
+        [SerializeField] private AudioClipSO leaveDungeonSound;
+        [SerializeField] private AudioClipSO scoreAddedSound;
+        [SerializeField] private AudioClipSO goodDoorSound;
+        [SerializeField] private AudioClipSO badDoorSound;
+        
+        [Header("Music")]
+        [SerializeField] private AudioClipSOEvent playMusicAudioChannel;
+        [SerializeField] private AudioClipSO[] gameMusic;
         
         // Game variables.
         private int _wavesCompleted = 0;
@@ -28,6 +40,7 @@ namespace DoorGame
         // Score variables.
         private int _score = 0;
         private int _highScore = 0;
+        private int _scoreMultiplier = 1;
         private int _validDoorsOpened = 0;
         private int _totalDoorsOpened = 0;
 
@@ -44,6 +57,13 @@ namespace DoorGame
         private void Start()
         {
             doorController.GenerateDoors();
+            
+            // Play the start game sound. 
+            playSfxAudioChannel.Invoke(gameStartSound);
+            
+            // Choose a random piece of background music (temporary).
+            AudioClipSO music = gameMusic[Random.Range(0, gameMusic.Length)];
+            playMusicAudioChannel.Invoke(music);
         }
 
         private void Update()
@@ -54,6 +74,7 @@ namespace DoorGame
         public void LeaveGame()
         {
             SaveHighScore();
+            playSfxAudioChannel.Invoke(leaveDungeonSound);
             onLeaveDungeonEvent.Invoke(new Empty());
         }
 
@@ -65,6 +86,8 @@ namespace DoorGame
         public void OpenedBadDoor()
         {
             Debug.Log("Game Over!", this);
+            
+            playSfxAudioChannel.Invoke(badDoorSound);
             
             gameOverEvent.Invoke(new Empty());
             
@@ -79,6 +102,8 @@ namespace DoorGame
         {
             Debug.Log("Opened Good Door!", this);
             
+            playSfxAudioChannel.Invoke(goodDoorSound);
+            
             AddScore();
 
             if (_validDoorsOpened == _numberOfDoors - 1)
@@ -92,7 +117,8 @@ namespace DoorGame
             Debug.Log("Starting next wave", this);
             
             _validDoorsOpened = 0;
-            
+            _wavesCompleted++;
+            _scoreMultiplier++;
             doorController.GenerateDoors();
         }
         
@@ -100,12 +126,15 @@ namespace DoorGame
         private void AddScore()
         {
             _validDoorsOpened++;
-            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened;
+            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _wavesCompleted) * _scoreMultiplier;
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
             scoreChangedEvent.Invoke(_score);
+            playSfxAudioChannel.Invoke(scoreAddedSound);
+            Debug.Log(_wavesCompleted);
             
             _totalDoorsOpened++;
+            
             validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
         }
 

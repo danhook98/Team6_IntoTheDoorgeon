@@ -55,6 +55,8 @@ namespace DoorGame.Audio
             musicAudioSource.Play();
         }
         
+        public void StopMusic() => musicAudioSource.Stop();
+        
         // Audio Settings
         public void SetMusicVolume(float musicVolume)
         {

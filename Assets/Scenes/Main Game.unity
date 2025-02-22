@@ -3595,8 +3595,11 @@ MonoBehaviour:
   winMenuContainer: {fileID: 0}
   loseMenuContainer: {fileID: 0}
   onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
-  OnMusicChangeEvent: {fileID: 11400000, guid: f715015f2ee601e4595a6ee9e1e09e25, type: 2}
-  OnSFXChangeEvent: {fileID: 11400000, guid: b9f80870d9e3d4b43a10b42dbab494f6, type: 2}
+  OnMusicChangeEvent: {fileID: 0}
+  OnSFXChangeEvent: {fileID: 0}
+  playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+  pauseSound: {fileID: 11400000, guid: 5b945c8ddf181e8408952e61ab8fc56a, type: 2}
+  unpauseSound: {fileID: 11400000, guid: 13be0ecaf96518c488246497a4ec13dd, type: 2}
 --- !u!1 &1344098237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,6 +4406,22 @@ PrefabInstance:
       propertyPath: doorsOpenedText
       value: 
       objectReference: {fileID: 1845937187}
+    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
