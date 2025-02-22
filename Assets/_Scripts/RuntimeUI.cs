@@ -96,13 +96,11 @@ namespace DoorGame
         public void DisplayHowToPlay()
         {
             howToPlayCanvas.enabled = true;
-            winMenuCanvas.enabled = false;
         }
         
         public void BackToWinScreen()
         {
             howToPlayCanvas.enabled = false;
-            winMenuCanvas.enabled = true;
         }
         public void HowToPlayScreen() => onHowToPlayEvent.Invoke(new Empty());
         public void OffHowToPlayScreen() => onBackToWinMenuEvent.Invoke(new Empty());
