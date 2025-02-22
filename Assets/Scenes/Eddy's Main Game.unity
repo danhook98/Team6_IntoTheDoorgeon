@@ -3208,7 +3208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1142027680673123125, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1815002960915254003, guid: 05e30b33ec103804da279596ade92990, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4903,6 +4903,10 @@ PrefabInstance:
       propertyPath: onHowToPlayEvent
       value: 
       objectReference: {fileID: 11400000, guid: 4730d438604a0044bb57aa0b4c6e116b, type: 2}
+    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: onBackToWinMenuEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 60d0ca0a0863fac4da0c50cbe15c7b3d, type: 2}
     - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5026,6 +5030,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2105507754}
+    - targetCorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2105507760}
   m_SourcePrefab: {fileID: 100100000, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
 --- !u!224 &2105507747 stripped
 RectTransform:
@@ -5062,6 +5069,34 @@ MonoBehaviour:
       - m_Target: {fileID: 2105507748}
         m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
         m_MethodName: DisplayHowToPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2105507760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373534686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 60d0ca0a0863fac4da0c50cbe15c7b3d, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105507748}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: BackToWinScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5161,11 +5196,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437924255461950884, guid: 29f6364cfeea28448b29f944601ead85, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6766915277034790433, guid: 29f6364cfeea28448b29f944601ead85, type: 3}
       propertyPath: m_Name
       value: How To Play Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171404369588262178, guid: 29f6364cfeea28448b29f944601ead85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2105507748}
+    - target: {fileID: 8171404369588262178, guid: 29f6364cfeea28448b29f944601ead85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OffHowToPlayScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171404369588262178, guid: 29f6364cfeea28448b29f944601ead85, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.RuntimeUI, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

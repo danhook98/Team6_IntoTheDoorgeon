@@ -21,6 +21,7 @@ namespace DoorGame
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
         [SerializeField] private BoolEvent onHowToPlayEvent;
+        [SerializeField] private VoidEvent onBackToWinMenuEvent;
         
         [Header("Canvases")]
         [SerializeField] private Canvas winMenuCanvas;
@@ -81,10 +82,16 @@ namespace DoorGame
 
         public void DisplayHowToPlay()
         {
-            Debug.Log(isHowToPlayOn);
-            howToPlayCanvas.enabled = isHowToPlayOn;
+            howToPlayCanvas.enabled = true;
+            winMenuCanvas.enabled = false;
+        }
+        
+        public void BackToWinScreen()
+        {
+            howToPlayCanvas.enabled = false;
+            winMenuCanvas.enabled = true;
         }
         public void HowToPlayScreen() => onHowToPlayEvent.Invoke(true);
-        public void OffHowToPlayScreen() => onHowToPlayEvent.Invoke(false);
+        public void OffHowToPlayScreen() => onBackToWinMenuEvent.Invoke(new Empty());
     }
 }
