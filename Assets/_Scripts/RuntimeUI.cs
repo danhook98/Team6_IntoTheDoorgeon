@@ -9,26 +9,30 @@ namespace DoorGame
     {
         [Header("Score")] 
         [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI winScreenScoreText;
+        [SerializeField] private TextMeshProUGUI highScoreText;
         [SerializeField] private string scorePrefixText = "Score: ";
+        [SerializeField] private string winScreenScorePrefixText = "Score: ";
+        [SerializeField] private string highScorePrefixText = "High Score: ";
         
         [Header("Doors Opened")]
         [SerializeField] private TextMeshProUGUI doorsOpenedText;
+        [SerializeField] private TextMeshProUGUI winScreenOpenedText;
         [SerializeField] private string doorsOpenedPrefixText = "Doors Opened: ";
+        [SerializeField] private string winScreenOpenedPrefixText = "Doors Opened: ";
         
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
         [SerializeField] private VoidEvent onLoadMainGameEvent;
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
-        [SerializeField] private BoolEvent onHowToPlayEvent;
+        [SerializeField] private VoidEvent onHowToPlayEvent;
         [SerializeField] private VoidEvent onBackToWinMenuEvent;
         
         [Header("Canvases")]
         [SerializeField] private Canvas winMenuCanvas;
         [SerializeField] private Canvas loseMenuCanvas;
         [SerializeField] private Canvas howToPlayCanvas;
-
-        private bool isHowToPlayOn = false;
         
         public void PauseGame()
         {
@@ -63,11 +67,18 @@ namespace DoorGame
         public void OnScoreChanged(int score)
         {
             scoreText.text = scorePrefixText + score;
+            winScreenScoreText.text = scorePrefixText + score;
         }
 
         public void OnValidDoorsOpenedChanged(int numDoors)
         {
             doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
+            winScreenOpenedText.text = winScreenOpenedPrefixText + numDoors;
+        }
+
+        public void OnHighScoreChanged(int highScore)
+        {
+            highScoreText.text = highScorePrefixText + highScore;
         }
         
         public void WinScreenOn()
@@ -91,7 +102,7 @@ namespace DoorGame
             howToPlayCanvas.enabled = false;
             winMenuCanvas.enabled = true;
         }
-        public void HowToPlayScreen() => onHowToPlayEvent.Invoke(true);
+        public void HowToPlayScreen() => onHowToPlayEvent.Invoke(new Empty());
         public void OffHowToPlayScreen() => onBackToWinMenuEvent.Invoke(new Empty());
     }
 }
