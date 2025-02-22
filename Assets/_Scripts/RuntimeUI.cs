@@ -78,11 +78,13 @@ namespace DoorGame
 
         public void OnHighScoreChanged(int highScore)
         {
+            PlayerPrefs.GetInt("High Score", highScore);
             highScoreText.text = highScorePrefixText + highScore;
         }
         
         public void WinScreenOn()
         {
+            highScoreText.text = highScorePrefixText + PlayerPrefs.GetInt("High Score");
             winMenuCanvas.enabled = true;
         }
 

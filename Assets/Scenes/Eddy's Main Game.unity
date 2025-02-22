@@ -515,17 +515,14 @@ PrefabInstance:
       propertyPath: doors.Array.data[2]
       value: 
       objectReference: {fileID: 1952564105}
-    - target: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      propertyPath: onLeaveDungeonEvent
+    - target: {fileID: 6251075440063625093, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
+      propertyPath: onEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
+      objectReference: {fileID: 2105507748}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1501824163573275066, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1214024587}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
 --- !u!4 &135007477 stripped
 Transform:
@@ -1148,11 +1145,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &373534686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-  m_PrefabInstance: {fileID: 2105507746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &413839126 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6276012531793666845, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
@@ -3090,50 +3082,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1214024583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1501824163573275066, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
-  m_PrefabInstance: {fileID: 135007476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1214024586 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8937892511097961488, guid: 9a4ff0bd77982764abe542ec1dccbbe5, type: 3}
   m_PrefabInstance: {fileID: 135007476}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214024583}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a32d8d357aa8d341998eac8cf7b1c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1214024587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214024583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105507748}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: WinScreenOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1219048329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4684,89 +4643,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479790012}
     m_Modifications:
-    - target: {fileID: 621351801844588476, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 621351801844588476, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 621351801844588476, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 621351801844588476, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276721339133543646, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276721339133543646, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276721339133543646, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2276721339133543646, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_Name
       value: Main Game Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938228628608971698, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938228628608971698, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938228628608971698, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3938228628608971698, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4523953283213422990, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4523953283213422990, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4523953283213422990, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4523953283213422990, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576681477376345184, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576681477376345184, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576681477376345184, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576681477376345184, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5675730879337202908, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4789,10 +4668,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 176509533}
     - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: onHowToPlayEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 4730d438604a0044bb57aa0b4c6e116b, type: 2}
-    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: winScreenScoreText
       value: 
       objectReference: {fileID: 1977879734}
@@ -4800,42 +4675,6 @@ PrefabInstance:
       propertyPath: winScreenOpenedText
       value: 
       objectReference: {fileID: 2039518764}
-    - target: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: onBackToWinMenuEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 60d0ca0a0863fac4da0c50cbe15c7b3d, type: 2}
-    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9078112151484825247, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4916,20 +4755,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9153193502083651757, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      propertyPath: m_margin.z
-      value: -134.6406
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2105507760}
-    - targetCorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2105507761}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
 --- !u!224 &2105507747 stripped
 RectTransform:
@@ -4941,68 +4770,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
   m_PrefabInstance: {fileID: 2105507746}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373534686}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ded3e3709e48374ea4a6cca66ca39a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2105507760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373534686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: 60d0ca0a0863fac4da0c50cbe15c7b3d, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105507748}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: BackToWinScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2105507761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373534686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: 4730d438604a0044bb57aa0b4c6e116b, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105507748}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: DisplayHowToPlay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &6577554533904051691
 PrefabInstance:
   m_ObjectHideFlags: 0
