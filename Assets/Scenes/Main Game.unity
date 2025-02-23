@@ -1349,6 +1349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479790012}
   - component: {fileID: 479790016}
+  - component: {fileID: 479790017}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -1397,11 +1398,38 @@ MonoBehaviour:
   onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
   onLoadMainGameEvent: {fileID: 0}
   onLoadMainMenuEvent: {fileID: 0}
-  onRestartCurrentSceneEvent: {fileID: 11400000, guid: ee7e05878ab090440a0a709e7364b4dd, type: 2}
   onHowToPlayEvent: {fileID: 0}
   onBackToWinMenuEvent: {fileID: 0}
   winMenuCanvas: {fileID: 0}
   howToPlayCanvas: {fileID: 0}
+--- !u!114 &479790017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479790011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 4f1f538787252ce44b6d1381ddb2290b, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479790016}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &483281905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,29 +1785,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479790012}
     m_Modifications:
-    - target: {fileID: 717126175342168215, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_Name
       value: Lose Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5492567196839179039, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1863,42 +1871,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6276012531793666845, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8333175906102529347, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 479790016}
-    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 6373126586291798564}
   - component: {fileID: 7779564153935527316}
   - component: {fileID: 1815002960915254003}
+  - component: {fileID: 7268069809842988933}
   m_Layer: 5
   m_Name: 'RestartButton '
   m_TagString: Untagged
@@ -389,9 +390,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 7268069809842988933}
+        m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
+        m_MethodName: TriggerEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -401,6 +402,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7268069809842988933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190212213292858842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: 4f1f538787252ce44b6d1381ddb2290b, type: 2}
 --- !u!1 &4132647009384985487
 GameObject:
   m_ObjectHideFlags: 0

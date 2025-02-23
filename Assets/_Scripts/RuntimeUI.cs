@@ -21,7 +21,6 @@ namespace DoorGame
         [SerializeField] private BoolEvent onPauseGameEvent;
         [SerializeField] private VoidEvent onLoadMainGameEvent;
         [SerializeField] private VoidEvent onLoadMainMenuEvent;
-        [SerializeField] private BoolEvent onRestartCurrentSceneEvent;
         [SerializeField] private VoidEvent onHowToPlayEvent;
         [SerializeField] private VoidEvent onBackToWinMenuEvent;
         
@@ -44,7 +43,6 @@ namespace DoorGame
         public void RestartGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            onRestartCurrentSceneEvent.Invoke(true);
         }
         
         public void LoadMainGameScene()
