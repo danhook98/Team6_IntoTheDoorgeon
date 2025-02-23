@@ -76,7 +76,6 @@ namespace DoorGame
         {
             SaveHighScore();
             playSfxAudioChannel.Invoke(leaveDungeonSound);
-            onLeaveDungeonEvent.Invoke(new Empty());
         }
 
         public void WaveWon()
