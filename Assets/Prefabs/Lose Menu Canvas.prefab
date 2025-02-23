@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 3368014441933880351}
   - component: {fileID: 4359272989707748737}
   - component: {fileID: 5492567196839179039}
+  - component: {fileID: 8769951162621532811}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -525,9 +526,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: LoadMainMenuScene
+      - m_Target: {fileID: 8769951162621532811}
+        m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
+        m_MethodName: TriggerEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -537,6 +538,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8769951162621532811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681324069628005932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: d1808ad8e05f8b541a5b3ce1df4c204f, type: 2}
 --- !u!1 &3491805127721612631
 GameObject:
   m_ObjectHideFlags: 0

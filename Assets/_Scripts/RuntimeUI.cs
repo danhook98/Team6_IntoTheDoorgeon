@@ -20,7 +20,6 @@ namespace DoorGame
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
         [SerializeField] private VoidEvent onLoadMainGameEvent;
-        [SerializeField] private VoidEvent onLoadMainMenuEvent;
         [SerializeField] private VoidEvent onHowToPlayEvent;
         [SerializeField] private VoidEvent onBackToWinMenuEvent;
         
@@ -48,7 +47,6 @@ namespace DoorGame
         public void LoadMainMenuScene()
         {
             SceneManager.LoadScene("Main Menu"); 
-            onLoadMainMenuEvent.Invoke(new Empty());
         }
 
         public void OnHighScoreChanged(int highScore)
