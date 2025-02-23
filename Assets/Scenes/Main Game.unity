@@ -1392,12 +1392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ded3e3709e48374ea4a6cca66ca39a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScreenScoreText: {fileID: 0}
-  highScoreText: {fileID: 0}
-  winScreenScorePrefixText: 'Score: '
-  highScorePrefixText: 'High Score: '
-  winScreenOpenedText: {fileID: 0}
-  winScreenOpenedPrefixText: 'Doors Opened: '
   onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
 --- !u!114 &479790017
 MonoBehaviour:

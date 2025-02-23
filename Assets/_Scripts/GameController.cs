@@ -145,6 +145,10 @@ namespace DoorGame
                 PlayerPrefs.SetInt("HighScore", _score);
                 highScoreChangedEvent.Invoke(_score);
             }
+            else
+            {
+                highScoreChangedEvent.Invoke(PlayerPrefs.GetInt("HighScore", 0));
+            }
         }
         
         public void DetectMouseHover()
