@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 4523953283213422990}
   - component: {fileID: 7933183104761533371}
   - component: {fileID: 9023428048920629160}
+  - component: {fileID: 8064226696626780351}
+  - component: {fileID: 2805760869985946571}
   m_Layer: 5
   m_Name: DoorsCountDisplay
   m_TagString: Untagged
@@ -201,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Doors Gone Through:'
+  m_text: 'Doors Opened: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -270,6 +272,47 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8064226696626780351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447085238965988532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f16c870d8944935be5eac6891ddcfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefixText: 'Doors Opened: '
+--- !u!114 &2805760869985946571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447085238965988532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8064226696626780351}
+        m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &608127104101047814
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,11 +595,6 @@ GameObject:
   - component: {fileID: 5504937519059367733}
   - component: {fileID: 8425874043270411208}
   - component: {fileID: 3490166415070539707}
-  - component: {fileID: 6959948771396879393}
-  - component: {fileID: 7586618588663249799}
-  - component: {fileID: 7830980384507107947}
-  - component: {fileID: 8961167271838517389}
-  - component: {fileID: 9075970609854688795}
   m_Layer: 5
   m_Name: Main Game Canvas
   m_TagString: Untagged
@@ -648,149 +686,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6959948771396879393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269816409492510366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ded3e3709e48374ea4a6cca66ca39a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 9153193502083651757}
-  winScreenScoreText: {fileID: 0}
-  highScoreText: {fileID: 0}
-  scorePrefixText: 'Score: '
-  winScreenScorePrefixText: 'Score: '
-  highScorePrefixText: 'High Score: '
-  doorsOpenedText: {fileID: 9023428048920629160}
-  winScreenOpenedText: {fileID: 0}
-  doorsOpenedPrefixText: 'Doors Opened: '
-  winScreenOpenedPrefixText: 'Doors Opened: '
-  onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
-  onLoadMainGameEvent: {fileID: 0}
-  onLoadMainMenuEvent: {fileID: 0}
-  onRestartCurrentSceneEvent: {fileID: 11400000, guid: ee7e05878ab090440a0a709e7364b4dd, type: 2}
-  onHowToPlayEvent: {fileID: 11400000, guid: 4730d438604a0044bb57aa0b4c6e116b, type: 2}
-  onBackToWinMenuEvent: {fileID: 11400000, guid: 60d0ca0a0863fac4da0c50cbe15c7b3d, type: 2}
-  winMenuCanvas: {fileID: 0}
-  loseMenuCanvas: {fileID: 0}
-  howToPlayCanvas: {fileID: 0}
---- !u!114 &7586618588663249799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269816409492510366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: OnScoreChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7830980384507107947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269816409492510366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: OnValidDoorsOpenedChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8961167271838517389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269816409492510366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: 60d0ca0a0863fac4da0c50cbe15c7b3d, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: BackToWinScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &9075970609854688795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269816409492510366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: 4730d438604a0044bb57aa0b4c6e116b, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: DisplayHowToPlay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &3756337415539921166
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +874,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
         m_MethodName: LoadMainGameScene
         m_Mode: 1
@@ -1112,7 +1007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -1135,6 +1030,8 @@ GameObject:
   - component: {fileID: 8375619550206919417}
   - component: {fileID: 2076666736513588417}
   - component: {fileID: 9153193502083651757}
+  - component: {fileID: 9164252152665671943}
+  - component: {fileID: 6936630344923916689}
   m_Layer: 5
   m_Name: ScoreDisplay
   m_TagString: Untagged
@@ -1189,7 +1086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1258,6 +1155,47 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9164252152665671943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247241181425860105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f16c870d8944935be5eac6891ddcfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefixText: 'Score: '
+--- !u!114 &6936630344923916689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247241181425860105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9164252152665671943}
+        m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6314780403151307802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1451,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
         m_MethodName: LoadMainMenuScene
         m_Mode: 1
@@ -1846,7 +1784,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6959948771396879393}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1

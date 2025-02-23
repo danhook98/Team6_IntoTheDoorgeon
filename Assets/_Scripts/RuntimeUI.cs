@@ -14,9 +14,7 @@ namespace DoorGame
         [SerializeField] private string highScorePrefixText = "High Score: ";
         
         [Header("Doors Opened")]
-        [SerializeField] private TextMeshProUGUI doorsOpenedText;
         [SerializeField] private TextMeshProUGUI winScreenOpenedText;
-        [SerializeField] private string doorsOpenedPrefixText = "Doors Opened: ";
         [SerializeField] private string winScreenOpenedPrefixText = "Doors Opened: ";
         
         [Header("Events")]
@@ -59,12 +57,6 @@ namespace DoorGame
         {
             SceneManager.LoadScene("Main Menu"); 
             onLoadMainMenuEvent.Invoke(new Empty());
-        }
-
-        public void OnValidDoorsOpenedChanged(int numDoors)
-        {
-            doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
-            //winScreenOpenedText.text = winScreenOpenedPrefixText + numDoors;
         }
 
         public void OnHighScoreChanged(int highScore)
