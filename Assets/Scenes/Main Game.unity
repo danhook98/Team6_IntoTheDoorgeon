@@ -1348,6 +1348,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479790012}
+  - component: {fileID: 479790016}
+  - component: {fileID: 479790015}
+  - component: {fileID: 479790014}
+  - component: {fileID: 479790013}
   m_Layer: 0
   m_Name: Canvases
   m_TagString: Untagged
@@ -1374,6 +1378,108 @@ Transform:
   - {fileID: 705986280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479790013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479790011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 0}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &479790014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479790011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479790016}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: OnValidDoorsOpenedChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &479790015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479790011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479790016}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: OnScoreChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &479790016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479790011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ded3e3709e48374ea4a6cca66ca39a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 608043299}
+  winScreenScoreText: {fileID: 0}
+  highScoreText: {fileID: 0}
+  scorePrefixText: 'Score: '
+  winScreenScorePrefixText: 'Score: '
+  highScorePrefixText: 'High Score: '
+  doorsOpenedText: {fileID: 1845937187}
+  winScreenOpenedText: {fileID: 0}
+  doorsOpenedPrefixText: 'Doors Opened: '
+  winScreenOpenedPrefixText: 'Doors Opened: '
+  onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
+  onLoadMainGameEvent: {fileID: 0}
+  onLoadMainMenuEvent: {fileID: 0}
+  onRestartCurrentSceneEvent: {fileID: 11400000, guid: ee7e05878ab090440a0a709e7364b4dd, type: 2}
+  onHowToPlayEvent: {fileID: 0}
+  onBackToWinMenuEvent: {fileID: 0}
+  winMenuCanvas: {fileID: 0}
+  howToPlayCanvas: {fileID: 0}
 --- !u!1 &483281905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1841,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 479790012}
     m_Modifications:
+    - target: {fileID: 717126175342168215, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_Name
       value: Lose Menu Canvas
@@ -1870,7 +1980,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1214229379}
   m_SourcePrefab: {fileID: 100100000, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
 --- !u!224 &705986280 stripped
 RectTransform:
@@ -3188,11 +3301,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150736221}
   m_CullTransparentMesh: 1
---- !u!1 &1157899176 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-  m_PrefabInstance: {fileID: 2105507746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1180087182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3332,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1214229378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4133584580019293835, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+  m_PrefabInstance: {fileID: 705986279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1214229379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214229378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1214229382}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!223 &1214229382 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 717126175342168215, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+  m_PrefabInstance: {fileID: 705986279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1223373850
 GameObject:
   m_ObjectHideFlags: 0
@@ -4561,6 +4707,14 @@ PrefabInstance:
       propertyPath: doorsOpenedText
       value: 
       objectReference: {fileID: 1845937187}
+    - target: {fileID: 7586618588663249799, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: onEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830980384507107947, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: onEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8167844099249210604, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4592,6 +4746,14 @@ PrefabInstance:
     - target: {fileID: 8375619550206919417, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961167271838517389, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: onEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075970609854688795, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: onEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9078112151484825247, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_Pivot.x
@@ -4673,89 +4835,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+    - {fileID: 7586618588663249799, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+    - {fileID: 7830980384507107947, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+    - {fileID: 8961167271838517389, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+    - {fileID: 9075970609854688795, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2105507753}
-    - targetCorrespondingSourceObject: {fileID: 3269816409492510366, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2105507752}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
 --- !u!224 &2105507747 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9078112151484825247, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
   m_PrefabInstance: {fileID: 2105507746}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2105507748 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6959948771396879393, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
-  m_PrefabInstance: {fileID: 2105507746}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157899176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ded3e3709e48374ea4a6cca66ca39a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2105507752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157899176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105507748}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: OnValidDoorsOpenedChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2105507753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157899176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105507748}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: OnScoreChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

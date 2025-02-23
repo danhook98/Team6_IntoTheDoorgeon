@@ -31,7 +31,6 @@ namespace DoorGame
         
         [Header("Canvases")]
         [SerializeField] private Canvas winMenuCanvas;
-        [SerializeField] private Canvas loseMenuCanvas;
         [SerializeField] private Canvas howToPlayCanvas;
         
         public void PauseGame()
@@ -67,13 +66,13 @@ namespace DoorGame
         public void OnScoreChanged(int score)
         {
             scoreText.text = scorePrefixText + score;
-            winScreenScoreText.text = scorePrefixText + score;
+            // winScreenScoreText.text = scorePrefixText + score;
         }
 
         public void OnValidDoorsOpenedChanged(int numDoors)
         {
             doorsOpenedText.text = doorsOpenedPrefixText + numDoors;
-            winScreenOpenedText.text = winScreenOpenedPrefixText + numDoors;
+            //winScreenOpenedText.text = winScreenOpenedPrefixText + numDoors;
         }
 
         public void OnHighScoreChanged(int highScore)
@@ -86,11 +85,6 @@ namespace DoorGame
         {
             highScoreText.text = highScorePrefixText + PlayerPrefs.GetInt("High Score");
             winMenuCanvas.enabled = true;
-        }
-
-        public void LoseScreenOn()
-        {
-            loseMenuCanvas.enabled = true;
         }
 
         public void DisplayHowToPlay()
