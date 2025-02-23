@@ -16,14 +16,8 @@ namespace DoorGame
             onPauseGameEvent.Invoke(true);
         }
 
-        public void RestartGame()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-        public void LoadMainMenuScene()
-        {
-            SceneManager.LoadScene("Main Menu"); 
-        }
+        public void LoadMainMenuScene() => SceneManager.LoadScene("Main Menu");
     }
 }
