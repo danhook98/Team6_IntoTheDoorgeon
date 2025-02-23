@@ -19,13 +19,6 @@ namespace DoorGame
         
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
-        [SerializeField] private VoidEvent onLoadMainGameEvent;
-        [SerializeField] private VoidEvent onHowToPlayEvent;
-        [SerializeField] private VoidEvent onBackToWinMenuEvent;
-        
-        [Header("Canvases")]
-        [SerializeField] private Canvas winMenuCanvas;
-        [SerializeField] private Canvas howToPlayCanvas;
         
         public void PauseGame()
         {
@@ -37,40 +30,22 @@ namespace DoorGame
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
-        public void LoadMainGameScene()
-        {
-            SceneManager.LoadScene("Main Game"); 
-            onLoadMainGameEvent.Invoke(new Empty());
-        }
 
         public void LoadMainMenuScene()
         {
             SceneManager.LoadScene("Main Menu"); 
         }
 
-        public void OnHighScoreChanged(int highScore)
-        {
-            PlayerPrefs.GetInt("High Score", highScore);
-            highScoreText.text = highScorePrefixText + highScore;
-        }
-        
-        public void WinScreenOn()
-        {
-            highScoreText.text = highScorePrefixText + PlayerPrefs.GetInt("High Score");
-            winMenuCanvas.enabled = true;
-        }
-
-        public void DisplayHowToPlay()
-        {
-            howToPlayCanvas.enabled = true;
-        }
-        
-        public void BackToWinScreen()
-        {
-            howToPlayCanvas.enabled = false;
-        }
-        public void HowToPlayScreen() => onHowToPlayEvent.Invoke(new Empty());
-        public void OffHowToPlayScreen() => onBackToWinMenuEvent.Invoke(new Empty());
+        // public void OnHighScoreChanged(int highScore)
+        // {
+        //     PlayerPrefs.GetInt("High Score", highScore);
+        //     highScoreText.text = highScorePrefixText + highScore;
+        // }
+        //
+        // public void WinScreenOn()
+        // {
+        //     highScoreText.text = highScorePrefixText + PlayerPrefs.GetInt("High Score");
+        //     winMenuCanvas.enabled = true;
+        // }
     }
 }
