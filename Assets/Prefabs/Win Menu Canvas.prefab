@@ -1492,6 +1492,7 @@ GameObject:
   - component: {fileID: 6937115611301937648}
   - component: {fileID: 2906472465008590055}
   - component: {fileID: 462809729261554755}
+  - component: {fileID: 2993602539637190631}
   m_Layer: 5
   m_Name: 'HowToPlayButton '
   m_TagString: Untagged
@@ -1601,9 +1602,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: HowToPlayScreen
+      - m_Target: {fileID: 2993602539637190631}
+        m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
+        m_MethodName: TriggerEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1613,6 +1614,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2993602539637190631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303700636077782184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: 3acf45810893ab345813a44c57e0d138, type: 2}
 --- !u!1 &8901466998654653979
 GameObject:
   m_ObjectHideFlags: 0
