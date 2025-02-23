@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 1142027680673123125}
   - component: {fileID: 2640022518943905116}
   - component: {fileID: 2113019329622074782}
+  - component: {fileID: 2106245945610158099}
   m_Layer: 5
   m_Name: Win Menu Canvas
   m_TagString: Untagged
@@ -778,6 +779,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2106245945610158099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5333036355759233352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1142027680673123125}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &6070044246148384902
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +951,8 @@ GameObject:
   - component: {fileID: 5945926942480379347}
   - component: {fileID: 5346427156307153784}
   - component: {fileID: 9128580488920406181}
+  - component: {fileID: 6854428932782223337}
+  - component: {fileID: 452641591792001059}
   m_Layer: 5
   m_Name: 'ScoreDisplay '
   m_TagString: Untagged
@@ -1045,6 +1076,47 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6854428932782223337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563547267413142542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f16c870d8944935be5eac6891ddcfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefixText: 'Score: '
+--- !u!114 &452641591792001059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6563547267413142542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6854428932782223337}
+        m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7281479498593294689
 GameObject:
   m_ObjectHideFlags: 0

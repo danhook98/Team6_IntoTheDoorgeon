@@ -1837,6 +1837,7 @@ GameObject:
   - component: {fileID: 5548992598684664798}
   - component: {fileID: 4626094538696290039}
   - component: {fileID: 5675730879337202908}
+  - component: {fileID: 1759032951489013700}
   m_Layer: 5
   m_Name: LeaveDungeon
   m_TagString: Untagged
@@ -1946,9 +1947,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
-        m_MethodName: LeaveGame
+      - m_Target: {fileID: 1759032951489013700}
+        m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
+        m_MethodName: TriggerEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1958,3 +1959,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1759032951489013700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960666739191520035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
