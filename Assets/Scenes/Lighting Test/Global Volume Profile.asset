@@ -21,10 +21,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.42
+    m_Value: 0.4
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0.45
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -135,23 +135,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   shadows:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: -0.21052632}
   midtones:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 0.118421055}
   highlights:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1, z: 1, w: 1}
   shadowsStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   shadowsEnd:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.3
   highlightsStart:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.55
   highlightsEnd:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
