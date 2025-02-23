@@ -1399,11 +1399,6 @@ MonoBehaviour:
   winScreenOpenedText: {fileID: 0}
   winScreenOpenedPrefixText: 'Doors Opened: '
   onPauseGameEvent: {fileID: 11400000, guid: 23b0ac0e5f6df054eb6024d7f16954ff, type: 2}
-  onLoadMainGameEvent: {fileID: 0}
-  onHowToPlayEvent: {fileID: 0}
-  onBackToWinMenuEvent: {fileID: 0}
-  winMenuCanvas: {fileID: 0}
-  howToPlayCanvas: {fileID: 0}
 --- !u!114 &479790017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1847,6 +1842,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lose Menu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5027963381300549851, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6276012531793666845, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1925,6 +1936,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6276012531793666845, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359288234572958818, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651284700584768795, guid: b60000e9785fabc4bbb4d2439287968c, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

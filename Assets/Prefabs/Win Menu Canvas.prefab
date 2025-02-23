@@ -1357,6 +1357,8 @@ GameObject:
   - component: {fileID: 2548830580193122083}
   - component: {fileID: 8289568235405343366}
   - component: {fileID: 408458654955459618}
+  - component: {fileID: 6575473373611003438}
+  - component: {fileID: 5437439475051200939}
   m_Layer: 5
   m_Name: HighScoreText
   m_TagString: Untagged
@@ -1381,7 +1383,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -523, y: 209}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8289568235405343366
 CanvasRenderer:
@@ -1480,6 +1482,47 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6575473373611003438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8161055473663970561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f16c870d8944935be5eac6891ddcfbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefixText: 'High Score: '
+--- !u!114 &5437439475051200939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8161055473663970561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 88c261b72e758c44a8ed3b814be72ffb, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6575473373611003438}
+        m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
+        m_MethodName: SetText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8303700636077782184
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverEvent: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  highScoreChangedEvent: {fileID: 11400000, guid: 88c261b72e758c44a8ed3b814be72ffb, type: 2}
   validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
   onPlayerPositionChangeEvent: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
   onLeaveDungeonEvent: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
@@ -58,7 +59,6 @@ MonoBehaviour:
   doorController: {fileID: 3836019482660305371}
   playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   gameStartSound: {fileID: 11400000, guid: d9ab7422628631a4a893c62a0687e60c, type: 2}
-  gameOverSound: {fileID: 0}
   leaveDungeonSound: {fileID: 11400000, guid: 967b03741ab24324391524c44c5700e5, type: 2}
   scoreAddedSound: {fileID: 11400000, guid: 3882f04af2fda7a4aac356368be1269f, type: 2}
   goodDoorSound: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
@@ -124,18 +124,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: LoseScreenOn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6251075440063625093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,9 +140,9 @@ MonoBehaviour:
   onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
-        m_MethodName: WinScreenOn
+      - m_Target: {fileID: 8937892511097961488}
+        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+        m_MethodName: LeaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

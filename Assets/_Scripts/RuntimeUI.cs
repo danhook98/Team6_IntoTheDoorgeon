@@ -7,16 +7,6 @@ namespace DoorGame
 {
     public class RuntimeUI : MonoBehaviour
     {
-        [Header("Score")] 
-        [SerializeField] private TextMeshProUGUI winScreenScoreText;
-        [SerializeField] private TextMeshProUGUI highScoreText;
-        [SerializeField] private string winScreenScorePrefixText = "Score: ";
-        [SerializeField] private string highScorePrefixText = "High Score: ";
-        
-        [Header("Doors Opened")]
-        [SerializeField] private TextMeshProUGUI winScreenOpenedText;
-        [SerializeField] private string winScreenOpenedPrefixText = "Doors Opened: ";
-        
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
         
@@ -35,17 +25,5 @@ namespace DoorGame
         {
             SceneManager.LoadScene("Main Menu"); 
         }
-
-        // public void OnHighScoreChanged(int highScore)
-        // {
-        //     PlayerPrefs.GetInt("High Score", highScore);
-        //     highScoreText.text = highScorePrefixText + highScore;
-        // }
-        //
-        // public void WinScreenOn()
-        // {
-        //     highScoreText.text = highScorePrefixText + PlayerPrefs.GetInt("High Score");
-        //     winMenuCanvas.enabled = true;
-        // }
     }
 }
