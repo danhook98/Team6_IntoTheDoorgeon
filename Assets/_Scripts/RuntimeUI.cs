@@ -8,10 +8,8 @@ namespace DoorGame
     public class RuntimeUI : MonoBehaviour
     {
         [Header("Score")] 
-        [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private TextMeshProUGUI winScreenScoreText;
         [SerializeField] private TextMeshProUGUI highScoreText;
-        [SerializeField] private string scorePrefixText = "Score: ";
         [SerializeField] private string winScreenScorePrefixText = "Score: ";
         [SerializeField] private string highScorePrefixText = "High Score: ";
         
@@ -61,12 +59,6 @@ namespace DoorGame
         {
             SceneManager.LoadScene("Main Menu"); 
             onLoadMainMenuEvent.Invoke(new Empty());
-        }
-
-        public void OnScoreChanged(int score)
-        {
-            scoreText.text = scorePrefixText + score;
-            // winScreenScoreText.text = scorePrefixText + score;
         }
 
         public void OnValidDoorsOpenedChanged(int numDoors)
