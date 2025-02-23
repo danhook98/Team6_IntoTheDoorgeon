@@ -595,13 +595,14 @@ GameObject:
   - component: {fileID: 942901240189888801}
   - component: {fileID: 8900463136072345750}
   - component: {fileID: 7630877680918523118}
+  - component: {fileID: 8631417001412002037}
   m_Layer: 5
   m_Name: Enter Door Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5296992005717879733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -703,7 +704,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8900463136072345750}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8631417001412002037}
+        m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
+        m_MethodName: TriggerEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8631417001412002037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181767398152587066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: c0b18c33dfef65c4fa21d9d27b0700de, type: 2}
 --- !u!1 &3269816409492510366
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +743,7 @@ GameObject:
   - component: {fileID: 8425874043270411208}
   - component: {fileID: 3490166415070539707}
   - component: {fileID: 5721536234640683825}
+  - component: {fileID: 9047614498494664022}
   m_Layer: 5
   m_Name: Main Game Canvas
   m_TagString: Untagged
@@ -829,6 +856,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9047614498494664022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269816409492510366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a842214ef04cef9910f09e7d21816b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 113183519dba74243b8d8f0460945e4f, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3181767398152587066}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

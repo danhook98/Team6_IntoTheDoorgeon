@@ -113,10 +113,11 @@ namespace DoorGame
             }
         }
 
-        private void StartNextWave()
+        public void StartNextWave()
         {
             Debug.Log("Starting next wave", this);
             
+            showEnterDungeonButtonEvent.Invoke(false);
             _validDoorsOpened = 0;
             _wavesCompleted++;
             _scoreMultiplier++;
