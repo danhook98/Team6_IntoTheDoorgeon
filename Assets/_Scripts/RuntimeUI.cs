@@ -34,12 +34,6 @@ namespace DoorGame
             onPauseGameEvent.Invoke(true);
         }
 
-        public void ResumeGame()
-        {
-            Debug.Log("Game resumed");
-            onPauseGameEvent.Invoke(false);
-        }
-
         public void RestartGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
