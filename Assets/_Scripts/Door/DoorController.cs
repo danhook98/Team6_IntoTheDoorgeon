@@ -18,10 +18,8 @@ namespace DoorGame.Door
 
         public void GenerateDoors()
         {
-            // If bad door has not been selected, pick a door randomly from the array
-            // and tag every game object in the array but the bad door as "GoodDoor"
-            // Bad door labelled as "BadDoor". 
-
+            // If bad door has not been selected, pick a door randomly from the array and tag every game object in the
+            // array but the bad door as "GoodDoor", bad door labelled as "BadDoor". 
             ResetDoors();
             
             _badDoor = doors[Random.Range(0, doors.Length)];
@@ -39,6 +37,8 @@ namespace DoorGame.Door
             {
                 door.tag = "GoodDoor";
                 
+                door.AllowOpening();
+                
                 if (door.isRoomResetting == false)
                 {
                     StartCoroutine(door.ResetToDefault());
@@ -50,7 +50,7 @@ namespace DoorGame.Door
                 door.GetComponent<Button>().colors = block;
             }
         }
-
+        
         public void DoorOpened(bool isBadDoor)
         {
             if (isBadDoor)
