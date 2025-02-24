@@ -24,11 +24,6 @@ namespace DoorGame.Door
             
             _badDoor = doors[Random.Range(0, doors.Length)];
             _badDoor.tag = "BadDoor";
-            
-            // Temporary for testing. 
-            var block = _badDoor.GetComponent<Button>().colors;
-            block.normalColor = Colour.red;
-            _badDoor.GetComponent<Button>().colors = block;
         }
 
         private void ResetDoors()
@@ -39,11 +34,6 @@ namespace DoorGame.Door
                 
                 door.AllowOpening();
                 door.ResetAnimationState();
-                
-                // Temporary for testing.
-                var block = door.GetComponent<Button>().colors;
-                block.normalColor = Colour.green;
-                door.GetComponent<Button>().colors = block;
             }
         }
         
