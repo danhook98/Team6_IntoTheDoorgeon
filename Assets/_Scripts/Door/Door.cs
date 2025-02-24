@@ -34,36 +34,24 @@ namespace DoorGame.Door
             switch (tag)
             {
                 case "BadDoor":
-                    StartCoroutine(BadDoorPicked());
+                    //StartCoroutine(BadDoorPicked());
+                    doorAnimator.SetTrigger(BadDoorOpened);
                     break;
                 default:
-                    StartCoroutine(GoodDoorPicked());
+                    //StartCoroutine(GoodDoorPicked());
+                    doorAnimator.SetTrigger(GoodDoorOpened);
                     break;
             }
+            
+            _canOpen = false;
+            
             onDoorOpenedEvent.Invoke(badDoor);
         }
 
-        public IEnumerator BadDoorPicked()
-        {
-            doorAnimator.SetTrigger(BadDoorOpened);
-            yield return new WaitForSeconds(1.1f);
-        }
-        
-        public IEnumerator GoodDoorPicked()
-        {
-            doorAnimator.SetTrigger(GoodDoorOpened);
-            yield return new WaitForSeconds(1.1f);
-        }
+        public void ResetAnimationState() => doorAnimator.SetTrigger(RoomReset);
 
-        public IEnumerator ResetToDefault()
-        {
-            isRoomResetting = true;
-            yield return new WaitForSeconds(1.1f);
-            isRoomResetting = false;
-            doorAnimator.SetTrigger(RoomReset);
-        }
-        
         public void PreventOpening() => _canOpen = false;
+        public void AllowOpening() => _canOpen = true;
         
         // Audio. 
         public void PlayHoverSound() => playSfxAudioChannel.Invoke(doorHoverSound);
