@@ -15,6 +15,7 @@ namespace DoorGame
         [SerializeField] private IntEvent validDoorsOpenedEvent;
         [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
+        [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
@@ -105,17 +106,18 @@ namespace DoorGame
             playSfxAudioChannel.Invoke(goodDoorSound);
             
             AddScore();
-
-            if (_validDoorsOpened == _numberOfDoors - 1)
+            
+            if (_validDoorsOpened == 1)
             {
-                StartNextWave();
+                showEnterDungeonButtonEvent.Invoke(true);
             }
         }
 
-        private void StartNextWave()
+        public void StartNextWave()
         {
             Debug.Log("Starting next wave", this);
             
+            showEnterDungeonButtonEvent.Invoke(false);
             _validDoorsOpened = 0;
             _wavesCompleted++;
             _scoreMultiplier++;
