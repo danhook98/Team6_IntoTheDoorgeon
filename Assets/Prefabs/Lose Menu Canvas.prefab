@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8769951162621532811}
         m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
         m_MethodName: TriggerEvent
         m_Mode: 1
@@ -2358,7 +2358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4008157676069332283}
         m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
         m_MethodName: TriggerEvent
         m_Mode: 1
@@ -2827,7 +2827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4946901815687545848}
         m_TargetAssemblyTypeName: DoorGame.Events.VoidEventTrigger, Assembly-CSharp
         m_MethodName: TriggerEvent
         m_Mode: 1
