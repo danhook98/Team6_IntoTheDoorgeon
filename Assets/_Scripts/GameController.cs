@@ -11,6 +11,7 @@ namespace DoorGame
         [Header("Events")] 
         [SerializeField] private VoidEvent gameOverEvent;
         [SerializeField] private IntEvent scoreChangedEvent;
+        [SerializeField] private IntEvent highScoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
         [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
@@ -75,7 +76,6 @@ namespace DoorGame
         {
             SaveHighScore();
             playSfxAudioChannel.Invoke(leaveDungeonSound);
-            onLeaveDungeonEvent.Invoke(new Empty());
         }
 
         public void WaveWon()
@@ -143,6 +143,11 @@ namespace DoorGame
             if (_score > _highScore)
             {
                 PlayerPrefs.SetInt("HighScore", _score);
+                highScoreChangedEvent.Invoke(_score);
+            }
+            else
+            {
+                highScoreChangedEvent.Invoke(PlayerPrefs.GetInt("HighScore", 0));
             }
         }
         
