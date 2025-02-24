@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8937892511097961488}
   - component: {fileID: 4203696471604116356}
   - component: {fileID: 3125429667217619425}
+  - component: {fileID: 6251075440063625093}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -50,9 +51,23 @@ MonoBehaviour:
   gameOverEvent: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
+  onPlayerPositionChangeEvent: {fileID: 11400000, guid: 391b597d500185043a3740baae651279, type: 2}
+  onLeaveDungeonEvent: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
   minimumScoreToAdd: 10
   maxScoreToAdd: 30
   doorController: {fileID: 3836019482660305371}
+  playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+  gameStartSound: {fileID: 11400000, guid: d9ab7422628631a4a893c62a0687e60c, type: 2}
+  gameOverSound: {fileID: 0}
+  leaveDungeonSound: {fileID: 11400000, guid: 967b03741ab24324391524c44c5700e5, type: 2}
+  scoreAddedSound: {fileID: 11400000, guid: 3882f04af2fda7a4aac356368be1269f, type: 2}
+  goodDoorSound: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
+  badDoorSound: {fileID: 11400000, guid: c045c2dbdb55f544f9bdd1d700260687, type: 2}
+  playMusicAudioChannel: {fileID: 11400000, guid: 635be7c9ed4275b48995b2465343da19, type: 2}
+  gameMusic:
+  - {fileID: 11400000, guid: 08dcd12713d6c1840ba0878885f668e1, type: 2}
+  - {fileID: 11400000, guid: 3ca2ed88dd273d649b79bbb0ba9503e4, type: 2}
+  - {fileID: 11400000, guid: 3192351907bf30c408b6b9ea63a89f4e, type: 2}
 --- !u!114 &4203696471604116356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +115,46 @@ MonoBehaviour:
       - m_Target: {fileID: 8937892511097961488}
         m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
         m_MethodName: OpenedBadDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: LoseScreenOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6251075440063625093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501824163573275066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DoorGame.RuntimeUI, Assembly-CSharp
+        m_MethodName: WinScreenOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

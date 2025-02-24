@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0292d29ccf9d8146ad78ca0c7f1e23b, type: 3}
-  m_Name: DoorHover
+  m_Script: {fileID: 11500000, guid: f3c662dda579491fab9c9b04640d798f, type: 3}
+  m_Name: OnBackToWinScreen
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
