@@ -13,6 +13,8 @@ namespace DoorGame.UI
         [SerializeField] private GameObject optionsMenuContainer;
         [SerializeField] private GameObject winMenuContainer;
         [SerializeField] private GameObject loseMenuContainer;
+        [SerializeField] private GameObject optionsWinMenuContainer;
+        [SerializeField] private GameObject optionsLoseMenuContainer;
         
         [Header("Events")]
         [SerializeField] private BoolEvent onPauseGameEvent;
@@ -40,6 +42,19 @@ namespace DoorGame.UI
             pauseMenuContainer.SetActive(false);
             optionsMenuContainer.SetActive(true);
         }
+
+        public void OpenOptionsCloseWinMenu()
+        {
+            winMenuContainer.SetActive(false);
+            optionsWinMenuContainer.SetActive(true);
+        }
+
+        public void OpenOptionsCloseLoseMenu()
+        {
+            loseMenuContainer.SetActive(false);
+            optionsLoseMenuContainer.SetActive(true);
+        }
+        
         public void QuitGame()
         {
             Application.Quit();
@@ -53,6 +68,18 @@ namespace DoorGame.UI
         {
             optionsMenuContainer.SetActive(false);
             pauseMenuContainer.SetActive(true);
+        }
+
+        public void BackToWinMenu()
+        {
+            winMenuContainer.SetActive(true);
+            optionsWinMenuContainer.SetActive(false);
+        }
+
+        public void BackToLoseMenu()
+        {
+            loseMenuContainer.SetActive(true);
+            optionsLoseMenuContainer.SetActive(false);
         }
         
         //Audio Settings
