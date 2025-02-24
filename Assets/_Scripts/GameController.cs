@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DoorGame.Events;
@@ -10,6 +11,7 @@ namespace DoorGame
     {
         [Header("Events")] 
         [SerializeField] private VoidEvent gameOverEvent;
+        [SerializeField] private VoidEvent showGameOverScreenEvent;
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent highScoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
@@ -91,12 +93,19 @@ namespace DoorGame
             playSfxAudioChannel.Invoke(badDoorSound);
             
             gameOverEvent.Invoke(new Empty());
+            StartCoroutine(ShowGameOverScreen());
             
             _score = 0;
             scoreChangedEvent.Invoke(_score);
             
             _totalDoorsOpened = 0;
             validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
+        }
+
+        private IEnumerator ShowGameOverScreen()
+        {
+            yield return new WaitForSeconds(3f);
+            showGameOverScreenEvent.Invoke(new Empty());
         }
 
         public void OpenedGoodDoor()
