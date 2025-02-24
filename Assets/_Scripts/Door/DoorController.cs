@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Colour = UnityEngine.Color;
-using DoorGame.Events;
 using Random = UnityEngine.Random;
+using DoorGame.Events;
 
 namespace DoorGame.Door
 {
@@ -13,9 +12,9 @@ namespace DoorGame.Door
         [SerializeField] private VoidEvent onGoodDoorOpenedEvent; 
         [SerializeField] private VoidEvent onBadDoorOpenedEvent;
         
-        [SerializeField] private GameObject[] doors;
+        [SerializeField] private Door[] doors;
         
-        private GameObject _badDoor;
+        private Door _badDoor;
 
         public void GenerateDoors()
         {
@@ -40,9 +39,9 @@ namespace DoorGame.Door
             {
                 door.tag = "GoodDoor";
                 
-                if (door.GetComponent<Door>().isRoomResetting == false)
+                if (door.isRoomResetting == false)
                 {
-                    StartCoroutine(door.GetComponent<Door>().ResetToDefault());
+                    StartCoroutine(door.ResetToDefault());
                 }
                 
                 // Temporary for testing.
