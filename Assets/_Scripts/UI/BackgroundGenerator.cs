@@ -1,31 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
 namespace DoorGame
 {
-    public class test : MonoBehaviour
+    public class BackgroundGenerator : MonoBehaviour
     {
+        [Header("Tilemap")]
         [SerializeField] private Tilemap _tilemap;
-
         [SerializeField] private TileBase[] _backgroundTiles;
+        
+        [Header("Grid Size")]
+        [SerializeField][Range(1, 15)] private int gridSize = 8;
 
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Generate();
-            }
-        }
+        private void Awake() => Generate();
 
-        private void Generate()
+        public void Generate()
         {
-            for (int x = -8; x < 8; x++)
+            for (int x = -gridSize; x < gridSize; x++)
             {
-                for (int y = -8; y < 8; y++)
+                for (int y = -gridSize; y < gridSize; y++)
                 {
                     _tilemap.SetTile(new Vector3Int(x, y, 0), _backgroundTiles[Random.Range(0, _backgroundTiles.Length)]);
                 }

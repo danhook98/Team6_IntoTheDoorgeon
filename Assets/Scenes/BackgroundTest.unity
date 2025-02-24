@@ -301,6 +301,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d2f5fc38923d0d44cb944f8a7ee37886, type: 2}
   - {fileID: 11400000, guid: 4c46b3bdd4654c94a8ac693361addb05, type: 2}
   - {fileID: 11400000, guid: 8420c80248fc034438a8435615a85bb6, type: 2}
+  gridSize: 8
 --- !u!1 &526727462
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +548,7 @@ GameObject:
   - component: {fileID: 1511995544}
   - component: {fileID: 1511995543}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: BackgroundGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
