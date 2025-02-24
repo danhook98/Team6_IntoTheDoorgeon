@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverEvent: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
+  showGameOverScreenEvent: {fileID: 11400000, guid: 6409f2293d60ca344ae762211c87b853, type: 2}
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   highScoreChangedEvent: {fileID: 11400000, guid: 88c261b72e758c44a8ed3b814be72ffb, type: 2}
   validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}

@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Colour = UnityEngine.Color;
-using DoorGame.Events;
 using Random = UnityEngine.Random;
+using DoorGame.Events;
 
 namespace DoorGame.Door
 {
@@ -13,16 +12,14 @@ namespace DoorGame.Door
         [SerializeField] private VoidEvent onGoodDoorOpenedEvent; 
         [SerializeField] private VoidEvent onBadDoorOpenedEvent;
         
-        [SerializeField] private GameObject[] doors;
+        [SerializeField] private Door[] doors;
         
-        private GameObject _badDoor;
+        private Door _badDoor;
 
         public void GenerateDoors()
         {
-            // If bad door has not been selected, pick a door randomly from the array
-            // and tag every game object in the array but the bad door as "GoodDoor"
-            // Bad door labelled as "BadDoor". 
-
+            // If bad door has not been selected, pick a door randomly from the array and tag every game object in the
+            // array but the bad door as "GoodDoor", bad door labelled as "BadDoor". 
             ResetDoors();
             
             _badDoor = doors[Random.Range(0, doors.Length)];
@@ -40,10 +37,8 @@ namespace DoorGame.Door
             {
                 door.tag = "GoodDoor";
                 
-                if (door.GetComponent<Door>().isRoomResetting == false)
-                {
-                    StartCoroutine(door.GetComponent<Door>().ResetToDefault());
-                }
+                door.AllowOpening();
+                door.ResetAnimationState();
                 
                 // Temporary for testing.
                 var block = door.GetComponent<Button>().colors;
@@ -51,7 +46,7 @@ namespace DoorGame.Door
                 door.GetComponent<Button>().colors = block;
             }
         }
-
+        
         public void DoorOpened(bool isBadDoor)
         {
             if (isBadDoor)
