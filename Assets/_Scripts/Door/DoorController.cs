@@ -38,11 +38,7 @@ namespace DoorGame.Door
                 door.tag = "GoodDoor";
                 
                 door.AllowOpening();
-                
-                if (door.isRoomResetting == false)
-                {
-                    StartCoroutine(door.ResetToDefault());
-                }
+                door.ResetAnimationState();
                 
                 // Temporary for testing.
                 var block = door.GetComponent<Button>().colors;

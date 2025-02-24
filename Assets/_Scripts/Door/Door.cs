@@ -48,14 +48,8 @@ namespace DoorGame.Door
             onDoorOpenedEvent.Invoke(badDoor);
         }
 
-        public IEnumerator ResetToDefault()
-        {
-            isRoomResetting = true;
-            yield return new WaitForSeconds(1.1f);
-            isRoomResetting = false;
-            doorAnimator.SetTrigger(RoomReset);
-        }
-        
+        public void ResetAnimationState() => doorAnimator.SetTrigger(RoomReset);
+
         public void PreventOpening() => _canOpen = false;
         public void AllowOpening() => _canOpen = true;
         
