@@ -70,7 +70,7 @@ namespace DoorGame.Audio
             
             // Update the music mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
             // 0 dB in the audio mixer. The formula below grants a linear change in volume.
-            float volume = (musicVolume - 1f) * 80f;
+            float volume = (Mathf.Log10(musicVolume) * 20);
             audioMixer.SetFloat("music", volume);
             PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs.
         }
@@ -87,7 +87,7 @@ namespace DoorGame.Audio
             
             // Update the SFX mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
             // 0 dB in the audio mixer. The formula below grants a linear change in volume.
-            float volume = (sfxVolume - 1f) * 80f;
+            float volume = (Mathf.Log10(sfxVolume) * 20);
             audioMixer.SetFloat("SFX", volume);
             PlayerPrefs.SetFloat("sfxVolume", volume); // Save changes as PlayerPrefs.
         }
