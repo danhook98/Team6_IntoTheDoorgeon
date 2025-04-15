@@ -1,11 +1,8 @@
-using UnityEngine;
-
 namespace DoorGame.Events
 {
-    public class VoidEventTrigger : MonoBehaviour
+    public class VoidEventTrigger : AbstractEventTrigger<Empty>
     {
-        [SerializeField] private VoidEvent eventToTrigger;
-
-        public void TriggerEvent() => eventToTrigger.Invoke(new Empty());
+        // Parameterless version of the Trigger method to prevent issues with 'empty' data. 
+        public void Trigger() => eventToTrigger.Invoke(new Empty());
     }
 }

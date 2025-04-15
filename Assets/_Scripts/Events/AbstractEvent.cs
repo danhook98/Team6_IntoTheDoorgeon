@@ -6,53 +6,42 @@ using UnityEngine;
 namespace DoorGame.Events
 {
     /// <summary>
-    /// An abstract generic event channel scriptable object. Listeners can register and unregister. The event can be
-    /// triggered by calling the Invoke method. 
+    /// An abstract event class, must be inherited from with a valid data type passed. Allows event listeners to be
+    /// notified when the event is invoked. Listeners can register and unregister from listening to the event.
     /// </summary>
-    /// <typeparam name="T">The data type used for the inheriting class.</typeparam>
-    public abstract class AbstractEvent<T> : ScriptableObject
+    /// <typeparam name="T">The data type passed to listeners when the event is invoked.</typeparam>
+    public class AbstractEvent<T> : ScriptableObject
     {
         private List<AbstractEventListener<T>> _listeners = new();
 
-        // Redundancy list creation in case the _listeners list is null. 
-        private void OnEnable() => _listeners ??= new List<AbstractEventListener<T>>();
-
         /// <summary>
-        /// Registers the given listener to this event. 
+        /// Registers an abstract event listener to the event. 
         /// </summary>
-        /// <param name="listener">Listener to register.</param>
+        /// <param name="listener">The listener to register.</param>
         public void Register(AbstractEventListener<T> listener)
         {
-            if (!_listeners.Contains(listener))
-            {
-                _listeners.Add(listener);
-            }
+            if (!_listeners.Contains(listener)) { _listeners.Add(listener); }
         }
 
         /// <summary>
-        /// Unregisters the given listener to this event.
+        /// Removes an abstract event listener from the listeners list. 
         /// </summary>
-        /// <param name="listener">The listener to unregister.</param>
+        /// <param name="listener">The listener to remove.</param>
         public void Unregister(AbstractEventListener<T> listener)
         {
-            if (_listeners.Contains(listener))
-            {
-                _listeners.Remove(listener);
-            }
+            if (_listeners.Contains(listener)) { _listeners.Remove(listener); }
         }
 
         /// <summary>
-        /// Invokes the event of the scriptable object and passes the set type value.
+        /// Invokes the event, calling the 'Listen' method on all registered listeners.
         /// </summary>
-        /// <param name="value">The value to pass.</param>
+        /// <param name="value">The value to pass to the listeners.</param>
         public void Invoke(T value)
         {
-            foreach (AbstractEventListener<T> listener in _listeners)
-            {
-                listener.Listen(value);
-            }
+            foreach (var listener in _listeners) { listener.Listen(value); }
         }
     }
-
+    
+    // As the abstract event class requires a data type, an 'empty' struct is used as a substitute for an empty event. 
     public readonly struct Empty {}
 }
