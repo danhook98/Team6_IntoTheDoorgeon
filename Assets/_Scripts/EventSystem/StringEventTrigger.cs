@@ -1,4 +1,4 @@
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     public class StringEventTrigger : AbstractEventTrigger<string> {}
 }

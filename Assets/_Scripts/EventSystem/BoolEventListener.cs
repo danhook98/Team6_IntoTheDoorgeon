@@ -1,4 +1,4 @@
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     public class BoolEventListener : AbstractEventListener<bool> {}
 }

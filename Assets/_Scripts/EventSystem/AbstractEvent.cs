@@ -3,7 +3,7 @@ using UnityEngine;
 
 // Used this tutorial for a different way of doing events: https://www.youtube.com/watch?v=nJkYCU8Qe8o
 
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     /// <summary>
     /// An abstract event class, must be inherited from with a valid data type passed. Allows event listeners to be

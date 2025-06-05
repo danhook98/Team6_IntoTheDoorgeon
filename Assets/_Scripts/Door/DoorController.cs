@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Colour = UnityEngine.Color;
 using Random = UnityEngine.Random;
-using DoorGame.Events;
+using DoorGame.EventSystem;
 
 namespace DoorGame.Door
 {

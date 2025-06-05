@@ -1,8 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
-using DoorGame.Events;
 
 namespace DoorGame.Audio
 {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     /// <summary>
     /// Allows a serialised event to be triggered. Useful when wanting to trigger an event from a component, such as a

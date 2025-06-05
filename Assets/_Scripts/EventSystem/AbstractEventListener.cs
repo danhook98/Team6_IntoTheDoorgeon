@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     /// <summary>
     /// An abstract event listener class, must be inherited from with a valid data type passed. The inherited classes
