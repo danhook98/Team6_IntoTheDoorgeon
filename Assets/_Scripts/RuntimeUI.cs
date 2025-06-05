@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DoorGame.Events;
+using DoorGame.EventSystem;
 using TMPro;
 
 namespace DoorGame

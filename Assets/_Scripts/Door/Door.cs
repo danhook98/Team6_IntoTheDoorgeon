@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using DoorGame.Events;
 using DoorGame.Audio;
+using DoorGame.EventSystem;
 
 namespace DoorGame.Door
 {

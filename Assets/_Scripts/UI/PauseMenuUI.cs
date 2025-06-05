@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DoorGame.Events;
-using DoorGame.Audio; 
+using DoorGame.Audio;
+using DoorGame.EventSystem;
 
 namespace DoorGame.UI
 {

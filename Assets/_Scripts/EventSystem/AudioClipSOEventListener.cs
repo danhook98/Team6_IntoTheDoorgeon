@@ -1,6 +1,6 @@
 using DoorGame.Audio;
 
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     public class AudioClipSOEventListener : AbstractEventListener<AudioClipSO> {}
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     [CreateAssetMenu(fileName = "String Event", menuName = "DoorGame/Events/String Event")]
     public class StringEvent : AbstractEvent<string> {}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DoorGame.Events
+namespace DoorGame.EventSystem
 {
     [CreateAssetMenu(fileName = "Float Event", menuName = "DoorGame/Events/Float Event")]
     public class FloatEvent : AbstractEvent<float> {}
