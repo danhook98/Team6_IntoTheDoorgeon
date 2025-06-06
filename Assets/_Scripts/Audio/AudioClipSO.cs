@@ -7,5 +7,6 @@ namespace DoorGame.Audio
     public class AudioClipSO : ScriptableObject
     {
         public AudioClip clip;
+        [Range(0f, 1f)] public float volume;
     }
 }
