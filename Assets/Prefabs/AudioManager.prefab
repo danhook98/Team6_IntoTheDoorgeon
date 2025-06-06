@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3527c53c1b0d096448cb0f3a3a415e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxAudioSource: {fileID: 6981759931529043126}
-  musicAudioSource: {fileID: 4577270321495478878}
+  audioSourceSfx: {fileID: 6981759931529043126}
+  audioSourceMusic: {fileID: 4577270321495478878}
   audioMixer: {fileID: 24100000, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
 --- !u!114 &358830446195690001
 MonoBehaviour:
@@ -71,8 +71,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1619417419991823705}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlaySFX
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: PlaySfx
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1619417419991823705}
         m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
-        m_MethodName: SetSFXVolume
+        m_MethodName: SetSfxVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -237,7 +237,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8119946653120806672, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
