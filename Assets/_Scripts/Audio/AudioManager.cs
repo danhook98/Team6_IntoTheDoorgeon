@@ -6,98 +6,118 @@ namespace DoorGame.Audio
     public class AudioManager : MonoBehaviour
     {
         [Header("Audio Sources")]
-        [SerializeField] private AudioSource sfxAudioSource;
-        [SerializeField] private AudioSource musicAudioSource;
-        
-        [Header("Audio Mixer")] 
+        [SerializeField] private AudioSource audioSourceSfx;
+        [SerializeField] private AudioSource audioSourceMusic;
+        [Space]
         [SerializeField] private AudioMixer audioMixer;
-
+        
+        private readonly string[] _mixerParameters = { "MasterVolume", "SfxVolume", "MusicVolume" };
+        
         private void Awake()
         {
-            // Create audio sources if the references are broken or missing. 
-            if (!sfxAudioSource)
+            if (!audioSourceSfx)
             {
-                Debug.LogWarning("<color=red>AudioManager</color>: SFX AudioSource is missing or the reference is " +
-                                 "missing. Creating a new AudioSource.");
-                sfxAudioSource = gameObject.AddComponent<AudioSource>();
+                Debug.LogWarning("<color=red>Audio Manager</color>: No audio source set/found for SFX. Creating " +
+                                 "one, expect weird behaviour.");
+                audioSourceSfx = gameObject.AddComponent<AudioSource>();
             }
 
-            if (!musicAudioSource)
+            if (!audioSourceMusic)
             {
-                Debug.LogWarning("<color=red>AudioManager</color>: Music AudioSource is missing or the reference is " +
-                                 "missing. Creating a new AudioSource.");
-                musicAudioSource = gameObject.AddComponent<AudioSource>();
+                Debug.LogWarning("<color=red>Audio Manager</color>: No audio source set/found for Music. Creating " +
+                                 "one, expect weird behaviour.");
+                audioSourceMusic = gameObject.AddComponent<AudioSource>();
+            }
+        }
+
+        private void Start() => LoadVolume();
+
+        /// <summary>
+        /// Plays a one shot sound from the given audio data.
+        /// </summary>
+        /// <param name="clipData">AudioClipSO data.</param>
+        public void PlaySfx(AudioClipSO clipData)
+        {
+            if (!clipData.clip)
+            {
+                Debug.LogWarning($"<color=red>Audio Manager</color>: Attempted to play audio one shot for " +
+                                 $"{clipData.name}, but clip data is null.");
+                return; 
             }
             
-            // Load last saved player audio settings if they exist
-            LoadVolume();
+            audioSourceSfx.PlayOneShot(clipData.clip, clipData.volume);
         }
 
         /// <summary>
-        /// Plays an audio one shot of the given AudioClipSO's clip.
+        /// Plays a continuous sound from the given audio data.
         /// </summary>
-        /// <param name="audioClip">AudioClipSO data file.</param>
-        public void PlaySFX(AudioClipSO audioClip)
+        /// <param name="clipData">AudioClipSO data.</param>
+        public void PlayMusic(AudioClipSO clipData)
         {
-            sfxAudioSource.PlayOneShot(audioClip.clip);
+            if (!clipData.clip)
+            {
+                Debug.LogWarning($"<color=red>Audio Manager</color>: Attempted to play audio music for " +
+                                 $"{clipData.name}, but clip data is null.");
+                return; 
+            }
+            
+            audioSourceMusic.clip = clipData.clip;
+            audioSourceMusic.volume = clipData.volume;
+            audioSourceMusic.Play();
         }
 
         /// <summary>
-        /// Plays an audio clip of the given AudioClipSO's clip.
+        /// Sets the master volume. 
         /// </summary>
-        /// <param name="audioClip">AudioClipSO data file.</param>
-        public void PlayMusic(AudioClipSO audioClip)
+        /// <param name="volume">Volume value, between 0 and 1.</param>
+        public void SetMasterVolume(float volume) => SetVolume("MasterVolume", volume);
+
+        /// <summary>
+        /// Sets the sound effects volume. 
+        /// </summary>
+        /// <param name="volume">Volume value, between 0 and 1.</param>
+        public void SetSfxVolume(float volume) => SetVolume("SfxVolume", volume);
+
+        /// <summary>
+        /// Sets the music volume. 
+        /// </summary>
+        /// <param name="volume">Volume value, between 0 and 1.</param>
+        public void SetMusicVolume(float volume) => SetVolume("MusicVolume", volume);
+
+        /// <summary>
+        /// Sets the volume of the given mixer parameter to the given volume. Values outside of 0-1 and ignored.
+        /// </summary>
+        /// <param name="mixerParameter">Mixer group parameter.</param>
+        /// <param name="volume">Volume level.</param>
+        private void SetVolume(string mixerParameter, float volume)
         {
-            musicAudioSource.clip = audioClip.clip;
-            musicAudioSource.Play();
-        }
-        
-        public void StopMusic() => musicAudioSource.Stop();
-        
-        // Audio Settings
-        public void SetMusicVolume(float musicVolume)
-        {
-            // Ensure the volume value given is valid. 
-            if (musicVolume is < 0 or > 1)
+            // Check that the passed volume value is invalid. 
+            if (volume is < 0 or > 1)
             {
-                Debug.LogWarning("<color=red>AudioManager</color>: Attempting to set music mixer volume, but the given" +
-                                 $"value was outside the range [0, 1]: {musicVolume}.");
-                return;
-            } 
-            
-            // Update the music mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
-            // 0 dB in the audio mixer. The formula below grants a linear change in volume.
-            float volume = (Mathf.Log10(musicVolume) * 20);
-            audioMixer.SetFloat("music", volume);
-            PlayerPrefs.SetFloat("musicVolume", volume); // Save changes as PlayerPrefs.
-        }
-        
-        public void SetSFXVolume(float sfxVolume)
-        {
-            // Ensure the volume value given is valid. 
-            if (sfxVolume is < 0 or > 1)
-            {
-                Debug.LogWarning("<color=red>AudioManager</color>: Attempting to set SFX mixer volume, but the given" +
-                                 $"value was outside the range [0, 1]: {sfxVolume}.");
-                return;
+                Debug.LogWarning($"<color=red>Audio Manager</color>: Attempting to set volume for {mixerParameter}, " +
+                                 $"but the volume value ({volume}) was outside the range [0, 1].");
+                return; 
             }
             
-            // Update the SFX mixer with the given volume value. A float value between 0 and 1 turns into -80 dB to
-            // 0 dB in the audio mixer. The formula below grants a linear change in volume.
-            float volume = (Mathf.Log10(sfxVolume) * 20);
-            audioMixer.SetFloat("SFX", volume);
-            PlayerPrefs.SetFloat("sfxVolume", volume); // Save changes as PlayerPrefs.
+            // Convert the 0-1 float volume value into a base 10 logarithmic curve. This ensures that the volume change
+            // in the mixer sounds correct to our ears, as anything below -20 dB is essentially silent to us. 
+            float mixerVolume = Mathf.Log10(volume) * 20;
+            
+            // Set the volume of the mixer group, and update the volume in PlayerPrefs for loading. 
+            audioMixer.SetFloat(mixerParameter, mixerVolume);
+            PlayerPrefs.SetFloat(mixerParameter, mixerVolume);
         }
         
+        /// <summary>
+        /// Loads all of the saved mixer group volume levels. Non-existent values in PlayerPrefs are set to 0.
+        /// </summary>
         private void LoadVolume()
         {
-            // Load the saved volume if it exists, otherwise it defaults to 1.
-            float sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
-            float musicVolume = PlayerPrefs.GetFloat("musicVolume", 1f);
-            
-            // Set the volume levels of the mixers.
-            audioMixer.SetFloat("SFX", sfxVolume);
-            audioMixer.SetFloat("music", musicVolume);
+            foreach (string parameter in _mixerParameters)
+            {
+                float volume = PlayerPrefs.GetFloat(parameter, 0f);
+                audioMixer.SetFloat(parameter, volume);
+            }
         }
     }
 }
