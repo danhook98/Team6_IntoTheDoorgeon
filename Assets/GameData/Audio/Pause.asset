@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Pause
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 09d07660db626de4c92638b6fb69dadf, type: 3}
+  volume: 1

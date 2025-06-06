@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: RunAway
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: eff3a572812455048ba64cb96e30629a, type: 3}
+  volume: 1

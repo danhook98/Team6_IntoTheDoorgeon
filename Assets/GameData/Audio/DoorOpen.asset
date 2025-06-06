@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DoorOpen
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 307180f84bb00094d87d213200cf3e19, type: 3}
+  volume: 1

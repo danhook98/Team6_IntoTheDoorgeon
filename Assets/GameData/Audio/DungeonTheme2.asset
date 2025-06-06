@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DungeonTheme2
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 7e3a9a38f8a515041ba8b07ba27265ed, type: 3}
+  volume: 1

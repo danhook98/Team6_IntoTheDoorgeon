@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BadDoor
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: bb6d9d2da440edb4d86dc8da94b35b25, type: 3}
+  volume: 1

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameOver
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
+  volume: 1

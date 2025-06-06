@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameStart
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 5f546cc023c10894393b35dc01a76326, type: 3}
+  volume: 1

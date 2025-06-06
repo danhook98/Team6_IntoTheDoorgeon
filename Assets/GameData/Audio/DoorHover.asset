@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DoorHover
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ef5c1a23dd2213c428677497a209b2e9, type: 3}
+  volume: 1
