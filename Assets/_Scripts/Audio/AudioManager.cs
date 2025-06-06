@@ -65,6 +65,11 @@ namespace DoorGame.Audio
             audioSourceMusic.volume = clipData.volume;
             audioSourceMusic.Play();
         }
+        
+        /// <summary>
+        /// Stops audio playing from the music audio source.
+        /// </summary>
+        public void StopMusic() => audioSourceMusic.Stop();
 
         /// <summary>
         /// Sets the master volume. 
