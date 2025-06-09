@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1096538523259479494, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 588b0422b60611848a29b1c74d4a2f96, type: 2}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Transition
       value: 2
@@ -383,8 +387,8 @@ Canvas:
   m_GameObject: {fileID: 148641860}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1318619403}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -394,7 +398,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 2080749321
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &243751276
@@ -631,6 +635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1096538523259479494, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 588b0422b60611848a29b1c74d4a2f96, type: 2}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Transition
       value: 2
@@ -1118,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1096538523259479494, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 588b0422b60611848a29b1c74d4a2f96, type: 2}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Transition
       value: 2
@@ -1454,7 +1466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -106.60001}
+  m_AnchoredPosition: {x: 0, y: -106.60004}
   m_SizeDelta: {x: 0, y: -213.19997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293178569
@@ -1671,6 +1683,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2547595986471845378, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
+      propertyPath: m_Intensity
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547595986471845378, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547595986471845378, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 9.515627
+      objectReference: {fileID: 0}
     - target: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.9
@@ -1685,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999768
       objectReference: {fileID: 0}
     - target: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1697,7 +1721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.0068154526
       objectReference: {fileID: 0}
     - target: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2408,6 +2432,18 @@ PrefabInstance:
     - target: {fileID: 1842922522527824485, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_Name
       value: Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547595986471845378, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
+      propertyPath: m_Intensity
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547595986471845378, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547595986471845378, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 8.5337715
       objectReference: {fileID: 0}
     - target: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
       propertyPath: m_LocalPosition.x
