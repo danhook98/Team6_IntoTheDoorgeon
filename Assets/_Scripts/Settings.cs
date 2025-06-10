@@ -13,14 +13,18 @@ namespace DoorGame
         {
             _postProcessVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
             _postProcessVolume.profile.TryGet<ColorAdjustments>(out _colorAdjustments);
+
+            AdjustBrightness(PlayerPrefs.GetFloat("Brightness"));
         }
         
         public void AdjustBrightness(float value)
         {
             _colorAdjustments.postExposure.value = value;
-            //_colorAdjustments.postExposure.value = Mathf.Log10(value) * 20;
+            
             if (_colorAdjustments.postExposure.value < -6) _colorAdjustments.postExposure.value = -6;
             if(_colorAdjustments.postExposure.value > 3) _colorAdjustments.postExposure.value = 3;
+            
+            PlayerPrefs.SetFloat("Brightness", value);
         }
     }
 }
