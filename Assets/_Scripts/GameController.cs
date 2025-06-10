@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 using DoorGame.Door;
 using DoorGame.Audio;
 using DoorGame.EventSystem;
+using UnityEngine.SceneManagement;
 
 namespace DoorGame
 {
@@ -18,6 +19,7 @@ namespace DoorGame
         [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
         [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
+        [SerializeField] private BoolEvent onPauseGameEvent;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
@@ -79,6 +81,18 @@ namespace DoorGame
         {
             SaveHighScore();
             playSfxAudioChannel.Invoke(leaveDungeonSound);
+        }
+        
+        public void ResumeGame() => onPauseGameEvent.Invoke(false);
+        
+        public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        public void QuitGame()
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
 
         public void WaveWon()
