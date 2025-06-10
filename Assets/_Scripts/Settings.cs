@@ -15,16 +15,24 @@ namespace DoorGame
             _postProcessVolume.profile.TryGet<ColorAdjustments>(out _colorAdjustments);
 
             AdjustBrightness(PlayerPrefs.GetFloat("Brightness"));
+            AdjustContrast(PlayerPrefs.GetFloat("Contrast"));
         }
         
         public void AdjustBrightness(float value)
         {
             _colorAdjustments.postExposure.value = value;
-            
-            if (_colorAdjustments.postExposure.value < -6) _colorAdjustments.postExposure.value = -6;
-            if(_colorAdjustments.postExposure.value > 3) _colorAdjustments.postExposure.value = 3;
-            
             PlayerPrefs.SetFloat("Brightness", value);
+        }
+
+        public void AdjustContrast(float value)
+        {
+            _colorAdjustments.contrast.value = value;
+            PlayerPrefs.SetFloat("Contrast", value);
+        }
+
+        public void SetFullscreen(bool isFullscreen)
+        {
+            Screen.fullScreen = isFullscreen;
         }
     }
 }
