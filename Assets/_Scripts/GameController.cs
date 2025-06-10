@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 using DoorGame.Door;
 using DoorGame.Audio;
 using DoorGame.EventSystem;
+using UnityEngine.SceneManagement;
 
 namespace DoorGame
 {
@@ -78,6 +79,21 @@ namespace DoorGame
         {
             SaveHighScore();
             playSfxAudioChannel.Invoke(leaveDungeonSound);
+        }
+
+        public void PauseGame() => Time.timeScale = 1f;
+        public void ResumeGame() => Time.timeScale = 0f; 
+        
+        public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        public void LoadMainMenu() => SceneManager.LoadScene("Main Menu");
+        
+        public void QuitGame()
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
 
         public void WaveWon()
