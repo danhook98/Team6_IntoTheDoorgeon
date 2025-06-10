@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2031092992042860913}
   - component: {fileID: 3743925559757096261}
   - component: {fileID: 7182970295955023366}
+  - component: {fileID: 3874126519777842022}
+  - component: {fileID: 4937471522500193166}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -37,6 +39,7 @@ Transform:
   m_Children:
   - {fileID: 8063084256517606253}
   - {fileID: 4655570002229293385}
+  - {fileID: 1423944114356422782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1619417419991823705
@@ -53,7 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSourceSfx: {fileID: 6981759931529043126}
   audioSourceMusic: {fileID: 4577270321495478878}
+  audioSourceEnvironment: {fileID: 198725036503494139}
   audioMixer: {fileID: 24100000, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
+  onSetMusicVolumeEvent: {fileID: 11400000, guid: 00da870b327b6624582dcbca7f74c8ce, type: 2}
+  onSetSfxVolumeEvent: {fileID: 11400000, guid: 78f87fb87153b26478407a743574778d, type: 2}
+  onSetEnvironmentVolumeEvent: {fileID: 11400000, guid: 0e8f10b705c9d564e82e7df7ddc63539, type: 2}
+  onSetMasterVolumeEvent: {fileID: 11400000, guid: 5e8f54c2ecf821a4698fb78fcf4ad20f, type: 2}
 --- !u!114 &358830446195690001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: b9f80870d9e3d4b43a10b42dbab494f6, type: 2}
+  eventToListen: {fileID: 11400000, guid: 78f87fb87153b26478407a743574778d, type: 2}
   onEvent:
     m_PersistentCalls:
       m_Calls:
@@ -150,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: f715015f2ee601e4595a6ee9e1e09e25, type: 2}
+  eventToListen: {fileID: 11400000, guid: 00da870b327b6624582dcbca7f74c8ce, type: 2}
   onEvent:
     m_PersistentCalls:
       m_Calls:
@@ -186,6 +194,62 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
         m_MethodName: StopMusic
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3874126519777842022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261790589838135169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 5e8f54c2ecf821a4698fb78fcf4ad20f, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1619417419991823705}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4937471522500193166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261790589838135169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 0e8f10b705c9d564e82e7df7ddc63539, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1619417419991823705}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: SetEnvironmentVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -376,6 +440,134 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 3095.141
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &9154177489088133823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423944114356422782}
+  - component: {fileID: 198725036503494139}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1423944114356422782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9154177489088133823}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1073794729724528717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &198725036503494139
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9154177489088133823}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 8622897971687663646, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 3081.0806
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

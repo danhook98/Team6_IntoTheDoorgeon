@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using DoorGame.EventSystem;
 
 namespace DoorGame.Audio
 {
@@ -8,10 +9,17 @@ namespace DoorGame.Audio
         [Header("Audio Sources")]
         [SerializeField] private AudioSource audioSourceSfx;
         [SerializeField] private AudioSource audioSourceMusic;
+        [SerializeField] private AudioSource audioSourceEnvironment;
         [Space]
         [SerializeField] private AudioMixer audioMixer;
         
-        private readonly string[] _mixerParameters = { "MasterVolume", "SfxVolume", "MusicVolume" };
+        [Header("Events")]
+        [SerializeField] private FloatEvent onSetMusicVolumeEvent;
+        [SerializeField] private FloatEvent onSetSfxVolumeEvent;
+        [SerializeField] private FloatEvent onSetEnvironmentVolumeEvent;
+        [SerializeField] private FloatEvent onSetMasterVolumeEvent;
+        
+        private readonly string[] _mixerParameters = { "MasterVolume", "SfxVolume", "MusicVolume", "EnvironmentVolume" };
         
         private void Awake()
         {
@@ -27,6 +35,13 @@ namespace DoorGame.Audio
                 Debug.LogWarning("<color=red>Audio Manager</color>: No audio source set/found for Music. Creating " +
                                  "one, expect weird behaviour.");
                 audioSourceMusic = gameObject.AddComponent<AudioSource>();
+            }
+            
+            if (!audioSourceEnvironment)
+            {
+                Debug.LogWarning("<color=red>Audio Manager</color>: No audio source set/found for Music. Creating " +
+                                 "one, expect weird behaviour.");
+                audioSourceEnvironment = gameObject.AddComponent<AudioSource>();
             }
         }
 
@@ -88,6 +103,12 @@ namespace DoorGame.Audio
         /// </summary>
         /// <param name="volume">Volume value, between 0 and 1.</param>
         public void SetMusicVolume(float volume) => SetVolume("MusicVolume", volume);
+        
+        /// <summary>
+        /// Sets the environment volume.
+        /// </summary>
+        /// <param name="volume">Volume value, between 0 and 1.</param>
+        public void SetEnvironmentVolume(float volume) => SetVolume("EnvironmentVolume", volume);
 
         /// <summary>
         /// Sets the volume of the given mixer parameter to the given volume. Values outside of 0-1 and ignored.
