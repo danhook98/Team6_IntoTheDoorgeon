@@ -7,17 +7,20 @@ namespace DoorGame
     public class Settings : MonoBehaviour
     {
         private Volume _postProcessVolume;
+        private ColorAdjustments _colorAdjustments;
         
         private void Awake()
         {
-            _postProcessVolume = GameObject.Find("PostProcessVolume").GetComponent<Volume>();
-            var brightness = _postProcessVolume.GetComponent<ColorAdjustments>();
+            _postProcessVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+            _postProcessVolume.profile.TryGet<ColorAdjustments>(out _colorAdjustments);
         }
         
         public void AdjustBrightness(float value)
         {
-            var brightness = _postProcessVolume.GetComponent<ColorAdjustments>();
-            brightness.postExposure.value += value;
+            _colorAdjustments.postExposure.value = value;
+            //_colorAdjustments.postExposure.value = Mathf.Log10(value) * 20;
+            if (_colorAdjustments.postExposure.value < -6) _colorAdjustments.postExposure.value = -6;
+            if(_colorAdjustments.postExposure.value > 3) _colorAdjustments.postExposure.value = 3;
         }
     }
 }
