@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83638e5d68a8417982898680f28107f8, type: 3}
-  m_Name: OnMusicChange
+  m_Name: OnChangeSfxVolume
   m_EditorClassIdentifier: 
