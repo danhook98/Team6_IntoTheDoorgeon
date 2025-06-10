@@ -19,7 +19,6 @@ namespace DoorGame
         [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
         [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
-        [SerializeField] private BoolEvent onPauseGameEvent;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
@@ -82,10 +81,13 @@ namespace DoorGame
             SaveHighScore();
             playSfxAudioChannel.Invoke(leaveDungeonSound);
         }
-        
-        public void ResumeGame() => onPauseGameEvent.Invoke(false);
+
+        public void PauseGame() => Time.timeScale = 1f;
+        public void ResumeGame() => Time.timeScale = 0f; 
         
         public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        public void LoadMainMenu() => SceneManager.LoadScene("Main Menu");
         
         public void QuitGame()
         {
