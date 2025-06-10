@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 
@@ -15,12 +14,12 @@ namespace DoorGame
         
         // Resolution Related.
         private Resolution[] _resolutions;
-        [SerializeField] private TMP_Dropdown resolutionDropdown;
+        private TMP_Dropdown _resolutionDropdown;
         
         private void Awake()
         {
             _postProcessVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
-            resolutionDropdown = GameObject.Find("Resolution Dropdown").GetComponent<TMP_Dropdown>();
+            _resolutionDropdown = GameObject.Find("Resolution Dropdown").GetComponent<TMP_Dropdown>();
             _postProcessVolume.profile.TryGet<ColorAdjustments>(out _colorAdjustments);
 
             // Load PlayerPrefs
@@ -33,7 +32,7 @@ namespace DoorGame
         private void Start()
         {
             _resolutions = Screen.resolutions;
-            resolutionDropdown.ClearOptions();
+            _resolutionDropdown.ClearOptions();
 
             List<string> options = new List<string>();
 
@@ -48,9 +47,9 @@ namespace DoorGame
                     currentResolutionIndex = i;
                 }
             }
-            resolutionDropdown.AddOptions(options);
-            resolutionDropdown.value = currentResolutionIndex;
-            resolutionDropdown.RefreshShownValue();
+            _resolutionDropdown.AddOptions(options);
+            _resolutionDropdown.value = currentResolutionIndex;
+            _resolutionDropdown.RefreshShownValue();
         }
         
         public void AdjustBrightness(float value)

@@ -6517,7 +6517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973f2ecfe59d3024cbb945da35ca7658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 0}
 --- !u!114 &907406846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6611,7 +6610,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 907406840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventToListen: {fileID: 11400000, guid: 3558ecc59738f884a8c9f5e24d187e55, type: 2}
@@ -6619,12 +6618,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 907406845}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: DoorGame.Settings, Assembly-CSharp
+        m_MethodName: SetResolution
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11967,9 +11966,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1919784538}
-        m_TargetAssemblyTypeName: DoorGame.EventSystem.VoidEventTrigger, Assembly-CSharp
+        m_TargetAssemblyTypeName: DoorGame.EventSystem.AbstractEventTrigger`1[[System.Int32,
+          mscorlib
         m_MethodName: Trigger
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12026,7 +12026,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919784533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Script: {fileID: 11500000, guid: a3e5e18e9046a2846a84f5169bdbbc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventToTrigger: {fileID: 11400000, guid: 3558ecc59738f884a8c9f5e24d187e55, type: 2}
