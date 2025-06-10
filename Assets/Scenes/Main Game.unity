@@ -2555,7 +2555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventToListen: {fileID: 0}
+  eventToListen: {fileID: 11400000, guid: 7dfed303ea5f33f4e97acb2c03ab3dc4, type: 2}
   onEvent:
     m_PersistentCalls:
       m_Calls:
@@ -8389,6 +8389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Game Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3606338670861107400, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
+      propertyPath: eventToTrigger
+      value: 
+      objectReference: {fileID: 11400000, guid: 7dfed303ea5f33f4e97acb2c03ab3dc4, type: 2}
     - target: {fileID: 3666547070658889228, guid: ebd00799f3f5dbe419a96ce3a7925751, type: 3}
       propertyPath: m_LocalPosition.z
       value: 10
