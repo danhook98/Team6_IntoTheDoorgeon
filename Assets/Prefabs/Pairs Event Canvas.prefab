@@ -114,8 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f49ae04e81f4548975bba8cb8ce2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: []
-  availableCardPairs:
+  availableCards:
   - {fileID: 5592652457841277517, guid: 0ab67bfa5b1bd9b4c8190351891750d4, type: 3}
   - {fileID: 5592652457841277517, guid: 40146fcdcc70afc41b9dda5629421b77, type: 3}
   - {fileID: 5592652457841277517, guid: 8dffdb2a91db15f438c76949a3132412, type: 3}

@@ -6,9 +6,8 @@ namespace DoorGame.GameEvents.PairsEvent
 {
     public class PairsEventHandler : MonoBehaviour
     {
-        [Header("Track card positions")]
-        [SerializeField] private List<GameObject> cards;
-        [SerializeField] private List<GameObject> availableCardPairs;
+        [Header("Track cards")]
+        [SerializeField] private List<GameObject> availableCards;
         [SerializeField] private List<GameObject> usedCards;
         
         [Header("Spawn positions")]
@@ -44,8 +43,8 @@ namespace DoorGame.GameEvents.PairsEvent
                 Vector3 spawnPosition = spawnPositionsAvailable[randomSpawnPoint];
                 
                 // Random card is selected & instantiated.
-                int cardID = Random.Range(0, availableCardPairs.Count);
-                GameObject lastCardSpawned = Instantiate(availableCardPairs[cardID], spawnPosition, Quaternion.identity);
+                int cardID = Random.Range(0, availableCards.Count);
+                GameObject lastCardSpawned = Instantiate(availableCards[cardID], spawnPosition, Quaternion.identity);
                 lastCardSpawned.transform.SetParent(transform, false);
                 
                 // Update lists with correct information.
@@ -55,13 +54,14 @@ namespace DoorGame.GameEvents.PairsEvent
                 // 2nd copy of card is instantiated at a different random position.
                 randomSpawnPoint = Random.Range(0, spawnPositionsAvailable.Count);
                 spawnPosition = spawnPositionsAvailable[randomSpawnPoint];
-                lastCardSpawned = Instantiate(availableCardPairs[cardID], spawnPosition, Quaternion.identity);
+                lastCardSpawned = Instantiate(availableCards[cardID], spawnPosition, Quaternion.identity);
                 lastCardSpawned.transform.SetParent(transform, false);
                 
                 // Update lists with correct information.
                 spawnPositionsUsed.Add(spawnPosition); 
                 spawnPositionsAvailable.RemoveAt(randomSpawnPoint);
-                availableCardPairs.RemoveAt(cardID);
+                usedCards.Add(lastCardSpawned);
+                availableCards.RemoveAt(cardID);
             }
         }
 
