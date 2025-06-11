@@ -22,19 +22,36 @@ namespace DoorGame.GameEvents.PairsEvent
         private void Start()
         {
             attempts = 5;
-            //SpawnCards();
+            SpawnCards();
         }
 
         private void SpawnCards()
         {
             for (int i = 0; i < TotalPairs; i++)
             {
+                // Random available position is selected.
                 int randomSpawnPoint = Random.Range(0, spawnPositionsAvailable.Count);
                 Vector3 spawnPosition = spawnPositionsAvailable[randomSpawnPoint];
+                
+                // Random card is selected & instantiated.
+                int cardID = Random.Range(0, availableCardPairs.Count);
+                GameObject lastCardSpawned = Instantiate(availableCardPairs[cardID], spawnPosition, Quaternion.identity);
+                lastCardSpawned.transform.SetParent(transform, false);
+                
+                // Update lists with correct information.
                 spawnPositionsUsed.Add(spawnPosition); 
-                var cardID = Random.Range(0, availableCardPairs.Count);
-                //Instantiate(_availableCards(cardID), spawnPosition, Quaternion.identity);
-               // _availableCards.RemoveAt(cardID);
+                spawnPositionsAvailable.RemoveAt(randomSpawnPoint);
+                
+                // 2nd copy of card is instantiated at a different random position.
+                randomSpawnPoint = Random.Range(0, spawnPositionsAvailable.Count);
+                spawnPosition = spawnPositionsAvailable[randomSpawnPoint];
+                lastCardSpawned = Instantiate(availableCardPairs[cardID], spawnPosition, Quaternion.identity);
+                lastCardSpawned.transform.SetParent(transform, false);
+                
+                // Update lists with correct information.
+                spawnPositionsUsed.Add(spawnPosition); 
+                spawnPositionsAvailable.RemoveAt(randomSpawnPoint);
+                availableCardPairs.RemoveAt(cardID);
             }
         }
     }
