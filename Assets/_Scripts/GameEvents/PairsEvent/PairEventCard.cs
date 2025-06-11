@@ -1,21 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 namespace DoorGame
 {
     public class PairEventCard : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private SpriteResolver _spriteResolver;
+        private Sprite _currentSprite;
+
+        private void Awake()
         {
-        
+            _spriteResolver = GetComponent<SpriteResolver>();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Start()
         {
-        
+            SetCardSpriteToBack();
+        }
+
+        private void SetCardSpriteToBack()
+        {
+            _spriteResolver.SetCategoryAndLabel("Card Back", "Back");
+        }
+
+        private void OnPointerClick()
+        {
+            FlipCard();
+        }
+
+        private void FlipCard()
+        {
+            _spriteResolver.SetCategoryAndLabel("Card Back", "Back");
         }
     }
 }
