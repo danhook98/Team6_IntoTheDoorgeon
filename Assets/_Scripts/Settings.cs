@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using System.Collections.Generic;
 using TMPro;
 
@@ -8,29 +6,24 @@ namespace DoorGame
 {
     public class Settings : MonoBehaviour
     {
-        // Contrast & Brightness Related.
-        private Volume _postProcessVolume;
-        private ColorAdjustments _colorAdjustments;
-        
         // Resolution Related.
         private Resolution[] _resolutions;
         private TMP_Dropdown _resolutionDropdown;
         
         private void Awake()
         {
-            _postProcessVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
             _resolutionDropdown = GameObject.Find("Resolution Dropdown").GetComponent<TMP_Dropdown>();
-            _postProcessVolume.profile.TryGet<ColorAdjustments>(out _colorAdjustments);
 
             // Load PlayerPrefs
-            AdjustBrightness(PlayerPrefs.GetFloat("Brightness"));
-            AdjustContrast(PlayerPrefs.GetFloat("Contrast"));
             if(PlayerPrefs.GetInt("Fullscreen") == 1) SetFullscreen(true);
             else SetFullscreen(false);
         }
 
         private void Start()
         {
+            // Get available resolutions from the player's monitor,
+            // Add them to a list of strings
+            // Send the list to the resolution dropdown so it can display it.
             _resolutions = Screen.resolutions;
             _resolutionDropdown.ClearOptions();
 
@@ -51,25 +44,21 @@ namespace DoorGame
             _resolutionDropdown.value = currentResolutionIndex;
             _resolutionDropdown.RefreshShownValue();
         }
-        
-        public void AdjustBrightness(float value)
-        {
-            _colorAdjustments.postExposure.value = value;
-            PlayerPrefs.SetFloat("Brightness", value);
-        }
 
-        public void AdjustContrast(float value)
-        {
-            _colorAdjustments.contrast.value = value;
-            PlayerPrefs.SetFloat("Contrast", value);
-        }
-
+        /// <summary>
+        /// Set game to fullscreen or windowed mode.
+        /// </summary>
+        /// <param name="isFullscreen"></param>
         public void SetFullscreen(bool isFullscreen)
         {
             Screen.fullScreen = isFullscreen;
             PlayerPrefs.SetInt("Fullscreen", isFullscreen ? 1 : 0);
         }
 
+        /// <summary>
+        /// Set resolution by using an index.
+        /// </summary>
+        /// <param name="resolutionIndex"></param>
         public void SetResolution(int resolutionIndex)
         {
             Screen.SetResolution(_resolutions[resolutionIndex].width, _resolutions[resolutionIndex].height, Screen.fullScreen);
