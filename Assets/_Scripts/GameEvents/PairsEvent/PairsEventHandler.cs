@@ -6,6 +6,7 @@ namespace DoorGame
 {
     public class PairsEventHandler : MonoBehaviour
     {
+        // Add new list with 12 card prefabs. Then select 8 of these and place into available cards.
         [SerializeField] private List<GameObject> _availableCards;
         [SerializeField] private List<GameObject> _usedCards;
         [SerializeField] private int _lives;
