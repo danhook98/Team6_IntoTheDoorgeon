@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
-using UnityEngine.EventSystems;
 
 namespace DoorGame
 {
