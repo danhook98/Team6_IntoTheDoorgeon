@@ -124,6 +124,9 @@ namespace DoorGame.Audio
                                  $"but the volume value ({volume}) was outside the range [0, 1].");
                 return; 
             }
+
+            // Prevent multiply by zero values. 
+            if (volume is 0) volume = 0.0001f;
             
             // Convert the 0-1 float volume value into a base 10 logarithmic curve. This ensures that the volume change
             // in the mixer sounds correct to our ears, as anything below -20 dB is essentially silent to us. 
