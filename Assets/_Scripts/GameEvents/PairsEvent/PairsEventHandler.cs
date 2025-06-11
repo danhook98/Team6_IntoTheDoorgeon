@@ -11,9 +11,11 @@ namespace DoorGame.GameEvents.PairsEvent
         [SerializeField] private List<GameObject> availableCardPairs;
         [SerializeField] private List<GameObject> usedCards;
         
+        [Header("Spawn positions")]
         [SerializeField] private List<Vector2> spawnPositionsAvailable;
         [SerializeField] private List<Vector2> spawnPositionsUsed;
         
+        [Header("Attempts")]
         [SerializeField] private int attempts;
         
         private int _completedPairs;
@@ -23,7 +25,10 @@ namespace DoorGame.GameEvents.PairsEvent
         {
             attempts = 5;
             SpawnCards();
+        }
 
+        private void Update()
+        {
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResetCards();
@@ -62,6 +67,7 @@ namespace DoorGame.GameEvents.PairsEvent
 
         private void ResetCards()
         {
+            Debug.Log("Resetting cards");
             for (int i = 0; i < 12; i++)
             {
                 spawnPositionsAvailable.Add(spawnPositionsUsed[i]);
