@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DoorGame
+namespace DoorGame.GameEvents.PairsEvent
 {
     public class PairsEventHandler : MonoBehaviour
     {
         // Add new list with 12 card prefabs. Then select 8 of these and place into available cards.
         [SerializeField] private List<GameObject> _availableCards;
         [SerializeField] private List<GameObject> _usedCards;
-        [SerializeField] private int _lives;
+        [SerializeField] private int _attempts;
         [SerializeField] private List<Vector2> _spawnPositionsAvailable;
         [SerializeField] private List<Vector2> _spawnPositionsUsed;
         
@@ -18,8 +18,8 @@ namespace DoorGame
 
         private void Start()
         {
-            _lives = 3;
-            SpawnCards();
+            _attempts = 5;
+            //SpawnCards();
         }
 
         private void SpawnCards()

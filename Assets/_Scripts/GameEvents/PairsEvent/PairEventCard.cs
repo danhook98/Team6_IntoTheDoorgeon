@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using System.Collections;
 
-namespace DoorGame
+namespace DoorGame.GameEvents.PairsEvent
 {
     public class PairEventCard : MonoBehaviour
     {
         private SpriteResolver _spriteResolver;
-        private Sprite _currentSprite;
 
         private void Awake()
         {
@@ -22,15 +22,22 @@ namespace DoorGame
         {
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
+
+        private void SetCardSpriteToFront()
+        {
+            _spriteResolver.SetCategoryAndLabel("Front", "Entry");
+        }
+
+        private IEnumerator ShowCard()
+        {
+            SetCardSpriteToFront();
+            yield return new WaitForSeconds(2f);
+            SetCardSpriteToBack();
+        }
         
         public void OnMouseDown()
         {
-            FlipCard();
-        }
-
-        private void FlipCard()
-        {
-            _spriteResolver.SetCategoryAndLabel("Front", "Entry");
+            SetCardSpriteToFront();
         }
     }
 }
