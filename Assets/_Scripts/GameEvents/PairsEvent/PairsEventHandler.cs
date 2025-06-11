@@ -6,7 +6,7 @@ namespace DoorGame.GameEvents.PairsEvent
 {
     public class PairsEventHandler : MonoBehaviour
     {
-        // Add new list with 12 card prefabs. Then select 8 of these and place into available cards.
+        [Header("Track card positions")]
         [SerializeField] private List<GameObject> cards;
         [SerializeField] private List<GameObject> availableCardPairs;
         [SerializeField] private List<GameObject> usedCards;
@@ -23,6 +23,11 @@ namespace DoorGame.GameEvents.PairsEvent
         {
             attempts = 5;
             SpawnCards();
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ResetCards();
+            }
         }
 
         private void SpawnCards()
@@ -53,6 +58,15 @@ namespace DoorGame.GameEvents.PairsEvent
                 spawnPositionsAvailable.RemoveAt(randomSpawnPoint);
                 availableCardPairs.RemoveAt(cardID);
             }
+        }
+
+        private void ResetCards()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                spawnPositionsAvailable.Add(spawnPositionsUsed[i]);
+            }
+            spawnPositionsUsed.Clear();
         }
     }
 }
