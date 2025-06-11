@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using UnityEngine.EventSystems;
 
 namespace DoorGame
 {
@@ -20,17 +21,17 @@ namespace DoorGame
 
         private void SetCardSpriteToBack()
         {
-            _spriteResolver.SetCategoryAndLabel("Card Back", "Back");
+            _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
-
-        private void OnPointerClick()
+        
+        public void OnMouseDown()
         {
             FlipCard();
         }
 
         private void FlipCard()
         {
-            _spriteResolver.SetCategoryAndLabel("Card Back", "Back");
+            _spriteResolver.SetCategoryAndLabel("Front", "Entry");
         }
     }
 }

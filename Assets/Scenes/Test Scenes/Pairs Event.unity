@@ -199,8 +199,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 1285faa021fc5844da11ac807650ba91, type: 3}
+  m_Library:
+  - m_Name: Front
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: c88c07a36ff5b3140acfd04b59ecf82e, type: 3}
+  - m_Name: Back
+    m_Hash: 0
+    m_CategoryList:
+    - m_Name: Entry
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 50c30dbbee8ef5b4898a8411e71d0988, type: 3}
+  m_SpriteLibraryAsset: {fileID: 0}
 --- !u!212 &216937642
 SpriteRenderer:
   m_ObjectHideFlags: 0
