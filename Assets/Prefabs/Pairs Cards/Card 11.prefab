@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7737483229886364626}
   - component: {fileID: 5011918241304625289}
   m_Layer: 5
-  m_Name: Card 4
+  m_Name: Card 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 1.125}
+    oldSize: {x: 0.64, y: 0.32}
     newSize: {x: 0.74, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1a89ee09389008b4d935ce5ad7ac2c7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2da4440239158874682b733d3eef20ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
     m_CategoryList:
     - m_Name: Entry
       m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 1a89ee09389008b4d935ce5ad7ac2c7b, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 2da4440239158874682b733d3eef20ee, type: 3}
   - m_Name: Back
     m_Hash: 0
     m_CategoryList:
