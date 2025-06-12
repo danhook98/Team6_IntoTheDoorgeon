@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4183257222371728182}
   - component: {fileID: 5428058876608504291}
+  - component: {fileID: 5939844308485750959}
   - component: {fileID: 6750171753230649754}
   - component: {fileID: 3823460803964276275}
   - component: {fileID: 3763326028523450132}
@@ -48,6 +49,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1fd9e48fa5d0e4d9f44b3c4ece84be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5939844308485750959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570731986953103053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 02896ead2e5b91141951035807c65e5b, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5428058876608504291}
+        m_TargetAssemblyTypeName: DoorGame.SceneHandler, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6750171753230649754
 MonoBehaviour:
   m_ObjectHideFlags: 0
