@@ -200,3 +200,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5000b53aa8d0a449cfd3c8f0029470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}

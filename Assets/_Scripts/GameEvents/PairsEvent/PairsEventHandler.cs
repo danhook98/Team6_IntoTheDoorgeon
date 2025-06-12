@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DoorGame.EventSystem;
 
 namespace DoorGame.GameEvents.PairsEvent
 {
@@ -16,13 +17,22 @@ namespace DoorGame.GameEvents.PairsEvent
         
         [Header("Attempts")]
         [SerializeField] private int attempts;
+
+        [Header("Events")] 
+        [SerializeField] private VoidEvent onCardsMatchEvent;
+        [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
+        
         
         private int _completedPairs;
         private const int TotalPairs = 8;
 
+        private int _numberOfFlippedCards; // Tracks how many cards have been flipped this turn (Should only be 0, 1 or 2).
+        private int _firstCardID;
+
         private void Start()
         {
             attempts = 5;
+            _numberOfFlippedCards = 0;
             SpawnCards();
         }
 
@@ -73,6 +83,30 @@ namespace DoorGame.GameEvents.PairsEvent
                 spawnPositionsAvailable.Add(spawnPositionsUsed[i]);
             }
             spawnPositionsUsed.Clear();
+        }
+
+        public void CardHasBeenFlipped(int instanceId)
+        {
+            if (_numberOfFlippedCards == 2) return;
+            
+            _numberOfFlippedCards++;
+            if (_numberOfFlippedCards == 1)
+            {
+                _firstCardID = instanceId;
+            }
+            
+            else if (_numberOfFlippedCards == 2)
+            {
+                if (_firstCardID == instanceId)
+                {
+                    // Trigger CardsMatchEvent
+                }
+                else
+                {
+                    // Trigger CardsDoNotMatchEvent
+                }
+                _numberOfFlippedCards = 0;
+            }
         }
     }
 }

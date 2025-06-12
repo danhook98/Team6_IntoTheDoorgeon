@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 using System.Collections;
+using DoorGame.EventSystem;
 
 namespace DoorGame.GameEvents.PairsEvent
 {
     public class PairEventCard : MonoBehaviour
     {
+        [SerializeField] private IntEvent onFlipCardEvent;
         private SpriteResolver _spriteResolver;
 
         private void Awake()
@@ -26,6 +28,7 @@ namespace DoorGame.GameEvents.PairsEvent
         private void SetCardSpriteToFront()
         {
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
+            onFlipCardEvent.Invoke(this.GetInstanceID());
         }
 
         private IEnumerator ShowCard()
