@@ -398,30 +398,30 @@ PrefabInstance:
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1436033225}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1436033225}
+      objectReference: {fileID: 1436033232}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayClickSound
       objectReference: {fileID: 0}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorGame.MainMenuController, Assembly-CSharp
+      value: DoorGame.Door.Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DoorGame.Door.Door, Assembly-CSharp
+      value: DoorGame.EventSystem.VoidEventTrigger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2802052926764095172, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -438,7 +438,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1436033232}
   m_SourcePrefab: {fileID: 100100000, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
 --- !u!224 &82823301 stripped
 RectTransform:
@@ -924,6 +927,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 825338319069330345, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
   m_PrefabInstance: {fileID: 334391885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &352152897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+  m_PrefabInstance: {fileID: 82823300}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &473776304
 PrefabInstance:
@@ -2314,12 +2322,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
   m_PrefabInstance: {fileID: 82823300}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 352152897}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f9ab789ccbd39a4dbefa7245b1f9d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1436033232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352152897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToTrigger: {fileID: 11400000, guid: 70401f82760a2e64ebdafa0ce796efe4, type: 2}
 --- !u!1001 &1446561621
 PrefabInstance:
   m_ObjectHideFlags: 0
