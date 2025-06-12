@@ -31,6 +31,11 @@ namespace DoorGame.GameEvents.PairsEvent
             onFlipCardEvent.Invoke(this.GetInstanceID());
         }
 
+        public void StartShowCard()
+        {
+            StartCoroutine(ShowCard());
+        }
+
         public IEnumerator ShowCard()
         {
             SetCardSpriteToFront();

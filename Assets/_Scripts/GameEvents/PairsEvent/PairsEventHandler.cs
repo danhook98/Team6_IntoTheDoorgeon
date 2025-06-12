@@ -99,13 +99,17 @@ namespace DoorGame.GameEvents.PairsEvent
             {
                 if (_firstCardID == instanceId)
                 {
+                    Debug.Log("Cards match");
                     onCardsMatchEvent.Invoke(new Empty());
+                    _completedPairs++;
                 }
                 else
                 {
+                    Debug.Log("Cards do not match");
                     onCardsDoNotMatchEvent.Invoke(new Empty());
                 }
                 _numberOfFlippedCards = 0;
+                attempts--;
             }
         }
     }
