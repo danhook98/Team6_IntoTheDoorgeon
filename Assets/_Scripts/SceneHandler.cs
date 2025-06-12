@@ -16,6 +16,8 @@ namespace DoorGame
             
             Time.timeScale = state ? 0 : 1;
         }
+        
+        public void StartGame() => SceneManager.LoadScene("Main Game");
 
         public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
