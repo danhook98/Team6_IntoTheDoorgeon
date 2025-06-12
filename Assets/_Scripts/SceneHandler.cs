@@ -5,6 +5,11 @@ namespace DoorGame
 {
     public class SceneHandler : MonoBehaviour
     {
+        private void Awake()
+        {
+            Time.timeScale = 1;
+        }
+
         public void PauseGame(bool state)
         {
             Debug.Log("Game paused");
