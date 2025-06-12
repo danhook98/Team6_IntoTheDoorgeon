@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DoorGame.EventSystem;
@@ -29,6 +31,9 @@ namespace DoorGame.GameEvents.PairsEvent
         private int _numberOfFlippedCards; // Tracks how many cards have been flipped this turn (Should only be 0, 1 or 2).
         private int _firstCardID;
 
+        private GameObject _firstCard;
+        private GameObject _secondCard;
+        
         private void Start()
         {
             attempts = 5;
@@ -92,12 +97,50 @@ namespace DoorGame.GameEvents.PairsEvent
             _numberOfFlippedCards++;
             if (_numberOfFlippedCards == 1)
             {
-                _firstCardID = instanceId;
+                //_firstCardID = instanceId;
+                for (int i = 0; i < usedCards.Count; i++)
+                {
+                    if (instanceId == usedCards[i].GetInstanceID())
+                    {
+                        Debug.Log("IF statement triggered!");
+                        // Save and compare game object instead!
+                        _firstCard = usedCards[i];
+                        Debug.Log(_firstCard);
+                        Debug.Log("First card: " + usedCards[i]);
+                        break;
+                    }
+                }
+                Debug.Log("Search completed");
             }
             
             else if (_numberOfFlippedCards == 2)
             {
-                if (_firstCardID == instanceId)
+                for (int i = 0; i < usedCards.Count; i++)
+                {
+                    if (instanceId == usedCards[i].GetInstanceID())
+                    {
+                        // Save and compare game object instead!
+                        _secondCard = usedCards[i];
+                        Debug.Log("2nd card: " + usedCards[i]);
+                        Debug.Log(_secondCard);
+                        break;
+                    }
+                    Debug.Log("Search completed 2");
+                }
+
+                if (_firstCard == _secondCard)
+                {
+                    Debug.Log("Cards match");
+                    onCardsMatchEvent.Invoke(new Empty());
+                    _completedPairs++;
+                }
+                else
+                {
+                    Debug.Log("Cards do not match");
+                }
+                
+                    
+                /*if(instanceId == usedCards.BinarySearch(usedCards[_firstCardID]))    
                 {
                     Debug.Log("Cards match");
                     onCardsMatchEvent.Invoke(new Empty());
@@ -107,7 +150,7 @@ namespace DoorGame.GameEvents.PairsEvent
                 {
                     Debug.Log("Cards do not match");
                     onCardsDoNotMatchEvent.Invoke(new Empty());
-                }
+                }*/
                 _numberOfFlippedCards = 0;
                 attempts--;
             }
