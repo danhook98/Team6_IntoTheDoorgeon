@@ -8,6 +8,7 @@ namespace DoorGame
     {
         // Resolution Related.
         private Resolution[] _resolutions;
+        private int _currentResolutionIndex;
         private TMP_Dropdown _resolutionDropdown;
         
         private void Awake()
@@ -24,8 +25,7 @@ namespace DoorGame
             _resolutionDropdown.ClearOptions();
 
             List<string> options = new List<string>();
-
-            int currentResolutionIndex = 0;
+            
             for (int i = 0; i < _resolutions.Length; i++)
             {
                 string option = _resolutions[i].ToString();
@@ -33,11 +33,11 @@ namespace DoorGame
 
                 if (_resolutions[i].width == Screen.width && _resolutions[i].height == Screen.height)
                 {
-                    currentResolutionIndex = i;
+                    _currentResolutionIndex = i;
                 }
             }
             _resolutionDropdown.AddOptions(options);
-            _resolutionDropdown.value = currentResolutionIndex;
+            _resolutionDropdown.value = _currentResolutionIndex;
             _resolutionDropdown.RefreshShownValue();
         }
         
@@ -48,6 +48,12 @@ namespace DoorGame
         public void SetResolution(int resolutionIndex)
         {
             Screen.SetResolution(_resolutions[resolutionIndex].width, _resolutions[resolutionIndex].height, Screen.fullScreen);
+        }
+
+        public void ResetResolution()
+        {
+            Screen.SetResolution(_resolutions[_currentResolutionIndex].width, _resolutions[_currentResolutionIndex].height, Screen.fullScreen);
+            _resolutionDropdown.value = _currentResolutionIndex;
         }
     }
 }

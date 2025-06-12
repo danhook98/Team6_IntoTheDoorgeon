@@ -10,8 +10,8 @@ namespace DoorGame.EventSystem
     /// <typeparam name="T">Data type to receive from an event.</typeparam>
     public class AbstractEventListener<T> : MonoBehaviour
     {
-        [SerializeField] private AbstractEvent<T> eventToListen;
-        [SerializeField] private UnityEvent<T> onEvent;
+        [SerializeField] protected AbstractEvent<T> eventToListen;
+        [SerializeField] protected UnityEvent<T> onEvent;
 
         /// <summary>
         /// Registers with the serialised event when the attached game object is enabled.
@@ -27,6 +27,6 @@ namespace DoorGame.EventSystem
         /// Invokes the serialised UnityEvent when called.
         /// </summary>
         /// <param name="value">Data to pass to the UnityEvent.</param>
-        public void Listen(T value) => onEvent?.Invoke(value);
+        public virtual void Listen(T value) => onEvent?.Invoke(value);
     }
 }
