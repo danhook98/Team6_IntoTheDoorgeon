@@ -99,11 +99,11 @@ namespace DoorGame.GameEvents.PairsEvent
             {
                 if (_firstCardID == instanceId)
                 {
-                    // Trigger CardsMatchEvent
+                    onCardsMatchEvent.Invoke(new Empty());
                 }
                 else
                 {
-                    // Trigger CardsDoNotMatchEvent
+                    onCardsDoNotMatchEvent.Invoke(new Empty());
                 }
                 _numberOfFlippedCards = 0;
             }

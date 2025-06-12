@@ -20,18 +20,18 @@ namespace DoorGame.GameEvents.PairsEvent
             SetCardSpriteToBack();
         }
 
-        private void SetCardSpriteToBack()
+        public void SetCardSpriteToBack()
         {
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
 
-        private void SetCardSpriteToFront()
+        public void SetCardSpriteToFront()
         {
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
             onFlipCardEvent.Invoke(this.GetInstanceID());
         }
 
-        private IEnumerator ShowCard()
+        public IEnumerator ShowCard()
         {
             SetCardSpriteToFront();
             yield return new WaitForSeconds(2f);
