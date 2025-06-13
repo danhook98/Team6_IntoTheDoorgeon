@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace DoorGame.GameplayEvents
 {
@@ -28,7 +29,8 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
-            _rigidbody2D.AddTorque(initialTorquePower);
+            float power = initialTorquePower + Random.Range(-(initialTorquePower * 0.25f), initialTorquePower * 0.25f);
+            _rigidbody2D.AddTorque(power);
 
             yield return _spinCheckDelay;
 
@@ -38,6 +40,8 @@ namespace DoorGame.GameplayEvents
                 _rigidbody2D.angularVelocity -= 200 * Time.deltaTime;
                 yield return null; 
             }
+            
+            _rigidbody2D.angularVelocity = 0f;
             
             // Get results.
         }
