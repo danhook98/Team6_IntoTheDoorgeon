@@ -8,6 +8,7 @@ namespace DoorGame.GameEvents.PairsEvent
     public class PairEventCard : MonoBehaviour
     {
         [SerializeField] private IntEvent onFlipCardEvent;
+        [SerializeField] private float timeToFlipCard;
         private SpriteResolver _spriteResolver;
 
         private bool _canBeFlipped;
@@ -44,7 +45,7 @@ namespace DoorGame.GameEvents.PairsEvent
         public IEnumerator ShowCard()
         {
             SetCardSpriteToFront();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(timeToFlipCard);
             SetCardSpriteToBack();
         }
 

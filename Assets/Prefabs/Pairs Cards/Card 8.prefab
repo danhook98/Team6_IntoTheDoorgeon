@@ -201,3 +201,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}
+  timeToFlipCard: 1.5
