@@ -29,6 +29,9 @@ namespace DoorGame.GameEvents.PairsEvent
         private GameObject _firstCard;
         private GameObject _secondCard;
 
+        private PairEventCard _cardScript1;
+        private PairEventCard _cardScript2;
+
         private void Start()
         {
             attempts = 5;
@@ -113,7 +116,7 @@ namespace DoorGame.GameEvents.PairsEvent
             _numberOfFlippedCards++;
 
             GameObject clickedCard = usedCards.Find(c => c.GetInstanceID() == instanceId);
-
+            
             if (clickedCard == null)
             {
                 _numberOfFlippedCards--;
@@ -123,18 +126,26 @@ namespace DoorGame.GameEvents.PairsEvent
             if (_numberOfFlippedCards == 1)
             {
                 _firstCard = clickedCard;
+                _cardScript1 = clickedCard.GetComponent<PairEventCard>();
+                _cardScript1.SetCardSpriteToFront();
             }
             else if (_numberOfFlippedCards == 2)
             {
                 _secondCard = clickedCard;
+                _cardScript2 = clickedCard.GetComponent<PairEventCard>();
 
+                // Cards match
                 if (DoCardsMatch(_firstCard, _secondCard))
                 {
+                    _cardScript2.SetCardSpriteToFront();
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;
                 }
+                // Cards do not match
                 else
                 {
+                    _cardScript1.StartCoroutine(_cardScript1.ShowCard());
+                    _cardScript2.StartCoroutine(_cardScript2.ShowCard());
                     onCardsDoNotMatchEvent.Invoke(new Empty());
                 }
 

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1697786763944892948}
   - component: {fileID: 7737483229886364626}
   - component: {fileID: 5011918241304625289}
-  - component: {fileID: -1977513950019605881}
   m_Layer: 5
   m_Name: Card 6
   m_TagString: Untagged
@@ -202,31 +201,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}
---- !u!114 &-1977513950019605881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5592652457841277517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: 55daa7893fffe7643ad0406e6265ac17, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5011918241304625289}
-        m_TargetAssemblyTypeName: DoorGame.GameEvents.PairsEvent.PairEventCard, Assembly-CSharp
-        m_MethodName: SetCardSpriteToBack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
