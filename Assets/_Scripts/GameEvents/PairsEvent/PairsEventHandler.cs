@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DoorGame.EventSystem;
@@ -12,28 +10,25 @@ namespace DoorGame.GameEvents.PairsEvent
         [Header("Track cards")]
         [SerializeField] private List<GameObject> availableCards;
         [SerializeField] private List<GameObject> usedCards;
-        
+
         [Header("Spawn positions")]
         [SerializeField] private List<Vector2> spawnPositionsAvailable;
         [SerializeField] private List<Vector2> spawnPositionsUsed;
-        
+
         [Header("Attempts")]
         [SerializeField] private int attempts;
 
         [Header("Events")] 
         [SerializeField] private VoidEvent onCardsMatchEvent;
         [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
-        
-        
+
         private int _completedPairs;
         private const int TotalPairs = 8;
-
-        private int _numberOfFlippedCards; // Tracks how many cards have been flipped this turn (Should only be 0, 1 or 2).
-        private int _firstCardID;
+        private int _numberOfFlippedCards;
 
         private GameObject _firstCard;
         private GameObject _secondCard;
-        
+
         private void Start()
         {
             attempts = 5;
@@ -49,100 +44,90 @@ namespace DoorGame.GameEvents.PairsEvent
             }
         }
 
+        /// <summary>
+        /// Spawns 8 pairs of cards at random positions, removes
+        /// used position when spawning a card.
+        /// </summary>
         private void SpawnCards()
         {
+            usedCards.Clear();
+            List<GameObject> tempCardPool = new List<GameObject>(availableCards);
+
             for (int i = 0; i < TotalPairs; i++)
             {
-                // Random available position is selected.
-                int randomSpawnPoint = Random.Range(0, spawnPositionsAvailable.Count);
-                Vector3 spawnPosition = spawnPositionsAvailable[randomSpawnPoint];
-                
-                // Random card is selected & instantiated.
-                int cardID = Random.Range(0, availableCards.Count);
-                GameObject lastCardSpawned = Instantiate(availableCards[cardID], spawnPosition, Quaternion.identity);
-                lastCardSpawned.transform.SetParent(transform, false);
-                
-                // Update lists with correct information.
-                spawnPositionsUsed.Add(spawnPosition); 
-                spawnPositionsAvailable.RemoveAt(randomSpawnPoint);
-                
-                // 2nd copy of card is instantiated at a different random position.
-                randomSpawnPoint = Random.Range(0, spawnPositionsAvailable.Count);
-                spawnPosition = spawnPositionsAvailable[randomSpawnPoint];
-                lastCardSpawned = Instantiate(availableCards[cardID], spawnPosition, Quaternion.identity);
-                lastCardSpawned.transform.SetParent(transform, false);
-                
-                // Update lists with correct information.
-                spawnPositionsUsed.Add(spawnPosition); 
-                spawnPositionsAvailable.RemoveAt(randomSpawnPoint);
-                usedCards.Add(lastCardSpawned);
-                availableCards.RemoveAt(cardID);
+                int prefabIndex = Random.Range(0, tempCardPool.Count);
+                GameObject cardPrefab = tempCardPool[prefabIndex];
+                tempCardPool.RemoveAt(prefabIndex);
+
+                // First copy
+                int index1 = Random.Range(0, spawnPositionsAvailable.Count);
+                Vector2 pos1 = spawnPositionsAvailable[index1];
+                spawnPositionsAvailable.RemoveAt(index1);
+                spawnPositionsUsed.Add(pos1);
+
+                GameObject card1 = Instantiate(cardPrefab, transform);
+                card1.GetComponent<RectTransform>().anchoredPosition = pos1;
+                usedCards.Add(card1);
+
+                // Second copy
+                int index2 = Random.Range(0, spawnPositionsAvailable.Count);
+                Vector2 pos2 = spawnPositionsAvailable[index2];
+                spawnPositionsAvailable.RemoveAt(index2);
+                spawnPositionsUsed.Add(pos2);
+
+                GameObject card2 = Instantiate(cardPrefab, transform);
+                card2.GetComponent<RectTransform>().anchoredPosition = pos2;
+                usedCards.Add(card2);
             }
         }
 
+        /// <summary>
+        /// Resets lists and variables, destroys card game objects.
+        /// </summary>
         private void ResetCards()
         {
-            Debug.Log("Resetting cards");
-            for (int i = 0; i < 12; i++)
-            {
-                spawnPositionsAvailable.Add(spawnPositionsUsed[i]);
-            }
+            spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
-        }
 
+            foreach (var card in usedCards)
+            {
+                Destroy(card);
+            }
+
+            usedCards.Clear();
+            _numberOfFlippedCards = 0;
+            _completedPairs = 0;
+            attempts = 5;
+        }
+        
         public void CardHasBeenFlipped(int instanceId)
         {
             if (_numberOfFlippedCards == 2) return;
-            
+
             _numberOfFlippedCards++;
+
+            GameObject clickedCard = usedCards.Find(c => c.GetInstanceID() == instanceId);
+
+            if (clickedCard == null)
+            {
+                Debug.LogWarning("Clicked card not found.");
+                _numberOfFlippedCards--;
+                return;
+            }
+
             if (_numberOfFlippedCards == 1)
             {
-                //_firstCardID = instanceId;
-                for (int i = 0; i < usedCards.Count; i++)
-                {
-                    if (instanceId == usedCards[i].GetInstanceID())
-                    {
-                        Debug.Log("IF statement triggered!");
-                        // Save and compare game object instead!
-                        _firstCard = usedCards[i];
-                        Debug.Log(_firstCard);
-                        Debug.Log("First card: " + usedCards[i]);
-                        break;
-                    }
-                }
-                Debug.Log("Search completed");
+                _firstCard = clickedCard;
+                Debug.Log($"First card flipped: {_firstCard.name}");
             }
-            
             else if (_numberOfFlippedCards == 2)
             {
-                for (int i = 0; i < usedCards.Count; i++)
-                {
-                    if (instanceId == usedCards[i].GetInstanceID())
-                    {
-                        // Save and compare game object instead!
-                        _secondCard = usedCards[i];
-                        Debug.Log("2nd card: " + usedCards[i]);
-                        Debug.Log(_secondCard);
-                        break;
-                    }
-                    Debug.Log("Search completed 2");
-                }
+                _secondCard = clickedCard;
+                Debug.Log($"Second card flipped: {_secondCard.name}");
 
-                if (_firstCard == _secondCard)
+                if (DoCardsMatch(_firstCard, _secondCard))
                 {
-                    Debug.Log("Cards match");
-                    onCardsMatchEvent.Invoke(new Empty());
-                    _completedPairs++;
-                }
-                else
-                {
-                    Debug.Log("Cards do not match");
-                }
-                
-                    
-                /*if(instanceId == usedCards.BinarySearch(usedCards[_firstCardID]))    
-                {
-                    Debug.Log("Cards match");
+                    Debug.Log("Cards match!");
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;
                 }
@@ -150,10 +135,18 @@ namespace DoorGame.GameEvents.PairsEvent
                 {
                     Debug.Log("Cards do not match");
                     onCardsDoNotMatchEvent.Invoke(new Empty());
-                }*/
+                }
+
                 _numberOfFlippedCards = 0;
                 attempts--;
             }
+        }
+
+        private bool DoCardsMatch(GameObject cardA, GameObject cardB)
+        {
+            string nameA = cardA.name.Replace("(Clone)", "").Trim();
+            string nameB = cardB.name.Replace("(Clone)", "").Trim();
+            return nameA == nameB;
         }
     }
 }

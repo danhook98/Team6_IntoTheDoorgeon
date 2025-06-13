@@ -220,7 +220,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5011918241304625289}
         m_TargetAssemblyTypeName: DoorGame.GameEvents.PairsEvent.PairEventCard, Assembly-CSharp
-        m_MethodName: StartShowCard
+        m_MethodName: SetCardSpriteToBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

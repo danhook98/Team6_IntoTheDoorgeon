@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.U2D.Animation;
-using System.Collections;
 using DoorGame.EventSystem;
 
 namespace DoorGame.GameEvents.PairsEvent
@@ -28,24 +27,12 @@ namespace DoorGame.GameEvents.PairsEvent
         public void SetCardSpriteToFront()
         {
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
-            onFlipCardEvent.Invoke(this.GetInstanceID());
         }
 
-        public void StartShowCard()
-        {
-            StartCoroutine(ShowCard());
-        }
-
-        public IEnumerator ShowCard()
+        private void OnMouseDown()
         {
             SetCardSpriteToFront();
-            yield return new WaitForSeconds(2f);
-            SetCardSpriteToBack();
-        }
-        
-        public void OnMouseDown()
-        {
-            SetCardSpriteToFront();
+            onFlipCardEvent.Invoke(this.gameObject.GetInstanceID());
         }
     }
 }
