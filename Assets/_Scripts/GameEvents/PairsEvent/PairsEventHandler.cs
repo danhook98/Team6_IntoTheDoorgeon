@@ -138,9 +138,15 @@ namespace DoorGame.GameEvents.PairsEvent
                 if (DoCardsMatch(_firstCard, _secondCard))
                 {
                     _cardScript2.SetCardSpriteToFront();
+                    
+                    //Prevent cards from being flipped
+                    _cardScript1.SetBool(false);
+                    _cardScript2.SetBool(false);
+                    
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;
                 }
+                
                 // Cards do not match
                 else
                 {

@@ -10,6 +10,8 @@ namespace DoorGame.GameEvents.PairsEvent
         [SerializeField] private IntEvent onFlipCardEvent;
         private SpriteResolver _spriteResolver;
 
+        private bool _canBeFlipped;
+
         private void Awake()
         {
             _spriteResolver = GetComponent<SpriteResolver>();
@@ -17,22 +19,25 @@ namespace DoorGame.GameEvents.PairsEvent
 
         private void Start()
         {
+            _canBeFlipped = true;
             SetCardSpriteToBack();
         }
 
         public void SetCardSpriteToBack()
         {
+            if (!_canBeFlipped) return;
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
 
         public void SetCardSpriteToFront()
         {
+            if (!_canBeFlipped) return;
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
         }
 
         private void OnMouseDown()
         {
-            //SetCardSpriteToFront();
+            if (!_canBeFlipped) return;
             onFlipCardEvent.Invoke(this.gameObject.GetInstanceID());
         }
 
@@ -41,6 +46,11 @@ namespace DoorGame.GameEvents.PairsEvent
             SetCardSpriteToFront();
             yield return new WaitForSeconds(2f);
             SetCardSpriteToBack();
+        }
+
+        public void SetBool(bool canBeFlipped)
+        {
+            _canBeFlipped = canBeFlipped;
         }
     }
 }
