@@ -16,7 +16,6 @@ namespace DoorGame.Door
         [SerializeField] private AudioClipSO doorClickSound;
         
         private bool _canOpen = true;
-        public bool isRoomResetting = false;
         
         private static readonly int RoomReset = Animator.StringToHash("RoomReset");
         private static readonly int GoodDoorOpened = Animator.StringToHash("GoodDoorOpened");

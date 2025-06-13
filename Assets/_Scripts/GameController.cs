@@ -16,7 +16,6 @@ namespace DoorGame
         [SerializeField] private IntEvent highScoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
         [SerializeField] private VoidEvent generateDoorsEvent; 
-        [SerializeField] private FloatEvent onPlayerPositionChangeEvent;
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
         [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
         
@@ -46,15 +45,10 @@ namespace DoorGame
         private int _scoreMultiplier = 1;
         private int _validDoorsOpened = 0;
         private int _totalDoorsOpened = 0;
-
-        // Player
-        private GameObject _player;
-
-        private Vector3 _mouseScreenPos;
+        
         private void Awake()
         {
             _highScore = PlayerPrefs.GetInt("HighScore", 0);
-            _player = GameObject.FindGameObjectWithTag("Player");
         }
 
         private void Start()
@@ -67,11 +61,6 @@ namespace DoorGame
             // Choose a random piece of background music (temporary).
             AudioClipSO music = gameMusic[Random.Range(0, gameMusic.Length)];
             playMusicAudioChannel.Invoke(music);
-        }
-
-        private void Update()
-        {
-            _mouseScreenPos = Input.mousePosition;
         }
 
         public void LeaveGame()
@@ -159,18 +148,6 @@ namespace DoorGame
             {
                 highScoreChangedEvent.Invoke(PlayerPrefs.GetInt("HighScore", 0));
             }
-        }
-        
-        public void DetectMouseHover()
-        {
-            onPlayerPositionChangeEvent.Invoke(_mouseScreenPos.x);
-        }
-
-        public void ChangePlayerPosition()
-        {
-            var vector3 = _player.transform.position;
-            vector3.x = _mouseScreenPos.x;
-            _player.transform.position = vector3;
         }
     }
 }
