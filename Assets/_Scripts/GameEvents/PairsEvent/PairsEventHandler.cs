@@ -100,6 +100,12 @@ namespace DoorGame.GameEvents.PairsEvent
             attempts = 5;
         }
         
+        /// <summary>
+        /// Tracks number of cards flipped. If 1 card has been flipped, it flips the card
+        /// and waits for a second card. Once that happens, it checks if the names match.
+        /// It triggers the appropriate event after checking depending on the result.
+        /// </summary>
+        /// <param name="instanceId"></param>
         public void CardHasBeenFlipped(int instanceId)
         {
             if (_numberOfFlippedCards == 2) return;
@@ -137,6 +143,13 @@ namespace DoorGame.GameEvents.PairsEvent
             }
         }
 
+        /// <summary>
+        /// Remove "(Clone)" from card name and check if names match.
+        /// If the names of the cards match, return true.
+        /// </summary>
+        /// <param name="cardA"></param>
+        /// <param name="cardB"></param>
+        /// <returns></returns>
         private bool DoCardsMatch(GameObject cardA, GameObject cardB)
         {
             string nameA = cardA.name.Replace("(Clone)", "").Trim();
