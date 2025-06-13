@@ -36,7 +36,6 @@ namespace DoorGame.GameEvents.PairsEvent
         {
             attempts = 5;
             _numberOfFlippedCards = 0;
-            SpawnCards();
         }
 
         private void Update()
@@ -51,7 +50,7 @@ namespace DoorGame.GameEvents.PairsEvent
         /// Spawns 8 pairs of cards at random positions, removes
         /// used position when spawning a card.
         /// </summary>
-        private void SpawnCards()
+        public void SpawnCards()
         {
             usedCards.Clear();
             List<GameObject> tempCardPool = new List<GameObject>(availableCards);
