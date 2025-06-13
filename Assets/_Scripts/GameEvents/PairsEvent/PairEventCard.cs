@@ -24,24 +24,43 @@ namespace DoorGame.GameEvents.PairsEvent
             SetCardSpriteToBack();
         }
 
+        /// <summary>
+        /// Flips card to front side.
+        /// Sets card sprite to the category "Back"
+        /// Labelled "Entry" through the sprite resolver.
+        /// </summary>
         public void SetCardSpriteToBack()
         {
             if (!_canBeFlipped) return;
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
 
+        /// <summary>
+        /// Flips card to back side.
+        /// Sets card sprite to the category "Front"
+        /// Labelled "Entry" through the sprite resolver.
+        /// </summary>
         public void SetCardSpriteToFront()
         {
             if (!_canBeFlipped) return;
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
         }
 
+        /// <summary>
+        /// Checks if card can be flipped.
+        /// If yes, triggers onFlipCard event.
+        /// </summary>
         private void OnMouseDown()
         {
             if (!_canBeFlipped) return;
             onFlipCardEvent.Invoke(this.gameObject.GetInstanceID());
         }
 
+        /// <summary>
+        /// Coroutine which shows the front of the card,
+        /// waits the time to flip and then shows the back of the card.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator ShowCard()
         {
             SetCardSpriteToFront();
@@ -49,6 +68,10 @@ namespace DoorGame.GameEvents.PairsEvent
             SetCardSpriteToBack();
         }
 
+        /// <summary>
+        /// Set boolean for whether a card can be flipped or not.
+        /// </summary>
+        /// <param name="canBeFlipped"></param>
         public void SetBool(bool canBeFlipped)
         {
             _canBeFlipped = canBeFlipped;
