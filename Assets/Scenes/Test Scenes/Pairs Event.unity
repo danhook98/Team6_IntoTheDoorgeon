@@ -122,24 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &868203970 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5216087322961696351, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-  m_PrefabInstance: {fileID: 5515157684779414701}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &868203975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868203970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3430121fbf5d42209d61c60555423521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToTrigger: {fileID: 11400000, guid: cd9f1ab8fa91ea24e808a85c58c7fb7f, type: 2}
 --- !u!1 &883519591
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,22 +327,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1970878802 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8024369397690920561, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-  m_PrefabInstance: {fileID: 5515157684779414701}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1970878804 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1926080480849446139, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-  m_PrefabInstance: {fileID: 5515157684779414701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970878802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f49ae04e81f4548975bba8cb8ce2e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5515157684779414701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -373,10 +339,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 883519593}
-    - target: {fileID: 4784742134876420320, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4998718999274369000, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -457,38 +419,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5423766894382706576, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 868203975}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Trigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorGame.EventSystem.VoidEventTrigger, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5575350330248381739, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8024369397690920561, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
       propertyPath: m_Name
       value: Pairs Event Canvas
@@ -496,43 +426,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8024369397690920561, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5515157684779414703}
-    - targetCorrespondingSourceObject: {fileID: 5216087322961696351, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 868203975}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
---- !u!114 &5515157684779414703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970878802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: cd9f1ab8fa91ea24e808a85c58c7fb7f, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1970878804}
-        m_TargetAssemblyTypeName: DoorGame.GameEvents.PairsEvent.PairsEventHandler,
-          Assembly-CSharp
-        m_MethodName: SpawnCards
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
