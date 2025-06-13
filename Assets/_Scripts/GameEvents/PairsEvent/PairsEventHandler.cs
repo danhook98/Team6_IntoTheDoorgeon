@@ -21,6 +21,7 @@ namespace DoorGame.GameEvents.PairsEvent
         [Header("Events")] 
         [SerializeField] private VoidEvent onCardsMatchEvent;
         [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
+        [SerializeField] private VoidEvent onGameEndedEvent;
 
         private int _completedPairs;
         private const int TotalPairs = 8;
@@ -36,14 +37,7 @@ namespace DoorGame.GameEvents.PairsEvent
         {
             attempts = 5;
             _numberOfFlippedCards = 0;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                ResetCards();
-            }
+            _completedPairs = 0;
         }
 
         /// <summary>
@@ -86,7 +80,7 @@ namespace DoorGame.GameEvents.PairsEvent
         /// <summary>
         /// Resets lists and variables, destroys card game objects.
         /// </summary>
-        private void ResetCards()
+        private void GameOver()
         {
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
@@ -97,9 +91,7 @@ namespace DoorGame.GameEvents.PairsEvent
             }
 
             usedCards.Clear();
-            _numberOfFlippedCards = 0;
-            _completedPairs = 0;
-            attempts = 5;
+            onGameEndedEvent.Invoke(new Empty());
         }
         
         /// <summary>
@@ -156,6 +148,10 @@ namespace DoorGame.GameEvents.PairsEvent
 
                 _numberOfFlippedCards = 0;
                 attempts--;
+                if (attempts == 0)
+                {
+                    GameOver();
+                }
             }
         }
 

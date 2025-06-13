@@ -419,10 +419,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7803840178359067317, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_Name
-      value: Pairs Intro Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 8024369397690920561, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
       propertyPath: m_Name
       value: Pairs Event Canvas
