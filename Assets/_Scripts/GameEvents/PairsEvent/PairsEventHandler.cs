@@ -110,7 +110,6 @@ namespace DoorGame.GameEvents.PairsEvent
 
             if (clickedCard == null)
             {
-                Debug.LogWarning("Clicked card not found.");
                 _numberOfFlippedCards--;
                 return;
             }
@@ -118,22 +117,18 @@ namespace DoorGame.GameEvents.PairsEvent
             if (_numberOfFlippedCards == 1)
             {
                 _firstCard = clickedCard;
-                Debug.Log($"First card flipped: {_firstCard.name}");
             }
             else if (_numberOfFlippedCards == 2)
             {
                 _secondCard = clickedCard;
-                Debug.Log($"Second card flipped: {_secondCard.name}");
 
                 if (DoCardsMatch(_firstCard, _secondCard))
                 {
-                    Debug.Log("Cards match!");
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;
                 }
                 else
                 {
-                    Debug.Log("Cards do not match");
                     onCardsDoNotMatchEvent.Invoke(new Empty());
                 }
 
