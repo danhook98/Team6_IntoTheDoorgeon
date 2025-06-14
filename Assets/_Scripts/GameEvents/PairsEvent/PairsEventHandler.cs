@@ -139,8 +139,8 @@ namespace DoorGame.GameEvents.PairsEvent
                     _secondCard.SetCardSpriteToFront();
                     
                     //Prevent cards from being flipped
-                    _firstCard.SetBool(false);
-                    _secondCard.SetBool(false);
+                    _firstCard.SetCanBeFlipped(false);
+                    _secondCard.SetCanBeFlipped(false);
                     
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;

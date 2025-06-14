@@ -75,7 +75,7 @@ namespace DoorGame.GameEvents.PairsEvent
         /// Set boolean for whether a card can be flipped or not.
         /// </summary>
         /// <param name="canBeFlipped"></param>
-        public void SetBool(bool canBeFlipped)
+        public void SetCanBeFlipped(bool canBeFlipped)
         {
             _canBeFlipped = canBeFlipped;
         }
