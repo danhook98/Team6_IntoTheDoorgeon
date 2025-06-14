@@ -1983,18 +1983,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   availableCards:
-  - {fileID: 5592652457841277517, guid: 0ab67bfa5b1bd9b4c8190351891750d4, type: 3}
-  - {fileID: 5592652457841277517, guid: 40146fcdcc70afc41b9dda5629421b77, type: 3}
-  - {fileID: 5592652457841277517, guid: 8dffdb2a91db15f438c76949a3132412, type: 3}
-  - {fileID: 5592652457841277517, guid: 9f98b88e200340045bfe6df56a560004, type: 3}
-  - {fileID: 5592652457841277517, guid: a140e36b729918244afe3dd272e9009d, type: 3}
-  - {fileID: 5592652457841277517, guid: 5c6b6496844b2554b9ee928afc1a5604, type: 3}
-  - {fileID: 5592652457841277517, guid: d4397cc35bb0abe4f8919533a83feb0b, type: 3}
-  - {fileID: 5592652457841277517, guid: ebf09335b66819643bb8357d340690a8, type: 3}
-  - {fileID: 5592652457841277517, guid: 0d3548a6f709f3145864413484d771ec, type: 3}
-  - {fileID: 5592652457841277517, guid: 982717385844c044c9979e41f7bbc3ea, type: 3}
-  - {fileID: 5592652457841277517, guid: c1dbfe68b4b543442b7fe13d5b7b24e4, type: 3}
-  - {fileID: 5592652457841277517, guid: 26559ece54e8271438ec976cb1a36c3a, type: 3}
+  - {fileID: 5011918241304625289, guid: 0ab67bfa5b1bd9b4c8190351891750d4, type: 3}
+  - {fileID: 5011918241304625289, guid: 40146fcdcc70afc41b9dda5629421b77, type: 3}
+  - {fileID: 5011918241304625289, guid: 8dffdb2a91db15f438c76949a3132412, type: 3}
+  - {fileID: 5011918241304625289, guid: 9f98b88e200340045bfe6df56a560004, type: 3}
+  - {fileID: 5011918241304625289, guid: a140e36b729918244afe3dd272e9009d, type: 3}
+  - {fileID: 5011918241304625289, guid: 5c6b6496844b2554b9ee928afc1a5604, type: 3}
+  - {fileID: 5011918241304625289, guid: d4397cc35bb0abe4f8919533a83feb0b, type: 3}
+  - {fileID: 5011918241304625289, guid: ebf09335b66819643bb8357d340690a8, type: 3}
+  - {fileID: 5011918241304625289, guid: 0d3548a6f709f3145864413484d771ec, type: 3}
+  - {fileID: 5011918241304625289, guid: 982717385844c044c9979e41f7bbc3ea, type: 3}
+  - {fileID: 5011918241304625289, guid: c1dbfe68b4b543442b7fe13d5b7b24e4, type: 3}
+  - {fileID: 5011918241304625289, guid: 26559ece54e8271438ec976cb1a36c3a, type: 3}
   usedCards: []
   spawnPositionsAvailable:
   - {x: 100, y: 100}
@@ -2018,6 +2018,11 @@ MonoBehaviour:
   onCardsMatchEvent: {fileID: 11400000, guid: 08c60b68db18ed743b05368c278004ae, type: 2}
   onCardsDoNotMatchEvent: {fileID: 11400000, guid: 55daa7893fffe7643ad0406e6265ac17, type: 2}
   onGameEndedEvent: {fileID: 11400000, guid: 70f4c19117414d64bae1229cf9a4d7b8, type: 2}
+  onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+  spawnCardsSfx: {fileID: 11400000, guid: 5b88919cd338bad469bbe57d85255fa2, type: 2}
+  flipCardSfx: {fileID: 11400000, guid: bad121fddd804bf48a2c7d9fc77bab5d, type: 2}
+  pairMatchesSfx: {fileID: 11400000, guid: f4334aaae7fa71f48b74420729eb4583, type: 2}
+  pairDoesNotMatchSfx: {fileID: 11400000, guid: 15deaa403d8099141bd65c0cc62103d3, type: 2}
   timeToFlipCard: 1.5
 --- !u!114 &2988094474615855600
 MonoBehaviour:

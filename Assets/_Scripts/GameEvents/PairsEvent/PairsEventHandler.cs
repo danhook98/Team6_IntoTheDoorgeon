@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DoorGame.EventSystem;
+using DoorGame.Audio;
 
 namespace DoorGame.GameEvents.PairsEvent
 {
@@ -22,7 +23,14 @@ namespace DoorGame.GameEvents.PairsEvent
         [SerializeField] private VoidEvent onCardsMatchEvent;
         [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
         [SerializeField] private VoidEvent onGameEndedEvent;
-
+        [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
+        
+        [Header("Audio Clip SOs")]
+        [SerializeField] private AudioClipSO spawnCardsSfx;
+        [SerializeField] private AudioClipSO flipCardSfx;
+        [SerializeField] private AudioClipSO pairMatchesSfx;
+        [SerializeField] private AudioClipSO pairDoesNotMatchSfx;
+        
         [Space] 
         [SerializeField] private float timeToFlipCard;
 
@@ -81,6 +89,7 @@ namespace DoorGame.GameEvents.PairsEvent
                 
                 autoId++;
             }
+            onPlaySfxEvent.Invoke(spawnCardsSfx);
         }
 
         /// <summary>
@@ -122,16 +131,14 @@ namespace DoorGame.GameEvents.PairsEvent
 
             if (_numberOfFlippedCards == 1)
             {
-                // _cardScript1 = clickedCard.GetComponent<PairEventCard>();
-                // _cardScript1.SetCardSpriteToFront();
-                
+                onPlaySfxEvent.Invoke(flipCardSfx);
                 _firstCard = clickedCard;
                 clickedCard.SetCardSpriteToFront();
             }
             else if (_numberOfFlippedCards == 2)
             {
+                onPlaySfxEvent.Invoke(flipCardSfx);
                 _secondCard = clickedCard;
-                // _cardScript2 = clickedCard.GetComponent<PairEventCard>();
 
                 // Cards match
                 if (DoCardsMatch(_firstCard, _secondCard))
@@ -144,6 +151,7 @@ namespace DoorGame.GameEvents.PairsEvent
                     
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;
+                    onPlaySfxEvent.Invoke(pairMatchesSfx);
                 }
                 
                 // Cards do not match
@@ -152,6 +160,7 @@ namespace DoorGame.GameEvents.PairsEvent
                     _firstCard.StartCoroutine(_firstCard.ShowCard(timeToFlipCard));
                     _secondCard.StartCoroutine(_secondCard.ShowCard(timeToFlipCard));
                     onCardsDoNotMatchEvent.Invoke(new Empty());
+                    onPlaySfxEvent.Invoke(pairDoesNotMatchSfx);
                 }
 
                 _numberOfFlippedCards = 0;
