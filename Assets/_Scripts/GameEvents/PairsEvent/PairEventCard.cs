@@ -7,8 +7,10 @@ namespace DoorGame.GameEvents.PairsEvent
 {
     public class PairEventCard : MonoBehaviour
     {
+        [Header("Events")]
         [SerializeField] private IntEvent onFlipCardEvent;
         
+        private Animator _anim;
         private SpriteResolver _spriteResolver;
         private RectTransform _rectTransform;
 
@@ -19,6 +21,7 @@ namespace DoorGame.GameEvents.PairsEvent
 
         private void Awake()
         {
+            _anim = GetComponent<Animator>();
             _spriteResolver = GetComponent<SpriteResolver>();
             _rectTransform = GetComponent<RectTransform>();
         }
@@ -26,7 +29,7 @@ namespace DoorGame.GameEvents.PairsEvent
         private void Start()
         {
             _canBeFlipped = true;
-            SetCardSpriteToBack();
+            _spriteResolver.SetCategoryAndLabel("Back", "Entry");
             _defaultScale = _rectTransform.localScale.x;
         }
 
@@ -38,6 +41,7 @@ namespace DoorGame.GameEvents.PairsEvent
         public void SetCardSpriteToBack()
         {
             if (!_canBeFlipped) return;
+            _anim.SetTrigger("FlipToBack");
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
 
@@ -49,6 +53,7 @@ namespace DoorGame.GameEvents.PairsEvent
         public void SetCardSpriteToFront()
         {
             if (!_canBeFlipped) return;
+            _anim.SetTrigger("FlipToFront");
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
         }
 
