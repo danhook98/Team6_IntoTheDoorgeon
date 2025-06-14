@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1697786763944892948}
   - component: {fileID: 7737483229886364626}
   - component: {fileID: 5011918241304625289}
+  - component: {fileID: 3056651827558586745}
   m_Layer: 5
   m_Name: Card 6
   m_TagString: Untagged
@@ -201,3 +202,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}
+--- !u!95 &3056651827558586745
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592652457841277517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 017dcd7aad9ea264980c469920525bf4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
