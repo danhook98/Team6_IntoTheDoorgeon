@@ -10,6 +10,9 @@ namespace DoorGame.GameEvents.PairsEvent
         [SerializeField] private IntEvent onFlipCardEvent;
         
         private SpriteResolver _spriteResolver;
+        private RectTransform _rectTransform;
+
+        private float _defaultScale;
         private bool _canBeFlipped;
         
         public int PairID { set; get; }
@@ -17,12 +20,14 @@ namespace DoorGame.GameEvents.PairsEvent
         private void Awake()
         {
             _spriteResolver = GetComponent<SpriteResolver>();
+            _rectTransform = GetComponent<RectTransform>();
         }
 
         private void Start()
         {
             _canBeFlipped = true;
             SetCardSpriteToBack();
+            _defaultScale = _rectTransform.localScale.x;
         }
 
         /// <summary>
@@ -55,6 +60,17 @@ namespace DoorGame.GameEvents.PairsEvent
         {
             if (!_canBeFlipped) return;
             onFlipCardEvent.Invoke(GetInstanceID());
+        }
+
+        private void OnMouseEnter()
+        {
+            if (!_canBeFlipped) return;
+            _rectTransform.localScale = new Vector3(_defaultScale * 1.2f, _defaultScale * 1.2f, 1);
+        }
+
+        private void OnMouseExit()
+        {
+            _rectTransform.localScale = new Vector3(_defaultScale, _defaultScale, 1);
         }
 
         /// <summary>
