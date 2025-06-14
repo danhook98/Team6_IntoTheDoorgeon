@@ -77,7 +77,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.42, y: 0.42}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.74, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 10fef9f58ab13e7438d4877fcc69d585, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0889377f778cbfe45952f6ae08c74a18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,13 +156,13 @@ MonoBehaviour:
     m_CategoryList:
     - m_Name: Entry
       m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 10fef9f58ab13e7438d4877fcc69d585, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 0889377f778cbfe45952f6ae08c74a18, type: 3}
   - m_Name: Back
     m_Hash: 0
     m_CategoryList:
     - m_Name: Entry
       m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 50c30dbbee8ef5b4898a8411e71d0988, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 2353d29a111ad6f468286d01a290934d, type: 3}
   m_SpriteLibraryAsset: {fileID: 0}
 --- !u!114 &1697786763944892948
 MonoBehaviour:
@@ -201,4 +201,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}
-  timeToFlipCard: 1.5

@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 9b75aca585dbbcb4c8b5304b73f795d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d76bfbfee90eda64aa13b7e0544d3f54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,13 +156,13 @@ MonoBehaviour:
     m_CategoryList:
     - m_Name: Entry
       m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 9b75aca585dbbcb4c8b5304b73f795d1, type: 3}
+      m_Sprite: {fileID: 21300000, guid: d76bfbfee90eda64aa13b7e0544d3f54, type: 3}
   - m_Name: Back
     m_Hash: 0
     m_CategoryList:
     - m_Name: Entry
       m_Hash: 0
-      m_Sprite: {fileID: 21300000, guid: 50c30dbbee8ef5b4898a8411e71d0988, type: 3}
+      m_Sprite: {fileID: 21300000, guid: 2353d29a111ad6f468286d01a290934d, type: 3}
   m_SpriteLibraryAsset: {fileID: 0}
 --- !u!114 &1697786763944892948
 MonoBehaviour:
@@ -201,4 +201,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}
-  timeToFlipCard: 1.5
