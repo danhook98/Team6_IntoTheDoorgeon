@@ -23,6 +23,9 @@ namespace DoorGame.GameEvents.PairsEvent
         [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
         [SerializeField] private VoidEvent onGameEndedEvent;
 
+        [Space] 
+        [SerializeField] private float timeToFlipCard;
+
         private int _completedPairs;
         private const int TotalPairs = 8;
         private int _numberOfFlippedCards;
@@ -141,8 +144,8 @@ namespace DoorGame.GameEvents.PairsEvent
                 // Cards do not match
                 else
                 {
-                    _cardScript1.StartCoroutine(_cardScript1.ShowCard());
-                    _cardScript2.StartCoroutine(_cardScript2.ShowCard());
+                    _cardScript1.StartCoroutine(_cardScript1.ShowCard(timeToFlipCard));
+                    _cardScript2.StartCoroutine(_cardScript2.ShowCard(timeToFlipCard));
                     onCardsDoNotMatchEvent.Invoke(new Empty());
                 }
 
