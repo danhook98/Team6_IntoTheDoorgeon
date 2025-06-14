@@ -62,12 +62,18 @@ namespace DoorGame.GameEvents.PairsEvent
             onFlipCardEvent.Invoke(GetInstanceID());
         }
 
+        /// <summary>
+        /// If card can be flipped, multiply size by 1.2 when hovering over it.
+        /// </summary>
         private void OnMouseEnter()
         {
             if (!_canBeFlipped) return;
             _rectTransform.localScale = new Vector3(_defaultScale * 1.2f, _defaultScale * 1.2f, 1);
         }
 
+        /// <summary>
+        /// Decrease size of card back to default when not hovering over it.
+        /// </summary>
         private void OnMouseExit()
         {
             _rectTransform.localScale = new Vector3(_defaultScale, _defaultScale, 1);
