@@ -8,8 +8,8 @@ namespace DoorGame.GameEvents.PairsEvent
     public class PairsEventHandler : MonoBehaviour
     {
         [Header("Track cards")]
-        [SerializeField] private List<GameObject> availableCards;
-        [SerializeField] private List<GameObject> usedCards;
+        [SerializeField] private List<PairEventCard> availableCards;
+        [SerializeField] private List<PairEventCard> usedCards;
 
         [Header("Spawn positions")]
         [SerializeField] private List<Vector2> spawnPositionsAvailable;
@@ -30,11 +30,8 @@ namespace DoorGame.GameEvents.PairsEvent
         private const int TotalPairs = 8;
         private int _numberOfFlippedCards;
 
-        private GameObject _firstCard;
-        private GameObject _secondCard;
-
-        private PairEventCard _cardScript1;
-        private PairEventCard _cardScript2;
+        private PairEventCard _firstCard;
+        private PairEventCard _secondCard;
 
         private void Start()
         {
@@ -50,12 +47,14 @@ namespace DoorGame.GameEvents.PairsEvent
         public void SpawnCards()
         {
             usedCards.Clear();
-            List<GameObject> tempCardPool = new List<GameObject>(availableCards);
+            List<PairEventCard> tempCardPool = new List<PairEventCard>(availableCards);
+
+            int autoId = 0;
 
             for (int i = 0; i < TotalPairs; i++)
             {
                 int prefabIndex = Random.Range(0, tempCardPool.Count);
-                GameObject cardPrefab = tempCardPool[prefabIndex];
+                PairEventCard cardPrefab = tempCardPool[prefabIndex];
                 tempCardPool.RemoveAt(prefabIndex);
 
                 // First copy
@@ -64,7 +63,8 @@ namespace DoorGame.GameEvents.PairsEvent
                 spawnPositionsAvailable.RemoveAt(index1);
                 spawnPositionsUsed.Add(pos1);
 
-                GameObject card1 = Instantiate(cardPrefab, transform);
+                PairEventCard card1 = Instantiate(cardPrefab, transform);
+                card1.PairID = autoId; 
                 card1.GetComponent<RectTransform>().anchoredPosition = pos1;
                 usedCards.Add(card1);
 
@@ -74,9 +74,12 @@ namespace DoorGame.GameEvents.PairsEvent
                 spawnPositionsAvailable.RemoveAt(index2);
                 spawnPositionsUsed.Add(pos2);
 
-                GameObject card2 = Instantiate(cardPrefab, transform);
+                PairEventCard card2 = Instantiate(cardPrefab, transform);
+                card2.PairID = autoId;
                 card2.GetComponent<RectTransform>().anchoredPosition = pos2;
                 usedCards.Add(card2);
+                
+                autoId++;
             }
         }
 
@@ -90,7 +93,7 @@ namespace DoorGame.GameEvents.PairsEvent
 
             foreach (var card in usedCards)
             {
-                Destroy(card);
+                Destroy(card.gameObject);
             }
 
             usedCards.Clear();
@@ -109,9 +112,9 @@ namespace DoorGame.GameEvents.PairsEvent
 
             _numberOfFlippedCards++;
 
-            GameObject clickedCard = usedCards.Find(c => c.GetInstanceID() == instanceId);
+            PairEventCard clickedCard = usedCards.Find(c => c.GetInstanceID() == instanceId);
             
-            if (clickedCard == null)
+            if (!clickedCard)
             {
                 _numberOfFlippedCards--;
                 return;
@@ -119,23 +122,25 @@ namespace DoorGame.GameEvents.PairsEvent
 
             if (_numberOfFlippedCards == 1)
             {
+                // _cardScript1 = clickedCard.GetComponent<PairEventCard>();
+                // _cardScript1.SetCardSpriteToFront();
+                
                 _firstCard = clickedCard;
-                _cardScript1 = clickedCard.GetComponent<PairEventCard>();
-                _cardScript1.SetCardSpriteToFront();
+                clickedCard.SetCardSpriteToFront();
             }
             else if (_numberOfFlippedCards == 2)
             {
                 _secondCard = clickedCard;
-                _cardScript2 = clickedCard.GetComponent<PairEventCard>();
+                // _cardScript2 = clickedCard.GetComponent<PairEventCard>();
 
                 // Cards match
                 if (DoCardsMatch(_firstCard, _secondCard))
                 {
-                    _cardScript2.SetCardSpriteToFront();
+                    _secondCard.SetCardSpriteToFront();
                     
                     //Prevent cards from being flipped
-                    _cardScript1.SetBool(false);
-                    _cardScript2.SetBool(false);
+                    _firstCard.SetBool(false);
+                    _secondCard.SetBool(false);
                     
                     onCardsMatchEvent.Invoke(new Empty());
                     _completedPairs++;
@@ -144,8 +149,8 @@ namespace DoorGame.GameEvents.PairsEvent
                 // Cards do not match
                 else
                 {
-                    _cardScript1.StartCoroutine(_cardScript1.ShowCard(timeToFlipCard));
-                    _cardScript2.StartCoroutine(_cardScript2.ShowCard(timeToFlipCard));
+                    _firstCard.StartCoroutine(_firstCard.ShowCard(timeToFlipCard));
+                    _secondCard.StartCoroutine(_secondCard.ShowCard(timeToFlipCard));
                     onCardsDoNotMatchEvent.Invoke(new Empty());
                 }
 
@@ -165,11 +170,15 @@ namespace DoorGame.GameEvents.PairsEvent
         /// <param name="cardA"></param>
         /// <param name="cardB"></param>
         /// <returns></returns>
-        private bool DoCardsMatch(GameObject cardA, GameObject cardB)
+        // private bool DoCardsMatch(GameObject cardA, GameObject cardB)
+        // {
+        //     string nameA = cardA.name.Replace("(Clone)", "").Trim();
+        //     string nameB = cardB.name.Replace("(Clone)", "").Trim();
+        //     return nameA == nameB;
+        // }
+        private bool DoCardsMatch(PairEventCard cardA, PairEventCard cardB)
         {
-            string nameA = cardA.name.Replace("(Clone)", "").Trim();
-            string nameB = cardB.name.Replace("(Clone)", "").Trim();
-            return nameA == nameB;
+            return cardA.PairID == cardB.PairID;
         }
     }
 }

@@ -8,9 +8,13 @@ namespace DoorGame.GameEvents.PairsEvent
     public class PairEventCard : MonoBehaviour
     {
         [SerializeField] private IntEvent onFlipCardEvent;
+        [SerializeField] private float timeToFlipCard;
+        
         private SpriteResolver _spriteResolver;
 
         private bool _canBeFlipped;
+        
+        public int PairID { set; get; }
 
         private void Awake()
         {
@@ -52,7 +56,7 @@ namespace DoorGame.GameEvents.PairsEvent
         private void OnMouseDown()
         {
             if (!_canBeFlipped) return;
-            onFlipCardEvent.Invoke(this.gameObject.GetInstanceID());
+            onFlipCardEvent.Invoke(GetInstanceID());
         }
 
         /// <summary>
