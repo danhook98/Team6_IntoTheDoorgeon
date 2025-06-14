@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Card Front
+    m_Hash: 841416944
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Card1
+      m_Hash: 500258629
+      m_Sprite: {fileID: 21300000, guid: c88c07a36ff5b3140acfd04b59ecf82e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: c88c07a36ff5b3140acfd04b59ecf82e, type: 3}
+    - m_Name: Card2
+      m_Hash: 81266431
+      m_Sprite: {fileID: 21300000, guid: 80ad6c3f76a732a4b8c860ed0109bada, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 80ad6c3f76a732a4b8c860ed0109bada, type: 3}
+    - m_Name: Card3
+      m_Hash: 870266473
+      m_Sprite: {fileID: 21300000, guid: 611254cca940b234e9b829eaa70603c6, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 611254cca940b234e9b829eaa70603c6, type: 3}
+    - m_Name: Card4
+      m_Hash: 767271882
+      m_Sprite: {fileID: 21300000, guid: f9cea10441eefac469f83f84fbcdb74f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: f9cea10441eefac469f83f84fbcdb74f, type: 3}
+    - m_Name: Card5
+      m_Hash: 448566108
+      m_Sprite: {fileID: 21300000, guid: dcf85ab6db298314586289a6da018e37, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: dcf85ab6db298314586289a6da018e37, type: 3}
+    - m_Name: Card6
+      m_Hash: 62243558
+      m_Sprite: {fileID: 21300000, guid: 4c36c7d000ebf8d41ab4117429920211, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 4c36c7d000ebf8d41ab4117429920211, type: 3}
+    - m_Name: Card7
+      m_Hash: 884142704
+      m_Sprite: {fileID: 21300000, guid: 80ea5bbb84ab9c7419646e062bd60810, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 80ea5bbb84ab9c7419646e062bd60810, type: 3}
+    - m_Name: Card8
+      m_Hash: 604893153
+      m_Sprite: {fileID: 21300000, guid: f24e9b09bbdf5a442843b44fab15230d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: f24e9b09bbdf5a442843b44fab15230d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
+  - m_Name: Card Back
+    m_Hash: 415013142
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Back
+      m_Hash: 234647049
+      m_Sprite: {fileID: 21300000, guid: 50c30dbbee8ef5b4898a8411e71d0988, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 50c30dbbee8ef5b4898a8411e71d0988, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 638852517533895767
+  m_Version: 1
