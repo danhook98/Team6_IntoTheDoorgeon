@@ -117,28 +117,24 @@ namespace DoorGame.GameEvents.PairsEvent
         /// <param name="instanceId"></param>
         public void CardHasBeenFlipped(int instanceId)
         {
-            if (_numberOfFlippedCards == 2) return;
-
-            _numberOfFlippedCards++;
-
             PairEventCard clickedCard = usedCards.Find(c => c.GetInstanceID() == instanceId);
             
-            if (!clickedCard)
-            {
-                _numberOfFlippedCards--;
-                return;
-            }
-
-            if (_numberOfFlippedCards == 1)
+            if (!clickedCard) return;
+            
+            if (_numberOfFlippedCards == 0)
             {
                 onPlaySfxEvent.Invoke(flipCardSfx);
                 _firstCard = clickedCard;
                 clickedCard.SetCardSpriteToFront();
+                _numberOfFlippedCards++; 
             }
-            else if (_numberOfFlippedCards == 2)
+            else if (_numberOfFlippedCards == 1)
             {
-                onPlaySfxEvent.Invoke(flipCardSfx);
                 _secondCard = clickedCard;
+
+                if (_firstCard == _secondCard) return; 
+                
+                onPlaySfxEvent.Invoke(flipCardSfx);
 
                 // Cards match
                 if (DoCardsMatch(_firstCard, _secondCard))
