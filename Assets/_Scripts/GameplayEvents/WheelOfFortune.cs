@@ -74,17 +74,28 @@ namespace DoorGame.GameplayEvents
 
                 return i; 
             }
+
+            // Failed to get the index from the weighted values.
+            return 0;
+        }
+
+        private float GetCurrentWheelAngle()
+        {
+            float currentAngle = wheelTransform.eulerAngles.z;
+            
+            while (currentAngle > 360f) currentAngle -= 360f;
+            while (currentAngle < 0f) currentAngle += 360f;
+            
+            return currentAngle;
         }
 
         private IEnumerator Spin()
         {
             int segmentIndex = GetRandomIndex();
             
-            float segmentAngle = segmentIndex * _anglePerSegment;
-            float currentAngle = wheelTransform.eulerAngles.z;
+            float currentAngle = GetCurrentWheelAngle();
             
-            while (currentAngle > 360f) currentAngle -= 360f;
-            while (currentAngle < 0f) currentAngle += 360f;
+            float segmentAngle = segmentIndex * _anglePerSegment;
             
             int numberOfRotations = Random.Range(minimumFullRotations, maximumFullRotations);
             float targetAngle = -(segmentAngle + 360f * numberOfRotations); 
