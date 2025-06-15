@@ -2138,6 +2138,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f4334aaae7fa71f48b74420729eb4583, type: 2}
     - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: cursedDoorOpenSound
+      value: 
+      objectReference: {fileID: 11400000, guid: a6568724c09b34c47983d73365559414, type: 2}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: magicalDoorOpenSound
       value: 
       objectReference: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
