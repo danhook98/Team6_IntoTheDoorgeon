@@ -20,6 +20,8 @@ namespace DoorGame.Door
         private static readonly int RoomReset = Animator.StringToHash("RoomReset");
         private static readonly int GoodDoorOpened = Animator.StringToHash("GoodDoorOpened");
         private static readonly int BadDoorOpened = Animator.StringToHash("BadDoorOpened");
+        private static readonly int CursedDoorOpened = Animator.StringToHash("CursedDoorOpened");
+        private static readonly int MagicalDoorOpened = Animator.StringToHash("MagicalDoorOpened");
 
         public void OpenDoor()
         {
