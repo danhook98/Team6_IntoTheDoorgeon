@@ -55,10 +55,15 @@ namespace DoorGame.GameplayEvents
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 StartCoroutine(Spin());
             }
+        }
+
+        public void StartEvent()
+        {
+            StartCoroutine(Spin());
         }
 
         private int GetRandomIndex()
