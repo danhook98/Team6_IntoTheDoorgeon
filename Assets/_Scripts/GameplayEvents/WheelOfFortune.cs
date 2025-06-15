@@ -8,11 +8,10 @@ namespace DoorGame.GameplayEvents
 {
     public class WheelOfFortune : MonoBehaviour
     {
-        [Header("Wheel Variables")] 
-        [SerializeField] private int numberOfSegments = 5;
+        [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
 
-        [Header("Wheel Spin Variables")] 
+        [Header("Wheel Spin")] 
         [SerializeField] private int minimumFullRotations = 4;
         [SerializeField] private int maximumFullRotations = 8;
         [SerializeField] private float baseSpinDuration = 3f;
@@ -36,12 +35,16 @@ namespace DoorGame.GameplayEvents
             new(75, 1)
         };
 
+        private List<WeightedValue> wheelResults;
         private int _totalWeight; 
         private float _anglePerSegment; 
 
         private void Awake()
         {
-            _anglePerSegment = 360f / numberOfSegments;
+            // Temporary results selection. 
+            wheelResults = Random.value < 0.6f ? goodResultsWeights : badResultsWeights;
+            
+            _anglePerSegment = 360f / wheelResults.Count;
             
             // Calculate the total weight. 
             foreach (WeightedValue kvp in goodResultsWeights)
@@ -66,9 +69,9 @@ namespace DoorGame.GameplayEvents
             // Get the value and random segment the wheel will land on. 
             int cumulativeWeight = 0;
 
-            for (int i = 0; i < goodResultsWeights.Count; i++)
+            for (int i = 0; i < wheelResults.Count; i++)
             {
-                cumulativeWeight += goodResultsWeights[i].Weight;
+                cumulativeWeight += wheelResults[i].Weight;
 
                 if (cumulativeWeight < randomPoint) continue;
 
@@ -101,7 +104,7 @@ namespace DoorGame.GameplayEvents
             float targetAngle = -(segmentAngle + 360f * numberOfRotations); 
             
             Debug.Log($"Will spin {numberOfRotations} times before ending at index {segmentIndex} with an angle of {segmentAngle}", this);
-            Debug.Log($"The odds for this were {goodResultsWeights[segmentIndex].Weight / (float)goodResultsWeights.Sum(p => p.Weight):P}!");
+            Debug.Log($"The odds for this were {wheelResults[segmentIndex].Weight / (float)wheelResults.Sum(p => p.Weight):P}!");
             
             float spinTime = baseSpinDuration;
             float elapsedTime = 0f;
