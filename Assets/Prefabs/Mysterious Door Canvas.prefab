@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5893316039020096358}
   - component: {fileID: 3398455139028833728}
   - component: {fileID: 7576528849924134401}
-  - component: {fileID: 4419246730927724506}
   m_Layer: 5
   m_Name: Mysterious Door Canvas
   m_TagString: Untagged
@@ -105,18 +104,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4419246730927724506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440323166363866090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff15746863a6d5349983962d4fb79aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &521574966365321859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,8 +2136,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6419947279974500486}
   m_SourcePrefab: {fileID: 100100000, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+--- !u!1 &688074449568649772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+  m_PrefabInstance: {fileID: 6846903697221182953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6419947279974500486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688074449568649772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff15746863a6d5349983962d4fb79aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6084686863351176768 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 825338319069330345, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
