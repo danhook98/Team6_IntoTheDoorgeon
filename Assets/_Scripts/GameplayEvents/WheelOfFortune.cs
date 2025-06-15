@@ -8,16 +8,17 @@ namespace DoorGame.GameplayEvents
     {
         [Header("Wheel Variables")] 
         [SerializeField] private int numberOfSegments = 5;
-        [SerializeField] private float initialTorquePower = 1000f;
         [SerializeField] private Transform wheelTransform;
-        
-        private WaitForSeconds _spinCheckDelay;
+
+        [Header("Wheel Spin Variables")] 
+        [SerializeField] private int minimumFullRotations = 4;
+        [SerializeField] private int maximumFullRotations = 8;
+        [SerializeField] private float baseSpinDuration = 3f;
 
         private float _anglePerSegment; 
 
         private void Awake()
         {
-            _spinCheckDelay = new WaitForSeconds(0.1f);
             _anglePerSegment = 360f / numberOfSegments;
         }
 
@@ -31,7 +32,7 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
-            float spinTime = 8f;
+            float spinTime = Random.Range(minimumFullRotations, maximumFullRotations) + baseSpinDuration;
             float elapsedTime = 0f;
             
             while (elapsedTime < spinTime)
