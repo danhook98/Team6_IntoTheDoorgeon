@@ -14,6 +14,10 @@ namespace DoorGame.GameplayEvents
         
         [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
+        
+        [Header("Wheel Images")]
+        [SerializeField] private Sprite goodWheelImage;
+        [SerializeField] private Sprite badWheelImage;
 
         [Header("Wheel Spin")] 
         [SerializeField] private int minimumFullRotations = 4;
