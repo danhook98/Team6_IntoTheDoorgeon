@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 0.72775185
+  m_CategoryHash: 1.5557189e-30
   m_labelHash: 3.991422e-13
   m_SpriteKey: 0
   m_SpriteHash: 873622016
@@ -212,7 +212,7 @@ Animator:
   m_GameObject: {fileID: 5592652457841277517}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 017dcd7aad9ea264980c469920525bf4, type: 2}
+  m_Controller: {fileID: 9100000, guid: e64d90b42a832bf459ac5384d40940ba, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
