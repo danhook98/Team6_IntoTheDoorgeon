@@ -22,6 +22,10 @@ namespace DoorGame
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
         [SerializeField] private int maxScoreToAdd = 45;
+        
+        [Header("Value Objects")]
+        [SerializeField] private IntValue scoreValue;
+        [SerializeField] private IntValue doorsOpenedValue;
 
         [Header("SFX Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
