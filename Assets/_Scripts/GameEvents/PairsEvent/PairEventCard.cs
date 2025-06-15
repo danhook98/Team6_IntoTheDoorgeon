@@ -16,6 +16,7 @@ namespace DoorGame.GameEvents.PairsEvent
 
         private float _defaultScale;
         private bool _canBeFlipped;
+        private bool _showAnim;
         
         public int PairID { set; get; }
 
@@ -31,6 +32,7 @@ namespace DoorGame.GameEvents.PairsEvent
             _canBeFlipped = true;
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
             _defaultScale = _rectTransform.localScale.x;
+            _showAnim = true;
         }
 
         /// <summary>
@@ -41,6 +43,7 @@ namespace DoorGame.GameEvents.PairsEvent
         public void SetCardSpriteToBack()
         {
             if (!_canBeFlipped) return;
+            _showAnim = true;
             _anim.SetTrigger("FlipToBack");
             _spriteResolver.SetCategoryAndLabel("Back", "Entry");
         }
@@ -52,7 +55,8 @@ namespace DoorGame.GameEvents.PairsEvent
         /// </summary>
         public void SetCardSpriteToFront()
         {
-            if (!_canBeFlipped) return;
+            if (!_canBeFlipped || _showAnim != true) return;
+            _showAnim = false;
             _anim.SetTrigger("FlipToFront");
             _spriteResolver.SetCategoryAndLabel("Front", "Entry");
         }
