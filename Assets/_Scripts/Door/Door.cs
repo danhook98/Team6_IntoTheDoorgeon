@@ -14,6 +14,9 @@ namespace DoorGame.Door
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel;
         [SerializeField] private AudioClipSO doorHoverSound;
         [SerializeField] private AudioClipSO doorClickSound;
+        [SerializeField] private AudioClipSO coinsDropSound;
+        [SerializeField] private AudioClipSO magicalDoorOpenSound;
+        [SerializeField] private AudioClipSO cursedDoorOpenSound;
         
         private bool _canOpen = true;
         
@@ -39,9 +42,12 @@ namespace DoorGame.Door
                     break;
                 case "MagicalDoor":
                     doorAnimator.SetTrigger(GoodDoorOpened);
+                    playSfxAudioChannel.Invoke(magicalDoorOpenSound);
+                    playSfxAudioChannel.Invoke(coinsDropSound);
                     break;
                 case "CursedDoor":
                     doorAnimator.SetTrigger(CursedDoorOpened);
+                    playSfxAudioChannel.Invoke(cursedDoorOpenSound);
                     break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
