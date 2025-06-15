@@ -36,6 +36,12 @@ namespace DoorGame.Door
                     //StartCoroutine(BadDoorPicked());
                     doorAnimator.SetTrigger(BadDoorOpened);
                     break;
+                case "MagicalDoor":
+                    Debug.Log("This is a magical door ooohhhh");
+                    break;
+                case "CursedDoor":
+                    Debug.Log("This is a cursed door BOO!");
+                    break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
                     doorAnimator.SetTrigger(GoodDoorOpened);
