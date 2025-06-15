@@ -1165,6 +1165,7 @@ GameObject:
   - component: {fileID: 4237557710551208995}
   - component: {fileID: 208231434453383247}
   - component: {fileID: 2668688098166661985}
+  - component: {fileID: 8681309917942337130}
   m_Layer: 0
   m_Name: Mysterious Door End Canvas
   m_TagString: Untagged
@@ -1256,6 +1257,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
 --- !u!114 &2668688098166661985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279082842347917886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 38f87c00e7e5392488d742540e9dcc71, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5476737227803760865}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &8681309917942337130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2145,6 +2174,10 @@ PrefabInstance:
       propertyPath: magicalDoorOpenSound
       value: 
       objectReference: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onMysteriousDoorOpenedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 38f87c00e7e5392488d742540e9dcc71, type: 2}
     - target: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Name
       value: Mysterious Door
