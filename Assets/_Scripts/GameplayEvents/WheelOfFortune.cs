@@ -73,7 +73,27 @@ namespace DoorGame.GameplayEvents
 
         public void StartEvent()
         {
-            StartCoroutine(Spin());
+            StartCoroutine(SelectWheel());
+            //StartCoroutine(Spin());
+        }
+
+        private IEnumerator SelectWheel()
+        {
+            yield return new WaitForSeconds(0.25f);
+            
+            for (int i = 1; i <= 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    wheelImage.sprite = goodWheelImage;
+                }
+                else
+                {
+                    wheelImage.sprite = badWheelImage;
+                }
+                
+                yield return new WaitForSeconds(0.3f);
+            }
         }
 
         private int GetRandomIndex()
