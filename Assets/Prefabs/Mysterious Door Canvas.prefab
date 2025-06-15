@@ -2175,6 +2175,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
     - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onCursedDoorOpenedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 94a6527a3dda72b4c972e4cb3178778e, type: 2}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onMagicalDoorOpenedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 7764b1a7b7befad4f93e2e52549b8d12, type: 2}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: onMysteriousDoorOpenedEvent
       value: 
       objectReference: {fileID: 11400000, guid: 38f87c00e7e5392488d742540e9dcc71, type: 2}

@@ -10,6 +10,8 @@ namespace DoorGame.Door
         [Header("Events")]
         [SerializeField] private BoolEvent onDoorOpenedEvent;
         [SerializeField] private VoidEvent onMysteriousDoorOpenedEvent;
+        [SerializeField] private VoidEvent onMagicalDoorOpenedEvent;
+        [SerializeField] private VoidEvent onCursedDoorOpenedEvent;
         
         [Header("Animator")]
         [SerializeField] private Animator doorAnimator;
@@ -49,11 +51,13 @@ namespace DoorGame.Door
                     playSfxAudioChannel.Invoke(magicalDoorOpenSound);
                     playSfxAudioChannel.Invoke(coinsDropSound);
                     StartCoroutine(MysteriousDoorOpened());
+                    onMagicalDoorOpenedEvent.Invoke(new Empty());
                     break;
                 case "CursedDoor":
                     doorAnimator.SetTrigger(CursedDoorOpened);
                     playSfxAudioChannel.Invoke(cursedDoorOpenSound);
                     StartCoroutine(MysteriousDoorOpened());
+                    onCursedDoorOpenedEvent.Invoke(new Empty());
                     break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
