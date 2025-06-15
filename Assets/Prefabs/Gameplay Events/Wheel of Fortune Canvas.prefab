@@ -169,11 +169,11 @@ RectTransform:
   - {fileID: 7154890385573484656}
   m_Father: {fileID: 3415860817606731224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -506.59995, y: 445.63577}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 266.31, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &7172842193754577259
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1134,6 +1134,8 @@ MonoBehaviour:
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
   doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
   wheelTransform: {fileID: 8384786953387456775}
+  goodWheelImage: {fileID: 21300000, guid: a83e5a8f4536b484bb3d9c000403c0ca, type: 3}
+  badWheelImage: {fileID: 21300000, guid: a6fcb118869c77246a6a16c63c823d44, type: 3}
   minimumFullRotations: 4
   maximumFullRotations: 8
   baseSpinDuration: 4
