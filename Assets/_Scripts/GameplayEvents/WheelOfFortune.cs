@@ -64,18 +64,17 @@ namespace DoorGame.GameplayEvents
             int randomPoint = Random.Range(0, _totalWeight);
             
             // Get the value and random segment the wheel will land on. 
-            int point = 0;
+            int cumulativeWeight = 0;
             int segmentIndex = 0; 
 
             for (int i = 0; i < goodResultsWeights.Count; i++)
             {
-                point += goodResultsWeights[i].Weight;
+                cumulativeWeight += goodResultsWeights[i].Weight;
 
-                if (point >= randomPoint)
-                {
-                    segmentIndex = i;
-                    break; 
-                }
+                if (cumulativeWeight < randomPoint) continue;
+                
+                segmentIndex = i;
+                break;
             }
             
             float segmentAngle = segmentIndex * _anglePerSegment;
