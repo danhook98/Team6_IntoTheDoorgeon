@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace DoorGame.GameplayEvents
@@ -14,6 +15,7 @@ namespace DoorGame.GameplayEvents
         
         [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
+        [SerializeField] private Image wheelImage;
         
         [Header("Wheel Images")]
         [SerializeField] private Sprite goodWheelImage;
