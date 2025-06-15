@@ -21,7 +21,6 @@ namespace DoorGame.Door
         private static readonly int GoodDoorOpened = Animator.StringToHash("GoodDoorOpened");
         private static readonly int BadDoorOpened = Animator.StringToHash("BadDoorOpened");
         private static readonly int CursedDoorOpened = Animator.StringToHash("CursedDoorOpened");
-        private static readonly int MagicalDoorOpened = Animator.StringToHash("MagicalDoorOpened");
 
         public void OpenDoor()
         {
@@ -39,10 +38,10 @@ namespace DoorGame.Door
                     doorAnimator.SetTrigger(BadDoorOpened);
                     break;
                 case "MagicalDoor":
-                    Debug.Log("This is a magical door ooohhhh");
+                    doorAnimator.SetTrigger(GoodDoorOpened);
                     break;
                 case "CursedDoor":
-                    Debug.Log("This is a cursed door BOO!");
+                    doorAnimator.SetTrigger(CursedDoorOpened);
                     break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
