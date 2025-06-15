@@ -14,7 +14,7 @@ namespace DoorGame.GameplayEvents
         [Header("Wheel Spin")] 
         [SerializeField] private int minimumFullRotations = 4;
         [SerializeField] private int maximumFullRotations = 8;
-        [SerializeField] private float baseSpinDuration = 3f;
+        [SerializeField] private float baseSpinDuration = 4f;
 
         [Header("Results and Random Weights")]
         [SerializeField] private List<WeightedValue> goodResultsWeights = new List<WeightedValue>
@@ -105,8 +105,8 @@ namespace DoorGame.GameplayEvents
             
             Debug.Log($"Will spin {numberOfRotations} times before ending at index {segmentIndex} with an angle of {segmentAngle}", this);
             Debug.Log($"The odds for this were {wheelResults[segmentIndex].Weight / (float)wheelResults.Sum(p => p.Weight):P}!");
-            
-            float spinTime = baseSpinDuration;
+
+            float spinTime = numberOfRotations + baseSpinDuration;
             float elapsedTime = 0f;
             
             while (elapsedTime < spinTime)
