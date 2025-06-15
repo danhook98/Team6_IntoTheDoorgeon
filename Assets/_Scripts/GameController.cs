@@ -88,6 +88,7 @@ namespace DoorGame
             StartCoroutine(ShowGameOverScreen());
             
             _score = 0;
+            scoreValue.Value = 0; 
             scoreChangedEvent.Invoke(_score);
             
             _totalDoorsOpened = 0;
@@ -130,6 +131,7 @@ namespace DoorGame
         {
             _validDoorsOpened++;
             _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _wavesCompleted) * _scoreMultiplier;
+            scoreValue.Value = _score;
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
             scoreChangedEvent.Invoke(_score);
@@ -137,6 +139,7 @@ namespace DoorGame
             Debug.Log(_wavesCompleted);
             
             _totalDoorsOpened++;
+            doorsOpenedValue.Value = _totalDoorsOpened;
             
             validDoorsOpenedEvent.Invoke(_totalDoorsOpened);
         }
