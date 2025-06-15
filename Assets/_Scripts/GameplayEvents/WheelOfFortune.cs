@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -35,7 +36,7 @@ namespace DoorGame.GameplayEvents
             new(75, 1)
         };
 
-        private float _totalWeight; 
+        private int _totalWeight; 
         private float _anglePerSegment; 
 
         private void Awake()
@@ -59,19 +60,51 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
-            float spinTime = Random.Range(minimumFullRotations, maximumFullRotations) + baseSpinDuration;
+            // Get a random point on the results 'line'. 
+            int randomPoint = Random.Range(0, _totalWeight);
+            
+            // Get the value and random segment the wheel will land on. 
+            int point = 0;
+            int segmentIndex = 0; 
+
+            for (int i = 0; i < goodResultsWeights.Count; i++)
+            {
+                point += goodResultsWeights[i].Weight;
+
+                if (point >= randomPoint)
+                {
+                    segmentIndex = i;
+                    break; 
+                }
+            }
+            
+            float segmentAngle = segmentIndex * _anglePerSegment;
+            float currentAngle = wheelTransform.eulerAngles.z;
+            
+            while (currentAngle > 360f) currentAngle -= 360f;
+            while (currentAngle < 0f) currentAngle += 360f;
+            
+            int numberOfRotations = Random.Range(minimumFullRotations, maximumFullRotations);
+            float targetAngle = -(segmentAngle + 360f * numberOfRotations); 
+            
+            Debug.Log($"Will spin {numberOfRotations} times before ending at index {segmentIndex} with an angle of {segmentAngle}", this);
+            Debug.Log($"The odds for this were {goodResultsWeights[segmentIndex].Weight / (float)goodResultsWeights.Sum(p => p.Weight):P}!");
+            
+            float spinTime = baseSpinDuration;
             float elapsedTime = 0f;
             
             while (elapsedTime < spinTime)
             {
                 float lerpFactor = Mathf.SmoothStep(0, 1, (Mathf.SmoothStep(0, 1, elapsedTime / spinTime)));
                 
-                wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(0f, (360f * 20) - 90f, lerpFactor));
+                wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(currentAngle, targetAngle, lerpFactor));
                 
                 elapsedTime += Time.deltaTime;
                 
                 yield return null; 
             }
+            
+            wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, targetAngle);
             
             // Get results.
         }
@@ -80,9 +113,9 @@ namespace DoorGame.GameplayEvents
     [System.Serializable]
     public struct WeightedValue
     {
-        public float Value; 
-        public float Weight;
+        public int Value; 
+        public int Weight;
         
-        public WeightedValue(float value, float weight) { Value = value; Weight = weight; }
+        public WeightedValue(int value, int weight) { Value = value; Weight = weight; }
     }
 }
