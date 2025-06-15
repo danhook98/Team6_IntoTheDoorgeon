@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5473681625614446238}
   - component: {fileID: 2225691958595549520}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Sir Tubbo Test Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 6446657753939877301}
   - component: {fileID: 2251508745669371007}
   - component: {fileID: 1355905185229501519}
+  - component: {fileID: 3699605005792680210}
   m_Layer: 5
   m_Name: Wheel of Fortune Canvas
   m_TagString: Untagged
@@ -177,6 +178,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3699605005792680210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764049954409461582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1570fe70984a84a9104454e55793a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfSegments: 5
+  initialTorquePower: 1000
+  wheelTransform: {fileID: 8384786953387456775}
 --- !u!1 &7699668380427672480
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,9 +205,8 @@ GameObject:
   - component: {fileID: 9125454852878670712}
   - component: {fileID: 1586949350592400576}
   - component: {fileID: 4025800269516381687}
-  - component: {fileID: 758669051044797524}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Wheel Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,16 +297,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &758669051044797524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7699668380427672480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1570fe70984a84a9104454e55793a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTorquePower: 1000

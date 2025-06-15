@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,16 +6,19 @@ namespace DoorGame.GameplayEvents
 {
     public class WheelOfFortune : MonoBehaviour
     {
-        [Header("Wheel Variables")]
+        [Header("Wheel Variables")] 
+        [SerializeField] private int numberOfSegments = 5;
         [SerializeField] private float initialTorquePower = 1000f;
+        [SerializeField] private Transform wheelTransform;
         
-        private Rigidbody2D _rigidbody2D;
         private WaitForSeconds _spinCheckDelay;
+
+        private float _anglePerSegment; 
 
         private void Awake()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
             _spinCheckDelay = new WaitForSeconds(0.1f);
+            _anglePerSegment = 360f / numberOfSegments;
         }
 
         private void Update()
@@ -29,19 +31,19 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
-            float power = initialTorquePower + Random.Range(-(initialTorquePower * 0.25f), initialTorquePower * 0.25f);
-            _rigidbody2D.AddTorque(power);
-
-            yield return _spinCheckDelay;
-
-            while (_rigidbody2D.angularVelocity > 0f)
+            float spinTime = 8f;
+            float elapsedTime = 0f;
+            
+            while (elapsedTime < spinTime)
             {
-                Debug.Log("Reducing angular torque");
-                _rigidbody2D.angularVelocity -= 200 * Time.deltaTime;
+                float lerpFactor = Mathf.SmoothStep(0, 1, (Mathf.SmoothStep(0, 1, elapsedTime / spinTime)));
+                
+                wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(0f, (360f * 20) - 90f, lerpFactor));
+                
+                elapsedTime += Time.deltaTime;
+                
                 yield return null; 
             }
-            
-            _rigidbody2D.angularVelocity = 0f;
             
             // Get results.
         }
