@@ -35,11 +35,18 @@ namespace DoorGame.GameplayEvents
             new(75, 1)
         };
 
+        private float _totalWeight; 
         private float _anglePerSegment; 
 
         private void Awake()
         {
             _anglePerSegment = 360f / numberOfSegments;
+            
+            // Calculate the total weight. 
+            foreach (WeightedValue kvp in goodResultsWeights)
+            {
+                _totalWeight += kvp.Weight;
+            }
         }
 
         private void Update()
