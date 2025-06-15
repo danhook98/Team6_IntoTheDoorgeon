@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,25 @@ namespace DoorGame.GameplayEvents
         [SerializeField] private int minimumFullRotations = 4;
         [SerializeField] private int maximumFullRotations = 8;
         [SerializeField] private float baseSpinDuration = 3f;
+
+        [Header("Results and Random Weights")]
+        [SerializeField] private List<WeightedValue> goodResultsWeights = new List<WeightedValue>
+        {
+            new(10, 40),
+            new(25, 30),
+            new(50, 20),
+            new(100, 9),
+            new(200, 1)
+        };
+
+        [SerializeField] private List<WeightedValue> badResultsWeights = new List<WeightedValue>
+        {
+            new(10, 40),
+            new(25, 30),
+            new(50, 20),
+            new(66, 9),
+            new(75, 1)
+        };
 
         private float _anglePerSegment; 
 
@@ -48,5 +68,14 @@ namespace DoorGame.GameplayEvents
             
             // Get results.
         }
+    }
+
+    [System.Serializable]
+    public struct WeightedValue
+    {
+        public float Value; 
+        public float Weight;
+        
+        public WeightedValue(float value, float weight) { Value = value; Weight = weight; }
     }
 }
