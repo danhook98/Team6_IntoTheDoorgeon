@@ -8,6 +8,10 @@ namespace DoorGame.GameplayEvents
 {
     public class WheelOfFortune : MonoBehaviour
     {
+        [Header("Value Objects")]
+        [SerializeField] private IntValue scoreValue;
+        [SerializeField] private IntValue doorsOpenedValue;
+        
         [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
 

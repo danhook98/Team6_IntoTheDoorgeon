@@ -1131,6 +1131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1570fe70984a84a9104454e55793a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
+  doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
   wheelTransform: {fileID: 8384786953387456775}
   minimumFullRotations: 4
   maximumFullRotations: 8
