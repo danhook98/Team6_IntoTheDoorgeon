@@ -7,7 +7,11 @@ namespace DoorGame.Door
 {
     public class Door : MonoBehaviour
     {
+        [Header("Events")]
         [SerializeField] private BoolEvent onDoorOpenedEvent;
+        [SerializeField] private VoidEvent onMysteriousDoorOpenedEvent;
+        
+        [Header("Animator")]
         [SerializeField] private Animator doorAnimator;
 
         [Header("Sounds")] 
@@ -44,10 +48,12 @@ namespace DoorGame.Door
                     doorAnimator.SetTrigger(GoodDoorOpened);
                     playSfxAudioChannel.Invoke(magicalDoorOpenSound);
                     playSfxAudioChannel.Invoke(coinsDropSound);
+                    StartCoroutine(MysteriousDoorOpened());
                     break;
                 case "CursedDoor":
                     doorAnimator.SetTrigger(CursedDoorOpened);
                     playSfxAudioChannel.Invoke(cursedDoorOpenSound);
+                    StartCoroutine(MysteriousDoorOpened());
                     break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
@@ -68,5 +74,16 @@ namespace DoorGame.Door
         // Audio. 
         public void PlayHoverSound() => playSfxAudioChannel.Invoke(doorHoverSound);
         public void PlayClickSound() => playSfxAudioChannel.Invoke(doorClickSound);
+
+        /// <summary>
+        /// Wait a few seconds for the animation to play out and trigger mysterious
+        /// door opened event.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator MysteriousDoorOpened()
+        {
+            yield return new WaitForSeconds(1.5f);
+            onMysteriousDoorOpenedEvent.Invoke(new Empty());
+        }
     }
 }
