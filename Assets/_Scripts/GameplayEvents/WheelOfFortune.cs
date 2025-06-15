@@ -58,24 +58,27 @@ namespace DoorGame.GameplayEvents
             }
         }
 
-        private IEnumerator Spin()
+        private int GetRandomIndex()
         {
             // Get a random point on the results 'line'. 
             int randomPoint = Random.Range(0, _totalWeight);
             
             // Get the value and random segment the wheel will land on. 
             int cumulativeWeight = 0;
-            int segmentIndex = 0; 
 
             for (int i = 0; i < goodResultsWeights.Count; i++)
             {
                 cumulativeWeight += goodResultsWeights[i].Weight;
 
                 if (cumulativeWeight < randomPoint) continue;
-                
-                segmentIndex = i;
-                break;
+
+                return i; 
             }
+        }
+
+        private IEnumerator Spin()
+        {
+            int segmentIndex = GetRandomIndex();
             
             float segmentAngle = segmentIndex * _anglePerSegment;
             float currentAngle = wheelTransform.eulerAngles.z;
