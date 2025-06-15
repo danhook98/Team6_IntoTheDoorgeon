@@ -14,15 +14,7 @@ namespace DoorGame
             _tags = new string[] { "MagicalDoor", "CursedDoor" };
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.T)) // TODO: remove after testing.
-            {
-                SetTag();
-            }
-        }
-
-        private void SetTag()
+        public void SetTag()
         {
             _mysteriousDoor.tag = _tags[Random.Range(0, 2)];
         }

@@ -1068,7 +1068,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6062700096597557581}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
@@ -2144,6 +2144,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6419947279974500486}
+    - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4075327059069570906}
   m_SourcePrefab: {fileID: 100100000, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
 --- !u!1 &688074449568649772 stripped
 GameObject:
@@ -2162,6 +2165,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff15746863a6d5349983962d4fb79aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4075327059069570906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688074449568649772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 729144443fa739040be7ffc42911addb, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6419947279974500486}
+        m_TargetAssemblyTypeName: DoorGame.MagicalDoorHandler, Assembly-CSharp
+        m_MethodName: SetTag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &6084686863351176768 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 825338319069330345, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
