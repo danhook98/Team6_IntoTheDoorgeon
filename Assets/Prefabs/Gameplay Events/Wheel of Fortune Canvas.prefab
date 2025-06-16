@@ -580,7 +580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2737008083539136901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wheel of Fortune Evemt
+  m_text: Wheel of Fortune Event
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
   m_sharedMaterial: {fileID: 223515745755715364, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
@@ -1531,7 +1531,7 @@ GameObject:
   - component: {fileID: 2445291638439593336}
   - component: {fileID: 5055668222638910838}
   m_Layer: 5
-  m_Name: test
+  m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

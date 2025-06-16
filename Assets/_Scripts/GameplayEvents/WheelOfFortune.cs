@@ -153,9 +153,9 @@ namespace DoorGame.GameplayEvents
             float segmentAngle = segmentIndex * _anglePerSegment;
             
             int numberOfRotations = Random.Range(minimumFullRotations, maximumFullRotations);
-            float targetAngle = -(segmentAngle + 360f * numberOfRotations); 
+            float targetAngle = segmentAngle + 360f * numberOfRotations; 
             
-            Debug.Log($"Will spin {numberOfRotations} times before ending at index {segmentIndex} with an angle of {segmentAngle}", this);
+            // Debug.Log($"Will spin {numberOfRotations} times before ending at index {segmentIndex} with an angle of {segmentAngle}", this);
             Debug.Log($"The odds for this were {wheelResults[segmentIndex].Weight / (float)wheelResults.Sum(p => p.Weight):P}!");
 
             float spinTime = numberOfRotations + baseSpinDuration;
