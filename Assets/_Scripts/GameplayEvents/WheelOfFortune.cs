@@ -10,9 +10,17 @@ namespace DoorGame.GameplayEvents
 {
     public class WheelOfFortune : MonoBehaviour
     {
+        [Header("Objects")] 
+        [SerializeField] private GameObject introCard;
+        [SerializeField] private GameObject wheel;
+        [SerializeField] private GameObject endCard;
+        
         [Header("Value Objects")]
         [SerializeField] private IntValue scoreValue;
         [SerializeField] private IntValue doorsOpenedValue;
+        
+        [Header("End Card")]
+        [SerializeField] private TextMeshProUGUI endCardText;
         
         [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
@@ -50,17 +58,22 @@ namespace DoorGame.GameplayEvents
         [Header("Wheel Text Objects (clockwise from 12)")]
         [SerializeField] private TextMeshProUGUI[] wheelTexts;
 
+        private Canvas _canvas;
+        
         private WeightedRandom _weightedRandom;
         
         private int _totalWeight; 
         private float _anglePerSegment;
 
-        private WaitForSeconds _wheelSelectionInterval; 
+        private WaitForSeconds _wheelSelectionInterval;
+        private WaitForSeconds _wheelFinishDelay; 
         private bool _isWheelSpinning;
         private bool _isWheelGood; 
 
         private void Awake()
         {
+            _canvas = GetComponent<Canvas>();
+            
             // Create a new instance of the WeightedRandom class, and pass the bad results as we assume that's the
             // default. 
             _weightedRandom = new WeightedRandom(badResultsWeights);
@@ -68,10 +81,22 @@ namespace DoorGame.GameplayEvents
             _anglePerSegment = 360f / badResultsWeights.Count;
             
             _wheelSelectionInterval = new WaitForSeconds(wheelSelectionChangeDelay);
+            _wheelFinishDelay = new WaitForSeconds(2f);
         }
-        
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartEvent();
+            }
+        }
+
         public void StartEvent()
         {
+            introCard.SetActive(false);
+            wheel.SetActive(true);
+            
             // Determine which results will be used for the wheel.
             DetermineWheelResults();
             
@@ -80,6 +105,18 @@ namespace DoorGame.GameplayEvents
         }
         
         public void SpinWheel() => StartCoroutine(Spin());
+
+        public void EndEvent()
+        {
+            // send score changed event
+            // hide the object 
+
+            _canvas.enabled = false; 
+            
+            introCard.SetActive(true);
+            wheel.SetActive(false);
+            endCard.SetActive(false);
+        }
 
         private void DetermineWheelResults()
         {
@@ -104,17 +141,17 @@ namespace DoorGame.GameplayEvents
             {
                 wheelImage.sprite = i % 2 == 0 ? goodWheelImage : badWheelImage;
                 
-                SetWheelText();
+                SetWheelText(i % 2 == 0);
                 
                 yield return _wheelSelectionInterval;
             }
         }
 
-        private void SetWheelText()
+        private void SetWheelText(bool isGood)
         {
             for (int i = 0; i < wheelTexts.Length; i++)
             {
-                wheelTexts[i].text = (_isWheelGood ? "+" : "-") + (_isWheelGood ? goodResultsWeights[i].Value : badResultsWeights[i].Value) + "%"; 
+                wheelTexts[i].text = (isGood ? "+" : "-") + (isGood ? goodResultsWeights[i].Value : badResultsWeights[i].Value) + "%"; 
             }
         }
 
@@ -166,6 +203,32 @@ namespace DoorGame.GameplayEvents
             // Get results.
             int resultModifier = _weightedRandom.GetValueAtIndex(segmentIndex);
             Debug.Log($"Score will be modified by {resultModifier}%!");
+
+            int newScore = GetNewScore(resultModifier);
+            Debug.Log($"New score is {newScore}");
+            
+            yield return _wheelFinishDelay;
+            
+            SetEndCardText(resultModifier, newScore);
+            ShowEndCard();
+        }
+
+        private int GetNewScore(int baseModifier)
+        {
+            float modifier = _isWheelGood ? 1 + (baseModifier / 100f) : 1 - (baseModifier / 100f);
+            Debug.Log($"Score will be modified by {modifier}");
+            return (int)(Mathf.Ceil(scoreValue.Value * modifier));
+        }
+
+        private void SetEndCardText(int modifier, int score)
+        {
+            endCardText.text = (_isWheelGood ? "+" : "-") + modifier + "%\n\nYour score is now\n" + score;
+        }
+
+        private void ShowEndCard()
+        {
+            wheel.SetActive(false);
+            endCard.SetActive(true);
         }
     }
 }
