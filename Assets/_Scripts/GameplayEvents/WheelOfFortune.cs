@@ -48,7 +48,8 @@ namespace DoorGame.GameplayEvents
         private WeightedRandom _weightedRandom;
         
         private int _totalWeight; 
-        private float _anglePerSegment; 
+        private float _anglePerSegment;
+        private bool _isWheelSpinning; 
 
         private void Awake()
         {
@@ -126,6 +127,10 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
+            if (_isWheelSpinning) yield break; 
+            
+            _isWheelSpinning = true;
+            
             int segmentIndex = _weightedRandom.GetRandomAsIndex(); //GetRandomIndex();
             
             float currentAngle = GetCurrentWheelAngle();
@@ -155,6 +160,8 @@ namespace DoorGame.GameplayEvents
             wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, targetAngle);
             
             // Get results.
+            
+            _isWheelSpinning = false;
         }
     }
 }
