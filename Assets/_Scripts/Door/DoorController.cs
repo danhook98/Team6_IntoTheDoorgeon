@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using Colour = UnityEngine.Color;
 using Random = UnityEngine.Random;
 using DoorGame.EventSystem;
 
