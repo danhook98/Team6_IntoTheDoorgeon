@@ -38,6 +38,9 @@ namespace DoorGame
         public int GetRandomAsValue() => GetRandom(true);
         public int GetRandomAsIndex() => GetRandom(false);
         
+        public int GetValueAtIndex(int index) => _values[index].Value;
+        public int GetWeightAtIndex(int index) => _values[index].Weight;
+        
         public void SetValues(List<WeightedValue> values) => _values = values;
     }
     
