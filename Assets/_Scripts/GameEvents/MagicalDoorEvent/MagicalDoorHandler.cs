@@ -6,17 +6,15 @@ namespace DoorGame
     public class MagicalDoorHandler : MonoBehaviour
     {
         private string[] _tags;
-        private GameObject _mysteriousDoor;
 
         private void Start()
         {
-            _mysteriousDoor = this.gameObject;
             _tags = new string[] { "MagicalDoor", "CursedDoor" };
         }
 
         public void SetTag()
         {
-            _mysteriousDoor.tag = _tags[Random.Range(0, 2)];
+            gameObject.tag = _tags[Random.Range(0, _tags.Length)];
         }
     }
 }
