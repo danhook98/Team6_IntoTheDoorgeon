@@ -1,7 +1,10 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DoorGame.EventSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DoorGame.Door
 {
@@ -34,26 +37,38 @@ namespace DoorGame.Door
             // array but the bad door as "GoodDoor", bad door labelled as "BadDoor". 
             ResetDoors();
             
-            // Check if bad door can be spawned.
+            // Generate random threshold for first bad door & increase chances of bad doors spawning.
             var thresholdForBadDoor = Random.Range(0, 101);
             Debug.Log("Threshold number: " + thresholdForBadDoor);
             IncreaseBadDoorChance();
             
-            do
-            {
-                if (thresholdForBadDoor > _oneBadDoorChance && _guaranteedBadDoors == 0) return;
-                _badDoor = doors[Random.Range(0, doors.Length)];
-
-                if (_badDoor.CompareTag("BadDoor")) continue;
-                _badDoor.tag = "BadDoor";
-                _guaranteedBadDoors--;
-                if (_guaranteedBadDoors < 0) _guaranteedBadDoors = 0;
-
-                // TODO: Comment out after testing.
-                _badDoor.gameObject.GetComponent<Image>().color = Color.red;
-            } while (_guaranteedBadDoors >= 1);
+            // Check if first door spawns.
+            if (thresholdForBadDoor > _oneBadDoorChance) return;
             
+            // Copy doors array onto a list of doors, generate random index for bad door.
+            List<Door> doorsCopy = doors.ToList();
+            int randomIndex = Random.Range(0, doorsCopy.Count);
+            Debug.Log("Doorscopy count: " + doorsCopy.Count);
+            
+            // Set first bad door and remove from list.
+            _badDoor = doorsCopy[randomIndex];
+            doorsCopy.RemoveAt(randomIndex);
+            
+            // Set tag and colour of first bad door.
+            _badDoor.tag = "BadDoor";
+            _badDoor.gameObject.GetComponent<Image>().color = Color.red;
+            
+            // Calculate threshold for second bad door.
             var thresholdForSecondBadDoor = Random.Range(0, 101);
+            
+            // Check if second bad door should be spawned.
+            if (_guaranteedBadDoors > 0 && thresholdForSecondBadDoor <= _twoBadDoorChance)
+            {
+                _badDoor = doorsCopy[Random.Range(0, doorsCopy.Count)];
+                Debug.Log("Doorscopy count: " + doorsCopy.Count);
+                _badDoor.tag = "BadDoor";
+            }
+            _badDoor.gameObject.GetComponent<Image>().color = Color.red;
         }
 
         private void ResetDoors()
