@@ -115,8 +115,8 @@ namespace DoorGame.GameplayEvents
         private IEnumerator SelectWheel()
         {
             yield return new WaitForSeconds(0.25f);
-
-            int max = _isWheelGood ? 10 : 9; 
+            
+            int max = 2 * Random.Range(4, 7) + (_isWheelGood ? 0 : 1);
             
             for (int i = 1; i <= max; i++)
             {
