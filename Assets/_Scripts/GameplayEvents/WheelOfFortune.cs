@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -44,6 +45,8 @@ namespace DoorGame.GameplayEvents
             new(66, 9),
             new(75, 1)
         };
+        
+        [SerializeField] private TextMeshProUGUI[] wheelTexts;
 
         private WeightedRandom _weightedRandom;
         
@@ -93,8 +96,9 @@ namespace DoorGame.GameplayEvents
             DetermineWheelResults();
                 
             StartCoroutine(SelectWheel());
-            //StartCoroutine(Spin());
         }
+        
+        public void SpinWheel() => StartCoroutine(Spin());
 
         private IEnumerator SelectWheel()
         {
@@ -105,10 +109,20 @@ namespace DoorGame.GameplayEvents
                 if (i % 2 == 0)
                 {
                     wheelImage.sprite = goodWheelImage;
+
+                    for (int j = 0; j < 5; j++)
+                    {
+                        wheelTexts[j].text = "+" + goodResultsWeights[j].Value + "%\n" + goodResultsWeights[j].Weight + "% chance!";
+                    }
                 }
                 else
                 {
                     wheelImage.sprite = badWheelImage;
+                    
+                    for (int j = 0; j < 5; j++)
+                    {
+                        wheelTexts[j].text = "-" + badResultsWeights[j].Value + "%\n" + badResultsWeights[j].Weight + "% chance!";
+                    }
                 }
                 
                 yield return new WaitForSeconds(0.3f);
