@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 7c5000b53aa8d0a449cfd3c8f0029470
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - onFlipCardEvent: {fileID: 11400000, guid: cf763907cd09df2429c35d54f9580536, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
