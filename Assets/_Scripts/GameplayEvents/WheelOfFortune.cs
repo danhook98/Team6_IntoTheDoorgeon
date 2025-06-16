@@ -47,6 +47,7 @@ namespace DoorGame.GameplayEvents
             new(75, 1)
         };
         
+        [Header("Wheel Text Objects (clockwise from 12)")]
         [SerializeField] private TextMeshProUGUI[] wheelTexts;
 
         private WeightedRandom _weightedRandom;
