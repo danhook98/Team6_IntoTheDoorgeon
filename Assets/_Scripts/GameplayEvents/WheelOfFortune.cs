@@ -61,9 +61,8 @@ namespace DoorGame.GameplayEvents
 
         private void Awake()
         {
-            // Assume that the wheel results will always be bad until the determine method is called.
-            // wheelResults = badResultsWeights;
-            
+            // Create a new instance of the WeightedRandom class, and pass the bad results as we assume that's the
+            // default. 
             _weightedRandom = new WeightedRandom(badResultsWeights);
             
             _anglePerSegment = 360f / badResultsWeights.Count;
