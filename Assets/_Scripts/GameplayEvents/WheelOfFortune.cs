@@ -127,9 +127,7 @@ namespace DoorGame.GameplayEvents
             {
                 cumulativeWeight += wheelResults[i].Weight;
 
-                if (cumulativeWeight < randomPoint) continue;
-
-                return i; 
+                if (cumulativeWeight > randomPoint) return i;
             }
 
             // Failed to get the index from the weighted values.
