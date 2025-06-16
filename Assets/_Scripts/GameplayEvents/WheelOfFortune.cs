@@ -92,21 +92,19 @@ namespace DoorGame.GameplayEvents
         private void DetermineWheelResults()
         {
             // No point calculating the chances if somehow the player has opened more than 60 doors.
-            if (doorsOpenedValue.Value >= 60)
-            {
-                //wheelResults = badResultsWeights;
-                _weightedRandom.SetValues(badResultsWeights);
-                _isWheelGood = false;
-                return; 
-            }
+            // if (doorsOpenedValue.Value >= 60)
+            // {
+            //     //wheelResults = badResultsWeights;
+            //     _weightedRandom.SetValues(badResultsWeights);
+            //     _isWheelGood = false;
+            //     return; 
+            // }
                 
-            int baseGoodChance = 60 - doorsOpenedValue.Value; 
+            int baseGoodChance = Mathf.Clamp(60 - doorsOpenedValue.Value, 0, 60); 
 
             int randomNumber = Random.Range(0, 101);
 
             _isWheelGood = randomNumber <= baseGoodChance;
-            
-            Debug.Log(_isWheelGood);
             
             //wheelResults = randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights;
             _weightedRandom.SetValues(_isWheelGood ? goodResultsWeights : badResultsWeights);
