@@ -9,6 +9,8 @@ TagManager:
   - Score
   - DoorsCountDisplay
   - Audio
+  - MagicalDoor
+  - CursedDoor
   layers:
   - Default
   - TransparentFX
