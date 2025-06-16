@@ -110,16 +110,9 @@ namespace DoorGame.GameplayEvents
             
             for (int i = 1; i <= max; i++)
             {
-                if (i % 2 == 0)
-                {
-                    wheelImage.sprite = goodWheelImage;
-                }
-                else
-                {
-                    wheelImage.sprite = badWheelImage;
-                }
+                wheelImage.sprite = i % 2 == 0 ? goodWheelImage : badWheelImage;
                 
-                _isWheelGood = i % 2 == 0;
+                // _isWheelGood = i % 2 == 0;
                 
                 SetWheelText();
                 
