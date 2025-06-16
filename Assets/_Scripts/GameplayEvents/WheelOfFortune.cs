@@ -104,15 +104,13 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator SelectWheel()
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return _wheelSelectionInterval;
             
             int max = 2 * Random.Range(4, 7) + (_isWheelGood ? 0 : 1);
             
             for (int i = 1; i <= max; i++)
             {
                 wheelImage.sprite = i % 2 == 0 ? goodWheelImage : badWheelImage;
-                
-                // _isWheelGood = i % 2 == 0;
                 
                 SetWheelText();
                 
@@ -171,12 +169,11 @@ namespace DoorGame.GameplayEvents
             }
             
             wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, targetAngle);
+            _isWheelSpinning = false;
             
             // Get results.
             int resultModifier = _weightedRandom.GetValueAtIndex(segmentIndex);
             Debug.Log($"Score will be modified by {resultModifier}%!");
-            
-            _isWheelSpinning = false;
         }
     }
 }
