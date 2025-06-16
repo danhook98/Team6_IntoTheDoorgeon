@@ -125,7 +125,9 @@ namespace DoorGame
             _scoreMultiplier++;
             generateDoorsEvent.Invoke(new Empty());
         }
-        
+
+        public void SetScore(int score) => _score = score;
+
         // Score
         private void AddScore()
         {
