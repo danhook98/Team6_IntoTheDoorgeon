@@ -6304,8 +6304,55 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3614201777218107339, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2522009818594711329}
   m_SourcePrefab: {fileID: 100100000, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+--- !u!1 &2522009818594711327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3614201777218107339, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+  m_PrefabInstance: {fileID: 2522009818594711326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2522009818594711328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7035915985692051966, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+  m_PrefabInstance: {fileID: 2522009818594711326}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522009818594711327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96aacc2deebf82448a8230ba497bff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2522009818594711329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522009818594711327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: c0b18c33dfef65c4fa21d9d27b0700de, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2522009818594711328}
+        m_TargetAssemblyTypeName: DoorGame.Door.DoorController, Assembly-CSharp
+        m_MethodName: IncreaseBadDoorChance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2860807481723569099
 PrefabInstance:
   m_ObjectHideFlags: 0
