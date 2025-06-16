@@ -1,6 +1,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DoorGame.EventSystem;
+using UnityEngine.UI;
 
 namespace DoorGame.Door
 {
@@ -19,9 +20,11 @@ namespace DoorGame.Door
         private int _oneBadDoorChance;
         private int _twoBadDoorChance;
 
-        private void Start()
+        private bool _guaranteedBadDoor;
+
+        private void Awake()
         {
-            _oneBadDoorChance = 0;
+            _oneBadDoorChance = -5;
         }
         
         public void GenerateDoors()
@@ -32,11 +35,14 @@ namespace DoorGame.Door
             
             // Check if bad door can be spawned.
             var thresholdForBadDoor = Random.Range(0, 101);
-            if (thresholdForBadDoor > _oneBadDoorChance) return;
             IncreaseBadDoorChance();
-                
+            if (thresholdForBadDoor > _oneBadDoorChance) return;
+            
             _badDoor = doors[Random.Range(0, doors.Length)];
             _badDoor.tag = "BadDoor";
+            
+            // TODO: Comment out after testing.
+            _badDoor.gameObject.GetComponent<Image>().color = Color.red;
         }
 
         private void ResetDoors()
@@ -44,7 +50,7 @@ namespace DoorGame.Door
             foreach (var door in doors)
             {
                 door.tag = "GoodDoor";
-                
+                door.gameObject.GetComponent<Image>().color = Color.white;
                 door.AllowOpening();
                 door.ResetAnimationState();
             }
@@ -66,15 +72,18 @@ namespace DoorGame.Door
 
         public void IncreaseBadDoorChance()
         {
-            _oneBadDoorChance += 10;
+            _oneBadDoorChance += 5;
+            Debug.Log("one bad door chance: " + _oneBadDoorChance);
 
             if (_oneBadDoorChance >= 100)
             {
+                _guaranteedBadDoor = true;
                 _oneBadDoorChance = 100;
-                _twoBadDoorChance += 10;
+                _twoBadDoorChance += 5;
             }
             
             if(_twoBadDoorChance >= 50) _twoBadDoorChance = 50;
+            Debug.Log("Two bad door chance: " + _twoBadDoorChance);
         }
     }
 }
