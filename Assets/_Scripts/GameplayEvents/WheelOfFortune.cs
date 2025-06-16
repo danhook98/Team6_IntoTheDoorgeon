@@ -51,8 +51,8 @@ namespace DoorGame.GameplayEvents
 
         private void Awake()
         {
-            // Temporary results selection. 
-            wheelResults = Random.value < 0.6f ? goodResultsWeights : badResultsWeights;
+            // Assume that the wheel results will always be bad until the determine method is called.
+            wheelResults = badResultsWeights;
             
             _anglePerSegment = 360f / wheelResults.Count;
             
@@ -71,8 +71,27 @@ namespace DoorGame.GameplayEvents
             }
         }
 
+        private void DetermineWheelResults()
+        {
+            // No point calculating the chances if somehow the player has opened more than 60 doors.
+            if (doorsOpenedValue.Value >= 60)
+            {
+                wheelResults = badResultsWeights;
+                return; 
+            }
+                
+            int baseGoodChance = 60 - doorsOpenedValue.Value; 
+
+            int randomNumber = Random.Range(0, 101);
+            
+            wheelResults = randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights;
+        }
+
         public void StartEvent()
         {
+            // Determine which results will be used for the wheel.
+            DetermineWheelResults();
+                
             StartCoroutine(SelectWheel());
             //StartCoroutine(Spin());
         }
