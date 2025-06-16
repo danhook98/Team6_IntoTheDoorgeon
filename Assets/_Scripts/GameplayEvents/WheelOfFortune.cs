@@ -69,14 +69,6 @@ namespace DoorGame.GameplayEvents
             
             _wheelSelectionInterval = new WaitForSeconds(wheelSelectionChangeDelay);
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartCoroutine(Spin());
-            }
-        }
         
         public void StartEvent()
         {
