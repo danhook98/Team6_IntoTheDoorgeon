@@ -1,7 +1,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DoorGame
+namespace DoorGame.GameplayEvents.MagicalDoorEvent
 {
     public class MagicalDoorHandler : MonoBehaviour
     {

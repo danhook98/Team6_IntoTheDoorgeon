@@ -1,10 +1,10 @@
 using System.Collections.Generic;
+using DoorGame.Audio;
+using DoorGame.EventSystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using DoorGame.EventSystem;
-using DoorGame.Audio;
 
-namespace DoorGame.GameEvents.PairsEvent
+namespace DoorGame.GameplayEvents.PairsEvent
 {
     public class PairsEventHandler : MonoBehaviour
     {

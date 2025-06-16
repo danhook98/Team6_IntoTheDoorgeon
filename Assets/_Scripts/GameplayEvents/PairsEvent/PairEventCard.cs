@@ -1,9 +1,9 @@
+using System.Collections;
+using DoorGame.EventSystem;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
-using DoorGame.EventSystem;
-using System.Collections;
 
-namespace DoorGame.GameEvents.PairsEvent
+namespace DoorGame.GameplayEvents.PairsEvent
 {
     public class PairEventCard : MonoBehaviour
     {
