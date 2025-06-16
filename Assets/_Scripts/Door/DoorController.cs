@@ -33,6 +33,7 @@ namespace DoorGame.Door
             // Check if bad door can be spawned.
             var thresholdForBadDoor = Random.Range(0, 101);
             if (thresholdForBadDoor > _oneBadDoorChance) return;
+            IncreaseBadDoorChance();
                 
             _badDoor = doors[Random.Range(0, doors.Length)];
             _badDoor.tag = "BadDoor";
