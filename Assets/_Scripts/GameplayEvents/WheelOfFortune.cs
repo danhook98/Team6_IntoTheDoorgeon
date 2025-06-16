@@ -52,7 +52,8 @@ namespace DoorGame.GameplayEvents
         
         private int _totalWeight; 
         private float _anglePerSegment;
-        private bool _isWheelSpinning; 
+        private bool _isWheelSpinning;
+        private bool _isWheelGood; 
 
         private void Awake()
         {
@@ -79,6 +80,7 @@ namespace DoorGame.GameplayEvents
             {
                 //wheelResults = badResultsWeights;
                 _weightedRandom.SetValues(badResultsWeights);
+                _isWheelGood = false;
                 return; 
             }
                 
@@ -88,13 +90,15 @@ namespace DoorGame.GameplayEvents
             
             //wheelResults = randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights;
             _weightedRandom.SetValues(randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights);
+            _isWheelGood = true;
         }
 
         public void StartEvent()
         {
             // Determine which results will be used for the wheel.
             DetermineWheelResults();
-                
+            
+            //SetWheelText();
             StartCoroutine(SelectWheel());
         }
         
@@ -104,28 +108,30 @@ namespace DoorGame.GameplayEvents
         {
             yield return new WaitForSeconds(0.25f);
             
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= (_isWheelGood ? 10 : 9); i++)
             {
                 if (i % 2 == 0)
                 {
                     wheelImage.sprite = goodWheelImage;
-
-                    for (int j = 0; j < 5; j++)
-                    {
-                        wheelTexts[j].text = "+" + goodResultsWeights[j].Value + "%";
-                    }
                 }
                 else
                 {
                     wheelImage.sprite = badWheelImage;
-                    
-                    for (int j = 0; j < 5; j++)
-                    {
-                        wheelTexts[j].text = "-" + badResultsWeights[j].Value + "%";
-                    }
                 }
                 
+                _isWheelGood = i % 2 == 0;
+                
+                SetWheelText();
+                
                 yield return new WaitForSeconds(0.3f);
+            }
+        }
+
+        private void SetWheelText()
+        {
+            for (int i = 0; i < wheelTexts.Length; i++)
+            {
+                wheelTexts[i].text = (_isWheelGood ? "+" : "-") + (_isWheelGood ? goodResultsWeights[i].Value : badResultsWeights[i].Value) + "%"; 
             }
         }
 
