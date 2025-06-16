@@ -1568,6 +1568,7 @@ GameObject:
   - component: {fileID: 2251508745669371007}
   - component: {fileID: 1355905185229501519}
   - component: {fileID: 3699605005792680210}
+  - component: {fileID: 1163438290031813448}
   m_Layer: 5
   m_Name: Wheel of Fortune Canvas
   m_TagString: Untagged
@@ -1677,10 +1678,12 @@ MonoBehaviour:
   endCard: {fileID: 1890100082266230885}
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
   doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
+  onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   endCardText: {fileID: 8234336927191752084}
   wheelTransform: {fileID: 8384786953387456775}
   wheelImage: {fileID: 1586949350592400576}
-  wheelSelectionChangeDelay: 0.25
+  wheelSelectionChangeDelay: 0.3
   goodWheelImage: {fileID: 21300000, guid: 8b03851ceb4389d4da6fceef7a5d1410, type: 3}
   badWheelImage: {fileID: 21300000, guid: 1e27123d993415a4aa7718625e30691d, type: 3}
   minimumFullRotations: 4
@@ -1714,6 +1717,34 @@ MonoBehaviour:
   - {fileID: 3838222870357086502}
   - {fileID: 9049306855873613388}
   - {fileID: 5545563899392698981}
+--- !u!114 &1163438290031813448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764049954409461582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: f3608ed70c544ef4d955906317c83ce6, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6446657753939877301}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &5627811871160475930
 GameObject:
   m_ObjectHideFlags: 0

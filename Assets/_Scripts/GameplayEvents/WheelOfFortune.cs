@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using DoorGame.EventSystem;
 
 namespace DoorGame.GameplayEvents
 {
@@ -18,6 +19,10 @@ namespace DoorGame.GameplayEvents
         [Header("Value Objects")]
         [SerializeField] private IntValue scoreValue;
         [SerializeField] private IntValue doorsOpenedValue;
+
+        [Header("Events")] 
+        [SerializeField] private IntEvent onScoreChangedEvent;
+        [SerializeField] private AudioClipSOEvent onPlaySfxEvent; 
         
         [Header("End Card")]
         [SerializeField] private TextMeshProUGUI endCardText;
@@ -68,7 +73,8 @@ namespace DoorGame.GameplayEvents
         private WaitForSeconds _wheelSelectionInterval;
         private WaitForSeconds _wheelFinishDelay; 
         private bool _isWheelSpinning;
-        private bool _isWheelGood; 
+        private bool _isWheelGood;
+        private bool _canSpin;
 
         private void Awake()
         {
@@ -83,19 +89,14 @@ namespace DoorGame.GameplayEvents
             _wheelSelectionInterval = new WaitForSeconds(wheelSelectionChangeDelay);
             _wheelFinishDelay = new WaitForSeconds(2f);
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartEvent();
-            }
-        }
-
+        
         public void StartEvent()
         {
             introCard.SetActive(false);
             wheel.SetActive(true);
+            
+            // Ensure the wheel is not rotated.
+            wheelTransform.localEulerAngles = Vector3.zero;
             
             // Determine which results will be used for the wheel.
             DetermineWheelResults();
@@ -103,8 +104,6 @@ namespace DoorGame.GameplayEvents
             //SetWheelText();
             StartCoroutine(SelectWheel());
         }
-        
-        public void SpinWheel() => StartCoroutine(Spin());
 
         public void EndEvent()
         {
@@ -118,6 +117,8 @@ namespace DoorGame.GameplayEvents
             endCard.SetActive(false);
         }
 
+        public void SpinWheel() => StartCoroutine(Spin());
+        
         private void DetermineWheelResults()
         {
             int baseGoodChance = Mathf.Clamp(60 - doorsOpenedValue.Value, 0, 60); 
@@ -126,14 +127,14 @@ namespace DoorGame.GameplayEvents
 
             _isWheelGood = randomNumber <= baseGoodChance;
             
-            Debug.Log($"Wheel will be good? {_isWheelGood}");
+            //Debug.Log($"Wheel will be good? {_isWheelGood}");
             
             _weightedRandom.SetValues(_isWheelGood ? goodResultsWeights : badResultsWeights);
         }
 
         private IEnumerator SelectWheel()
         {
-            yield return _wheelSelectionInterval;
+            _canSpin = false;
             
             int max = 2 * Random.Range(4, 7) + (_isWheelGood ? 0 : 1);
             
@@ -145,6 +146,8 @@ namespace DoorGame.GameplayEvents
                 
                 yield return _wheelSelectionInterval;
             }
+            
+            _canSpin = true;
         }
 
         private void SetWheelText(bool isGood)
@@ -167,7 +170,7 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
-            if (_isWheelSpinning) yield break; 
+            if (_isWheelSpinning || !_canSpin) yield break; 
             
             _isWheelSpinning = true;
             
@@ -202,10 +205,11 @@ namespace DoorGame.GameplayEvents
             
             // Get results.
             int resultModifier = _weightedRandom.GetValueAtIndex(segmentIndex);
-            Debug.Log($"Score will be modified by {resultModifier}%!");
+            // Debug.Log($"Score will be modified by {resultModifier}%!");
 
             int newScore = GetNewScore(resultModifier);
-            Debug.Log($"New score is {newScore}");
+            onScoreChangedEvent.Invoke(newScore);
+            // Debug.Log($"New score is {newScore}");
             
             yield return _wheelFinishDelay;
             
@@ -216,7 +220,7 @@ namespace DoorGame.GameplayEvents
         private int GetNewScore(int baseModifier)
         {
             float modifier = _isWheelGood ? 1 + (baseModifier / 100f) : 1 - (baseModifier / 100f);
-            Debug.Log($"Score will be modified by {modifier}");
+            // Debug.Log($"Score will be modified by {modifier}");
             return (int)(Mathf.Ceil(scoreValue.Value * modifier));
         }
 
