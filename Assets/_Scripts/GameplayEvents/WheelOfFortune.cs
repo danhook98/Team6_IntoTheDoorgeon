@@ -112,7 +112,7 @@ namespace DoorGame.GameplayEvents
 
                     for (int j = 0; j < 5; j++)
                     {
-                        wheelTexts[j].text = "+" + goodResultsWeights[j].Value + "%\n" + goodResultsWeights[j].Weight + "% chance!";
+                        wheelTexts[j].text = "+" + goodResultsWeights[j].Value + "%";
                     }
                 }
                 else
@@ -121,7 +121,7 @@ namespace DoorGame.GameplayEvents
                     
                     for (int j = 0; j < 5; j++)
                     {
-                        wheelTexts[j].text = "-" + badResultsWeights[j].Value + "%\n" + badResultsWeights[j].Weight + "% chance!";
+                        wheelTexts[j].text = "-" + badResultsWeights[j].Value + "%";
                     }
                 }
                 
