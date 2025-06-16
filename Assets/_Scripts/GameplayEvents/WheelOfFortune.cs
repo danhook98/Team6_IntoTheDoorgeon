@@ -118,7 +118,7 @@ namespace DoorGame.GameplayEvents
         private int GetRandomIndex()
         {
             // Get a random point on the results 'line'. 
-            int randomPoint = Random.Range(0, _totalWeight);
+            int randomPoint = Random.Range(0, _totalWeight + 1);
             
             // Get the value and random segment the wheel will land on. 
             int cumulativeWeight = 0;
