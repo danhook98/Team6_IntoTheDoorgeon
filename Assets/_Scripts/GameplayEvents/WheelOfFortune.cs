@@ -17,6 +17,7 @@ namespace DoorGame.GameplayEvents
         [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
         [SerializeField] private Image wheelImage;
+        [SerializeField] private float wheelSelectionChangeDelay = 0.25f;
         
         [Header("Wheel Images")]
         [SerializeField] private Sprite goodWheelImage;
@@ -52,6 +53,8 @@ namespace DoorGame.GameplayEvents
         
         private int _totalWeight; 
         private float _anglePerSegment;
+
+        private WaitForSeconds _wheelSelectionInterval; 
         private bool _isWheelSpinning;
         private bool _isWheelGood; 
 
@@ -63,6 +66,8 @@ namespace DoorGame.GameplayEvents
             _weightedRandom = new WeightedRandom(badResultsWeights);
             
             _anglePerSegment = 360f / badResultsWeights.Count;
+            
+            _wheelSelectionInterval = new WaitForSeconds(wheelSelectionChangeDelay);
         }
 
         private void Update()
@@ -72,6 +77,17 @@ namespace DoorGame.GameplayEvents
                 StartCoroutine(Spin());
             }
         }
+        
+        public void StartEvent()
+        {
+            // Determine which results will be used for the wheel.
+            DetermineWheelResults();
+            
+            //SetWheelText();
+            StartCoroutine(SelectWheel());
+        }
+        
+        public void SpinWheel() => StartCoroutine(Spin());
 
         private void DetermineWheelResults()
         {
@@ -87,28 +103,22 @@ namespace DoorGame.GameplayEvents
             int baseGoodChance = 60 - doorsOpenedValue.Value; 
 
             int randomNumber = Random.Range(0, 101);
+
+            _isWheelGood = randomNumber <= baseGoodChance;
+            
+            Debug.Log(_isWheelGood);
             
             //wheelResults = randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights;
-            _weightedRandom.SetValues(randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights);
-            _isWheelGood = true;
+            _weightedRandom.SetValues(_isWheelGood ? goodResultsWeights : badResultsWeights);
         }
-
-        public void StartEvent()
-        {
-            // Determine which results will be used for the wheel.
-            DetermineWheelResults();
-            
-            //SetWheelText();
-            StartCoroutine(SelectWheel());
-        }
-        
-        public void SpinWheel() => StartCoroutine(Spin());
 
         private IEnumerator SelectWheel()
         {
             yield return new WaitForSeconds(0.25f);
+
+            int max = _isWheelGood ? 10 : 9; 
             
-            for (int i = 1; i <= (_isWheelGood ? 10 : 9); i++)
+            for (int i = 1; i <= max; i++)
             {
                 if (i % 2 == 0)
                 {
@@ -123,7 +133,7 @@ namespace DoorGame.GameplayEvents
                 
                 SetWheelText();
                 
-                yield return new WaitForSeconds(0.3f);
+                yield return _wheelSelectionInterval;
             }
         }
 
