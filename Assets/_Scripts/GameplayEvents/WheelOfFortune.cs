@@ -45,22 +45,19 @@ namespace DoorGame.GameplayEvents
             new(75, 1)
         };
 
-        private List<WeightedValue> wheelResults;
+        private WeightedRandom _weightedRandom;
+        
         private int _totalWeight; 
         private float _anglePerSegment; 
 
         private void Awake()
         {
             // Assume that the wheel results will always be bad until the determine method is called.
-            wheelResults = badResultsWeights;
+            // wheelResults = badResultsWeights;
             
-            _anglePerSegment = 360f / wheelResults.Count;
+            _weightedRandom = new WeightedRandom(badResultsWeights);
             
-            // Calculate the total weight. 
-            foreach (WeightedValue kvp in goodResultsWeights)
-            {
-                _totalWeight += kvp.Weight;
-            }
+            _anglePerSegment = 360f / badResultsWeights.Count;
         }
 
         private void Update()
@@ -76,7 +73,8 @@ namespace DoorGame.GameplayEvents
             // No point calculating the chances if somehow the player has opened more than 60 doors.
             if (doorsOpenedValue.Value >= 60)
             {
-                wheelResults = badResultsWeights;
+                //wheelResults = badResultsWeights;
+                _weightedRandom.SetValues(badResultsWeights);
                 return; 
             }
                 
@@ -84,7 +82,8 @@ namespace DoorGame.GameplayEvents
 
             int randomNumber = Random.Range(0, 101);
             
-            wheelResults = randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights;
+            //wheelResults = randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights;
+            _weightedRandom.SetValues(randomNumber <= baseGoodChance ? goodResultsWeights : badResultsWeights);
         }
 
         public void StartEvent()
@@ -115,25 +114,6 @@ namespace DoorGame.GameplayEvents
             }
         }
 
-        private int GetRandomIndex()
-        {
-            // Get a random point on the results 'line'. 
-            int randomPoint = Random.Range(0, _totalWeight + 1);
-            
-            // Get the value and random segment the wheel will land on. 
-            int cumulativeWeight = 0;
-
-            for (int i = 0; i < wheelResults.Count; i++)
-            {
-                cumulativeWeight += wheelResults[i].Weight;
-
-                if (cumulativeWeight > randomPoint) return i;
-            }
-
-            // Failed to get the index from the weighted values.
-            return 0;
-        }
-
         private float GetCurrentWheelAngle()
         {
             float currentAngle = wheelTransform.eulerAngles.z;
@@ -146,7 +126,7 @@ namespace DoorGame.GameplayEvents
 
         private IEnumerator Spin()
         {
-            int segmentIndex = GetRandomIndex();
+            int segmentIndex = _weightedRandom.GetRandomAsIndex(); //GetRandomIndex();
             
             float currentAngle = GetCurrentWheelAngle();
             
@@ -156,7 +136,7 @@ namespace DoorGame.GameplayEvents
             float targetAngle = segmentAngle + 360f * numberOfRotations; 
             
             // Debug.Log($"Will spin {numberOfRotations} times before ending at index {segmentIndex} with an angle of {segmentAngle}", this);
-            Debug.Log($"The odds for this were {wheelResults[segmentIndex].Weight / (float)wheelResults.Sum(p => p.Weight):P}!");
+            // Debug.Log($"The odds for this were {wheelResults[segmentIndex].Weight / (float)wheelResults.Sum(p => p.Weight):P}!");
 
             float spinTime = numberOfRotations + baseSpinDuration;
             float elapsedTime = 0f;
@@ -176,14 +156,5 @@ namespace DoorGame.GameplayEvents
             
             // Get results.
         }
-    }
-
-    [System.Serializable]
-    public struct WeightedValue
-    {
-        public int Value; 
-        public int Weight;
-        
-        public WeightedValue(int value, int weight) { Value = value; Weight = weight; }
     }
 }
