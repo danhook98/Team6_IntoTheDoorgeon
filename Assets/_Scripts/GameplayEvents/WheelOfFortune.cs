@@ -173,6 +173,8 @@ namespace DoorGame.GameplayEvents
             wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, targetAngle);
             
             // Get results.
+            int resultModifier = _weightedRandom.GetValueAtIndex(segmentIndex);
+            Debug.Log($"Score will be modified by {resultModifier}%!");
             
             _isWheelSpinning = false;
         }
