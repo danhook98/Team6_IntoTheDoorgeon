@@ -77,7 +77,7 @@ namespace DoorGame
 
         public void OpenedBadDoor()
         {
-            Debug.Log("Game Over!", this);
+            //Debug.Log("Game Over!", this);
             
             playSfxAudioChannel.Invoke(badDoorSound);
             
@@ -100,7 +100,7 @@ namespace DoorGame
 
         public void OpenedGoodDoor()
         {
-            Debug.Log("Opened Good Door!", this);
+            //Debug.Log("Opened Good Door!", this);
             
             playSfxAudioChannel.Invoke(goodDoorSound);
             
@@ -135,7 +135,7 @@ namespace DoorGame
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
             scoreChangedEvent.Invoke(_score);
             playSfxAudioChannel.Invoke(scoreAddedSound);
-            Debug.Log(_wavesCompleted);
+            // Debug.Log(_wavesCompleted);
             
             _totalDoorsOpened++;
             doorsOpenedValue.Value = _totalDoorsOpened;
