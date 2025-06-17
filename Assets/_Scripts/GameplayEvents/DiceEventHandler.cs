@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DoorGame.EventSystem;
+using UnityEngine.Serialization;
 
 namespace DoorGame
 {
@@ -16,9 +17,10 @@ namespace DoorGame
         [Header("Used Spawn Positions")]
         [SerializeField] private List<Vector2> usedPlayerDiceSpawns;
         [SerializeField] private List<Vector2> usedEnemyDiceSpawns;
-
+        
         [Header("Dice List")]
-        [SerializeField] private List<Dice> diceList;
+        [SerializeField] private List<Dice> playerDiceList;
+        [SerializeField] private List<Dice> enemyDiceList;
         [SerializeField] private List<Dice> playerSelectedDiceList;
         [SerializeField] private List<Dice> enemySelectedDiceList;
         
@@ -54,7 +56,7 @@ namespace DoorGame
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                ResetDice();
+                ResetEvent();
             }
 
             if (Input.GetKeyDown(KeyCode.T))
@@ -80,7 +82,7 @@ namespace DoorGame
                 GameObject dice = Instantiate(dicePrefab, spawnPoint, Quaternion.identity);
                 dice.transform.SetParent(diceContainer.transform, false);
                 playerDiceSpawns.RemoveAt(randomSpawnPoint);
-                diceList.Add(dice.gameObject.GetComponent<Dice>());
+                playerDiceList.Add(dice.gameObject.GetComponent<Dice>());
                 dice.gameObject.GetComponent<Dice>().DiceID = autoId;
                 autoId++;
                 
@@ -91,7 +93,7 @@ namespace DoorGame
                 GameObject dice2 = Instantiate(dicePrefab, spawnPoint2, Quaternion.identity);
                 dice2.transform.SetParent(diceContainer.transform, false);
                 enemyDiceSpawns.RemoveAt(randomSpawnPoint2);
-                diceList.Add(dice2.gameObject.GetComponent<Dice>());
+                enemyDiceList.Add(dice2.gameObject.GetComponent<Dice>());
                 dice2.gameObject.GetComponent<Dice>().DiceID = autoId;
                 dice2.tag = "EnemyDie";
                 autoId++;
@@ -101,7 +103,7 @@ namespace DoorGame
         /// <summary>
         /// Resets lists and destroys dice.
         /// </summary>
-        private void ResetDice()
+        private void ResetEvent()
         {
             // Move dice spawn positions to original lists.
             for (int i = 0; i < _amountOfDice; i++)
@@ -113,25 +115,27 @@ namespace DoorGame
             }
 
             // Destroy dice.
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
-                diceList[i].DestroySelf();
+                playerDiceList[i].DestroySelf();
+                enemyDiceList[i].DestroySelf();
             }
             
             // Clear lists.
-            diceList.Clear();
+            playerDiceList.Clear();
+            enemyDiceList.Clear();
             usedEnemyDiceSpawns.Clear();
             usedPlayerDiceSpawns.Clear();
         }
 
         public void DieHasBeenSelected(int instanceId)
         {
-            Dice selectedDie = diceList.Find(c => c.GetInstanceID() == instanceId);
+            Dice selectedDie = playerDiceList.Find(c => c.GetInstanceID() == instanceId);
             
             if (selectedDie.CompareTag("EnemyDie")) return;
             
             playerSelectedDiceList.Add(selectedDie);
-            diceList.Remove(selectedDie);
+            playerDiceList.Remove(selectedDie);
             
             _playerSelectedDiceAmount++;
         }
@@ -141,7 +145,19 @@ namespace DoorGame
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 var selectedDie = playerSelectedDiceList[i];
-                StartCoroutine(selectedDie.RollDie(18));
+                StartCoroutine(selectedDie.RollDie(Random.Range(15, 20)));
+            }
+
+            int enemyDiceToRoll = Random.Range(1, 6);
+            Debug.Log("Rolling " + enemyDiceToRoll + " enemy dice!");
+            
+            for (int i = 0; i < enemyDiceToRoll; i++)
+            {
+                _enemySelectedDiceAmount++;
+                enemySelectedDiceList.Add(enemyDiceList[i]);
+                var selectedDie2 = enemySelectedDiceList[i];
+                StartCoroutine(selectedDie2.RollDie(Random.Range(15, 20)));
+                enemyDiceList.RemoveAt(i);
             }
         }
 
