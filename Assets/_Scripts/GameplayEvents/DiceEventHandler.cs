@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DoorGame.EventSystem;
 using System.Collections;
+using TMPro;
 
 namespace DoorGame
 {
@@ -26,9 +27,10 @@ namespace DoorGame
         [SerializeField] private GameObject dicePrefab;
         [SerializeField] private GameObject introCard;
         [SerializeField] private GameObject endCard;
+        [SerializeField] private TextMeshProUGUI scoreToBetText;
+        [SerializeField] private TextMeshProUGUI resultText;
 
         [Header("Events")] 
-        [SerializeField] private VoidEvent onResetDiceEvent;
         [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
 
         [Header("Score")] 
@@ -55,6 +57,7 @@ namespace DoorGame
             _playerWon = false;
             introCard.SetActive(true);
             endCard.SetActive(false);
+            scoreToBetText.text = "Betting: 10% of total score";
         }
 
         private void Update()
@@ -314,27 +317,31 @@ namespace DoorGame
 
         public void IncreaseBetAmount()
         {
-            _amountToBet += _minAmountToBet;
+            _amountToBet += 10;
             
-            if(_amountToBet >= scoreValue.Value) _amountToBet = scoreValue.Value;
+            if(_amountToBet >= 100) _amountToBet = 100;
+            scoreToBetText.text = "Betting: " + _amountToBet + "% of total score";
         }
 
         public void DecreaseBetAmount()
         {
-            _amountToBet -= _minAmountToBet;
+            _amountToBet -= 10;
             
-            if(_amountToBet <= 10) _amountToBet = _minAmountToBet;
+            if(_amountToBet <= 10) _amountToBet = 10;
+            scoreToBetText.text = "Betting: " + _amountToBet + "% of total score";
         }
 
         public void UpdateScore()
         {
             if (_playerWon)
             {
-                scoreValue.Value += _amountToBet;
+                scoreValue.Value += scoreValue.Value * _amountToBet;
+                resultText.text = "You won!/n " + "Score: " + scoreValue.Value.ToString();
             }
             else
             {
-                scoreValue.Value -= _amountToBet;
+                scoreValue.Value -= scoreValue.Value * (1 - _amountToBet);
+                resultText.text = "You lost!/n " + "Score: " + scoreValue.Value.ToString();
             }
         }
     }
