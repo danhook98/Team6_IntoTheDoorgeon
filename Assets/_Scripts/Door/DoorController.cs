@@ -38,7 +38,7 @@ namespace DoorGame.Door
             ResetDoors();
             
             // Generate random threshold for first bad door & increase chances of bad doors spawning.
-            var thresholdForBadDoor = Random.Range(0, 101);
+            var thresholdForBadDoor = Random.Range(1, 101);
             Debug.Log("Threshold number: " + thresholdForBadDoor);
             IncreaseBadDoorChance();
             
