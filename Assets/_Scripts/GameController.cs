@@ -19,10 +19,7 @@ namespace DoorGame
         [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
         
         [Header("Gameplay Event Trigger Events")]
-        [SerializeField] private VoidEvent onStartWheelOfFortuneEvent;
-        [SerializeField] private VoidEvent onStartPairsEvent;
-        [SerializeField] private VoidEvent onStartMysteriousDoorsEvent;
-        [SerializeField] private VoidEvent onStartDiceEvent;
+        [SerializeField] private VoidEvent[] gameplayEventTriggers;
         
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;

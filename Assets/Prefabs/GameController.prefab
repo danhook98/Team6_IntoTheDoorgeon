@@ -57,10 +57,10 @@ MonoBehaviour:
   generateDoorsEvent: {fileID: 11400000, guid: a355b7d040f52194797d912eeacb8bcc, type: 2}
   onLeaveDungeonEvent: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
   showEnterDungeonButtonEvent: {fileID: 11400000, guid: 113183519dba74243b8d8f0460945e4f, type: 2}
-  onStartWheelOfFortuneEvent: {fileID: 11400000, guid: f3608ed70c544ef4d955906317c83ce6, type: 2}
-  onStartPairsEvent: {fileID: 11400000, guid: cd9f1ab8fa91ea24e808a85c58c7fb7f, type: 2}
-  onStartMysteriousDoorsEvent: {fileID: 11400000, guid: cd9f1ab8fa91ea24e808a85c58c7fb7f, type: 2}
-  onStartDiceEvent: {fileID: 0}
+  gameplayEventTriggers:
+  - {fileID: 11400000, guid: f3608ed70c544ef4d955906317c83ce6, type: 2}
+  - {fileID: 11400000, guid: cd9f1ab8fa91ea24e808a85c58c7fb7f, type: 2}
+  - {fileID: 11400000, guid: 729144443fa739040be7ffc42911addb, type: 2}
   minimumScoreToAdd: 10
   maxScoreToAdd: 30
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
