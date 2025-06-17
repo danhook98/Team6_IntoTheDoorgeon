@@ -19,21 +19,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5588903516519856827
-Transform:
+--- !u!224 &5588903516519856827
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2576424073776554401}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -300, y: -340, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 108.04275, y: 108.04275, z: 108.04275}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: -340}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &4255987304226425165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -143,4 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f387369dd35f47b407f41f3bc14e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSelectDieEvent: {fileID: 0}
+  onSelectDieEvent: {fileID: 11400000, guid: 343c61db128565744b059f57572cb97c, type: 2}
+  diceSprites:
+  - {fileID: 21300000, guid: 4c36c7d000ebf8d41ab4117429920211, type: 3}
+  - {fileID: 21300000, guid: 2353d29a111ad6f468286d01a290934d, type: 3}
+  - {fileID: 21300000, guid: 75516fa4632b5b04197223ed43ec9e89, type: 3}
+  - {fileID: 21300000, guid: f9cea10441eefac469f83f84fbcdb74f, type: 3}
+  - {fileID: 21300000, guid: a6ad1c3fa0a91fa47add72dd7680e33f, type: 3}
+  - {fileID: 21300000, guid: 80ea5bbb84ab9c7419646e062bd60810, type: 3}

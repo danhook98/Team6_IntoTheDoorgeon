@@ -39,6 +39,11 @@ namespace DoorGame
             // TODO: remove after testing.
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                RollDice();
+            }
+            
+            if (Input.GetKeyDown(KeyCode.S))
+            {
                 SpawnDice();
             }
 
@@ -71,11 +76,11 @@ namespace DoorGame
                 
                 // Enemy Dice
                 int randomSpawnPoint2 = Random.Range(0, enemyDiceSpawns.Count);
-                Vector2 spawnPoint2 = enemyDiceSpawns[randomSpawnPoint];
-                usedEnemyDiceSpawns.Add(spawnPoint);
-                GameObject dice2 = Instantiate(dicePrefab, spawnPoint, Quaternion.identity);
+                Vector2 spawnPoint2 = enemyDiceSpawns[randomSpawnPoint2];
+                usedEnemyDiceSpawns.Add(spawnPoint2);
+                GameObject dice2 = Instantiate(dicePrefab, spawnPoint2, Quaternion.identity);
                 dice2.transform.SetParent(diceContainer.transform, false);
-                enemyDiceSpawns.RemoveAt(randomSpawnPoint);
+                enemyDiceSpawns.RemoveAt(randomSpawnPoint2);
                 diceList.Add(dice2.gameObject.GetComponent<Dice>());
                 dice2.gameObject.GetComponent<Dice>().DiceID = autoId;
                 dice2.tag = "EnemyDie";
@@ -119,6 +124,15 @@ namespace DoorGame
             diceList.Remove(selectedDie);
             
             _playerSelectedDiceAmount++;
+        }
+
+        public void RollDice()
+        {
+            for (int i = 0; i < playerSelectedDiceList.Count; i++)
+            {
+                var selectedDie = playerSelectedDiceList[i];
+                StartCoroutine(selectedDie.RollDie(18));
+            }
         }
     }
 }
