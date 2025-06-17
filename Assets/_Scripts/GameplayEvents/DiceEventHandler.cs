@@ -91,6 +91,7 @@ namespace DoorGame
                 enemyDiceList.Add(dice2.gameObject.GetComponent<Dice>());
                 dice2.gameObject.GetComponent<Dice>().DiceID = autoId;
                 dice2.tag = "EnemyDie";
+                dice2.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 autoId++;
             }
         }
