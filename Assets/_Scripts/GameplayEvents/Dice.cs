@@ -28,7 +28,9 @@ namespace DoorGame
         
         private void OnMouseDown()
         {
+            if (gameObject.CompareTag("EnemyDie")) return;
             if (_isSelected) return;
+            
             _isSelected = true;
             onSelectDieEvent.Invoke(GetInstanceID());
         }

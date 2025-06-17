@@ -11,6 +11,7 @@ TagManager:
   - Audio
   - MagicalDoor
   - CursedDoor
+  - EnemyDie
   layers:
   - Default
   - TransparentFX

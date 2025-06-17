@@ -78,6 +78,7 @@ namespace DoorGame
                 enemyDiceSpawns.RemoveAt(randomSpawnPoint);
                 diceList.Add(dice2.gameObject.GetComponent<Dice>());
                 dice2.gameObject.GetComponent<Dice>().DiceID = autoId;
+                dice2.tag = "EnemyDie";
                 autoId++;
             }
         }
@@ -111,6 +112,9 @@ namespace DoorGame
         public void DieHasBeenSelected(int instanceId)
         {
             Dice selectedDie = diceList.Find(c => c.GetInstanceID() == instanceId);
+            
+            if (selectedDie.CompareTag("EnemyDie")) return;
+            
             playerSelectedDiceList.Add(selectedDie);
             diceList.Remove(selectedDie);
             
