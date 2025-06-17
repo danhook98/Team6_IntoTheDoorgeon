@@ -114,6 +114,8 @@ namespace DoorGame
             {
                 playerDiceList[i].DestroySelf();
                 enemyDiceList[i].DestroySelf();
+                playerSelectedDiceList[i].DestroySelf();
+                enemySelectedDiceList[i].DestroySelf();
             }
             
             // Clear lists.
@@ -121,6 +123,8 @@ namespace DoorGame
             enemyDiceList.Clear();
             usedEnemyDiceSpawns.Clear();
             usedPlayerDiceSpawns.Clear();
+            playerSelectedDiceList.Clear();
+            enemySelectedDiceList.Clear();
         }
 
         public void DieHasBeenSelected(int instanceId)
@@ -201,12 +205,11 @@ namespace DoorGame
         public void CompareResults()
         {
             if (_playerHasAOne && _enemyHasAOne) Tie();
-            if (_playerHasAOne) EnemyWins();
-            if(_enemyHasAOne) PlayerWins();
-
-            if (_enemyTotalScore > _playerTotalScore && !_enemyHasAOne) EnemyWins();
-            if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne) PlayerWins();
-            if(_enemyTotalScore == _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) Tie();
+            else if (_playerHasAOne) EnemyWins();
+            else if(_enemyHasAOne) PlayerWins();
+            else if (_enemyTotalScore > _playerTotalScore && !_enemyHasAOne) EnemyWins();
+            else if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne) PlayerWins();
+            else if(_enemyTotalScore == _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) Tie();
         }
 
         public void Tie()
