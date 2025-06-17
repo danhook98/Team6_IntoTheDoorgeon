@@ -149,9 +149,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSelectDieEvent: {fileID: 11400000, guid: 343c61db128565744b059f57572cb97c, type: 2}
   diceSprites:
-  - {fileID: 21300000, guid: 4c36c7d000ebf8d41ab4117429920211, type: 3}
-  - {fileID: 21300000, guid: 2353d29a111ad6f468286d01a290934d, type: 3}
-  - {fileID: 21300000, guid: 75516fa4632b5b04197223ed43ec9e89, type: 3}
-  - {fileID: 21300000, guid: f9cea10441eefac469f83f84fbcdb74f, type: 3}
-  - {fileID: 21300000, guid: a6ad1c3fa0a91fa47add72dd7680e33f, type: 3}
-  - {fileID: 21300000, guid: 80ea5bbb84ab9c7419646e062bd60810, type: 3}
+  - {fileID: 21300000, guid: 71d5d4c4acbe49c448962334cd87ee37, type: 3}
+  - {fileID: 21300000, guid: cd9b065d41bed8c4fa5e2ff2153b9ed3, type: 3}
+  - {fileID: 21300000, guid: 12300b2288d1f0f419c797c06a81a488, type: 3}
+  - {fileID: 21300000, guid: e0b629799551aef478324dc81cda03ff, type: 3}
+  - {fileID: 21300000, guid: c15c380717586964ea943edb166fad3d, type: 3}
+  - {fileID: 21300000, guid: 81afbcdc8de5a4a488a9e21d6d7f1bbf, type: 3}
+  playerDiceResult: 0
+  enemyDiceResult: 0
