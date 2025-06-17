@@ -6,6 +6,8 @@ namespace DoorGame
 {
     public class Dice : MonoBehaviour
     {
+        public int DiceID { set; get; }
+        
         public void DestroySelf()
         {
             Destroy(gameObject);

@@ -27,8 +27,8 @@ namespace DoorGame
         [SerializeField] private VoidEvent onResetDiceEvent;
         [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
 
-        private int _playerSelectedDiceAmount;
-        private int _enemySelectedDiceAmount;
+        private int _playerSelectedDiceAmount = 0;
+        private int _enemySelectedDiceAmount = 0;
 
         private static int _amountOfDice = 5;
 
@@ -51,9 +51,12 @@ namespace DoorGame
         /// </summary>
         private void SpawnDice()
         {
-            // Spawn player dice
+            int autoId = 0;
+            
+            // Spawn dice
             for (int i = 0; i < _amountOfDice; i++)
             {
+                // Player Dice
                 int randomSpawnPoint = Random.Range(0, playerDiceSpawns.Count);
                 Vector2 spawnPoint = playerDiceSpawns[randomSpawnPoint];
                 usedPlayerDiceSpawns.Add(spawnPoint);
@@ -61,18 +64,19 @@ namespace DoorGame
                 dice.transform.SetParent(diceContainer.transform, false);
                 playerDiceSpawns.RemoveAt(randomSpawnPoint);
                 diceList.Add(dice.gameObject.GetComponent<Dice>());
-            }
-            
-            // Spawn enemy dice
-            for (int i = 0; i < _amountOfDice; i++)
-            {
-                int randomSpawnPoint = Random.Range(0, enemyDiceSpawns.Count);
-                Vector2 spawnPoint = enemyDiceSpawns[randomSpawnPoint];
+                dice.gameObject.GetComponent<Dice>().DiceID = autoId;
+                autoId++;
+                
+                // Enemy Dice
+                int randomSpawnPoint2 = Random.Range(0, enemyDiceSpawns.Count);
+                Vector2 spawnPoint2 = enemyDiceSpawns[randomSpawnPoint];
                 usedEnemyDiceSpawns.Add(spawnPoint);
-                GameObject dice = Instantiate(dicePrefab, spawnPoint, Quaternion.identity);
-                dice.transform.SetParent(diceContainer.transform, false);
+                GameObject dice2 = Instantiate(dicePrefab, spawnPoint, Quaternion.identity);
+                dice2.transform.SetParent(diceContainer.transform, false);
                 enemyDiceSpawns.RemoveAt(randomSpawnPoint);
-                diceList.Add(dice.gameObject.GetComponent<Dice>());
+                diceList.Add(dice2.gameObject.GetComponent<Dice>());
+                dice2.gameObject.GetComponent<Dice>().DiceID = autoId;
+                autoId++;
             }
         }
 
