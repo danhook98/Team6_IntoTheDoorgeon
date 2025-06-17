@@ -156,7 +156,7 @@ namespace DoorGame
 
             for (int i = 0; i < playerDiceResults.Count; i++)
             {
-                _playerTotalScore += playerDiceResults[i];
+                _playerTotalScore = playerDiceResults[i];
                 if(playerDiceResults[i] == 1) _playerHasAOne = true;
             }
             
@@ -166,7 +166,21 @@ namespace DoorGame
 
         public void ReadEnemyDiceResults()
         {
+            List<int> enemyDiceResults = new List<int>();
             
+            for (int i = 0; i < _enemySelectedDiceAmount; i++)
+            {
+                enemyDiceResults.Add(enemySelectedDiceList[i].enemyDiceResult);
+            }
+
+            for (int i = 0; i < enemyDiceResults.Count; i++)
+            {
+                _enemyTotalScore = enemyDiceResults[i];
+                if(enemyDiceResults[i] == 1) _enemyHasAOne = true;
+            }
+            
+            Debug.Log("Does enemy have a one: " + _enemyHasAOne);
+            Debug.Log("Enemy total: " + _enemyTotalScore);
         }
 
         public void CompareResults()
