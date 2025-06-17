@@ -420,8 +420,7 @@ GameObject:
   - component: {fileID: 4549832467038193682}
   - component: {fileID: 6131915547565449778}
   - component: {fileID: 6406425949233903650}
-  - component: {fileID: 6188373618360789368}
-  - component: {fileID: 2497773684177145073}
+  - component: {fileID: 8604276438379574412}
   m_Layer: 5
   m_Name: Dice Event Canvas
   m_TagString: Untagged
@@ -514,7 +513,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6188373618360789368
+--- !u!114 &8604276438379574412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,81 +522,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2735707198191858943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1570fe70984a84a9104454e55793a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 715ea9d574fdfa54cbdee9ab09a17b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introCard: {fileID: 5738415535478051555}
-  wheel: {fileID: 0}
-  endCard: {fileID: 4728441305158472734}
-  scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
-  doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
-  onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
-  onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
-  endCardText: {fileID: 9216641439085806436}
-  wheelTransform: {fileID: 0}
-  wheelImage: {fileID: 0}
-  wheelSelectionChangeDelay: 0.3
-  goodWheelImage: {fileID: 21300000, guid: 8b03851ceb4389d4da6fceef7a5d1410, type: 3}
-  badWheelImage: {fileID: 21300000, guid: 1e27123d993415a4aa7718625e30691d, type: 3}
-  minimumFullRotations: 4
-  maximumFullRotations: 8
-  baseSpinDuration: 4
-  goodResultsWeights:
-  - Value: 10
-    Weight: 40
-  - Value: 25
-    Weight: 30
-  - Value: 50
-    Weight: 20
-  - Value: 100
-    Weight: 9
-  - Value: 200
-    Weight: 1
-  badResultsWeights:
-  - Value: 10
-    Weight: 40
-  - Value: 25
-    Weight: 30
-  - Value: 50
-    Weight: 20
-  - Value: 66
-    Weight: 9
-  - Value: 75
-    Weight: 1
-  wheelTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &2497773684177145073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2735707198191858943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: f3608ed70c544ef4d955906317c83ce6, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4549832467038193682}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+  dicePrefab: {fileID: 2576424073776554401, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
+  playerDiceSpawns:
+  - {x: 0, y: -360}
+  - {x: -300, y: -360}
+  - {x: -600, y: -360}
+  - {x: 300, y: -360}
+  - {x: 600, y: -360}
+  enemyDiceSpawns:
+  - {x: 0, y: 360}
+  - {x: -300, y: 360}
+  - {x: -600, y: 360}
+  - {x: 300, y: 360}
+  - {x: 600, y: 360}
+  usedPlayerDiceSpawns: []
+  usedEnemyDiceSpawns: []
+  dice: []
+  diceContainer: {fileID: 8063238870349438266}
 --- !u!1 &3784708187363411382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1164,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6188373618360789368}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoorGame.GameplayEvents.WheelOfFortune, Assembly-CSharp
         m_MethodName: EndEvent
         m_Mode: 1
@@ -1241,7 +1185,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5950256988731227391}
-  - component: {fileID: 1417207375888191183}
   m_Layer: 5
   m_Name: Dice Container
   m_TagString: Untagged
@@ -1260,8 +1203,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 9088648484743393637}
+  m_Children: []
   m_Father: {fileID: 8124088476727934311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1269,31 +1211,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1417207375888191183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063238870349438266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715ea9d574fdfa54cbdee9ab09a17b6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 2576424073776554401, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-  playerDiceSpawns:
-  - {x: 0, y: -360}
-  - {x: -300, y: -360}
-  - {x: -600, y: -360}
-  - {x: 300, y: -360}
-  - {x: 600, y: -360}
-  enemyDiceSpawns:
-  - {x: 0, y: 360}
-  - {x: -300, y: 360}
-  - {x: -600, y: 360}
-  - {x: 300, y: 360}
-  - {x: 600, y: 360}
 --- !u!1 &8277585221557531016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,7 +1797,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6188373618360789368}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DoorGame.GameplayEvents.WheelOfFortune, Assembly-CSharp
         m_MethodName: StartEvent
         m_Mode: 1
@@ -1892,65 +1809,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1001 &3724084949085408222
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5950256988731227391}
-    m_Modifications:
-    - target: {fileID: 2576424073776554401, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_Name
-      value: Dice
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -665
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -403
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
---- !u!4 &9088648484743393637 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5588903516519856827, guid: 95296e7d62a87d94684cd466bf1a52af, type: 3}
-  m_PrefabInstance: {fileID: 3724084949085408222}
-  m_PrefabAsset: {fileID: 0}

@@ -275,38 +275,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1940442382}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelTransform
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelTexts.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelTexts.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelTexts.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelTexts.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: wheelTexts.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8124088476727934311, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
       propertyPath: m_Pivot.x
       value: 0
