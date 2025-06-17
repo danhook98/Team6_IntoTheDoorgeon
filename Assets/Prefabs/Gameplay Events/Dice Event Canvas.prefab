@@ -389,7 +389,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3127035929590566712}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8604276438379574412}
+        m_TargetAssemblyTypeName: DoorGame.DiceEventHandler, Assembly-CSharp
+        m_MethodName: SpawnDice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8788166107694388312}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1364952041689488437
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +668,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1621710392149855464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8604276438379574412}
+        m_TargetAssemblyTypeName: DoorGame.DiceEventHandler, Assembly-CSharp
+        m_MethodName: IncreaseBetAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1920011475875667571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1097,6 @@ MonoBehaviour:
   onResetDiceEvent: {fileID: 11400000, guid: 362658537d557de4da2e2e396940f20b, type: 2}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
-  doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
 --- !u!114 &5914957094379733637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,7 +1667,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3064279242865047549}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8604276438379574412}
+        m_TargetAssemblyTypeName: DoorGame.DiceEventHandler, Assembly-CSharp
+        m_MethodName: DecreaseBetAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5738415535478051555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4718222210893719488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1739,7 +1786,7 @@ RectTransform:
   m_GameObject: {fileID: 5749229640284451536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2551, y: 2.2551, z: 2.2551}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7553613257633033630}
@@ -1750,7 +1797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -482.98, y: 33.48}
+  m_AnchoredPosition: {x: -0, y: -18}
   m_SizeDelta: {x: 551.15, y: 277.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8485351342529405388
@@ -2073,7 +2120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5950256988731227391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2460,7 +2507,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8913976917954402427}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4549832467038193682}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8910792425085029406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,10 +2909,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorGame.GameplayEvents.WheelOfFortune, Assembly-CSharp
-        m_MethodName: StartEvent
-        m_Mode: 1
+      - m_Target: {fileID: 5738415535478051555}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2861,4 +2920,16 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8063238870349438266}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
