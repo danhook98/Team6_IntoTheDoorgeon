@@ -16,9 +16,14 @@ namespace DoorGame
         private RectTransform _rectTransform;
         private SpriteRenderer _spriteRenderer;
         
-        public int DiceID { set; get; }
+        public int DiceID { set; get; } 
+        
         private float _defaultScale;
+        
         private bool _isSelected;
+        
+        public int playerDiceResult;
+        public int enemyDiceResult;
         
         private void Start()
         {
@@ -60,7 +65,23 @@ namespace DoorGame
                 _spriteRenderer.sprite = diceSprites[Random.Range(0, diceSprites.Count)];
                 yield return new WaitForSeconds(0.1f);
             }
-            yield return new WaitForSeconds(1f);
+
+            // If it's the AI's dice.
+            if (gameObject.CompareTag("EnemyDie"))
+            {
+                enemyDiceResult = Random.Range(0, diceSprites.Count) + 1;
+                _spriteRenderer.sprite = diceSprites[enemyDiceResult];
+                yield return new WaitForSeconds(1f);
+                Debug.Log("Enemy die result: " + enemyDiceResult);
+            }
+            // If it's the player's dice.
+            else
+            {
+                playerDiceResult = Random.Range(0, diceSprites.Count) + 1; // Remove + 1, move + 1 to handler.
+                _spriteRenderer.sprite = diceSprites[playerDiceResult];
+                yield return new WaitForSeconds(1f);
+                Debug.Log("Player die result: " + playerDiceResult);
+            }
         }
     }
 }

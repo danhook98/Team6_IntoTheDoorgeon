@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 6131915547565449778}
   - component: {fileID: 6406425949233903650}
   - component: {fileID: 8604276438379574412}
+  - component: {fileID: 5914957094379733637}
   m_Layer: 5
   m_Name: Dice Event Canvas
   m_TagString: Untagged
@@ -541,9 +542,39 @@ MonoBehaviour:
   usedPlayerDiceSpawns: []
   usedEnemyDiceSpawns: []
   diceList: []
+  playerSelectedDiceList: []
+  enemySelectedDiceList: []
   diceContainer: {fileID: 8063238870349438266}
   onResetDiceEvent: {fileID: 11400000, guid: 362658537d557de4da2e2e396940f20b, type: 2}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+--- !u!114 &5914957094379733637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2735707198191858943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 343c61db128565744b059f57572cb97c, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8604276438379574412}
+        m_TargetAssemblyTypeName: DoorGame.DiceEventHandler, Assembly-CSharp
+        m_MethodName: DieHasBeenSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3784708187363411382
 GameObject:
   m_ObjectHideFlags: 0

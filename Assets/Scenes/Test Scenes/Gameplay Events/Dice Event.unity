@@ -259,11 +259,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &4764049954324638029 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2735707198191858943, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-  m_PrefabInstance: {fileID: 6583380233857201978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6583380233857201978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,50 +358,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2735707198191858943, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8706713094833130450}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
---- !u!114 &8706713094833130449 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8604276438379574412, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-  m_PrefabInstance: {fileID: 6583380233857201978}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764049954324638029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715ea9d574fdfa54cbdee9ab09a17b6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8706713094833130450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764049954324638029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: 343c61db128565744b059f57572cb97c, type: 2}
-  onEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8706713094833130449}
-        m_TargetAssemblyTypeName: DoorGame.DiceEventHandler, Assembly-CSharp
-        m_MethodName: DieHasBeenSelected
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

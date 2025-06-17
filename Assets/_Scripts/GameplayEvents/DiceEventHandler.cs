@@ -31,6 +31,11 @@ namespace DoorGame
 
         private int _playerSelectedDiceAmount = 0;
         private int _enemySelectedDiceAmount = 0;
+        private int _playerTotalScore = 0;
+        private int _enemyTotalScore = 0;
+        
+        private bool _playerHasAOne;
+        private bool _enemyHasAOne;
 
         private static int _amountOfDice = 5;
 
@@ -50,6 +55,11 @@ namespace DoorGame
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResetDice();
+            }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                ReadPlayerDiceResults();
             }
         }
 
@@ -133,6 +143,34 @@ namespace DoorGame
                 var selectedDie = playerSelectedDiceList[i];
                 StartCoroutine(selectedDie.RollDie(18));
             }
+        }
+
+        public void ReadPlayerDiceResults()
+        {
+            int _firstDieResult = playerSelectedDiceList[0].playerDiceResult;
+            int _secondDieResult = playerSelectedDiceList[1].playerDiceResult;
+            int _thirdDieResult = playerSelectedDiceList[2].playerDiceResult;
+            int _fourthDieResult = playerSelectedDiceList[3].playerDiceResult;
+            int _fifthDieResult = playerSelectedDiceList[4].playerDiceResult;
+
+            _playerTotalScore = _firstDieResult + _secondDieResult + _thirdDieResult + _fourthDieResult + _fifthDieResult;
+
+            for (int i = 0; i < playerSelectedDiceList.Count; i++)
+            {
+                if (playerSelectedDiceList[i].playerDiceResult == 1) _playerHasAOne = true;
+            }
+            Debug.Log("Does player have a one: " + _playerHasAOne);
+            Debug.Log("Player total: " + _playerTotalScore);
+        }
+
+        public void ReadEnemyDiceResults()
+        {
+            
+        }
+
+        public void CompareResults()
+        {
+            
         }
     }
 }
