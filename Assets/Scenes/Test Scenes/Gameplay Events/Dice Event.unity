@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice Event Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4549832467038193682, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1940442382}
     - target: {fileID: 6188373618360789368, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
       propertyPath: wheel
       value: 
