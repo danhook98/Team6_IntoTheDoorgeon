@@ -69,16 +69,18 @@ namespace DoorGame
             // If it's the AI's dice.
             if (gameObject.CompareTag("EnemyDie"))
             {
-                enemyDiceResult = Random.Range(0, diceSprites.Count) + 1;
-                _spriteRenderer.sprite = diceSprites[enemyDiceResult];
+                int spriteIndex1 = Random.Range(0, diceSprites.Count);
+                enemyDiceResult = spriteIndex1 + 1;
+                _spriteRenderer.sprite = diceSprites[spriteIndex1];
                 yield return new WaitForSeconds(1f);
                 Debug.Log("Enemy die result: " + enemyDiceResult);
             }
             // If it's the player's dice.
             else
             {
-                playerDiceResult = Random.Range(0, diceSprites.Count) + 1; // Remove + 1, move + 1 to handler.
-                _spriteRenderer.sprite = diceSprites[playerDiceResult];
+                int spriteIndex2 = Random.Range(0, diceSprites.Count);
+                playerDiceResult = spriteIndex2 + 1;
+                _spriteRenderer.sprite = diceSprites[spriteIndex2];
                 yield return new WaitForSeconds(1f);
                 Debug.Log("Player die result: " + playerDiceResult);
             }

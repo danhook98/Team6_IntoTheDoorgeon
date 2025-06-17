@@ -148,11 +148,18 @@ namespace DoorGame
         public void ReadPlayerDiceResults()
         {
             int _firstDieResult = playerSelectedDiceList[0].playerDiceResult;
-            int _secondDieResult = playerSelectedDiceList[1].playerDiceResult;
-            int _thirdDieResult = playerSelectedDiceList[2].playerDiceResult;
-            int _fourthDieResult = playerSelectedDiceList[3].playerDiceResult;
-            int _fifthDieResult = playerSelectedDiceList[4].playerDiceResult;
-
+            int _secondDieResult = 0;
+            int _thirdDieResult = 0;
+            int _fourthDieResult = 0;
+            int _fifthDieResult = 0;
+            
+            // Replace this with checks for how many dice have been selected. playerselectedicelist[2] does not exist
+            // if the player has not selected 3 dice!
+            if(_secondDieResult != null) _secondDieResult = playerSelectedDiceList[1].playerDiceResult;
+            if(_thirdDieResult != null) _thirdDieResult = playerSelectedDiceList[2].playerDiceResult;
+            if(_fourthDieResult != null) _fourthDieResult = playerSelectedDiceList[3].playerDiceResult;
+            if(_fifthDieResult != null) _fifthDieResult = playerSelectedDiceList[4].playerDiceResult;
+            
             _playerTotalScore = _firstDieResult + _secondDieResult + _thirdDieResult + _fourthDieResult + _fifthDieResult;
 
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
