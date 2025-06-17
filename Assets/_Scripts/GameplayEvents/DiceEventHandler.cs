@@ -100,6 +100,10 @@ namespace DoorGame
         /// </summary>
         private void ResetEvent()
         {
+            // Reset scores.
+            _enemyTotalScore = 0;
+            _playerTotalScore = 0;
+            
             // Move dice spawn positions to original lists.
             for (int i = 0; i < _amountOfDice; i++)
             {
@@ -109,13 +113,24 @@ namespace DoorGame
                 enemyDiceSpawns.Add(enemySpawnPoint);
             }
 
+            for (int i = 0; i < _enemySelectedDiceAmount; i++)
+            {
+                enemyDiceList.Add(enemySelectedDiceList[i]);
+            }
+
+            for (int i = 0; i < _playerSelectedDiceAmount; i++)
+            {
+                playerDiceList.Add(playerSelectedDiceList[i]);
+            }
+            
+            _playerSelectedDiceAmount = 0;
+            _enemySelectedDiceAmount = 0;
+
             // Destroy dice.
             for (int i = 0; i < 5; i++)
             {
                 playerDiceList[i].DestroySelf();
                 enemyDiceList[i].DestroySelf();
-                playerSelectedDiceList[i].DestroySelf();
-                enemySelectedDiceList[i].DestroySelf();
             }
             
             // Clear lists.
@@ -161,6 +176,8 @@ namespace DoorGame
             yield return new WaitForSeconds(3f);
             ReadPlayerDiceResults();
             ReadEnemyDiceResults();
+            yield return new WaitForSeconds(0.5f);
+            CompareResults();
         }
 
         public void ReadPlayerDiceResults()
@@ -169,12 +186,12 @@ namespace DoorGame
             
             for (int i = 0; i < _playerSelectedDiceAmount; i++)
             {
-                playerDiceResults.Add(playerSelectedDiceList[i].playerDiceResult);
+                playerDiceResults.Add(playerSelectedDiceList[i].playerDiceResult); // Error, index out of range?
             }
 
             for (int i = 0; i < playerDiceResults.Count; i++)
             {
-                _playerTotalScore = playerDiceResults[i];
+                _playerTotalScore += playerDiceResults[i];
                 if(playerDiceResults[i] == 1) _playerHasAOne = true;
             }
             
@@ -193,13 +210,12 @@ namespace DoorGame
 
             for (int i = 0; i < enemyDiceResults.Count; i++)
             {
-                _enemyTotalScore = enemyDiceResults[i];
+                _enemyTotalScore += enemyDiceResults[i];
                 if(enemyDiceResults[i] == 1) _enemyHasAOne = true;
             }
             
             Debug.Log("Does enemy have a one: " + _enemyHasAOne);
             Debug.Log("Enemy total: " + _enemyTotalScore);
-            CompareResults();
         }
 
         public void CompareResults()
