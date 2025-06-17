@@ -226,7 +226,7 @@ namespace DoorGame.GameplayEvents
 
         private void SetEndCardText(int modifier, int score)
         {
-            endCardText.text = (_isWheelGood ? "+" : "-") + modifier + "%\n\nYour score is now\n" + score;
+            endCardText.text = (_isWheelGood ? "+" : "-") + modifier + "%\n\nYour score is now\n" + $"{score:n0}";
         }
 
         private void ShowEndCard()
