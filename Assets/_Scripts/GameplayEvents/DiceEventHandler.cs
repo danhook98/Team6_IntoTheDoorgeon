@@ -7,9 +7,6 @@ namespace DoorGame
 {
     public class DiceEventHandler : MonoBehaviour
     {
-        [Header("Dice Prefab")]
-        [SerializeField] private GameObject dicePrefab;
-        
         [Header("Available spawn positions")]
         [SerializeField] private List<Vector2> playerDiceSpawns;
         [SerializeField] private List<Vector2> enemyDiceSpawns;
@@ -24,12 +21,18 @@ namespace DoorGame
         [SerializeField] private List<Dice> playerSelectedDiceList;
         [SerializeField] private List<Dice> enemySelectedDiceList;
         
-        [Header("Dice Container")]
+        [Header("Game Objects")]
         [SerializeField] private GameObject diceContainer;
+        [SerializeField] private GameObject dicePrefab;
+        [SerializeField] private GameObject introCard;
+        [SerializeField] private GameObject endCard;
 
         [Header("Events")] 
         [SerializeField] private VoidEvent onResetDiceEvent;
         [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
+
+        [Header("Score")] 
+        [SerializeField] private IntValue scoreValue;
 
         private int _playerSelectedDiceAmount = 0;
         private int _enemySelectedDiceAmount = 0;
@@ -40,6 +43,14 @@ namespace DoorGame
         private bool _enemyHasAOne = false;
 
         private static int _amountOfDice = 5;
+
+        private int _amountToBet;
+        private int _minAmountToBet;
+
+        private void Awake()
+        {
+            _minAmountToBet = scoreValue.Value/10;
+        }
 
         private void Update()
         {
@@ -270,11 +281,35 @@ namespace DoorGame
         public void EnemyWins()
         {
             Debug.Log("Enemy wins!");
+            int _scoreLost = scoreValue.Value;
+            // Calculate score.
+            // Send through event.
+            // doorsValue.Value to access doors opened value.
+            
         }
 
         public void PlayerWins()
         {
             Debug.Log("Player wins!");
+        }
+
+        public void BetAmount()
+        {
+            //_amountToBet
+        }
+
+        public void IncreaseBetAmount()
+        {
+            _amountToBet += _minAmountToBet;
+            
+            if(_amountToBet >= scoreValue.Value) _amountToBet = scoreValue.Value;
+        }
+
+        public void DecreaseBetAmount()
+        {
+            _amountToBet -= _minAmountToBet;
+            
+            if(_amountToBet <= 10) _amountToBet = _minAmountToBet;
         }
     }
 }
