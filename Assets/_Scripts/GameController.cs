@@ -112,18 +112,38 @@ namespace DoorGame
             }
         }
 
+        private void DisplayGameplayEvent()
+        {
+            if (_score == 0 || gameplayEventTriggers.Length == 0) return;
+            
+            int randomChance = Random.Range(1, 101);
+
+            if (randomChance < 20)
+            {
+                // Trigger one of the random events. 
+                gameplayEventTriggers[Random.Range(0, gameplayEventTriggers.Length)].Invoke(new Empty());
+                Debug.Log("Triggering a gameplay event", this);
+            }
+        }
+
         public void StartNextWave()
         {
-            Debug.Log("Starting next wave", this);
+            //Debug.Log("Starting next wave", this);
             
             showEnterDungeonButtonEvent.Invoke(false);
             _validDoorsOpened = 0;
             _wavesCompleted++;
             _scoreMultiplier++;
             generateDoorsEvent.Invoke(new Empty());
+
+            DisplayGameplayEvent();
         }
 
-        public void SetScore(int score) => _score = score;
+        public void SetScore(int score)
+        {
+            _score = score;
+            scoreValue.Value = score;
+        }
 
         // Score
         private void AddScore()
