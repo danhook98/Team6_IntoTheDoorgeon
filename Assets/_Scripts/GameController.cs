@@ -28,6 +28,7 @@ namespace DoorGame
         [Header("Value Objects")]
         [SerializeField] private IntValue scoreValue;
         [SerializeField] private IntValue doorsOpenedValue;
+        [SerializeField] private IntValue dungeonsEnteredValue;
 
         [Header("SFX Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel; 
@@ -42,7 +43,7 @@ namespace DoorGame
         [SerializeField] private AudioClipSO[] gameMusic;
         
         // Game variables.
-        private int _wavesCompleted = 0;
+        private int _dungeonsEntered = 0;
         private byte _numberOfDoors = 3;
         
         // Score variables.
@@ -126,13 +127,14 @@ namespace DoorGame
             }
         }
 
-        public void StartNextWave()
+        public void EnterNextDungeon()
         {
             //Debug.Log("Starting next wave", this);
             
             showEnterDungeonButtonEvent.Invoke(false);
             _validDoorsOpened = 0;
-            _wavesCompleted++;
+            _dungeonsEntered++;
+            dungeonsEnteredValue.Value = _dungeonsEntered;
             _scoreMultiplier++;
             generateDoorsEvent.Invoke(new Empty());
 
@@ -149,7 +151,7 @@ namespace DoorGame
         private void AddScore()
         {
             _validDoorsOpened++;
-            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _wavesCompleted) * _scoreMultiplier;
+            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _dungeonsEntered) * _scoreMultiplier;
             scoreValue.Value = _score;
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.

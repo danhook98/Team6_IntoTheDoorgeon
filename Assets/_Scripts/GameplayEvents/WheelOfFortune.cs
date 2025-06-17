@@ -18,7 +18,7 @@ namespace DoorGame.GameplayEvents
         
         [Header("Value Objects")]
         [SerializeField] private IntValue scoreValue;
-        [SerializeField] private IntValue doorsOpenedValue;
+        [SerializeField] private IntValue dungeonsEnteredValue;
 
         [Header("Events")] 
         [SerializeField] private IntEvent onScoreChangedEvent;
@@ -121,7 +121,7 @@ namespace DoorGame.GameplayEvents
         
         private void DetermineWheelResults()
         {
-            int baseGoodChance = Mathf.Clamp(60 - doorsOpenedValue.Value, 0, 60); 
+            int baseGoodChance = Mathf.Clamp(60 - dungeonsEnteredValue.Value, 40, 60); 
 
             int randomNumber = Random.Range(0, 101);
 

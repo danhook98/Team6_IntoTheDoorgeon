@@ -64,6 +64,7 @@ MonoBehaviour:
   maxScoreToAdd: 30
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
   doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
+  dungeonsEnteredValue: {fileID: 11400000, guid: 43917d3947cd6fc4fb4b44d1c07673e1, type: 2}
   playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   gameStartSound: {fileID: 11400000, guid: d9ab7422628631a4a893c62a0687e60c, type: 2}
   leaveDungeonSound: {fileID: 11400000, guid: 967b03741ab24324391524c44c5700e5, type: 2}
@@ -177,7 +178,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8937892511097961488}
         m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
-        m_MethodName: StartNextWave
+        m_MethodName: EnterNextDungeon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
