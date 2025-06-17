@@ -19,6 +19,12 @@ namespace DoorGame
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
         [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
         
+        [Header("Gameplay Event Trigger Events")]
+        [SerializeField] private VoidEvent onStartWheelOfFortuneEvent;
+        [SerializeField] private VoidEvent onStartPairsEvent;
+        [SerializeField] private VoidEvent onStartMysteriousDoorsEvent;
+        [SerializeField] private VoidEvent onStartDiceEvent;
+        
         [Header("Score Variables")] 
         [SerializeField] private int minimumScoreToAdd = 15;
         [SerializeField] private int maxScoreToAdd = 45;
