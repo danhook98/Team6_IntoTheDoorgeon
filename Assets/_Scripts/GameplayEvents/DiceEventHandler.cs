@@ -257,7 +257,7 @@ namespace DoorGame
         }
 
         /// <summary>
-        /// Resets event so that the player can bet again.
+        /// Resets event & spawns dice so that the player can bet again.
         /// </summary>
         public void Tie()
         {
