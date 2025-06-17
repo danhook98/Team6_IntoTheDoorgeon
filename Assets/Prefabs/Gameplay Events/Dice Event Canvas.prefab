@@ -540,8 +540,10 @@ MonoBehaviour:
   - {x: 600, y: 360}
   usedPlayerDiceSpawns: []
   usedEnemyDiceSpawns: []
-  dice: []
+  diceList: []
   diceContainer: {fileID: 8063238870349438266}
+  onResetDiceEvent: {fileID: 11400000, guid: 362658537d557de4da2e2e396940f20b, type: 2}
+  onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
 --- !u!1 &3784708187363411382
 GameObject:
   m_ObjectHideFlags: 0

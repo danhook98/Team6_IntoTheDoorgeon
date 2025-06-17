@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5588903516519856827}
   - component: {fileID: 4255987304226425165}
   - component: {fileID: 6913135581222965320}
+  - component: {fileID: -1848419738652833840}
   m_Layer: 0
   m_Name: Dice
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1848419738652833840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576424073776554401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27f387369dd35f47b407f41f3bc14e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
