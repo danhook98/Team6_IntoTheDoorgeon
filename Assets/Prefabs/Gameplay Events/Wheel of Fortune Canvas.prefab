@@ -1605,11 +1605,11 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4764049954409461582}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 10
+  m_PlaneDistance: 7
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   wheel: {fileID: 1343107884694701629}
   endCard: {fileID: 1890100082266230885}
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
-  doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
+  dungeonsEnteredValue: {fileID: 11400000, guid: 43917d3947cd6fc4fb4b44d1c07673e1, type: 2}
   onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   endCardText: {fileID: 8234336927191752084}
