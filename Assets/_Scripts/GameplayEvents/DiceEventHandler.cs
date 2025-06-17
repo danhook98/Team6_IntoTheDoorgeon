@@ -46,10 +46,15 @@ namespace DoorGame
 
         private int _amountToBet;
         private int _minAmountToBet;
+        private bool _tie;
+        private bool _playerWon;
 
         private void Awake()
         {
             _minAmountToBet = scoreValue.Value/10;
+            _playerWon = false;
+            introCard.SetActive(true);
+            endCard.SetActive(false);
         }
 
         private void Update()
@@ -74,9 +79,10 @@ namespace DoorGame
         /// <summary>
         /// Spawns 5 enemy dice and 5 player dice.
         /// </summary>
-        private void SpawnDice()
+        public void SpawnDice()
         {
             int autoId = 0;
+            introCard.SetActive(false);
             
             // Spawn dice
             for (int i = 0; i < _amountOfDice; i++)
@@ -117,6 +123,7 @@ namespace DoorGame
             _playerTotalScore = 0;
             _playerHasAOne = false;
             _enemyHasAOne = false;
+            endCard.SetActive(false);
             
             // Move dice spawn positions to original lists.
             for (int i = 0; i < _amountOfDice; i++)
@@ -154,6 +161,9 @@ namespace DoorGame
             usedPlayerDiceSpawns.Clear();
             playerSelectedDiceList.Clear();
             enemySelectedDiceList.Clear();
+
+            if(!_tie) introCard.SetActive(true);
+            if (_tie) _tie = false;
         }
 
         /// <summary>
@@ -261,10 +271,10 @@ namespace DoorGame
         public void CompareResults()
         {
             if (_playerHasAOne && _enemyHasAOne) Tie();
-            else if (_playerHasAOne) EnemyWins();
-            else if(_enemyHasAOne) PlayerWins();
-            else if (_enemyTotalScore > _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) EnemyWins();
-            else if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne && !_enemyHasAOne) PlayerWins();
+            else if (_playerHasAOne) StartCoroutine(EnemyWins());
+            else if(_enemyHasAOne) StartCoroutine(PlayerWins());
+            else if (_enemyTotalScore > _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) StartCoroutine(EnemyWins());
+            else if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne && !_enemyHasAOne) StartCoroutine(PlayerWins());
             else if(_enemyTotalScore == _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) Tie();
         }
 
@@ -274,28 +284,32 @@ namespace DoorGame
         public void Tie()
         {
             Debug.Log("It's a tie!");
+            _tie = true;
             ResetEvent();
             SpawnDice();
         }
 
-        public void EnemyWins()
+        public IEnumerator EnemyWins()
         {
             Debug.Log("Enemy wins!");
             int _scoreLost = scoreValue.Value;
+            _playerWon = false;
+            yield return new WaitForSeconds(1f);
+            UpdateScore();
+            endCard.SetActive(true);
             // Calculate score.
             // Send through event.
             // doorsValue.Value to access doors opened value.
             
         }
 
-        public void PlayerWins()
+        public IEnumerator PlayerWins()
         {
             Debug.Log("Player wins!");
-        }
-
-        public void BetAmount()
-        {
-            //_amountToBet
+            _playerWon = true;
+            yield return new WaitForSeconds(1f);
+            UpdateScore();
+            endCard.SetActive(true);
         }
 
         public void IncreaseBetAmount()
@@ -310,6 +324,18 @@ namespace DoorGame
             _amountToBet -= _minAmountToBet;
             
             if(_amountToBet <= 10) _amountToBet = _minAmountToBet;
+        }
+
+        public void UpdateScore()
+        {
+            if (_playerWon)
+            {
+                scoreValue.Value += _amountToBet;
+            }
+            else
+            {
+                scoreValue.Value -= _amountToBet;
+            }
         }
     }
 }

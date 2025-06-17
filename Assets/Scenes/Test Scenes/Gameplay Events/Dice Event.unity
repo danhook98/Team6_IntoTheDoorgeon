@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &492797474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8604276438379574412, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+  m_PrefabInstance: {fileID: 6583380233857201978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715ea9d574fdfa54cbdee9ab09a17b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1940442380
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,10 +282,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dice Event Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3364002072584670613, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 492797474}
+    - target: {fileID: 3364002072584670613, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnDice
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364002072584670613, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DoorGame.DiceEventHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4549832467038193682, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1940442382}
+    - target: {fileID: 5738415535478051555, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8063238870349438266, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8124088476727934311, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
       propertyPath: m_Pivot.x
       value: 0
