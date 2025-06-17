@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using DoorGame.Door;
 using DoorGame.Audio;
 using DoorGame.EventSystem;
 
