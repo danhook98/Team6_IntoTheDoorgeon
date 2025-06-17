@@ -96,7 +96,7 @@ namespace DoorGame
         }
 
         /// <summary>
-        /// Resets lists and destroys dice.
+        /// Resets lists, resets variables, and destroys dice.
         /// </summary>
         private void ResetEvent()
         {
@@ -142,6 +142,11 @@ namespace DoorGame
             enemySelectedDiceList.Clear();
         }
 
+        /// <summary>
+        /// Checks which die has been selected, ignores enemy dice.
+        /// Adds selected die to relevant lists and tracks player selected amount.
+        /// </summary>
+        /// <param name="instanceId"></param>
         public void DieHasBeenSelected(int instanceId)
         {
             Dice selectedDie = playerDiceList.Find(c => c.GetInstanceID() == instanceId);
@@ -154,6 +159,13 @@ namespace DoorGame
             _playerSelectedDiceAmount++;
         }
 
+        /// <summary>
+        /// Coroutine for rolling dice, rolls all dice selected
+        /// by both the player and enemy. It then triggers
+        /// reading the dice results after enough time for the dice to land
+        /// and finally compares the results after an appropriate amount of time.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator RollDice()
         {
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
@@ -180,6 +192,10 @@ namespace DoorGame
             CompareResults();
         }
 
+        /// <summary>
+        /// Adds player results to a local list, adds up results
+        /// and checks if the player has gotten a one.
+        /// </summary>
         public void ReadPlayerDiceResults()
         {
             List<int> playerDiceResults = new List<int>();
@@ -199,6 +215,10 @@ namespace DoorGame
             Debug.Log("Player total: " + _playerTotalScore);
         }
 
+        /// <summary>
+        /// Adds enemy results in a local list, adds up results
+        /// and checks if the enemy has gotten a one.
+        /// </summary>
         public void ReadEnemyDiceResults()
         {
             List<int> enemyDiceResults = new List<int>();
@@ -218,6 +238,11 @@ namespace DoorGame
             Debug.Log("Enemy total: " + _enemyTotalScore);
         }
 
+        /// <summary>
+        /// It first checks if the player or enemy have gotten a one.
+        /// If not, it then compares their total scores and
+        /// triggers the relevant function.
+        /// </summary>
         public void CompareResults()
         {
             if (_playerHasAOne && _enemyHasAOne) Tie();
@@ -228,9 +253,14 @@ namespace DoorGame
             else if(_enemyTotalScore == _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) Tie();
         }
 
+        /// <summary>
+        /// Resets event so that the player can bet again.
+        /// </summary>
         public void Tie()
         {
             Debug.Log("It's a tie!");
+            ResetEvent();
+            SpawnDice();
         }
 
         public void EnemyWins()
