@@ -52,8 +52,12 @@ namespace DoorGame
 
         public void ResetResolution()
         {
-            Screen.SetResolution(_resolutions[_currentResolutionIndex].width, _resolutions[_currentResolutionIndex].height, Screen.fullScreen);
-            _resolutionDropdown.value = _currentResolutionIndex;
+            int index = _resolutions.Length - 1;
+            
+            Screen.SetResolution(_resolutions[index].width, _resolutions[index].height, Screen.fullScreen);
+            _resolutionDropdown.value = index;
+            
+            _currentResolutionIndex = index;
         }
     }
 }
