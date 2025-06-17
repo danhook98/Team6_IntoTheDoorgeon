@@ -39,7 +39,7 @@ namespace DoorGame.Door
             
             // Generate random threshold for first bad door & increase chances of bad doors spawning.
             var thresholdForBadDoor = Random.Range(1, 101);
-            Debug.Log("Threshold number: " + thresholdForBadDoor);
+            //Debug.Log("Threshold number: " + thresholdForBadDoor);
             IncreaseBadDoorChance();
             
             // Check if first door spawns.
@@ -48,7 +48,7 @@ namespace DoorGame.Door
             // Copy doors array onto a list of doors, generate random index for bad door.
             List<Door> doorsCopy = doors.ToList();
             int randomIndex = Random.Range(0, doorsCopy.Count);
-            Debug.Log("Doorscopy count: " + doorsCopy.Count);
+            //Debug.Log("Doorscopy count: " + doorsCopy.Count);
             
             // Set first bad door and remove from list.
             _badDoor = doorsCopy[randomIndex];
@@ -65,7 +65,7 @@ namespace DoorGame.Door
             if (_guaranteedBadDoors > 0 && thresholdForSecondBadDoor <= _twoBadDoorChance)
             {
                 _badDoor = doorsCopy[Random.Range(0, doorsCopy.Count)];
-                Debug.Log("Doorscopy count: " + doorsCopy.Count);
+                //Debug.Log("Doorscopy count: " + doorsCopy.Count);
                 _badDoor.tag = "BadDoor";
             }
             _badDoor.gameObject.GetComponent<Image>().color = Color.red;
@@ -87,12 +87,12 @@ namespace DoorGame.Door
             if (isBadDoor)
             {
                 onBadDoorOpenedEvent.Invoke(new Empty());
-                Debug.Log("Bad door opened", this);
+                //Debug.Log("Bad door opened", this);
             }
             else
             {
                 onGoodDoorOpenedEvent.Invoke(new Empty());
-                Debug.Log("Good door opened", this);
+                //Debug.Log("Good door opened", this);
             }
         }
 
@@ -113,8 +113,8 @@ namespace DoorGame.Door
                 _guaranteedBadDoors = 2;
             }
             
-            Debug.Log("one bad door chance: " + _oneBadDoorChance);
-            Debug.Log("Two bad door chance: " + _twoBadDoorChance);
+            //Debug.Log("one bad door chance: " + _oneBadDoorChance);
+            //Debug.Log("Two bad door chance: " + _twoBadDoorChance);
         }
     }
 }
