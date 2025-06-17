@@ -206,12 +206,12 @@ namespace DoorGame.GameplayEvents
             // Get results.
             int resultModifier = _weightedRandom.GetValueAtIndex(segmentIndex);
             // Debug.Log($"Score will be modified by {resultModifier}%!");
-
+            
+            yield return _wheelFinishDelay;
+            
             int newScore = GetNewScore(resultModifier);
             onScoreChangedEvent.Invoke(newScore);
             // Debug.Log($"New score is {newScore}");
-            
-            yield return _wheelFinishDelay;
             
             SetEndCardText(resultModifier, newScore);
             ShowEndCard();
