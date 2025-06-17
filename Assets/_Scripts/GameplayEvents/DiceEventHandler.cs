@@ -19,6 +19,8 @@ namespace DoorGame
 
         [Header("Dice List")]
         [SerializeField] private List<Dice> diceList;
+        [SerializeField] private List<Dice> playerSelectedDiceList;
+        [SerializeField] private List<Dice> enemySelectedDiceList;
         
         [Header("Dice Container")]
         [SerializeField] private GameObject diceContainer;
@@ -104,6 +106,15 @@ namespace DoorGame
             diceList.Clear();
             usedEnemyDiceSpawns.Clear();
             usedPlayerDiceSpawns.Clear();
+        }
+
+        public void DieHasBeenSelected(int instanceId)
+        {
+            Dice selectedDie = diceList.Find(c => c.GetInstanceID() == instanceId);
+            playerSelectedDiceList.Add(selectedDie);
+            diceList.Remove(selectedDie);
+            
+            _playerSelectedDiceAmount++;
         }
     }
 }
