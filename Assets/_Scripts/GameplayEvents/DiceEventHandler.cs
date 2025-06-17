@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DoorGame.EventSystem;
-using UnityEngine.Serialization;
+using System.Collections;
 
 namespace DoorGame
 {
@@ -46,7 +46,7 @@ namespace DoorGame
             // TODO: remove after testing.
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                RollDice();
+                StartCoroutine(RollDice());
             }
             
             if (Input.GetKeyDown(KeyCode.S))
@@ -57,11 +57,6 @@ namespace DoorGame
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResetEvent();
-            }
-
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                ReadPlayerDiceResults();
             }
         }
 
@@ -140,12 +135,12 @@ namespace DoorGame
             _playerSelectedDiceAmount++;
         }
 
-        public void RollDice()
+        public IEnumerator RollDice()
         {
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 var selectedDie = playerSelectedDiceList[i];
-                StartCoroutine(selectedDie.RollDie(Random.Range(15, 20)));
+                StartCoroutine(selectedDie.RollDie(15));
             }
 
             int enemyDiceToRoll = Random.Range(1, 6);
@@ -156,9 +151,12 @@ namespace DoorGame
                 _enemySelectedDiceAmount++;
                 enemySelectedDiceList.Add(enemyDiceList[i]);
                 var selectedDie2 = enemySelectedDiceList[i];
-                StartCoroutine(selectedDie2.RollDie(Random.Range(15, 20)));
-                enemyDiceList.RemoveAt(i);
+                StartCoroutine(selectedDie2.RollDie(15));
             }
+
+            yield return new WaitForSeconds(3f);
+            ReadPlayerDiceResults();
+            ReadEnemyDiceResults();
         }
 
         public void ReadPlayerDiceResults()
