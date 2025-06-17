@@ -105,6 +105,16 @@ namespace SkyMapper
                     
                     break;
                 }
+                // Reset the camera rect if the aspect ratio equates to 1. This could be if we're coming from a
+                // different aspect ratio to the desired one. 
+                default:
+                {
+                    cameraRect.width = 1.0f;
+                    cameraRect.height = 1.0f;
+                    cameraRect.x = 0f;
+                    cameraRect.y = 0f; 
+                    break;
+                }
             }
             
             // Update the camera's rect.
