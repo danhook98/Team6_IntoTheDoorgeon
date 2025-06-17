@@ -78,11 +78,6 @@ namespace DoorGame
             playSfxAudioChannel.Invoke(leaveDungeonSound);
         }
 
-        public void WaveWon()
-        {
-            _wavesCompleted++;
-        }
-
         public void OpenedBadDoor()
         {
             Debug.Log("Game Over!", this);
