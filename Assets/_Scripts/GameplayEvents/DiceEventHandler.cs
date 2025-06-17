@@ -34,8 +34,8 @@ namespace DoorGame
         private int _playerTotalScore = 0;
         private int _enemyTotalScore = 0;
         
-        private bool _playerHasAOne;
-        private bool _enemyHasAOne;
+        private bool _playerHasAOne = false;
+        private bool _enemyHasAOne = false;
 
         private static int _amountOfDice = 5;
 
@@ -147,25 +147,19 @@ namespace DoorGame
 
         public void ReadPlayerDiceResults()
         {
-            int _firstDieResult = playerSelectedDiceList[0].playerDiceResult;
-            int _secondDieResult = 0;
-            int _thirdDieResult = 0;
-            int _fourthDieResult = 0;
-            int _fifthDieResult = 0;
+            List<int> playerDiceResults = new List<int>();
             
-            // Replace this with checks for how many dice have been selected. playerselectedicelist[2] does not exist
-            // if the player has not selected 3 dice!
-            if(_secondDieResult != null) _secondDieResult = playerSelectedDiceList[1].playerDiceResult;
-            if(_thirdDieResult != null) _thirdDieResult = playerSelectedDiceList[2].playerDiceResult;
-            if(_fourthDieResult != null) _fourthDieResult = playerSelectedDiceList[3].playerDiceResult;
-            if(_fifthDieResult != null) _fifthDieResult = playerSelectedDiceList[4].playerDiceResult;
-            
-            _playerTotalScore = _firstDieResult + _secondDieResult + _thirdDieResult + _fourthDieResult + _fifthDieResult;
-
-            for (int i = 0; i < playerSelectedDiceList.Count; i++)
+            for (int i = 0; i < _playerSelectedDiceAmount; i++)
             {
-                if (playerSelectedDiceList[i].playerDiceResult == 1) _playerHasAOne = true;
+                playerDiceResults.Add(playerSelectedDiceList[i].playerDiceResult);
             }
+
+            for (int i = 0; i < playerDiceResults.Count; i++)
+            {
+                _playerTotalScore += playerDiceResults[i];
+                if(playerDiceResults[i] == 1) _playerHasAOne = true;
+            }
+            
             Debug.Log("Does player have a one: " + _playerHasAOne);
             Debug.Log("Player total: " + _playerTotalScore);
         }
