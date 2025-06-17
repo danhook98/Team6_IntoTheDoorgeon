@@ -29,12 +29,12 @@ namespace DoorGame
             if (Time.time < _nextFlickerTime) return; 
             
             StartCoroutine(Flicker());
-            _nextFlickerTime = Time.time + Random.Range(0.15f, 1.5f);
+            _nextFlickerTime = Time.time + Random.Range(0.15f, 1f);
         }
 
         private IEnumerator Flicker()
         {
-            float offset = (Random.value > 0.5f ? 1 : -1) * Random.Range(0.05f, 0.20f);
+            float offset = (Random.value > 0.5f ? 1 : -1) * Random.Range(0.025f, 0.1f);
                 
             _light.pointLightOuterRadius = _baseLightRadiusOuter + offset;
             _light.pointLightInnerRadius = _baseLightRadiusInner + offset;
