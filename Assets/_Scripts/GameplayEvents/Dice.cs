@@ -73,7 +73,6 @@ namespace DoorGame
                 enemyDiceResult = spriteIndex1 + 1;
                 _spriteRenderer.sprite = diceSprites[spriteIndex1];
                 yield return new WaitForSeconds(0.5f);
-                //Debug.Log("Enemy die result: " + enemyDiceResult);
             }
             // If it's the player's dice.
             else
@@ -82,7 +81,6 @@ namespace DoorGame
                 playerDiceResult = spriteIndex2 + 1;
                 _spriteRenderer.sprite = diceSprites[spriteIndex2];
                 yield return new WaitForSeconds(0.5f);
-                //Debug.Log("Player die result: " + playerDiceResult);
             }
         }
     }

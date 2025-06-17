@@ -195,11 +195,33 @@ namespace DoorGame
             
             Debug.Log("Does enemy have a one: " + _enemyHasAOne);
             Debug.Log("Enemy total: " + _enemyTotalScore);
+            CompareResults();
         }
 
         public void CompareResults()
         {
-            
+            if (_playerHasAOne && _enemyHasAOne) Tie();
+            if (_playerHasAOne) EnemyWins();
+            if(_enemyHasAOne) PlayerWins();
+
+            if (_enemyTotalScore > _playerTotalScore && !_enemyHasAOne) EnemyWins();
+            if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne) PlayerWins();
+            if(_enemyTotalScore == _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) Tie();
+        }
+
+        public void Tie()
+        {
+            Debug.Log("It's a tie!");
+        }
+
+        public void EnemyWins()
+        {
+            Debug.Log("Enemy wins!");
+        }
+
+        public void PlayerWins()
+        {
+            Debug.Log("Player wins!");
         }
     }
 }
