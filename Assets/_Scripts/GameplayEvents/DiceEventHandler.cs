@@ -103,6 +103,8 @@ namespace DoorGame
             // Reset scores.
             _enemyTotalScore = 0;
             _playerTotalScore = 0;
+            _playerHasAOne = false;
+            _enemyHasAOne = false;
             
             // Move dice spawn positions to original lists.
             for (int i = 0; i < _amountOfDice; i++)
@@ -168,6 +170,7 @@ namespace DoorGame
         /// <returns></returns>
         public IEnumerator RollDice()
         {
+            if (_playerSelectedDiceAmount < 1) yield break;
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 var selectedDie = playerSelectedDiceList[i];
@@ -248,8 +251,8 @@ namespace DoorGame
             if (_playerHasAOne && _enemyHasAOne) Tie();
             else if (_playerHasAOne) EnemyWins();
             else if(_enemyHasAOne) PlayerWins();
-            else if (_enemyTotalScore > _playerTotalScore && !_enemyHasAOne) EnemyWins();
-            else if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne) PlayerWins();
+            else if (_enemyTotalScore > _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) EnemyWins();
+            else if(_playerTotalScore > _enemyTotalScore && !_playerHasAOne && !_enemyHasAOne) PlayerWins();
             else if(_enemyTotalScore == _playerTotalScore && !_playerHasAOne && !_enemyHasAOne) Tie();
         }
 
