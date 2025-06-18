@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0292d29ccf9d8146ad78ca0c7f1e23b, type: 3}
   m_Name: DoorOpening3
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 220493e77ab786a48b46090297d4020b, type: 3}
   volume: 1
