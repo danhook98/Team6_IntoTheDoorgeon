@@ -327,11 +327,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &2075312755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5328096308357259988, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-  m_PrefabInstance: {fileID: 6583380233857201978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6583380233857201978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -348,10 +343,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1940442382}
-    - target: {fileID: 4728441305158472734, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8124088476727934311, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -432,10 +423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8604276438379574412, guid: b3e48fd70f0a45e4cbcef9e30366d733, type: 3}
-      propertyPath: diceContainer
-      value: 
-      objectReference: {fileID: 2075312755}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
