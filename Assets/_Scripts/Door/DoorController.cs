@@ -56,7 +56,7 @@ namespace DoorGame.Door
             
             // Set tag and colour of first bad door.
             _badDoor.tag = "BadDoor";
-            _badDoor.gameObject.GetComponent<Image>().color = Color.red;
+            //_badDoor.gameObject.GetComponent<Image>().color = Color.red;
             
             // Calculate threshold for second bad door.
             var thresholdForSecondBadDoor = Random.Range(0, 101);
@@ -68,7 +68,7 @@ namespace DoorGame.Door
                 //Debug.Log("Doorscopy count: " + doorsCopy.Count);
                 _badDoor.tag = "BadDoor";
             }
-            _badDoor.gameObject.GetComponent<Image>().color = Color.red;
+            //_badDoor.gameObject.GetComponent<Image>().color = Color.red;
         }
 
         private void ResetDoors()
