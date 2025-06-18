@@ -1746,7 +1746,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8024369397690920561}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
@@ -1847,10 +1847,12 @@ MonoBehaviour:
   - {x: -300, y: -300}
   spawnPositionsUsed: []
   attempts: 8
+  scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
   onCardsMatchEvent: {fileID: 11400000, guid: 08c60b68db18ed743b05368c278004ae, type: 2}
   onCardsDoNotMatchEvent: {fileID: 11400000, guid: 55daa7893fffe7643ad0406e6265ac17, type: 2}
   onGameEndedEvent: {fileID: 11400000, guid: 70f4c19117414d64bae1229cf9a4d7b8, type: 2}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+  onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   spawnCardsSfx: {fileID: 11400000, guid: 5b88919cd338bad469bbe57d85255fa2, type: 2}
   flipCardSfx: {fileID: 11400000, guid: bad121fddd804bf48a2c7d9fc77bab5d, type: 2}
   pairMatchesSfx: {fileID: 11400000, guid: f4334aaae7fa71f48b74420729eb4583, type: 2}

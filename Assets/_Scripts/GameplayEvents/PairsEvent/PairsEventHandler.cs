@@ -20,11 +20,15 @@ namespace DoorGame.GameplayEvents.PairsEvent
         [Header("Attempts")]
         [SerializeField] private int attempts;
 
+        [Header("Score")] 
+        [SerializeField] private IntValue scoreValue;
+
         [Header("Events")] 
         [SerializeField] private VoidEvent onCardsMatchEvent;
         [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
         [SerializeField] private VoidEvent onGameEndedEvent;
         [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
+        [SerializeField] private IntEvent onScoreChangedEvent;
         
         [Header("Audio Clip SOs")]
         [SerializeField] private AudioClipSO spawnCardsSfx;
@@ -112,6 +116,17 @@ namespace DoorGame.GameplayEvents.PairsEvent
         /// </summary>
         private IEnumerator GameOver()
         {
+            // Calculate new score
+            int newScore;
+            int scoreMultiplier = -50;
+            if (_completedPairs >= 3) scoreMultiplier += 20;
+            scoreMultiplier += _completedPairs * 20;
+            newScore = scoreValue.Value * (scoreMultiplier / 10);
+            
+            // Send new score
+            onScoreChangedEvent.Invoke(newScore);
+            
+            // Reset positions
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
             
@@ -124,7 +139,6 @@ namespace DoorGame.GameplayEvents.PairsEvent
             
             cardsContainer.gameObject.SetActive(false);
             onGameEndedEvent.Invoke(new Empty());
-            
             outroCard.SetActive(true);
         }
         
