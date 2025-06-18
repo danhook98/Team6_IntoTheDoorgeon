@@ -588,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7492999330171848582
 RectTransform:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1447436854963648700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -874,6 +874,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1866125828898069704}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &8391714152240641923
 MonoBehaviour:
@@ -1145,8 +1157,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.22
-  m_fontSizeBase: 73.22
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4051,9 +4063,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6419947279974500486}
-    - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4075327059069570906}
   m_SourcePrefab: {fileID: 100100000, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
 --- !u!1 &688074449568649772 stripped
@@ -4061,20 +4070,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
   m_PrefabInstance: {fileID: 6846903697221182953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6419947279974500486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688074449568649772}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff15746863a6d5349983962d4fb79aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mysteriousDoor: {fileID: 0}
-  text: {fileID: 0}
 --- !u!114 &4075327059069570906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4091,8 +4086,9 @@ MonoBehaviour:
   onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6419947279974500486}
-        m_TargetAssemblyTypeName: DoorGame.MagicalDoorHandler, Assembly-CSharp
+      - m_Target: {fileID: 790095798312371062}
+        m_TargetAssemblyTypeName: DoorGame.GameplayEvents.MagicalDoorEvent.MagicalDoorHandler,
+          Assembly-CSharp
         m_MethodName: SetTag
         m_Mode: 1
         m_Arguments:
