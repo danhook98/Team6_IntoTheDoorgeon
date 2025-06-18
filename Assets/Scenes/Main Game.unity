@@ -2387,6 +2387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28f759ee4aa5524d852fd4a664a5ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayEnvironmentalSound: {fileID: 11400000, guid: 416adaa0a2f55a140a78f3b7284de3e9, type: 2}
+  environmentalSounds: []
 --- !u!4 &1885005786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2704948515971399958, guid: 25f545a43266cee48a69e388e15f2897, type: 3}
