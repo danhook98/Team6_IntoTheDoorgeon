@@ -126,16 +126,17 @@ namespace DoorGame.GameplayEvents.PairsEvent
             int scoreMultiplier = -50;
             if (_completedPairs >= 3) scoreMultiplier += 20;
             scoreMultiplier += _completedPairs * 20;
-            int newScore = scoreValue.Value * (scoreMultiplier / 10);
+            //int newScore = scoreValue.Value * (scoreMultiplier / 10);
+            int newScore;
 
             if(scoreMultiplier < 0) 
             {
-                scoreMultiplier = -scoreMultiplier;
-                newScore = scoreValue.Value - (scoreValue.Value * (scoreMultiplier / 10));
+                int localMult = scoreMultiplier * -1; 
+                newScore = scoreValue.Value - ((scoreValue.Value * localMult) / 100);
             }
             else
             {
-                newScore = scoreValue.Value + (scoreValue.Value * (scoreMultiplier / 10));
+                newScore = scoreValue.Value + ((scoreValue.Value * scoreMultiplier) / 100);
             }
             
             // Send new score
@@ -143,7 +144,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
             
             // Update end text with results.
             //endText.text = newScore + "\nScore modifier: " + scoreMultiplier + "%" + "\nTotal pairs completed: " + _completedPairs;
-            endText.text = (scoreMultiplier > 0 ? "+" : "-") + scoreMultiplier + "% score!\n\nYou now have \n" + $"{newScore:n0}";
+            endText.text = (scoreMultiplier > 0 ? "+" : "") + scoreMultiplier + "% score!\n\nYou now have \n" + $"{newScore:n0}";
             
             // Reset positions
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
