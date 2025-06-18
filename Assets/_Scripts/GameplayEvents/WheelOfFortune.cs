@@ -27,6 +27,9 @@ namespace DoorGame.GameplayEvents
 
         [Header("Audio Clips")] 
         [SerializeField] private AudioClipSO soundWheelDecided; 
+        [SerializeField] private AudioClipSO soundWheelClick;
+        [SerializeField] private AudioClipSO soundWin;
+        [SerializeField] private AudioClipSO soundLose;
         
         [Header("End Card")]
         [SerializeField] private TextMeshProUGUI endCardText;
@@ -195,13 +198,22 @@ namespace DoorGame.GameplayEvents
 
             float spinTime = numberOfRotations + baseSpinDuration;
             float elapsedTime = 0f;
+
+            int segmentCount = 1; 
             
             while (elapsedTime < spinTime)
             {
                 float lerpFactor = Mathf.SmoothStep(0, 1, (Mathf.SmoothStep(0, 1, elapsedTime / spinTime)));
+                float angle = Mathf.Lerp(currentAngle, targetAngle, lerpFactor);
                 
-                wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(currentAngle, targetAngle, lerpFactor));
-                
+                wheelTransform.localEulerAngles = new Vector3(0.0f, 0.0f, angle);
+
+                if (Mathf.CeilToInt((angle + _anglePerSegment / 2) / _anglePerSegment) > segmentCount)
+                {
+                    onPlaySfxEvent.Invoke(soundWheelClick);
+                    segmentCount++;
+                }
+
                 elapsedTime += Time.deltaTime;
                 
                 yield return null; 
@@ -215,6 +227,11 @@ namespace DoorGame.GameplayEvents
             // Debug.Log($"Score will be modified by {resultModifier}%!");
             
             yield return _wheelFinishDelay;
+            
+            if (_isWheelGood)
+                onPlaySfxEvent.Invoke(soundWin);
+            else
+                onPlaySfxEvent.Invoke(soundLose);
             
             int newScore = GetNewScore(resultModifier);
             onScoreChangedEvent.Invoke(newScore);

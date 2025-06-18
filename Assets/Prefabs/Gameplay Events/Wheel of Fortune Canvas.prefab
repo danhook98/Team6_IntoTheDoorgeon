@@ -1686,6 +1686,9 @@ MonoBehaviour:
   onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   soundWheelDecided: {fileID: 11400000, guid: ef64f8dd89b81b046b3c3c508c69c481, type: 2}
+  soundWheelClick: {fileID: 11400000, guid: 0ba077fe24299654b8cc043089369501, type: 2}
+  soundWin: {fileID: 11400000, guid: f4334aaae7fa71f48b74420729eb4583, type: 2}
+  soundLose: {fileID: 11400000, guid: 15deaa403d8099141bd65c0cc62103d3, type: 2}
   endCardText: {fileID: 8234336927191752084}
   wheelTransform: {fileID: 8384786953387456775}
   wheelImage: {fileID: 1586949350592400576}
