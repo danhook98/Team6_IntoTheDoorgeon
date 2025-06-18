@@ -41,7 +41,9 @@ namespace DoorGame.GameplayEvents.PairsEvent
         [SerializeField] private GameObject introCard;
         [SerializeField] private GameObject outroCard;
         [SerializeField] private Transform cardsContainer;
+        [SerializeField] private GameObject attemptsLeftHolder;
         [SerializeField] private TextMeshProUGUI endText;
+        [SerializeField] private TextMeshProUGUI attemptsLeftText;
         
         [Space] 
         [SerializeField] private float timeToFlipCard;
@@ -60,6 +62,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
             attempts = 8;
             _numberOfFlippedCards = 0;
             _completedPairs = 0;
+            attemptsLeftText.text = "Attempts left: " + attempts;
         }
 
         /// <summary>
@@ -68,6 +71,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         /// </summary>
         public void SpawnCards()
         {
+            attemptsLeftHolder.SetActive(true);
             usedCards.Clear();
             List<PairEventCard> tempCardPool = new List<PairEventCard>(availableCards);
 
@@ -129,7 +133,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
             onScoreChangedEvent.Invoke(newScore);
             
             // Update end text with results.
-            endText.text = newScore.ToString() + "\n Score multiplier: " + scoreMultiplier + "\n Total pairs completed: " + _completedPairs;
+            endText.text = newScore.ToString() + "\n Score multiplier: " + scoreMultiplier + "%" + "\n Total pairs completed: " + _completedPairs;
             
             // Reset positions
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
@@ -203,6 +207,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 {
                     StartCoroutine(GameOver());
                 }
+                attemptsLeftText.text = "Attempts left: " + attempts;
             }
         }
 
