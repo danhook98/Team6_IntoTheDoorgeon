@@ -189,20 +189,14 @@ namespace DoorGame.GameplayEvents.PairsEvent
 
         public void ResetEvent()
         {
-            if (usedCards.Count != 0)
+            /*if (usedCards.Count != 0)
             {
                 for (int i = 0; i < usedCards.Count; i++)
                 {
                     usedCards[i].DeleteSelf();
                     usedCards.RemoveAt(i);
                 }
-            }
-            
-            for (int i = 0; i < spawnPositionsUsed.Count; i++)
-            {
-                var pos = spawnPositionsUsed[i];
-                spawnPositionsAvailable.Add(pos);
-            }
+            }*/
             
             usedCards.Clear();
             spawnPositionsUsed.Clear();
