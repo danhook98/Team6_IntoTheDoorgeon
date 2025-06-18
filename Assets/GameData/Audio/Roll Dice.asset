@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0292d29ccf9d8146ad78ca0c7f1e23b, type: 3}
   m_Name: Roll Dice
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 9bfcda9deb303a342bc345be23f3b7fd, type: 3}
   volume: 1
