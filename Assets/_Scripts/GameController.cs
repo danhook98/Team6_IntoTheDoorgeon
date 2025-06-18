@@ -14,6 +14,7 @@ namespace DoorGame
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent highScoreChangedEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
+        [SerializeField] private IntEvent dungeonsEnteredChangedEvent;
         [SerializeField] private VoidEvent generateDoorsEvent; 
         [SerializeField] private VoidEvent onLeaveDungeonEvent;
         [SerializeField] private BoolEvent showEnterDungeonButtonEvent;
@@ -133,8 +134,11 @@ namespace DoorGame
             
             showEnterDungeonButtonEvent.Invoke(false);
             _validDoorsOpened = 0;
+            
             _dungeonsEntered++;
             dungeonsEnteredValue.Value = _dungeonsEntered;
+            dungeonsEnteredChangedEvent.Invoke(_dungeonsEntered);
+            
             _scoreMultiplier++;
             generateDoorsEvent.Invoke(new Empty());
 

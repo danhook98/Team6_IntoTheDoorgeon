@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 9164252152665671943}
   - component: {fileID: 6936630344923916689}
   m_Layer: 5
-  m_Name: ScoreDisplay
+  m_Name: DungeonsEnteredDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 'Dungeons entered: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
   m_sharedMaterial: {fileID: 223515745755715364, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f16c870d8944935be5eac6891ddcfbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefixText: 'Score: '
+  _prefixText: 'Dungeons entered: '
 --- !u!114 &6936630344923916689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,13 +984,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78bffac8fc54beaad3d830789d93b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventToListen: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+  eventToListen: {fileID: 11400000, guid: 7465a0bfecbc43b42a46557fb0f5bb05, type: 2}
   onEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9164252152665671943}
         m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
-        m_MethodName: SetText
+        m_MethodName: SetTextFormatted
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
