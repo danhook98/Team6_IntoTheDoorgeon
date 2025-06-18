@@ -38,6 +38,7 @@ namespace DoorGame
         [SerializeField] private AudioClipSO scoreAddedSound;
         [SerializeField] private AudioClipSO goodDoorSound;
         [SerializeField] private AudioClipSO badDoorSound;
+        [SerializeField] private AudioClipSO[] eventCardStartSounds; 
         
         [Header("Music")]
         [SerializeField] private AudioClipSOEvent playMusicAudioChannel;

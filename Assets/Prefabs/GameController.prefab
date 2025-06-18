@@ -72,6 +72,10 @@ MonoBehaviour:
   scoreAddedSound: {fileID: 11400000, guid: 3882f04af2fda7a4aac356368be1269f, type: 2}
   goodDoorSound: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
   badDoorSound: {fileID: 11400000, guid: c045c2dbdb55f544f9bdd1d700260687, type: 2}
+  eventCardStartSounds:
+  - {fileID: 11400000, guid: 96b470ca10ba5b54baf7aa157f0b1471, type: 2}
+  - {fileID: 11400000, guid: 2d7fbbcd1a636c44697456059095c746, type: 2}
+  - {fileID: 11400000, guid: 4febf19f30376744f8eeb89be53b883e, type: 2}
   playMusicAudioChannel: {fileID: 11400000, guid: 635be7c9ed4275b48995b2465343da19, type: 2}
   gameMusic:
   - {fileID: 11400000, guid: 08dcd12713d6c1840ba0878885f668e1, type: 2}
