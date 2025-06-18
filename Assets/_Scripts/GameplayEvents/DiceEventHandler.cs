@@ -193,6 +193,17 @@ namespace DoorGame
             _playerSelectedDiceAmount++;
         }
 
+        public void DeselectAllDice()
+        {
+            for (int i = 0; i < playerSelectedDiceList.Count; i++)
+            {
+                playerDiceList.Add(playerSelectedDiceList[i]);
+            }
+            
+            playerSelectedDiceList.Clear();
+            _playerSelectedDiceAmount = 0;
+        }
+
         public void TriggerRollDice()
         {
             StartCoroutine(RollDice());
@@ -208,6 +219,9 @@ namespace DoorGame
         public IEnumerator RollDice()
         {
             if (_playerSelectedDiceAmount < 1) yield break;
+            
+            onPlaySfxEvent.Invoke(rollDiceSfx);
+            
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 var selectedDie = playerSelectedDiceList[i];
