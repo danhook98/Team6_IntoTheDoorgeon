@@ -3,6 +3,7 @@ using DoorGame.Audio;
 using DoorGame.EventSystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Collections;
 
 namespace DoorGame.GameplayEvents.PairsEvent
 {
@@ -30,6 +31,10 @@ namespace DoorGame.GameplayEvents.PairsEvent
         [SerializeField] private AudioClipSO flipCardSfx;
         [SerializeField] private AudioClipSO pairMatchesSfx;
         [SerializeField] private AudioClipSO pairDoesNotMatchSfx;
+
+        [Header("Game Objects")]
+        [SerializeField] private GameObject introCard;
+        [SerializeField] private GameObject outroCard;
         
         [Space] 
         [SerializeField] private float timeToFlipCard;
@@ -43,6 +48,8 @@ namespace DoorGame.GameplayEvents.PairsEvent
 
         private void Start()
         {
+            introCard.SetActive(true);
+            outroCard.SetActive(false);
             attempts = 8;
             _numberOfFlippedCards = 0;
             _completedPairs = 0;
@@ -95,7 +102,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         /// <summary>
         /// Resets lists and variables, destroys card game objects.
         /// </summary>
-        private void GameOver()
+        private IEnumerator GameOver()
         {
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
@@ -104,9 +111,10 @@ namespace DoorGame.GameplayEvents.PairsEvent
             {
                 Destroy(card.gameObject);
             }
-
-            usedCards.Clear();
+            
             onGameEndedEvent.Invoke(new Empty());
+            yield return new WaitForSeconds(1.5f);
+            outroCard.SetActive(true);
         }
         
         /// <summary>
@@ -163,7 +171,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 attempts--;
                 if (attempts == 0)
                 {
-                    GameOver();
+                    StartCoroutine(GameOver());
                 }
             }
         }
@@ -177,6 +185,32 @@ namespace DoorGame.GameplayEvents.PairsEvent
         private bool DoCardsMatch(PairEventCard cardA, PairEventCard cardB)
         {
             return cardA.PairID == cardB.PairID;
+        }
+
+        public void ResetEvent()
+        {
+            if (usedCards.Count != 0)
+            {
+                for (int i = 0; i < usedCards.Count; i++)
+                {
+                    usedCards[i].DeleteSelf();
+                    usedCards.RemoveAt(i);
+                }
+            }
+            
+            for (int i = 0; i < spawnPositionsUsed.Count; i++)
+            {
+                var pos = spawnPositionsUsed[i];
+                spawnPositionsAvailable.Add(pos);
+            }
+            
+            usedCards.Clear();
+            spawnPositionsUsed.Clear();
+            attempts = 8;
+            _numberOfFlippedCards = 0;
+            _completedPairs = 0;
+            introCard.SetActive(false);
+            outroCard.SetActive(false);
         }
     }
 }

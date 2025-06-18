@@ -108,5 +108,10 @@ namespace DoorGame.GameplayEvents.PairsEvent
         {
             _canBeFlipped = canBeFlipped;
         }
+
+        public void DeleteSelf()
+        {
+            Destroy(gameObject);
+        }
     }
 }
