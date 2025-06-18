@@ -32,6 +32,7 @@ namespace DoorGame
 
         [Header("Events")] 
         [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
+        [SerializeField] private IntEvent onScoreChangedEvent;
 
         [Header("Score")] 
         [SerializeField] private IntValue scoreValue;
@@ -237,7 +238,7 @@ namespace DoorGame
             
             for (int i = 0; i < _playerSelectedDiceAmount; i++)
             {
-                playerDiceResults.Add(playerSelectedDiceList[i].playerDiceResult); // Error, index out of range?
+                playerDiceResults.Add(playerSelectedDiceList[i].playerDiceResult);
             }
 
             for (int i = 0; i < playerDiceResults.Count; i++)
@@ -245,9 +246,6 @@ namespace DoorGame
                 _playerTotalScore += playerDiceResults[i];
                 if(playerDiceResults[i] == 1) _playerHasAOne = true;
             }
-            
-            Debug.Log("Does player have a one: " + _playerHasAOne);
-            Debug.Log("Player total: " + _playerTotalScore);
         }
 
         /// <summary>
@@ -268,9 +266,6 @@ namespace DoorGame
                 _enemyTotalScore += enemyDiceResults[i];
                 if(enemyDiceResults[i] == 1) _enemyHasAOne = true;
             }
-            
-            Debug.Log("Does enemy have a one: " + _enemyHasAOne);
-            Debug.Log("Enemy total: " + _enemyTotalScore);
         }
 
         /// <summary>
@@ -340,16 +335,20 @@ namespace DoorGame
 
         public void UpdateScore()
         {
+            int newScore;
+            
             if (_playerWon)
             {
-                scoreValue.Value += scoreValue.Value * (_amountToBet/100);
-                resultText.text = "You won!\n " + "Score: " + scoreValue.Value.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
+                newScore = scoreValue.Value + (scoreValue.Value * (_amountToBet/100));
+                resultText.text = "You won!\n " + "Score: " + newScore.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
             else
             {
-                scoreValue.Value -= scoreValue.Value * (1 - (_amountToBet/100));
-                resultText.text = "You lost!\n " + "Score: " + scoreValue.Value.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
+                newScore = scoreValue.Value - (scoreValue.Value * (1 - (_amountToBet/100)));
+                resultText.text = "You lost!\n " + "Score: " + newScore.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
+            
+            onScoreChangedEvent.Invoke(newScore);
         }
     }
 }

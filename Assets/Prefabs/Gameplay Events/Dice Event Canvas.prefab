@@ -1097,6 +1097,7 @@ MonoBehaviour:
   scoreToBetText: {fileID: 5789888200614990206}
   resultText: {fileID: 9216641439085806436}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+  onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
 --- !u!114 &5914957094379733637
 MonoBehaviour:
