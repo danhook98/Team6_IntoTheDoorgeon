@@ -58,6 +58,7 @@ namespace DoorGame
             introCard.SetActive(true);
             endCard.SetActive(false);
             scoreToBetText.text = "Betting: 10% of total score";
+            _amountToBet = 10;
         }
 
         private void Update()
@@ -122,6 +123,7 @@ namespace DoorGame
         public void ResetEvent()
         {
             // Reset scores.
+            _amountToBet = 10;
             _enemyTotalScore = 0;
             _playerTotalScore = 0;
             _playerHasAOne = false;
@@ -341,12 +343,12 @@ namespace DoorGame
             if (_playerWon)
             {
                 scoreValue.Value += scoreValue.Value * (_amountToBet/100);
-                resultText.text = "You won!\n " + "Score: " + scoreValue.Value.ToString();
+                resultText.text = "You won!\n " + "Score: " + scoreValue.Value.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
             else
             {
                 scoreValue.Value -= scoreValue.Value * (1 - (_amountToBet/100));
-                resultText.text = "You lost!\n " + "Score: " + scoreValue.Value.ToString();
+                resultText.text = "You lost!\n " + "Score: " + scoreValue.Value.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
         }
     }
