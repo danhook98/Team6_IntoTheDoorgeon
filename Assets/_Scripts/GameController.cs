@@ -51,7 +51,7 @@ namespace DoorGame
         // Score variables.
         private int _score = 0;
         private int _highScore = 0;
-        private int _scoreMultiplier = 1;
+        private float _scoreMultiplier = 1f;
         private int _validDoorsOpened = 0;
         private int _totalDoorsOpened = 0;
         
@@ -141,10 +141,11 @@ namespace DoorGame
             dungeonsEnteredValue.Value = _dungeonsEntered;
             dungeonsEnteredChangedEvent.Invoke(_dungeonsEntered);
             
-            _scoreMultiplier++;
             generateDoorsEvent.Invoke(new Empty());
 
             DisplayGameplayEvent();
+
+            _scoreMultiplier = 1f;
         }
 
         public void SetScore(int score)
@@ -152,12 +153,17 @@ namespace DoorGame
             _score = score;
             scoreValue.Value = score;
         }
+        
+        public void SetMultiplier(int multiplier) => _scoreMultiplier = multiplier;
 
         // Score
         private void AddScore()
         {
             _validDoorsOpened++;
-            _score += Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _dungeonsEntered) * _scoreMultiplier;
+            
+            float score = Random.Range(minimumScoreToAdd, maxScoreToAdd + 1) * _validDoorsOpened * (1 + _dungeonsEntered) * (1 + _dungeonsEntered) * _scoreMultiplier; 
+            _score += Mathf.RoundToInt(score);
+            
             scoreValue.Value = _score;
             
             // Trigger the OnScoreChanged and OnValidDoorsOpenedChanged events.
