@@ -186,6 +186,11 @@ namespace DoorGame
             _playerSelectedDiceAmount++;
         }
 
+        public void TriggerRollDice()
+        {
+            StartCoroutine(RollDice());
+        }
+
         /// <summary>
         /// Coroutine for rolling dice, rolls all dice selected
         /// by both the player and enemy. It then triggers
