@@ -43,6 +43,8 @@ namespace DoorGame
         [SerializeField] private AudioClipSO selectDiceSfx;
         [SerializeField] private AudioClipSO deselectDiceSfx;
         [SerializeField] private AudioClipSO spawnDiceSfx;
+        [SerializeField] private AudioClipSO playerWonSfx;
+        [SerializeField] private AudioClipSO playerLostSfx;
 
         private int _playerSelectedDiceAmount = 0;
         private int _enemySelectedDiceAmount = 0;
@@ -304,6 +306,7 @@ namespace DoorGame
 
         public IEnumerator EnemyWins()
         {
+            onPlaySfxEvent.Invoke(playerLostSfx);
             Debug.Log("Enemy wins!");
             int _scoreLost = scoreValue.Value;
             _playerWon = false;
@@ -319,6 +322,7 @@ namespace DoorGame
 
         public IEnumerator PlayerWins()
         {
+            onPlaySfxEvent.Invoke(playerWonSfx);
             Debug.Log("Player wins!");
             _playerWon = true;
             yield return new WaitForSeconds(1f);

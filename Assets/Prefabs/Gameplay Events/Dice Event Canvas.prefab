@@ -1371,6 +1371,8 @@ MonoBehaviour:
   selectDiceSfx: {fileID: 11400000, guid: 65018e57200e2f84cbc9fe8709103a2d, type: 2}
   deselectDiceSfx: {fileID: 11400000, guid: 589468bdc6b3c3043834326e85b9a228, type: 2}
   spawnDiceSfx: {fileID: 11400000, guid: a1ec632337dc07e428dde2bebce7b808, type: 2}
+  playerWonSfx: {fileID: 11400000, guid: f4334aaae7fa71f48b74420729eb4583, type: 2}
+  playerLostSfx: {fileID: 11400000, guid: 15deaa403d8099141bd65c0cc62103d3, type: 2}
 --- !u!114 &5914957094379733637
 MonoBehaviour:
   m_ObjectHideFlags: 0
