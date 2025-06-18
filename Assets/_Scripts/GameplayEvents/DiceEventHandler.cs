@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DoorGame.EventSystem;
 using System.Collections;
+using DoorGame.Audio;
 using TMPro;
 
 namespace DoorGame
@@ -36,6 +37,9 @@ namespace DoorGame
 
         [Header("Score")] 
         [SerializeField] private IntValue scoreValue;
+        
+        [Header("Audio Clip SOs")]
+        [SerializeField] private AudioClipSO rollDiceSfx;
 
         private int _playerSelectedDiceAmount = 0;
         private int _enemySelectedDiceAmount = 0;
