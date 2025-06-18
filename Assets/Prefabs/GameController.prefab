@@ -61,6 +61,7 @@ MonoBehaviour:
   gameplayEventTriggers:
   - {fileID: 11400000, guid: f3608ed70c544ef4d955906317c83ce6, type: 2}
   - {fileID: 11400000, guid: f1af4ccbb6a03b3409030881dc7b7cd0, type: 2}
+  - {fileID: 11400000, guid: ccc6c542cfeab8a4bbd2e658969ea7c4, type: 2}
   minimumScoreToAdd: 10
   maxScoreToAdd: 30
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
