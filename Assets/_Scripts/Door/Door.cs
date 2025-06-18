@@ -86,7 +86,7 @@ namespace DoorGame.Door
         /// <returns></returns>
         public IEnumerator MysteriousDoorOpened()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
             onMysteriousDoorOpenedEvent.Invoke(new Empty());
         }
     }
