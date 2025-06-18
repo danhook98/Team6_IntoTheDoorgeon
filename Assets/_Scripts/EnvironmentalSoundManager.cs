@@ -15,19 +15,15 @@ namespace DoorGame
         
         private float _nextSoundTime = 5f;
         
-        
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
         void Update()
         {
             if (Time.time < _nextSoundTime) return;
-            // pick sound and play it
-            // _nextSoundTime = Time.time + (randomOffset).
+            
+            var nextSound = environmentalSounds[UnityEngine.Random.Range(0, environmentalSounds.Count)];
+            onPlayEnvironmentalSfx.Invoke(nextSound);
+            
+            var randomTimeOffset = UnityEngine.Random.Range(10f, 20f);
+            _nextSoundTime = Time.time + randomTimeOffset;
         }
     }
 }
