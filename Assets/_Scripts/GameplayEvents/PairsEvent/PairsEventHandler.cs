@@ -59,6 +59,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         {
             introCard.SetActive(true);
             outroCard.SetActive(false);
+            attemptsLeftHolder.SetActive(false);
             attempts = 8;
             _numberOfFlippedCards = 0;
             _completedPairs = 0;
@@ -123,6 +124,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         private IEnumerator GameOver()
         {
             // Calculate new score
+            attemptsLeftHolder.SetActive(false);
             int scoreMultiplier = -50;
             if (_completedPairs >= 3) scoreMultiplier += 20;
             scoreMultiplier += _completedPairs * 20;
@@ -251,6 +253,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
             _completedPairs = 0;
             introCard.SetActive(true);
             outroCard.SetActive(false);
+            attemptsLeftHolder.SetActive(false);
         }
     }
 }
