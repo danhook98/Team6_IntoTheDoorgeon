@@ -396,18 +396,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 883519593}
-    - target: {fileID: 478622075083201790, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480761717375584713, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 501.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480761717375584713, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -39.76
-      objectReference: {fileID: 0}
     - target: {fileID: 4998718999274369000, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -487,20 +475,6 @@ PrefabInstance:
     - target: {fileID: 4998718999274369000, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6328990519221738858, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
-      propertyPath: m_text
-      value: '
-
-        You enter a small room, a shady figure in the corner beckons
-        you over to a dusty green table. He offers you a wager, suggesting a simple
-        game of pairs.
-
-        
-
-        Entry into this game will cost half of
-        your score, for each pair you successfully make you earn 20% of your original
-        score. If you successfully find three pairs you gain an additional bonus. '
       objectReference: {fileID: 0}
     - target: {fileID: 8024369397690920561, guid: 02de908c790fad148838b70a01c5bce4, type: 3}
       propertyPath: m_Name

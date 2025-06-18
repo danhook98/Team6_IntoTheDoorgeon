@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.1, y: -47.9}
-  m_SizeDelta: {x: 763.7, y: 484.8}
+  m_AnchoredPosition: {x: 255.1, y: -39.76}
+  m_SizeDelta: {x: 763.7, y: 501.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3839725364709192541
 CanvasRenderer:
@@ -65,8 +65,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is an awesome explanation of the pairs game event which is super duper
-    cool.
+  m_text: '
+
+    You enter a small room, a shady figure in the corner beckons you
+    over to a dusty green table. He offers you a wager, suggesting a simple game
+    of pairs.
+
+
+
+    Entry into this game will cost half of your score, for each
+    pair you successfully make you earn 20% of your original score. If you successfully
+    find three pairs you gain an additional bonus. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
   m_sharedMaterial: {fileID: 223515745755715364, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
