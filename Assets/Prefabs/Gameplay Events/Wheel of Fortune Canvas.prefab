@@ -1890,8 +1890,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is an awesome explanation of the wheel of fortune game event which
-    is super duper cool.
+  m_text: "Upon entering a large chamber you stumble upon a magical wheel - capable
+    of both creating treasure and taking it away. Will you risk spinning it? \r\n\r\nThe
+    red wheel removes treasure whereas the yellow wheel creates treasure. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
   m_sharedMaterial: {fileID: 223515745755715364, guid: de2a5f2ca291bda4586a0ada081415ca, type: 2}
