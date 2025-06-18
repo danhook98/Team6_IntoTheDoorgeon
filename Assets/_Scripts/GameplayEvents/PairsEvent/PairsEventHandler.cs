@@ -128,6 +128,16 @@ namespace DoorGame.GameplayEvents.PairsEvent
             scoreMultiplier += _completedPairs * 20;
             int newScore = scoreValue.Value * (scoreMultiplier / 10);
 
+            if(scoreMultiplier < 0) 
+            {
+                scoreMultiplier = -scoreMultiplier;
+                newScore = scoreValue.Value - (scoreValue.Value * (scoreMultiplier / 10));
+            }
+            else
+            {
+                newScore = scoreValue.Value + (scoreValue.Value * (scoreMultiplier / 10));
+            }
+            
             // Send new score
             onScoreChangedEvent.Invoke(newScore);
             
