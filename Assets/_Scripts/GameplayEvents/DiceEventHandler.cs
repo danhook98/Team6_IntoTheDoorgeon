@@ -119,7 +119,7 @@ namespace DoorGame
         /// <summary>
         /// Resets lists, resets variables, and destroys dice.
         /// </summary>
-        private void ResetEvent()
+        public void ResetEvent()
         {
             // Reset scores.
             _enemyTotalScore = 0;
