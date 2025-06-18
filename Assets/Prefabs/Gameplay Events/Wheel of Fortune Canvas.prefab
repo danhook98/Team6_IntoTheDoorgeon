@@ -1685,6 +1685,7 @@ MonoBehaviour:
   dungeonsEnteredValue: {fileID: 11400000, guid: 43917d3947cd6fc4fb4b44d1c07673e1, type: 2}
   onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
+  soundWheelDecided: {fileID: 11400000, guid: ef64f8dd89b81b046b3c3c508c69c481, type: 2}
   endCardText: {fileID: 8234336927191752084}
   wheelTransform: {fileID: 8384786953387456775}
   wheelImage: {fileID: 1586949350592400576}

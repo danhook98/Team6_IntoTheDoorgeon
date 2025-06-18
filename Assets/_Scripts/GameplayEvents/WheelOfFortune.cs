@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DoorGame.Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,10 @@ namespace DoorGame.GameplayEvents
 
         [Header("Events")] 
         [SerializeField] private IntEvent onScoreChangedEvent;
-        [SerializeField] private AudioClipSOEvent onPlaySfxEvent; 
+        [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
+
+        [Header("Audio Clips")] 
+        [SerializeField] private AudioClipSO soundWheelDecided; 
         
         [Header("End Card")]
         [SerializeField] private TextMeshProUGUI endCardText;
@@ -143,6 +147,9 @@ namespace DoorGame.GameplayEvents
                 wheelImage.sprite = i % 2 == 0 ? goodWheelImage : badWheelImage;
                 
                 SetWheelText(i % 2 == 0);
+                
+                if (i == max)
+                    onPlaySfxEvent.Invoke(soundWheelDecided);
                 
                 yield return _wheelSelectionInterval;
             }
