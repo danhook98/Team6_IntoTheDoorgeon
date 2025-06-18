@@ -198,6 +198,7 @@ namespace DoorGame
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 playerDiceList.Add(playerSelectedDiceList[i]);
+                playerSelectedDiceList[i].ChangeIsSelected(false);
             }
             
             playerSelectedDiceList.Clear();
