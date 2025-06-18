@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -5,12 +6,9 @@ namespace DoorGame.GameplayEvents.MagicalDoorEvent
 {
     public class MagicalDoorHandler : MonoBehaviour
     {
-        private string[] _tags;
+        private string[] _tags = { "MagicalDoor", "CursedDoor" };
 
-        private void Start()
-        {
-            _tags = new string[] { "MagicalDoor", "CursedDoor" };
-        }
+        private void OnEnable() => SetTag();
 
         public void SetTag()
         {
