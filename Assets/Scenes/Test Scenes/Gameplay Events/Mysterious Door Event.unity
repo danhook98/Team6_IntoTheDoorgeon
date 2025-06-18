@@ -396,6 +396,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mysterious Door Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1896019202656078710, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896019202656078710, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2459664345388094070, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
