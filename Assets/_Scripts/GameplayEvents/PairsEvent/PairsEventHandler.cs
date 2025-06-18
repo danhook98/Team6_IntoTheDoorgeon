@@ -35,6 +35,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         [Header("Game Objects")]
         [SerializeField] private GameObject introCard;
         [SerializeField] private GameObject outroCard;
+        [SerializeField] private Transform cardsContainer;
         
         [Space] 
         [SerializeField] private float timeToFlipCard;
@@ -82,6 +83,8 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 card1.PairID = autoId; 
                 card1.GetComponent<RectTransform>().anchoredPosition = pos1;
                 usedCards.Add(card1);
+                
+                card1.transform.SetParent(cardsContainer);
 
                 // Second copy
                 int index2 = Random.Range(0, spawnPositionsAvailable.Count);
@@ -94,8 +97,13 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 card2.GetComponent<RectTransform>().anchoredPosition = pos2;
                 usedCards.Add(card2);
                 
+                card2.transform.SetParent(cardsContainer);
+                
                 autoId++;
             }
+            
+            cardsContainer.gameObject.SetActive(true);
+            
             onPlaySfxEvent.Invoke(spawnCardsSfx);
         }
 
@@ -106,14 +114,17 @@ namespace DoorGame.GameplayEvents.PairsEvent
         {
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
+            
+            yield return new WaitForSeconds(1.5f);
 
             foreach (var card in usedCards)
             {
                 Destroy(card.gameObject);
             }
             
+            cardsContainer.gameObject.SetActive(false);
             onGameEndedEvent.Invoke(new Empty());
-            yield return new WaitForSeconds(1.5f);
+            
             outroCard.SetActive(true);
         }
         
