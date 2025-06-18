@@ -1860,6 +1860,7 @@ MonoBehaviour:
   introCard: {fileID: 5287160577004856632}
   outroCard: {fileID: 4222944376471492630}
   cardsContainer: {fileID: 2315985869948152888}
+  endText: {fileID: 501872228416773491}
   timeToFlipCard: 1.5
 --- !u!114 &2988094474615855600
 MonoBehaviour:

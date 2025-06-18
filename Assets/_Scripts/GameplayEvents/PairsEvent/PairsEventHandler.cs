@@ -4,6 +4,7 @@ using DoorGame.EventSystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Collections;
+using TMPro;
 
 namespace DoorGame.GameplayEvents.PairsEvent
 {
@@ -40,6 +41,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         [SerializeField] private GameObject introCard;
         [SerializeField] private GameObject outroCard;
         [SerializeField] private Transform cardsContainer;
+        [SerializeField] private TextMeshProUGUI endText;
         
         [Space] 
         [SerializeField] private float timeToFlipCard;
@@ -125,6 +127,9 @@ namespace DoorGame.GameplayEvents.PairsEvent
             
             // Send new score
             onScoreChangedEvent.Invoke(newScore);
+            
+            // Update end text with results.
+            endText.text = newScore.ToString() + "\n Score multiplier: " + scoreMultiplier + "\n Total pairs completed: " + _completedPairs;
             
             // Reset positions
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
