@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7576528849924134401}
   - component: {fileID: 2061633893581168865}
   - component: {fileID: 8080959022813425547}
+  - component: {fileID: 790095798312371062}
   m_Layer: 5
   m_Name: Mysterious Door Canvas
   m_TagString: Untagged
@@ -189,6 +190,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &790095798312371062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440323166363866090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff15746863a6d5349983962d4fb79aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mysteriousDoor: {fileID: 688074449568649772}
+  text: {fileID: 6320090347610105732}
 --- !u!1 &521574966365321859
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +875,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1866125828898069704}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1180286495599788196}
+        m_TargetAssemblyTypeName: DoorGame.Door.Door, Assembly-CSharp
+        m_MethodName: AllowOpening
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &8391714152240641923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,8 +1169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.22
-  m_fontSizeBase: 73.22
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2547,6 +2586,19 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 790095798312371062}
+        m_TargetAssemblyTypeName: DoorGame.GameplayEvents.MagicalDoorEvent.MagicalDoorHandler,
+          Assembly-CSharp
+        m_MethodName: SetTag
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4018,6 +4070,10 @@ PrefabInstance:
       propertyPath: onMysteriousDoorOpenedEvent
       value: 
       objectReference: {fileID: 11400000, guid: 38f87c00e7e5392488d742540e9dcc71, type: 2}
+    - target: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+      propertyPath: onScoreMultiplierChangedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 994e4985e65cea845a0abe3bed0ed551, type: 2}
     - target: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       propertyPath: m_Name
       value: Mysterious Door
@@ -4032,9 +4088,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6419947279974500486}
-    - targetCorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4075327059069570906}
   m_SourcePrefab: {fileID: 100100000, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
 --- !u!1 &688074449568649772 stripped
@@ -4042,18 +4095,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6235689647043950533, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
   m_PrefabInstance: {fileID: 6846903697221182953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6419947279974500486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688074449568649772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff15746863a6d5349983962d4fb79aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4075327059069570906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4070,8 +4111,9 @@ MonoBehaviour:
   onEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6419947279974500486}
-        m_TargetAssemblyTypeName: DoorGame.MagicalDoorHandler, Assembly-CSharp
+      - m_Target: {fileID: 790095798312371062}
+        m_TargetAssemblyTypeName: DoorGame.GameplayEvents.MagicalDoorEvent.MagicalDoorHandler,
+          Assembly-CSharp
         m_MethodName: SetTag
         m_Mode: 1
         m_Arguments:
@@ -4082,6 +4124,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1180286495599788196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5720749046457951565, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}
+  m_PrefabInstance: {fileID: 6846903697221182953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688074449568649772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9ab789ccbd39a4dbefa7245b1f9d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6084686863351176768 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 825338319069330345, guid: 9553457504e175e4b98bb9945c1aeac1, type: 3}

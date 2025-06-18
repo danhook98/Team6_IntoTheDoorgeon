@@ -149,11 +149,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDoorOpenedEvent: {fileID: 11400000, guid: a1b34b7e77115e34cb0a21fa152341ec, type: 2}
+  onMysteriousDoorOpenedEvent: {fileID: 0}
+  onMagicalDoorOpenedEvent: {fileID: 0}
+  onCursedDoorOpenedEvent: {fileID: 0}
+  onScoreMultiplierChangedEvent: {fileID: 0}
   doorAnimator: {fileID: 589585503922135515}
   playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   doorHoverSound: {fileID: 11400000, guid: b4b7108303ba1da4a897e19c6ba8a447, type: 2}
-  doorClickSound: {fileID: 11400000, guid: ac02727c978b18640abe878c067a9b98, type: 2}
-  isRoomResetting: 0
+  doorOpenSounds:
+  - {fileID: 11400000, guid: ac02727c978b18640abe878c067a9b98, type: 2}
+  - {fileID: 11400000, guid: 4e398bc1f926136439da87dd934a48b2, type: 2}
+  - {fileID: 11400000, guid: 4633276e52cec704baeb0e805a55cb14, type: 2}
+  coinsDropSound: {fileID: 0}
+  magicalDoorOpenSound: {fileID: 0}
+  cursedDoorOpenSound: {fileID: 0}
 --- !u!114 &1888843172404238703
 MonoBehaviour:
   m_ObjectHideFlags: 0
