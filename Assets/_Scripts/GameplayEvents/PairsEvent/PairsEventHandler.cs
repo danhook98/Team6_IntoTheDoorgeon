@@ -203,7 +203,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
             attempts = 8;
             _numberOfFlippedCards = 0;
             _completedPairs = 0;
-            introCard.SetActive(false);
+            introCard.SetActive(true);
             outroCard.SetActive(false);
         }
     }
