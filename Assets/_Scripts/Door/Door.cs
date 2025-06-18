@@ -12,6 +12,7 @@ namespace DoorGame.Door
         [SerializeField] private VoidEvent onMysteriousDoorOpenedEvent;
         [SerializeField] private VoidEvent onMagicalDoorOpenedEvent;
         [SerializeField] private VoidEvent onCursedDoorOpenedEvent;
+        [SerializeField] private FloatEvent onScoreMultiplierChangedEvent;
         
         [Header("Animator")]
         [SerializeField] private Animator doorAnimator;
@@ -33,7 +34,9 @@ namespace DoorGame.Door
 
         public void OpenDoor()
         {
-            if (!_canOpen) return; 
+            if (!_canOpen) return;
+
+            float scoreMultiplier;
             
             // Play the base door open sound.
             PlayClickSound();
@@ -52,12 +55,16 @@ namespace DoorGame.Door
                     playSfxAudioChannel.Invoke(coinsDropSound);
                     StartCoroutine(MysteriousDoorOpened());
                     onMagicalDoorOpenedEvent.Invoke(new Empty());
+                    scoreMultiplier = 2f;
+                    onScoreMultiplierChangedEvent.Invoke(scoreMultiplier);
                     break;
                 case "CursedDoor":
                     doorAnimator.SetTrigger(CursedDoorOpened);
                     playSfxAudioChannel.Invoke(cursedDoorOpenSound);
                     StartCoroutine(MysteriousDoorOpened());
                     onCursedDoorOpenedEvent.Invoke(new Empty());
+                    scoreMultiplier = 0.5f;
+                    onScoreMultiplierChangedEvent.Invoke(scoreMultiplier);
                     break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
@@ -67,7 +74,7 @@ namespace DoorGame.Door
             
             _canOpen = false;
             
-            onDoorOpenedEvent.Invoke(badDoor);
+            if(!gameObject.CompareTag("MagicalDoor") || !gameObject.CompareTag("CursedDoor")) onDoorOpenedEvent.Invoke(badDoor);
         }
 
         public void ResetAnimationState() => doorAnimator.SetTrigger(RoomReset);

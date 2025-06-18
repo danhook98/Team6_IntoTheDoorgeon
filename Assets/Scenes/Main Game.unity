@@ -3150,6 +3150,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 206170482}
     m_Modifications:
+    - target: {fileID: 33034713816292485, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+      propertyPath: scoreValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
+    - target: {fileID: 33034713816292485, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+      propertyPath: onScoreChangedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+    - target: {fileID: 33034713816292485, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
+      propertyPath: onMysteriousDoorOpenedEvent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1397740832681128828, guid: 482fa2aad1cc739478f6afaea334f991, type: 3}
       propertyPath: m_Camera
       value: 

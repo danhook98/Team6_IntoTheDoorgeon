@@ -509,6 +509,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mysterious Door Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 440323166363866090, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180286495599788196, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: scoreValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
+    - target: {fileID: 1180286495599788196, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: onScoreChangedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
+    - target: {fileID: 1866125828898069704, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2459664345388094070, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -593,6 +609,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 204996323}
+    - target: {fileID: 4417225497633024049, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5476737227803760865, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
       propertyPath: m_Camera
       value: 
@@ -601,6 +621,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 204996323}
+    - target: {fileID: 5893316039020096358, guid: 400bcfdc61f425743b00bf7b273a496f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

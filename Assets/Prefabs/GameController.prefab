@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6251075440063625093}
   - component: {fileID: 1355865272420226864}
   - component: {fileID: 1535143562476564712}
+  - component: {fileID: -5860476213203843969}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -213,6 +214,34 @@ MonoBehaviour:
       - m_Target: {fileID: 8937892511097961488}
         m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
         m_MethodName: SetScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-5860476213203843969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501824163573275066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 994e4985e65cea845a0abe3bed0ed551, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8937892511097961488}
+        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+        m_MethodName: SetMultiplier
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

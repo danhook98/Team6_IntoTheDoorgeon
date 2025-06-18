@@ -154,7 +154,7 @@ namespace DoorGame
             scoreValue.Value = score;
         }
         
-        public void SetMultiplier(int multiplier) => _scoreMultiplier = multiplier;
+        public void SetMultiplier(float multiplier) => _scoreMultiplier = multiplier;
 
         // Score
         private void AddScore()
