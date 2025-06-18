@@ -43,7 +43,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
 
         private void Start()
         {
-            attempts = 5;
+            attempts = 8;
             _numberOfFlippedCards = 0;
             _completedPairs = 0;
         }

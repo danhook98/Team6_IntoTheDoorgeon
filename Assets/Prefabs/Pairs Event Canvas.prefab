@@ -2015,7 +2015,7 @@ MonoBehaviour:
   - {x: -300, y: -100}
   - {x: -300, y: -300}
   spawnPositionsUsed: []
-  attempts: 5
+  attempts: 8
   onCardsMatchEvent: {fileID: 11400000, guid: 08c60b68db18ed743b05368c278004ae, type: 2}
   onCardsDoNotMatchEvent: {fileID: 11400000, guid: 55daa7893fffe7643ad0406e6265ac17, type: 2}
   onGameEndedEvent: {fileID: 11400000, guid: 70f4c19117414d64bae1229cf9a4d7b8, type: 2}
