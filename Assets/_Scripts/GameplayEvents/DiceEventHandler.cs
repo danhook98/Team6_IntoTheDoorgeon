@@ -335,12 +335,12 @@ namespace DoorGame
         {
             if (_playerWon)
             {
-                scoreValue.Value += scoreValue.Value * _amountToBet;
+                scoreValue.Value += scoreValue.Value * (_amountToBet/100);
                 resultText.text = "You won!\n " + "Score: " + scoreValue.Value.ToString();
             }
             else
             {
-                scoreValue.Value -= scoreValue.Value * (1 - _amountToBet);
+                scoreValue.Value -= scoreValue.Value * (1 - (_amountToBet/100));
                 resultText.text = "You lost!\n " + "Score: " + scoreValue.Value.ToString();
             }
         }
