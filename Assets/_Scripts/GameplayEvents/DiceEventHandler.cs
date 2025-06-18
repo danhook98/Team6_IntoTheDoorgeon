@@ -320,6 +320,7 @@ namespace DoorGame
             _playerWon = false;
             yield return new WaitForSeconds(1f);
             UpdateScore();
+            diceContainer.SetActive(false);
             endCard.SetActive(true);
             // Calculate score.
             // Send through event.
@@ -333,6 +334,7 @@ namespace DoorGame
             _playerWon = true;
             yield return new WaitForSeconds(1f);
             UpdateScore();
+            diceContainer.SetActive(false);
             endCard.SetActive(true);
         }
 

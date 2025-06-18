@@ -1367,7 +1367,7 @@ MonoBehaviour:
   onPlaySfxEvent: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   onScoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
-  rollDiceSfx: {fileID: 0}
+  rollDiceSfx: {fileID: 11400000, guid: c0197a9e94f312c49a1da7e12f6bed17, type: 2}
 --- !u!114 &5914957094379733637
 MonoBehaviour:
   m_ObjectHideFlags: 0
