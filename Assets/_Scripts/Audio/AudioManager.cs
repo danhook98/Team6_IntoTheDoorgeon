@@ -63,6 +63,18 @@ namespace DoorGame.Audio
             audioSourceSfx.PlayOneShot(clipData.clip, clipData.volume);
         }
 
+        public void PlayEnvironmentSfx(AudioClipSO clipData)
+        {
+            if (!clipData.clip)
+            {
+                Debug.LogWarning($"<color=red>Audio Manager</color>: Attempted to play audio environment one shot for " +
+                                 $"{clipData.name}, but clip data is null.");
+                return; 
+            }
+            
+            audioSourceEnvironment.PlayOneShot(clipData.clip, clipData.volume);
+        }
+
         /// <summary>
         /// Plays a continuous sound from the given audio data.
         /// </summary>

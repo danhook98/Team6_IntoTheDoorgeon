@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 206170482}
     m_Modifications:
+    - target: {fileID: 198725036503494139, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fd92d35b3e671c54da2ff100e2986a07, type: 3}
     - target: {fileID: 1073794729724528717, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -177,7 +181,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 79142135}
   m_SourcePrefab: {fileID: 100100000, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
 --- !u!4 &12248452 stripped
 Transform:
@@ -258,6 +265,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7111395587491154711, guid: 619ac3b4d3cead5418cac1be37af7ba3, type: 3}
   m_PrefabInstance: {fileID: 21450036}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &79142126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2261790589838135169, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+  m_PrefabInstance: {fileID: 12248451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &79142134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1619417419991823705, guid: e09319b1ae3235045a4e4e300a82151b, type: 3}
+  m_PrefabInstance: {fileID: 12248451}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79142126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3527c53c1b0d096448cb0f3a3a415e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &79142135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79142126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a71a072e46f4ed7a382e24b5ef4fc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 416adaa0a2f55a140a78f3b7284de3e9, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 79142134}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: PlayEnvironmentSfx
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &135007476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2387,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28f759ee4aa5524d852fd4a664a5ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPlayEnvironmentalSound: {fileID: 11400000, guid: 416adaa0a2f55a140a78f3b7284de3e9, type: 2}
+  onPlayEnvironmentalSfx: {fileID: 0}
   environmentalSounds: []
 --- !u!4 &1885005786 stripped
 Transform:

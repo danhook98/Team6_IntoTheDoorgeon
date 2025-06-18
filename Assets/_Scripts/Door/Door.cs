@@ -84,8 +84,12 @@ namespace DoorGame.Door
             }
             
             _canOpen = false;
+
+            if (gameObject.CompareTag("MagicalDoor") || gameObject.CompareTag("CursedDoor")) return;
             
-            if(!gameObject.CompareTag("MagicalDoor") || !gameObject.CompareTag("CursedDoor")) onDoorOpenedEvent.Invoke(badDoor);
+                
+            onDoorOpenedEvent.Invoke(badDoor);
+            
         }
 
         public void ResetAnimationState()

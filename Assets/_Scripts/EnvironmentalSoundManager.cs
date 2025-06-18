@@ -8,10 +8,12 @@ namespace DoorGame
     public class EnvironmentalSoundManager : MonoBehaviour
     {
         [Header("Events")]
-        [SerializeField] private AudioClipSOEvent onPlayEnvironmentalSound;
+        [SerializeField] private AudioClipSOEvent onPlayEnvironmentalSfx;
         
         [Header("Environmental Sounds")]
         [SerializeField] private List<AudioClipSO> environmentalSounds;
+        
+        private float _nextSoundTime = 5f;
         
         
         // Start is called before the first frame update
@@ -23,7 +25,9 @@ namespace DoorGame
         // Update is called once per frame
         void Update()
         {
-        
+            if (Time.time < _nextSoundTime) return;
+            // pick sound and play it
+            // _nextSoundTime = Time.time + (randomOffset).
         }
     }
 }
