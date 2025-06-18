@@ -54,6 +54,7 @@ MonoBehaviour:
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   highScoreChangedEvent: {fileID: 11400000, guid: 88c261b72e758c44a8ed3b814be72ffb, type: 2}
   validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
+  dungeonsEnteredChangedEvent: {fileID: 11400000, guid: 7465a0bfecbc43b42a46557fb0f5bb05, type: 2}
   generateDoorsEvent: {fileID: 11400000, guid: a355b7d040f52194797d912eeacb8bcc, type: 2}
   onLeaveDungeonEvent: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
   showEnterDungeonButtonEvent: {fileID: 11400000, guid: 113183519dba74243b8d8f0460945e4f, type: 2}
