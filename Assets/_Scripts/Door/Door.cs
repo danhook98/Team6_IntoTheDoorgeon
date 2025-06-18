@@ -20,7 +20,7 @@ namespace DoorGame.Door
         [Header("Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel;
         [SerializeField] private AudioClipSO doorHoverSound;
-        [SerializeField] private AudioClipSO doorClickSound;
+        [SerializeField] private AudioClipSO[] doorOpenSounds;
         [SerializeField] private AudioClipSO coinsDropSound;
         [SerializeField] private AudioClipSO magicalDoorOpenSound;
         [SerializeField] private AudioClipSO cursedDoorOpenSound;
@@ -84,7 +84,7 @@ namespace DoorGame.Door
         
         // Audio. 
         public void PlayHoverSound() => playSfxAudioChannel.Invoke(doorHoverSound);
-        public void PlayClickSound() => playSfxAudioChannel.Invoke(doorClickSound);
+        public void PlayClickSound() => playSfxAudioChannel.Invoke(doorOpenSounds[Random.Range(0, doorOpenSounds.Length)]);
 
         /// <summary>
         /// Wait a few seconds for the animation to play out and trigger mysterious
