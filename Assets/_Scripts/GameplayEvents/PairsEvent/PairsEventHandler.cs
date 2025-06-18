@@ -123,17 +123,17 @@ namespace DoorGame.GameplayEvents.PairsEvent
         private IEnumerator GameOver()
         {
             // Calculate new score
-            int newScore;
             int scoreMultiplier = -50;
             if (_completedPairs >= 3) scoreMultiplier += 20;
             scoreMultiplier += _completedPairs * 20;
-            newScore = scoreValue.Value * (scoreMultiplier / 10);
-            
+            int newScore = scoreValue.Value * (scoreMultiplier / 10);
+
             // Send new score
             onScoreChangedEvent.Invoke(newScore);
             
             // Update end text with results.
-            endText.text = newScore.ToString() + "\n Score multiplier: " + scoreMultiplier + "%" + "\n Total pairs completed: " + _completedPairs;
+            //endText.text = newScore + "\nScore modifier: " + scoreMultiplier + "%" + "\nTotal pairs completed: " + _completedPairs;
+            endText.text = (scoreMultiplier > 0 ? "+" : "-") + scoreMultiplier + "% score!\n\nYou now have \n" + $"{newScore:n0}";
             
             // Reset positions
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
