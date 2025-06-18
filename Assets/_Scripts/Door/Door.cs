@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using DoorGame.Audio;
 using DoorGame.EventSystem;
+using Random = UnityEngine.Random;
 
 namespace DoorGame.Door
 {
@@ -25,12 +27,19 @@ namespace DoorGame.Door
         [SerializeField] private AudioClipSO magicalDoorOpenSound;
         [SerializeField] private AudioClipSO cursedDoorOpenSound;
         
+        private ParticleSystem _doorParticles;
+        
         private bool _canOpen = true;
         
         private static readonly int RoomReset = Animator.StringToHash("RoomReset");
         private static readonly int GoodDoorOpened = Animator.StringToHash("GoodDoorOpened");
         private static readonly int BadDoorOpened = Animator.StringToHash("BadDoorOpened");
         private static readonly int CursedDoorOpened = Animator.StringToHash("CursedDoorOpened");
+
+        private void Awake()
+        {
+            _doorParticles = GetComponentInChildren<ParticleSystem>();
+        }
 
         public void OpenDoor()
         {
@@ -69,6 +78,8 @@ namespace DoorGame.Door
                 default:
                     //StartCoroutine(GoodDoorPicked());
                     doorAnimator.SetTrigger(GoodDoorOpened);
+                    _doorParticles.Stop();
+                    _doorParticles.Play();
                     break;
             }
             
