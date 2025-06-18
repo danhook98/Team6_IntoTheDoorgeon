@@ -88,7 +88,11 @@ namespace DoorGame.Door
             if(!gameObject.CompareTag("MagicalDoor") || !gameObject.CompareTag("CursedDoor")) onDoorOpenedEvent.Invoke(badDoor);
         }
 
-        public void ResetAnimationState() => doorAnimator.SetTrigger(RoomReset);
+        public void ResetAnimationState()
+        {
+            doorAnimator.SetTrigger(RoomReset);
+            _doorParticles.Stop();
+        } 
 
         public void PreventOpening() => _canOpen = false;
         public void AllowOpening() => _canOpen = true;
