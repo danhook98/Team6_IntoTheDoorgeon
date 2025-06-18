@@ -40,6 +40,9 @@ namespace DoorGame
         
         [Header("Audio Clip SOs")]
         [SerializeField] private AudioClipSO rollDiceSfx;
+        [SerializeField] private AudioClipSO selectDiceSfx;
+        [SerializeField] private AudioClipSO deselectDiceSfx;
+        [SerializeField] private AudioClipSO spawnDiceSfx;
 
         private int _playerSelectedDiceAmount = 0;
         private int _enemySelectedDiceAmount = 0;
@@ -66,25 +69,6 @@ namespace DoorGame
             _amountToBet = 10;
         }
 
-        private void Update()
-        {
-            // TODO: remove after testing.
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartCoroutine(RollDice());
-            }
-            
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                SpawnDice();
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                ResetEvent();
-            }
-        }
-
         /// <summary>
         /// Spawns 5 enemy dice and 5 player dice.
         /// </summary>
@@ -92,6 +76,7 @@ namespace DoorGame
         {
             int autoId = 0;
             introCard.SetActive(false);
+            onPlaySfxEvent.Invoke(spawnDiceSfx);
             
             // Spawn dice
             for (int i = 0; i < _amountOfDice; i++)
@@ -187,6 +172,8 @@ namespace DoorGame
             
             if (selectedDie.CompareTag("EnemyDie")) return;
             
+            onPlaySfxEvent.Invoke(selectDiceSfx);
+            
             playerSelectedDiceList.Add(selectedDie);
             playerDiceList.Remove(selectedDie);
             
@@ -195,6 +182,8 @@ namespace DoorGame
 
         public void DeselectAllDice()
         {
+            onPlaySfxEvent.Invoke(deselectDiceSfx);
+            
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 playerDiceList.Add(playerSelectedDiceList[i]);
