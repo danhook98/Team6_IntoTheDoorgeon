@@ -125,6 +125,7 @@ namespace DoorGame
             {
                 // Trigger one of the random events. 
                 gameplayEventTriggers[Random.Range(0, gameplayEventTriggers.Length)].Invoke(new Empty());
+                playSfxAudioChannel.Invoke(eventCardStartSounds[Random.Range(0, eventCardStartSounds.Length)]);
                 Debug.Log("Triggering a gameplay event", this);
             }
         }

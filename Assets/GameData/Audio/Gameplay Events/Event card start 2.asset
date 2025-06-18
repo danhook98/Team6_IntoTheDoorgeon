@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0292d29ccf9d8146ad78ca0c7f1e23b, type: 3}
   m_Name: Event card start 2
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: b32e6513f32a99c4db530bd415487e12, type: 3}
   volume: 1
