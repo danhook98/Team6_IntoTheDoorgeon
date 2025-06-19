@@ -352,13 +352,13 @@ namespace DoorGame
             int newScore;
             
             if (_playerWon)
-            {
-                newScore = scoreValue.Value + (scoreValue.Value * (_amountToBet/100));
+            { 
+                newScore = scoreValue.Value + ((scoreValue.Value * _amountToBet)/100);
                 resultText.text = "You won!\n " + "Score: " + newScore.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
             else
-            {
-                newScore = scoreValue.Value - (scoreValue.Value * (1 - (_amountToBet/100)));
+            { 
+                newScore = scoreValue.Value - ((scoreValue.Value * _amountToBet)/100);
                 resultText.text = "You lost!\n " + "Score: " + newScore.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
             
