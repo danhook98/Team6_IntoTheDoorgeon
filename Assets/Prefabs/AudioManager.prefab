@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7182970295955023366}
   - component: {fileID: 3874126519777842022}
   - component: {fileID: 4937471522500193166}
+  - component: {fileID: 5209108396965076454}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -62,6 +63,10 @@ MonoBehaviour:
   onSetSfxVolumeEvent: {fileID: 11400000, guid: 78f87fb87153b26478407a743574778d, type: 2}
   onSetEnvironmentVolumeEvent: {fileID: 11400000, guid: 0e8f10b705c9d564e82e7df7ddc63539, type: 2}
   onSetMasterVolumeEvent: {fileID: 11400000, guid: 5e8f54c2ecf821a4698fb78fcf4ad20f, type: 2}
+  onLoadMasterVolume: {fileID: 11400000, guid: b655dffed73a9a34cb54a4c00cf2b835, type: 2}
+  onLoadSfxVolume: {fileID: 11400000, guid: 1686a37b91cb8fb4a943d178a416a4a5, type: 2}
+  onLoadMusicVolume: {fileID: 11400000, guid: 791b54002d780404398fd3d8008e8ba9, type: 2}
+  onLoadEnvironmentVolume: {fileID: 11400000, guid: 60e826f0827ea1d48acbbe972bca465e, type: 2}
 --- !u!114 &358830446195690001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +254,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1619417419991823705}
         m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
         m_MethodName: SetEnvironmentVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5209108396965076454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2261790589838135169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a71a072e46f4ed7a382e24b5ef4fc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 416adaa0a2f55a140a78f3b7284de3e9, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1619417419991823705}
+        m_TargetAssemblyTypeName: DoorGame.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: PlayEnvironmentSfx
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -556,7 +589,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8622897971687663646, guid: f4ee54dcaae0d9a45a356fc4a637199a, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fd92d35b3e671c54da2ff100e2986a07, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
