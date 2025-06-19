@@ -2388,6 +2388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1540879681}
   - component: {fileID: 1540879682}
+  - component: {fileID: 1540879683}
   m_Layer: 0
   m_Name: EnvironmentalSoundManager
   m_TagString: Untagged
@@ -2431,6 +2432,34 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 690b485f1d5fce94ab8684fa6f6675bb, type: 2}
   - {fileID: 11400000, guid: f965ec06098d86446874f0a7cd941ce7, type: 2}
   - {fileID: 11400000, guid: 2afd91dc875fb3048a0737a50c8b3e50, type: 2}
+--- !u!114 &1540879683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540879680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 2cb1bc60cebc73f4f9bd34797b6ff2d2, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1540879682}
+        m_TargetAssemblyTypeName: DoorGame.EnvironmentalSoundManager, Assembly-CSharp
+        m_MethodName: SetCanPlay
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1885005786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2704948515971399958, guid: 25f545a43266cee48a69e388e15f2897, type: 3}

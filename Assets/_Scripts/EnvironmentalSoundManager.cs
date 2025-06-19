@@ -14,10 +14,12 @@ namespace DoorGame
         [SerializeField] private List<AudioClipSO> environmentalSounds;
         
         private float _nextSoundTime = 5f;
+
+        private bool _canPlay = true;
         
-        void Update()
+        private void Update()
         {
-            if (Time.time < _nextSoundTime) return;
+            if (Time.time < _nextSoundTime || !_canPlay) return;
             
             var nextSound = environmentalSounds[UnityEngine.Random.Range(0, environmentalSounds.Count)];
             onPlayEnvironmentalSfx.Invoke(nextSound);
@@ -25,5 +27,7 @@ namespace DoorGame
             var randomTimeOffset = UnityEngine.Random.Range(10f, 20f);
             _nextSoundTime = Time.time + randomTimeOffset;
         }
+        
+        public void SetCanPlay(bool canPlay) => _canPlay = canPlay;
     }
 }
