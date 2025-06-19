@@ -152,6 +152,11 @@ namespace DoorGame.GameplayEvents.PairsEvent
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
             
+            foreach (var card in usedCards)
+            {
+                card.SetCanBeFlipped(false);
+            }
+            
             yield return new WaitForSeconds(1.5f);
 
             foreach (var card in usedCards)
