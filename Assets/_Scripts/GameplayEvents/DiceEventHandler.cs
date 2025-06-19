@@ -121,6 +121,7 @@ namespace DoorGame
             _playerHasAOne = false;
             _enemyHasAOne = false;
             endCard.SetActive(false);
+            scoreToBetText.text = "Betting: " + _amountToBet + "% of total score";
             
             // Move dice spawn positions to original lists.
             for (int i = 0; i < _amountOfDice; i++)
