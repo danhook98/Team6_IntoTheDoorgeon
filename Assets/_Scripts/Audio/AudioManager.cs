@@ -176,7 +176,6 @@ namespace DoorGame.Audio
                 audioMixer.SetFloat(parameter, mixerVolume);
                 
                 float sliderValue = PlayerPrefs.GetFloat(parameter + "Raw", 1f);
-                Debug.Log(sliderValue);
                 _loadVolumeEvents[parameter].Invoke(sliderValue);
             }
         }
