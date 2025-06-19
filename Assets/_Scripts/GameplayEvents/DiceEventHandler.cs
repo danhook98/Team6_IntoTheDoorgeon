@@ -60,6 +60,7 @@ namespace DoorGame
         private int _minAmountToBet;
         private bool _tie;
         private bool _playerWon;
+        private bool _playerRolled;
 
         private void Awake()
         {
@@ -115,6 +116,7 @@ namespace DoorGame
         public void ResetEvent()
         {
             // Reset scores.
+            _playerRolled = false;
             _amountToBet = 10;
             _enemyTotalScore = 0;
             _playerTotalScore = 0;
@@ -171,6 +173,8 @@ namespace DoorGame
         /// <param name="instanceId"></param>
         public void DieHasBeenSelected(int instanceId)
         {
+            if (_playerRolled) return;
+            
             Dice selectedDie = playerDiceList.Find(c => c.GetInstanceID() == instanceId);
             
             if (selectedDie.CompareTag("EnemyDie")) return;
@@ -185,6 +189,8 @@ namespace DoorGame
 
         public void DeselectAllDice()
         {
+            if (_playerRolled) return;
+            
             onPlaySfxEvent.Invoke(deselectDiceSfx);
             
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
@@ -199,6 +205,7 @@ namespace DoorGame
 
         public void TriggerRollDice()
         {
+            if (_playerRolled) return;
             StartCoroutine(RollDice());
         }
 
@@ -211,7 +218,10 @@ namespace DoorGame
         /// <returns></returns>
         public IEnumerator RollDice()
         {
+            if (_playerRolled) yield break;
             if (_playerSelectedDiceAmount < 1) yield break;
+            
+            _playerRolled = true;
             
             onPlaySfxEvent.Invoke(rollDiceSfx);
             
@@ -315,10 +325,6 @@ namespace DoorGame
             UpdateScore();
             diceContainer.SetActive(false);
             endCard.SetActive(true);
-            // Calculate score.
-            // Send through event.
-            // doorsValue.Value to access doors opened value.
-            
         }
 
         public IEnumerator PlayerWins()
