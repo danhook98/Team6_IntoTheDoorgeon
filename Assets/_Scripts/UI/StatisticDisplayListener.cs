@@ -15,5 +15,10 @@ namespace DoorGame.UI
         {
             _text.text = _prefixText + value;
         }
+
+        public void SetTextFormatted(int value)
+        {
+            _text.text = _prefixText + $"{value:n0}";
+        }
     }
 }

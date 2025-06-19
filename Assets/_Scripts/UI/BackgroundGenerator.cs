@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-namespace DoorGame
+namespace DoorGame.UI
 {
     public class BackgroundGenerator : MonoBehaviour
     {

@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using DoorGame.EventSystem;
+using UnityEngine.Rendering;
 
 namespace DoorGame.Audio
 {
@@ -18,11 +20,24 @@ namespace DoorGame.Audio
         [SerializeField] private FloatEvent onSetSfxVolumeEvent;
         [SerializeField] private FloatEvent onSetEnvironmentVolumeEvent;
         [SerializeField] private FloatEvent onSetMasterVolumeEvent;
+
+        [Header("Load Volume Events")]
+        [SerializeField] private FloatEvent onLoadMasterVolume;
+        [SerializeField] private FloatEvent onLoadSfxVolume;
+        [SerializeField] private FloatEvent onLoadMusicVolume;
+        [SerializeField] private FloatEvent onLoadEnvironmentVolume;
         
         private readonly string[] _mixerParameters = { "MasterVolume", "SfxVolume", "MusicVolume", "EnvironmentVolume" };
         
+        private Dictionary<string, FloatEvent> _loadVolumeEvents = new();
+        
         private void Awake()
         {
+            _loadVolumeEvents["MasterVolume"] = onLoadMasterVolume;
+            _loadVolumeEvents["SfxVolume"] = onLoadSfxVolume;
+            _loadVolumeEvents["MusicVolume"] = onLoadMusicVolume;
+            _loadVolumeEvents["EnvironmentVolume"] = onLoadEnvironmentVolume;
+            
             if (!audioSourceSfx)
             {
                 Debug.LogWarning("<color=red>Audio Manager</color>: No audio source set/found for SFX. Creating " +
@@ -61,6 +76,18 @@ namespace DoorGame.Audio
             }
             
             audioSourceSfx.PlayOneShot(clipData.clip, clipData.volume);
+        }
+
+        public void PlayEnvironmentSfx(AudioClipSO clipData)
+        {
+            if (!clipData.clip)
+            {
+                Debug.LogWarning($"<color=red>Audio Manager</color>: Attempted to play audio environment one shot for " +
+                                 $"{clipData.name}, but clip data is null.");
+                return; 
+            }
+            
+            audioSourceEnvironment.PlayOneShot(clipData.clip, clipData.volume);
         }
 
         /// <summary>
@@ -135,6 +162,7 @@ namespace DoorGame.Audio
             // Set the volume of the mixer group, and update the volume in PlayerPrefs for loading. 
             audioMixer.SetFloat(mixerParameter, mixerVolume);
             PlayerPrefs.SetFloat(mixerParameter, mixerVolume);
+            PlayerPrefs.SetFloat(mixerParameter + "Raw", volume);
         }
         
         /// <summary>
@@ -144,8 +172,11 @@ namespace DoorGame.Audio
         {
             foreach (string parameter in _mixerParameters)
             {
-                float volume = PlayerPrefs.GetFloat(parameter, 0f);
-                audioMixer.SetFloat(parameter, volume);
+                float mixerVolume = PlayerPrefs.GetFloat(parameter, 0f);
+                audioMixer.SetFloat(parameter, mixerVolume);
+                
+                float sliderValue = PlayerPrefs.GetFloat(parameter + "Raw", 1f);
+                _loadVolumeEvents[parameter].Invoke(sliderValue);
             }
         }
     }

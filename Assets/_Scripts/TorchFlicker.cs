@@ -34,7 +34,7 @@ namespace DoorGame
 
         private IEnumerator Flicker()
         {
-            float offset = (Random.value > 0.5f ? 1 : -1) * Random.Range(0.025f, 0.1f);
+            float offset = (Random.value > 0.5f ? 1 : -1) * Random.Range(0.025f, 0.15f);
                 
             _light.pointLightOuterRadius = _baseLightRadiusOuter + offset;
             _light.pointLightInnerRadius = _baseLightRadiusInner + offset;

@@ -37,6 +37,13 @@ namespace DoorGame
         {
             Destroy(gameObject);
         }
+
+        public void ChangeIsSelected(bool isSelected)
+        {
+            _isSelected = isSelected;
+            
+            if(!_isSelected) _rectTransform.localScale = new Vector3(_defaultScale, _defaultScale, _defaultScale);
+        }
         
         private void OnMouseDown()
         {

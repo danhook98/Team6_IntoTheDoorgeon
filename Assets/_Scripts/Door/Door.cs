@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using DoorGame.Audio;
 using DoorGame.EventSystem;
+using Random = UnityEngine.Random;
 
 namespace DoorGame.Door
 {
@@ -12,6 +14,7 @@ namespace DoorGame.Door
         [SerializeField] private VoidEvent onMysteriousDoorOpenedEvent;
         [SerializeField] private VoidEvent onMagicalDoorOpenedEvent;
         [SerializeField] private VoidEvent onCursedDoorOpenedEvent;
+        [SerializeField] private FloatEvent onScoreMultiplierChangedEvent;
         
         [Header("Animator")]
         [SerializeField] private Animator doorAnimator;
@@ -19,10 +22,12 @@ namespace DoorGame.Door
         [Header("Sounds")] 
         [SerializeField] private AudioClipSOEvent playSfxAudioChannel;
         [SerializeField] private AudioClipSO doorHoverSound;
-        [SerializeField] private AudioClipSO doorClickSound;
+        [SerializeField] private AudioClipSO[] doorOpenSounds;
         [SerializeField] private AudioClipSO coinsDropSound;
         [SerializeField] private AudioClipSO magicalDoorOpenSound;
         [SerializeField] private AudioClipSO cursedDoorOpenSound;
+        
+        private ParticleSystem _doorParticles;
         
         private bool _canOpen = true;
         
@@ -31,9 +36,16 @@ namespace DoorGame.Door
         private static readonly int BadDoorOpened = Animator.StringToHash("BadDoorOpened");
         private static readonly int CursedDoorOpened = Animator.StringToHash("CursedDoorOpened");
 
+        private void Awake()
+        {
+            _doorParticles = GetComponentInChildren<ParticleSystem>();
+        }
+
         public void OpenDoor()
         {
-            if (!_canOpen) return; 
+            if (!_canOpen) return;
+
+            float scoreMultiplier;
             
             // Play the base door open sound.
             PlayClickSound();
@@ -52,32 +64,46 @@ namespace DoorGame.Door
                     playSfxAudioChannel.Invoke(coinsDropSound);
                     StartCoroutine(MysteriousDoorOpened());
                     onMagicalDoorOpenedEvent.Invoke(new Empty());
+                    scoreMultiplier = 2f;
+                    onScoreMultiplierChangedEvent.Invoke(scoreMultiplier);
                     break;
                 case "CursedDoor":
                     doorAnimator.SetTrigger(CursedDoorOpened);
                     playSfxAudioChannel.Invoke(cursedDoorOpenSound);
                     StartCoroutine(MysteriousDoorOpened());
                     onCursedDoorOpenedEvent.Invoke(new Empty());
+                    scoreMultiplier = 0.5f;
+                    onScoreMultiplierChangedEvent.Invoke(scoreMultiplier);
                     break;
                 default:
                     //StartCoroutine(GoodDoorPicked());
                     doorAnimator.SetTrigger(GoodDoorOpened);
+                    _doorParticles.Stop();
+                    _doorParticles.Play();
                     break;
             }
             
             _canOpen = false;
+
+            if (gameObject.CompareTag("MagicalDoor") || gameObject.CompareTag("CursedDoor")) return;
             
+                
             onDoorOpenedEvent.Invoke(badDoor);
+            
         }
 
-        public void ResetAnimationState() => doorAnimator.SetTrigger(RoomReset);
+        public void ResetAnimationState()
+        {
+            doorAnimator.SetTrigger(RoomReset);
+            _doorParticles.Stop();
+        } 
 
         public void PreventOpening() => _canOpen = false;
         public void AllowOpening() => _canOpen = true;
         
         // Audio. 
         public void PlayHoverSound() => playSfxAudioChannel.Invoke(doorHoverSound);
-        public void PlayClickSound() => playSfxAudioChannel.Invoke(doorClickSound);
+        public void PlayClickSound() => playSfxAudioChannel.Invoke(doorOpenSounds[Random.Range(0, doorOpenSounds.Length)]);
 
         /// <summary>
         /// Wait a few seconds for the animation to play out and trigger mysterious
@@ -86,7 +112,7 @@ namespace DoorGame.Door
         /// <returns></returns>
         public IEnumerator MysteriousDoorOpened()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
             onMysteriousDoorOpenedEvent.Invoke(new Empty());
         }
     }

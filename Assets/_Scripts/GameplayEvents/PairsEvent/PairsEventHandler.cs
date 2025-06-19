@@ -3,6 +3,8 @@ using DoorGame.Audio;
 using DoorGame.EventSystem;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Collections;
+using TMPro;
 
 namespace DoorGame.GameplayEvents.PairsEvent
 {
@@ -19,17 +21,29 @@ namespace DoorGame.GameplayEvents.PairsEvent
         [Header("Attempts")]
         [SerializeField] private int attempts;
 
+        [Header("Score")] 
+        [SerializeField] private IntValue scoreValue;
+
         [Header("Events")] 
         [SerializeField] private VoidEvent onCardsMatchEvent;
         [SerializeField] private VoidEvent onCardsDoNotMatchEvent;
         [SerializeField] private VoidEvent onGameEndedEvent;
         [SerializeField] private AudioClipSOEvent onPlaySfxEvent;
+        [SerializeField] private IntEvent onScoreChangedEvent;
         
         [Header("Audio Clip SOs")]
         [SerializeField] private AudioClipSO spawnCardsSfx;
         [SerializeField] private AudioClipSO flipCardSfx;
         [SerializeField] private AudioClipSO pairMatchesSfx;
         [SerializeField] private AudioClipSO pairDoesNotMatchSfx;
+
+        [Header("Game Objects")]
+        [SerializeField] private GameObject introCard;
+        [SerializeField] private GameObject outroCard;
+        [SerializeField] private Transform cardsContainer;
+        [SerializeField] private GameObject attemptsLeftHolder;
+        [SerializeField] private TextMeshProUGUI endText;
+        [SerializeField] private TextMeshProUGUI attemptsLeftText;
         
         [Space] 
         [SerializeField] private float timeToFlipCard;
@@ -43,9 +57,13 @@ namespace DoorGame.GameplayEvents.PairsEvent
 
         private void Start()
         {
-            attempts = 5;
+            introCard.SetActive(true);
+            outroCard.SetActive(false);
+            attemptsLeftHolder.SetActive(false);
+            attempts = 8;
             _numberOfFlippedCards = 0;
             _completedPairs = 0;
+            attemptsLeftText.text = "Attempts left: " + attempts;
         }
 
         /// <summary>
@@ -54,6 +72,7 @@ namespace DoorGame.GameplayEvents.PairsEvent
         /// </summary>
         public void SpawnCards()
         {
+            attemptsLeftHolder.SetActive(true);
             usedCards.Clear();
             List<PairEventCard> tempCardPool = new List<PairEventCard>(availableCards);
 
@@ -75,6 +94,8 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 card1.PairID = autoId; 
                 card1.GetComponent<RectTransform>().anchoredPosition = pos1;
                 usedCards.Add(card1);
+                
+                card1.transform.SetParent(cardsContainer);
 
                 // Second copy
                 int index2 = Random.Range(0, spawnPositionsAvailable.Count);
@@ -87,26 +108,65 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 card2.GetComponent<RectTransform>().anchoredPosition = pos2;
                 usedCards.Add(card2);
                 
+                card2.transform.SetParent(cardsContainer);
+                
                 autoId++;
             }
+            
+            cardsContainer.gameObject.SetActive(true);
+            
             onPlaySfxEvent.Invoke(spawnCardsSfx);
         }
 
         /// <summary>
         /// Resets lists and variables, destroys card game objects.
         /// </summary>
-        private void GameOver()
+        private IEnumerator GameOver()
         {
+            // Calculate new score
+            attemptsLeftHolder.SetActive(false);
+            int scoreMultiplier = -50;
+            if (_completedPairs >= 3) scoreMultiplier += 20;
+            scoreMultiplier += _completedPairs * 20;
+            //int newScore = scoreValue.Value * (scoreMultiplier / 10);
+            int newScore;
+
+            if(scoreMultiplier < 0) 
+            {
+                int localMult = scoreMultiplier * -1; 
+                newScore = scoreValue.Value - ((scoreValue.Value * localMult) / 100);
+            }
+            else
+            {
+                newScore = scoreValue.Value + ((scoreValue.Value * scoreMultiplier) / 100);
+            }
+            
+            // Send new score
+            onScoreChangedEvent.Invoke(newScore);
+            
+            // Update end text with results.
+            //endText.text = newScore + "\nScore modifier: " + scoreMultiplier + "%" + "\nTotal pairs completed: " + _completedPairs;
+            endText.text = (scoreMultiplier > 0 ? "+" : "") + scoreMultiplier + "% score!\n\nYou now have \n" + $"{newScore:n0}";
+            
+            // Reset positions
             spawnPositionsAvailable.AddRange(spawnPositionsUsed);
             spawnPositionsUsed.Clear();
+            
+            foreach (var card in usedCards)
+            {
+                card.SetCanBeFlipped(false);
+            }
+            
+            yield return new WaitForSeconds(1.5f);
 
             foreach (var card in usedCards)
             {
                 Destroy(card.gameObject);
             }
-
-            usedCards.Clear();
+            
+            cardsContainer.gameObject.SetActive(false);
             onGameEndedEvent.Invoke(new Empty());
+            outroCard.SetActive(true);
         }
         
         /// <summary>
@@ -163,8 +223,9 @@ namespace DoorGame.GameplayEvents.PairsEvent
                 attempts--;
                 if (attempts == 0)
                 {
-                    GameOver();
+                    StartCoroutine(GameOver());
                 }
+                attemptsLeftText.text = "Attempts left: " + attempts;
             }
         }
 
@@ -177,6 +238,27 @@ namespace DoorGame.GameplayEvents.PairsEvent
         private bool DoCardsMatch(PairEventCard cardA, PairEventCard cardB)
         {
             return cardA.PairID == cardB.PairID;
+        }
+
+        public void ResetEvent()
+        {
+            /*if (usedCards.Count != 0)
+            {
+                for (int i = 0; i < usedCards.Count; i++)
+                {
+                    usedCards[i].DeleteSelf();
+                    usedCards.RemoveAt(i);
+                }
+            }*/
+            
+            usedCards.Clear();
+            spawnPositionsUsed.Clear();
+            attempts = 8;
+            _numberOfFlippedCards = 0;
+            _completedPairs = 0;
+            introCard.SetActive(true);
+            outroCard.SetActive(false);
+            attemptsLeftHolder.SetActive(false);
         }
     }
 }

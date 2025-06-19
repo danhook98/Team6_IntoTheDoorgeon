@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6251075440063625093}
   - component: {fileID: 1355865272420226864}
   - component: {fileID: 1535143562476564712}
+  - component: {fileID: -5860476213203843969}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -54,19 +55,30 @@ MonoBehaviour:
   scoreChangedEvent: {fileID: 11400000, guid: db6e5adfcaca5cf4396bd543ac621737, type: 2}
   highScoreChangedEvent: {fileID: 11400000, guid: 88c261b72e758c44a8ed3b814be72ffb, type: 2}
   validDoorsOpenedEvent: {fileID: 11400000, guid: df2b402253e8c9140a84e61bddb400cd, type: 2}
+  dungeonsEnteredChangedEvent: {fileID: 11400000, guid: 7465a0bfecbc43b42a46557fb0f5bb05, type: 2}
   generateDoorsEvent: {fileID: 11400000, guid: a355b7d040f52194797d912eeacb8bcc, type: 2}
   onLeaveDungeonEvent: {fileID: 11400000, guid: f6e09eca7b283ec49901da8a98c9b8c0, type: 2}
   showEnterDungeonButtonEvent: {fileID: 11400000, guid: 113183519dba74243b8d8f0460945e4f, type: 2}
+  gameplayEventTriggers:
+  - {fileID: 11400000, guid: f3608ed70c544ef4d955906317c83ce6, type: 2}
+  - {fileID: 11400000, guid: f1af4ccbb6a03b3409030881dc7b7cd0, type: 2}
+  - {fileID: 11400000, guid: ccc6c542cfeab8a4bbd2e658969ea7c4, type: 2}
+  - {fileID: 11400000, guid: d172930ed407fa14da407171478a89d8, type: 2}
   minimumScoreToAdd: 10
   maxScoreToAdd: 30
   scoreValue: {fileID: 11400000, guid: 0e238746a5721ad4fa0acdf1f7678ce0, type: 2}
   doorsOpenedValue: {fileID: 11400000, guid: 748576883a5fd8343bd16eccdbc46d3d, type: 2}
+  dungeonsEnteredValue: {fileID: 11400000, guid: 43917d3947cd6fc4fb4b44d1c07673e1, type: 2}
   playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   gameStartSound: {fileID: 11400000, guid: d9ab7422628631a4a893c62a0687e60c, type: 2}
   leaveDungeonSound: {fileID: 11400000, guid: 967b03741ab24324391524c44c5700e5, type: 2}
   scoreAddedSound: {fileID: 11400000, guid: 3882f04af2fda7a4aac356368be1269f, type: 2}
   goodDoorSound: {fileID: 11400000, guid: 8e8f6501938bef741b2c742f1a0251c5, type: 2}
   badDoorSound: {fileID: 11400000, guid: c045c2dbdb55f544f9bdd1d700260687, type: 2}
+  eventCardStartSounds:
+  - {fileID: 11400000, guid: 96b470ca10ba5b54baf7aa157f0b1471, type: 2}
+  - {fileID: 11400000, guid: 2d7fbbcd1a636c44697456059095c746, type: 2}
+  - {fileID: 11400000, guid: 4febf19f30376744f8eeb89be53b883e, type: 2}
   playMusicAudioChannel: {fileID: 11400000, guid: 635be7c9ed4275b48995b2465343da19, type: 2}
   gameMusic:
   - {fileID: 11400000, guid: 08dcd12713d6c1840ba0878885f668e1, type: 2}
@@ -174,7 +186,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8937892511097961488}
         m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
-        m_MethodName: StartNextWave
+        m_MethodName: EnterNextDungeon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -203,6 +215,34 @@ MonoBehaviour:
       - m_Target: {fileID: 8937892511097961488}
         m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
         m_MethodName: SetScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-5860476213203843969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501824163573275066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b3845c7aa34ab4a1b78232eef24bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: 994e4985e65cea845a0abe3bed0ed551, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8937892511097961488}
+        m_TargetAssemblyTypeName: DoorGame.GameController, Assembly-CSharp
+        m_MethodName: SetMultiplier
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -34,7 +34,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.2982, y: 3.2982, z: 3.2982}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 7161741905248861845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -149,11 +150,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onDoorOpenedEvent: {fileID: 11400000, guid: a1b34b7e77115e34cb0a21fa152341ec, type: 2}
+  onMysteriousDoorOpenedEvent: {fileID: 0}
+  onMagicalDoorOpenedEvent: {fileID: 0}
+  onCursedDoorOpenedEvent: {fileID: 0}
+  onScoreMultiplierChangedEvent: {fileID: 0}
   doorAnimator: {fileID: 589585503922135515}
   playSfxAudioChannel: {fileID: 11400000, guid: d280e3cb3ed19a84cb37e499e95e653f, type: 2}
   doorHoverSound: {fileID: 11400000, guid: b4b7108303ba1da4a897e19c6ba8a447, type: 2}
-  doorClickSound: {fileID: 11400000, guid: ac02727c978b18640abe878c067a9b98, type: 2}
-  isRoomResetting: 0
+  doorOpenSounds:
+  - {fileID: 11400000, guid: ac02727c978b18640abe878c067a9b98, type: 2}
+  - {fileID: 11400000, guid: 4e398bc1f926136439da87dd934a48b2, type: 2}
+  - {fileID: 11400000, guid: 4633276e52cec704baeb0e805a55cb14, type: 2}
+  coinsDropSound: {fileID: 0}
+  magicalDoorOpenSound: {fileID: 0}
+  cursedDoorOpenSound: {fileID: 0}
 --- !u!114 &1888843172404238703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +242,109 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1001 &1843347251415232463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 825338319069330345}
+    m_Modifications:
+    - target: {fileID: 1736216342798282760, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736216342798282760, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736216342798282760, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2080749321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829785752662229483, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829785752662229483, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829785752662229483, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829785752662229483, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175488802495526130, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_Name
+      value: DoorParticleEffects
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+--- !u!4 &7161741905248861845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8860688086899560794, guid: e6b8c2cf05d4e724eb91a2acc067f7aa, type: 3}
+  m_PrefabInstance: {fileID: 1843347251415232463}
+  m_PrefabAsset: {fileID: 0}

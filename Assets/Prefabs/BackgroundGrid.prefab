@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 1878932790207501846}
   - component: {fileID: 8603993772626456274}
   - component: {fileID: 1403675876393429466}
+  - component: {fileID: 5159882655795036298}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -193,14 +194,14 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
   m_Mode: 0
-  m_DetectChunkCullingBounds: 0
+  m_DetectChunkCullingBounds: 1
   m_MaskInteraction: 0
 --- !u!114 &1403675876393429466
 MonoBehaviour:
@@ -225,3 +226,31 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c46b3bdd4654c94a8ac693361addb05, type: 2}
   - {fileID: 11400000, guid: 8420c80248fc034438a8435615a85bb6, type: 2}
   gridSize: 8
+--- !u!114 &5159882655795036298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344059806024300790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eaa7345793f4ec08ebf0ce17b309ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToListen: {fileID: 11400000, guid: c0b18c33dfef65c4fa21d9d27b0700de, type: 2}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1403675876393429466}
+        m_TargetAssemblyTypeName: DoorGame.BackgroundGenerator, Assembly-CSharp
+        m_MethodName: Generate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

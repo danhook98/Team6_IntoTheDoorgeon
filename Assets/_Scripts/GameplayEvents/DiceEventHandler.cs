@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DoorGame.EventSystem;
 using System.Collections;
+using DoorGame.Audio;
 using TMPro;
 
 namespace DoorGame
@@ -36,6 +37,14 @@ namespace DoorGame
 
         [Header("Score")] 
         [SerializeField] private IntValue scoreValue;
+        
+        [Header("Audio Clip SOs")]
+        [SerializeField] private AudioClipSO rollDiceSfx;
+        [SerializeField] private AudioClipSO selectDiceSfx;
+        [SerializeField] private AudioClipSO deselectDiceSfx;
+        [SerializeField] private AudioClipSO spawnDiceSfx;
+        [SerializeField] private AudioClipSO playerWonSfx;
+        [SerializeField] private AudioClipSO playerLostSfx;
 
         private int _playerSelectedDiceAmount = 0;
         private int _enemySelectedDiceAmount = 0;
@@ -51,6 +60,7 @@ namespace DoorGame
         private int _minAmountToBet;
         private bool _tie;
         private bool _playerWon;
+        private bool _playerRolled;
 
         private void Awake()
         {
@@ -62,25 +72,6 @@ namespace DoorGame
             _amountToBet = 10;
         }
 
-        private void Update()
-        {
-            // TODO: remove after testing.
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartCoroutine(RollDice());
-            }
-            
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                SpawnDice();
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                ResetEvent();
-            }
-        }
-
         /// <summary>
         /// Spawns 5 enemy dice and 5 player dice.
         /// </summary>
@@ -88,6 +79,7 @@ namespace DoorGame
         {
             int autoId = 0;
             introCard.SetActive(false);
+            onPlaySfxEvent.Invoke(spawnDiceSfx);
             
             // Spawn dice
             for (int i = 0; i < _amountOfDice; i++)
@@ -124,12 +116,14 @@ namespace DoorGame
         public void ResetEvent()
         {
             // Reset scores.
+            _playerRolled = false;
             _amountToBet = 10;
             _enemyTotalScore = 0;
             _playerTotalScore = 0;
             _playerHasAOne = false;
             _enemyHasAOne = false;
             endCard.SetActive(false);
+            scoreToBetText.text = "Betting: " + _amountToBet + "% of total score";
             
             // Move dice spawn positions to original lists.
             for (int i = 0; i < _amountOfDice; i++)
@@ -179,9 +173,13 @@ namespace DoorGame
         /// <param name="instanceId"></param>
         public void DieHasBeenSelected(int instanceId)
         {
+            if (_playerRolled) return;
+            
             Dice selectedDie = playerDiceList.Find(c => c.GetInstanceID() == instanceId);
             
             if (selectedDie.CompareTag("EnemyDie")) return;
+            
+            onPlaySfxEvent.Invoke(selectDiceSfx);
             
             playerSelectedDiceList.Add(selectedDie);
             playerDiceList.Remove(selectedDie);
@@ -189,8 +187,25 @@ namespace DoorGame
             _playerSelectedDiceAmount++;
         }
 
+        public void DeselectAllDice()
+        {
+            if (_playerRolled) return;
+            
+            onPlaySfxEvent.Invoke(deselectDiceSfx);
+            
+            for (int i = 0; i < playerSelectedDiceList.Count; i++)
+            {
+                playerDiceList.Add(playerSelectedDiceList[i]);
+                playerSelectedDiceList[i].ChangeIsSelected(false);
+            }
+            
+            playerSelectedDiceList.Clear();
+            _playerSelectedDiceAmount = 0;
+        }
+
         public void TriggerRollDice()
         {
+            if (_playerRolled) return;
             StartCoroutine(RollDice());
         }
 
@@ -203,7 +218,13 @@ namespace DoorGame
         /// <returns></returns>
         public IEnumerator RollDice()
         {
+            if (_playerRolled) yield break;
             if (_playerSelectedDiceAmount < 1) yield break;
+            
+            _playerRolled = true;
+            
+            onPlaySfxEvent.Invoke(rollDiceSfx);
+            
             for (int i = 0; i < playerSelectedDiceList.Count; i++)
             {
                 var selectedDie = playerSelectedDiceList[i];
@@ -296,24 +317,24 @@ namespace DoorGame
 
         public IEnumerator EnemyWins()
         {
+            onPlaySfxEvent.Invoke(playerLostSfx);
             Debug.Log("Enemy wins!");
             int _scoreLost = scoreValue.Value;
             _playerWon = false;
             yield return new WaitForSeconds(1f);
             UpdateScore();
+            diceContainer.SetActive(false);
             endCard.SetActive(true);
-            // Calculate score.
-            // Send through event.
-            // doorsValue.Value to access doors opened value.
-            
         }
 
         public IEnumerator PlayerWins()
         {
+            onPlaySfxEvent.Invoke(playerWonSfx);
             Debug.Log("Player wins!");
             _playerWon = true;
             yield return new WaitForSeconds(1f);
             UpdateScore();
+            diceContainer.SetActive(false);
             endCard.SetActive(true);
         }
 
@@ -338,13 +359,13 @@ namespace DoorGame
             int newScore;
             
             if (_playerWon)
-            {
-                newScore = scoreValue.Value + (scoreValue.Value * (_amountToBet/100));
+            { 
+                newScore = scoreValue.Value + ((scoreValue.Value * _amountToBet)/100);
                 resultText.text = "You won!\n " + "Score: " + newScore.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
             else
-            {
-                newScore = scoreValue.Value - (scoreValue.Value * (1 - (_amountToBet/100)));
+            { 
+                newScore = scoreValue.Value - ((scoreValue.Value * _amountToBet)/100);
                 resultText.text = "You lost!\n " + "Score: " + newScore.ToString() + "\n Player dice results: " + _playerTotalScore + "\n Enemy dice results: " + _enemyTotalScore;
             }
             
