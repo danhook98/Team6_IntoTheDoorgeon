@@ -1445,7 +1445,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6854428932782223337}
         m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
-        m_MethodName: SetText
+        m_MethodName: SetTextFormatted
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1824,7 +1824,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6575473373611003438}
         m_TargetAssemblyTypeName: DoorGame.UI.StatisticDisplayListener, Assembly-CSharp
-        m_MethodName: SetText
+        m_MethodName: SetTextFormatted
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
