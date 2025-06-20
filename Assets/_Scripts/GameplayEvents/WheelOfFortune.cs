@@ -231,12 +231,9 @@ namespace DoorGame.GameplayEvents
             // Debug.Log($"Score will be modified by {resultModifier}%!");
             
             yield return _wheelFinishDelay;
-            
-            if (_isWheelGood)
-                onPlaySfxEvent.Invoke(soundWin);
-            else
-                onPlaySfxEvent.Invoke(soundLose);
-            
+
+            onPlaySfxEvent.Invoke(_isWheelGood ? soundWin : soundLose);
+
             int newScore = GetNewScore(resultModifier);
             onScoreChangedEvent.Invoke(newScore);
             // Debug.Log($"New score is {newScore}");
