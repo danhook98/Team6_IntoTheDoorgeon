@@ -183,6 +183,7 @@ namespace DoorGame.GameplayEvents
             if (_isWheelSpinning || !_canSpin) yield break; 
             
             _isWheelSpinning = true;
+            _canSpin = false;
             
             int segmentIndex = _weightedRandom.GetRandomAsIndex(); //GetRandomIndex();
             
