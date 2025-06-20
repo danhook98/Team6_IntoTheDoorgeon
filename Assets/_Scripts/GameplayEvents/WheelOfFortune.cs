@@ -37,6 +37,7 @@ namespace DoorGame.GameplayEvents
         [Header("Wheel")] 
         [SerializeField] private Transform wheelTransform;
         [SerializeField] private Image wheelImage;
+        [SerializeField] private GameObject spinButton; 
         [SerializeField] private float wheelSelectionChangeDelay = 0.25f;
         
         [Header("Wheel Images")]
@@ -101,6 +102,7 @@ namespace DoorGame.GameplayEvents
         {
             introCard.SetActive(false);
             wheel.SetActive(true);
+            spinButton.SetActive(false);
             
             // Ensure the wheel is not rotated.
             wheelTransform.localEulerAngles = Vector3.zero;
@@ -158,6 +160,7 @@ namespace DoorGame.GameplayEvents
             }
             
             _canSpin = true;
+            spinButton.SetActive(true);
         }
 
         private void SetWheelText(bool isGood)

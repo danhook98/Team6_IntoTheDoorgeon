@@ -1692,6 +1692,7 @@ MonoBehaviour:
   endCardText: {fileID: 8234336927191752084}
   wheelTransform: {fileID: 8384786953387456775}
   wheelImage: {fileID: 1586949350592400576}
+  spinButton: {fileID: 1214630018028924858}
   wheelSelectionChangeDelay: 0.3
   goodWheelImage: {fileID: 21300000, guid: 8b03851ceb4389d4da6fceef7a5d1410, type: 3}
   badWheelImage: {fileID: 21300000, guid: 1e27123d993415a4aa7718625e30691d, type: 3}
