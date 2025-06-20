@@ -13,6 +13,7 @@ namespace DoorGame
         [SerializeField] private VoidEvent showGameOverScreenEvent;
         [SerializeField] private IntEvent scoreChangedEvent;
         [SerializeField] private IntEvent highScoreChangedEvent;
+        [SerializeField] private IntEvent loadHighScoreEvent;
         [SerializeField] private IntEvent validDoorsOpenedEvent;
         [SerializeField] private IntEvent dungeonsEnteredChangedEvent;
         [SerializeField] private VoidEvent generateDoorsEvent; 
@@ -58,6 +59,7 @@ namespace DoorGame
         private void Awake()
         {
             _highScore = PlayerPrefs.GetInt("HighScore", 0);
+            loadHighScoreEvent.Invoke(_highScore);
         }
 
         private void Start()
